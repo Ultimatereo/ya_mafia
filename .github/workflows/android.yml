@@ -58,19 +58,19 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: universal
-          path: build/app/outputs/flutter-apk/app-normal-release.apk
+          path: build/app/outputs/flutter-apk/app-release.apk
       - uses: actions/upload-artifact@v4
         with:
           name: arm-v8a
-          path: build/app/outputs/flutter-apk/app-arm64-v8a-normal-release.apk
+          path: build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
       - uses: actions/upload-artifact@v4
         with:
           name: arm-v7a
-          path: build/app/outputs/flutter-apk/app-armeabi-v7a-normal-release.apk
+          path: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
       - uses: actions/upload-artifact@v4
         with:
           name: x86-64
-          path: build/app/outputs/flutter-apk/app-x86_64-normal-release.apk
+          path: build/app/outputs/flutter-apk/app-x86_64-release.apk
           
   # deploy:
   #     needs: build
