@@ -51,6 +51,12 @@ jobs:
       - run: flutter build apk 
       - run: flutter build apk --split-per-abi 
 
+      - uses: actions/cache/save@v3
+        id: cache
+        with:
+          path: build/app/outputs
+
+
       - uses: actions/upload-artifact@v4
         with:
           name: all
@@ -71,7 +77,15 @@ jobs:
         with:
           name: x86-64
           path: build/app/outputs/flutter-apk/app-x86_64-release.apk
-
+  telegram:
+    needs: [build]
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/cache/restore@v3
+        id: cache
+        with:
+          path: build/app/outputs
       - name: send to telegram
         uses: appleboy/telegram-action@master
         with:
