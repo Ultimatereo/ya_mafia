@@ -71,7 +71,27 @@ jobs:
         with:
           name: x86-64
           path: build/app/outputs/flutter-apk/app-x86_64-release.apk
-          
+
+      - name: send to telegram
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: flutter release armv7
+          document: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
+      - uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: flutter release armv8
+          document: build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
+      - uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: flutter release universal
+          document: build/app/outputs/flutter-apk/app-release.apk   
+            
   # deploy:
   #     needs: build
   #     runs-on: ubuntu-latest
