@@ -79,6 +79,7 @@ jobs:
           path: build/app/outputs/flutter-apk/app-x86_64-release.apk
   telegram:
     needs: [build]
+    name: Send to Telegram
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
