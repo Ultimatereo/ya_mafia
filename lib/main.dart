@@ -6,7 +6,7 @@ import 'package:ya_mafia/core/navigation/router.dart';
 import 'zgen/i18n/strings.g.dart';
 
 void settingUpSystemUIOverlay() {
-// Setting SysemUIOverlay
+// Setting SystemUIOverlay
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
       systemStatusBarContrastEnforced: false,
@@ -14,7 +14,7 @@ void settingUpSystemUIOverlay() {
       systemNavigationBarDividerColor: Colors.transparent,
     ),
   );
-// Setting SystmeUIMode
+// Setting SystemUIMode
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
 }
 
