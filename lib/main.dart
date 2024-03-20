@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:ya_mafia/core/navigation/router.dart';
+
+import 'zgen/i18n/strings.g.dart';
 
 void settingUpSystemUIOverlay() {
 // Setting SysemUIOverlay
@@ -18,8 +21,9 @@ void settingUpSystemUIOverlay() {
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   settingUpSystemUIOverlay();
+  LocaleSettings.useDeviceLocale();
 
-  runApp(const MainApp());
+  runApp(TranslationProvider(child: const MainApp()));
 }
 
 class MainApp extends StatelessWidget {
@@ -28,6 +32,10 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
+      locale: TranslationProvider.of(context).flutterLocale, // use provider
+      supportedLocales: AppLocaleUtils.supportedLocales,
+      localizationsDelegates: GlobalMaterialLocalizations.delegates,
+
       routerConfig: router,
     );
   }
