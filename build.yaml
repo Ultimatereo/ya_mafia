@@ -16,11 +16,3 @@ targets:
         options:
           build_extensions:
             "^lib/{{}}.dart": "lib/zgen/{{}}.g.dart"
-      # theme_tailor:
-      #   generate_for:
-      #     include:
-      #       - lib/theme/app_theme.cg.dart
-      #   options:
-      #     themes: [light]
-      #     build_extensions:
-      #       "^lib/{{}}.dart": "lib/zgen/{{}}.tailor.dart"
