@@ -8,7 +8,18 @@ class MyTheme extends ThemeExtension<MyTheme> with _$MyThemeTailorMixin {
   /// You can use required / named / optional parameters in the constructor
   // const MyTheme(this.background);
   // const MyTheme([this.background = Colors.blue])
-  const MyTheme({required this.background});
+  const MyTheme(
+      {required this.green,
+      required this.yellow,
+      required this.brownMain,
+      required this.brownMainDark,
+      required this.mainLight,
+      required this.mainLightLight});
 
-  final Color background;
+  final Color green;
+  final Color yellow;
+  final Color brownMain;
+  final Color brownMainDark;
+  final Color mainLight;
+  final Color mainLightLight;
 }
