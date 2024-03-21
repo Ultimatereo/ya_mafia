@@ -11,7 +11,7 @@ class TestPage extends StatelessWidget {
       appBar: AppBar(),
       body: Center(
         child: Container(
-          color: context.myTheme.background,
+          color: context.myTheme.green,
           child: Text(context.t.test),
         ),
       ),
