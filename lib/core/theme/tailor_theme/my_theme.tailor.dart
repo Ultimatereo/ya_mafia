@@ -48,6 +48,5 @@ mixin _$MyThemeTailorMixin on ThemeExtension<MyTheme> {
 
 extension MyThemeBuildContextProps on BuildContext {
   MyTheme get myTheme => Theme.of(this).extension<MyTheme>()!;
-
   Color get background => myTheme.background;
 }
