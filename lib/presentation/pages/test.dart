@@ -9,7 +9,7 @@ class TestPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(),
       body: Center(
-        child: Text(t.test),
+        child: Text(context.t.test),
       ),
     );
   }
