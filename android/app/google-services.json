@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "774931490115",
+    "project_id": "ya-mafia",
+    "storage_bucket": "ya-mafia.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:774931490115:android:c53a87fd19facfbd75fbf6",
+        "android_client_info": {
+          "package_name": "com.example.ya_mafia"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBTJ8kwWxcjwGY1gRdLUeIied0dphQw_BQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

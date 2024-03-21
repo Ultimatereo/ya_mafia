@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:ya_mafia/core/firebase.dart';
 import 'package:ya_mafia/core/navigation/router.dart';
 
 import 'zgen/i18n/strings.g.dart';
@@ -20,6 +21,7 @@ void settingUpSystemUIOverlay() {
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  setupFirebase();
   settingUpSystemUIOverlay();
   LocaleSettings.useDeviceLocale();
 
