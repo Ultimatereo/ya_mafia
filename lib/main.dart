@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:ya_mafia/core/navigation/router.dart';
 
+import 'core/theme/dark_theme.dart';
+import 'core/theme/light_theme.dart';
 import 'zgen/i18n/strings.g.dart';
 
 void settingUpSystemUIOverlay() {
@@ -32,7 +34,10 @@ class MainApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      locale: TranslationProvider.of(context).flutterLocale, // use provider
+      theme: lightTheme,
+      darkTheme: darkTheme,
+      locale: TranslationProvider.of(context).flutterLocale,
+      // use provider
       supportedLocales: AppLocaleUtils.supportedLocales,
       localizationsDelegates: GlobalMaterialLocalizations.delegates,
 
