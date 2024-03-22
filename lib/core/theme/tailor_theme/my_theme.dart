@@ -14,12 +14,36 @@ class MyTheme extends ThemeExtension<MyTheme> with _$MyThemeTailorMixin {
       required this.brownMain,
       required this.brownMainDark,
       required this.mainLight,
-      required this.mainLightLight});
+      required this.mainLightLight,
+      required this.headline1,
+      required this.headline1Yellow,
+      required this.headline2,
+      required this.numbersStyle,
+      required this.listTileTextStyle,
+      required this.headline3});
 
+  @override
   final Color green;
+  @override
   final Color yellow;
+  @override
   final Color brownMain;
+  @override
   final Color brownMainDark;
+  @override
   final Color mainLight;
+  @override
   final Color mainLightLight;
+  @override
+  final TextStyle headline1;
+  @override
+  final TextStyle headline1Yellow;
+  @override
+  final TextStyle headline2;
+  @override
+  final TextStyle numbersStyle;
+  @override
+  final TextStyle listTileTextStyle;
+  @override
+  final TextStyle headline3;
 }

@@ -17,7 +17,8 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$Settings {
   int get numberOfPlayers => throw _privateConstructorUsedError;
-  int? get dayTime => throw _privateConstructorUsedError;
+  bool get enableDayTimer => throw _privateConstructorUsedError;
+  int get dayTime => throw _privateConstructorUsedError;
   int get nightTime => throw _privateConstructorUsedError;
   Map<GameRole, int> get roles => throw _privateConstructorUsedError;
   bool get firstNightIntroduction => throw _privateConstructorUsedError;
@@ -35,7 +36,8 @@ abstract class $SettingsCopyWith<$Res> {
   @useResult
   $Res call(
       {int numberOfPlayers,
-      int? dayTime,
+      bool enableDayTimer,
+      int dayTime,
       int nightTime,
       Map<GameRole, int> roles,
       bool firstNightIntroduction,
@@ -56,7 +58,8 @@ class _$SettingsCopyWithImpl<$Res, $Val extends Settings>
   @override
   $Res call({
     Object? numberOfPlayers = null,
-    Object? dayTime = freezed,
+    Object? enableDayTimer = null,
+    Object? dayTime = null,
     Object? nightTime = null,
     Object? roles = null,
     Object? firstNightIntroduction = null,
@@ -67,10 +70,14 @@ class _$SettingsCopyWithImpl<$Res, $Val extends Settings>
           ? _value.numberOfPlayers
           : numberOfPlayers // ignore: cast_nullable_to_non_nullable
               as int,
-      dayTime: freezed == dayTime
+      enableDayTimer: null == enableDayTimer
+          ? _value.enableDayTimer
+          : enableDayTimer // ignore: cast_nullable_to_non_nullable
+              as bool,
+      dayTime: null == dayTime
           ? _value.dayTime
           : dayTime // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       nightTime: null == nightTime
           ? _value.nightTime
           : nightTime // ignore: cast_nullable_to_non_nullable
@@ -101,7 +108,8 @@ abstract class _$$SettingsImplCopyWith<$Res>
   @useResult
   $Res call(
       {int numberOfPlayers,
-      int? dayTime,
+      bool enableDayTimer,
+      int dayTime,
       int nightTime,
       Map<GameRole, int> roles,
       bool firstNightIntroduction,
@@ -120,7 +128,8 @@ class __$$SettingsImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? numberOfPlayers = null,
-    Object? dayTime = freezed,
+    Object? enableDayTimer = null,
+    Object? dayTime = null,
     Object? nightTime = null,
     Object? roles = null,
     Object? firstNightIntroduction = null,
@@ -131,10 +140,14 @@ class __$$SettingsImplCopyWithImpl<$Res>
           ? _value.numberOfPlayers
           : numberOfPlayers // ignore: cast_nullable_to_non_nullable
               as int,
-      dayTime: freezed == dayTime
+      enableDayTimer: null == enableDayTimer
+          ? _value.enableDayTimer
+          : enableDayTimer // ignore: cast_nullable_to_non_nullable
+              as bool,
+      dayTime: null == dayTime
           ? _value.dayTime
           : dayTime // ignore: cast_nullable_to_non_nullable
-              as int?,
+              as int,
       nightTime: null == nightTime
           ? _value.nightTime
           : nightTime // ignore: cast_nullable_to_non_nullable
@@ -160,6 +173,7 @@ class __$$SettingsImplCopyWithImpl<$Res>
 class _$SettingsImpl implements _Settings {
   const _$SettingsImpl(
       {required this.numberOfPlayers,
+      required this.enableDayTimer,
       required this.dayTime,
       required this.nightTime,
       required final Map<GameRole, int> roles,
@@ -170,7 +184,9 @@ class _$SettingsImpl implements _Settings {
   @override
   final int numberOfPlayers;
   @override
-  final int? dayTime;
+  final bool enableDayTimer;
+  @override
+  final int dayTime;
   @override
   final int nightTime;
   final Map<GameRole, int> _roles;
@@ -188,7 +204,7 @@ class _$SettingsImpl implements _Settings {
 
   @override
   String toString() {
-    return 'Settings(numberOfPlayers: $numberOfPlayers, dayTime: $dayTime, nightTime: $nightTime, roles: $roles, firstNightIntroduction: $firstNightIntroduction, firstDayVote: $firstDayVote)';
+    return 'Settings(numberOfPlayers: $numberOfPlayers, enableDayTimer: $enableDayTimer, dayTime: $dayTime, nightTime: $nightTime, roles: $roles, firstNightIntroduction: $firstNightIntroduction, firstDayVote: $firstDayVote)';
   }
 
   @override
@@ -198,6 +214,8 @@ class _$SettingsImpl implements _Settings {
             other is _$SettingsImpl &&
             (identical(other.numberOfPlayers, numberOfPlayers) ||
                 other.numberOfPlayers == numberOfPlayers) &&
+            (identical(other.enableDayTimer, enableDayTimer) ||
+                other.enableDayTimer == enableDayTimer) &&
             (identical(other.dayTime, dayTime) || other.dayTime == dayTime) &&
             (identical(other.nightTime, nightTime) ||
                 other.nightTime == nightTime) &&
@@ -212,6 +230,7 @@ class _$SettingsImpl implements _Settings {
   int get hashCode => Object.hash(
       runtimeType,
       numberOfPlayers,
+      enableDayTimer,
       dayTime,
       nightTime,
       const DeepCollectionEquality().hash(_roles),
@@ -228,7 +247,8 @@ class _$SettingsImpl implements _Settings {
 abstract class _Settings implements Settings {
   const factory _Settings(
       {required final int numberOfPlayers,
-      required final int? dayTime,
+      required final bool enableDayTimer,
+      required final int dayTime,
       required final int nightTime,
       required final Map<GameRole, int> roles,
       required final bool firstNightIntroduction,
@@ -237,7 +257,9 @@ abstract class _Settings implements Settings {
   @override
   int get numberOfPlayers;
   @override
-  int? get dayTime;
+  bool get enableDayTimer;
+  @override
+  int get dayTime;
   @override
   int get nightTime;
   @override
