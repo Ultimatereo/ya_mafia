@@ -5,9 +5,7 @@ class SettingsState with _$SettingsState {
   const factory SettingsState({
     @Default(Settings(
       numberOfPlayers: 4,
-      enableDayTimer: false,
-      dayTime: 150,
-      nightTime: 150,
+      gameTimer: GameTimer(dayTimeInSec: null, nightTimeInSec: 180),
       firstDayVote: false,
       firstNightIntroduction: false,
       roles: {},
