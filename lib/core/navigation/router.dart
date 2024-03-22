@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:ya_mafia/presentation/pages/home/home_screen.dart';
 import 'package:ya_mafia/presentation/pages/settings_screen/settings_screen.dart';
-import 'package:ya_mafia/presentation/pages/test.dart';
 
 final rootNavigationKey = GlobalKey<NavigatorState>();
 final router = GoRouter(
@@ -9,13 +9,15 @@ final router = GoRouter(
   initialLocation: '/',
   routes: [
     GoRoute(
-      path: '/test',
-      pageBuilder: (context, state) => const MaterialPage(child: TestPage()),
+      path: '/',
+      pageBuilder: (context, state) => const MaterialPage(child: HomeScreen()),
     ),
     GoRoute(
-      path: '/',
-      pageBuilder: (context, state) =>
-          const MaterialPage(child: SettingsScreen()),
+      path: '/settings',
+      name: 'settings',
+      pageBuilder: (context, state) => const MaterialPage(
+        child: SettingsScreen(),
+      ),
     ),
   ],
 );
