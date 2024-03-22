@@ -6,9 +6,10 @@ icons_launcher:
       adaptive_background_color: "#ffffff"
       adaptive_foreground_image: "assets/images/android_adaptive_icon.png"
       adaptive_monochrome_image: "assets/images/android_monochrome_icon.png"
-    # web:
-    #   enable: true
-    #   background_color: "#4343F4"
-    #   image_path: "assets/images/web_image.png"
-    # windows:
-    #   enable: true
+    web:
+      enable: true
+      # background_color: "#4343F4"
+      image_path: "assets/images/web_icon.png"
+    windows:
+      enable: true
+      image_path: "assets/images/web_icon.png"
