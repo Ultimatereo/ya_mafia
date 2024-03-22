@@ -4,6 +4,8 @@ numberOfPlayers: Number of players
 setDayTimer: Set a timer for discussions during the day
 min: min
 sec: sec
+day: Day
+night: Night
 
 home:
   play: Play
