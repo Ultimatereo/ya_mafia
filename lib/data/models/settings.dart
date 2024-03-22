@@ -7,7 +7,8 @@ part 'settings.freezed.dart';
 abstract class Settings with _$Settings {
   const factory Settings({
     required int numberOfPlayers,
-    required int? dayTime,
+    required bool enableDayTimer,
+    required int dayTime,
     required int nightTime,
     required Map<GameRole, int> roles,
     required bool firstNightIntroduction,
