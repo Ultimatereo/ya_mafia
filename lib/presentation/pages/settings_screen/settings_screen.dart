@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ya_mafia/core/constants.dart';
 import 'package:ya_mafia/core/theme/tailor_theme/my_theme.dart';
@@ -12,11 +13,10 @@ import 'widgets/timer/day_time_column.dart';
 import 'widgets/timer/day_timer_setting_column.dart';
 import 'widgets/players/number_of_players_column.dart';
 import 'widgets/roles/roles_column.dart';
-
-class SettingsScreen extends StatelessWidget {
-  const SettingsScreen({super.key});
-
-  @override
+import 'widgets/arrow_forward_iconbutton.dart';
+import 'widgets/day_time_column.dart';
+import 'widgets/day_timer_setting_column.dart';
+import 'widgets/number_of_players_column.dart';
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: const SeemlessAppBar(),
