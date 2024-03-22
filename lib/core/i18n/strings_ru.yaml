@@ -4,3 +4,7 @@ numberOfPlayers: Количество игроков
 setDayTimer: Установить таймер для обсуждений днем
 min: мин
 sec: сек
+
+home:
+  play: Играть
+  rules: Правила игры

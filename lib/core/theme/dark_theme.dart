@@ -1,9 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:ya_mafia/core/constants.dart';
 import 'package:ya_mafia/core/theme/colors.dart';
 import 'package:ya_mafia/core/theme/tailor_theme/my_theme.dart';
 import 'package:ya_mafia/core/theme/text_theme.dart';
 
-final ThemeData darkTheme = ThemeData.dark().copyWith(
+final ThemeData darkTheme = ThemeData(
+  brightness: Brightness.dark,
+  textButtonTheme: TextButtonThemeData(
+    style: TextButton.styleFrom(
+      textStyle: text24,
+      foregroundColor: yellow,
+    ),
+  ),
+  elevatedButtonTheme: ElevatedButtonThemeData(
+    style: ElevatedButton.styleFrom(
+      backgroundColor: green,
+      foregroundColor: Colors.white,
+      fixedSize: const Size.fromWidth(215),
+      textStyle: text24,
+      padding: const EdgeInsets.symmetric(vertical: appPadding),
+    ),
+  ),
   scaffoldBackgroundColor: brownMain,
   switchTheme: SwitchThemeData(
     thumbColor: MaterialStateProperty.all(Colors.white),
