@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ya_mafia/core/constants.dart';
 import 'package:ya_mafia/core/theme/tailor_theme/my_theme.dart';
+import 'package:ya_mafia/data/models/settings.dart';
 import 'package:ya_mafia/presentation/pages/settings_screen/widgets/arrow_back_iconbutton.dart';
 
 import '../../../zgen/i18n/strings.g.dart';
 import '../../blocs/settings_bloc/settings_bloc.dart';
 import '../../common/seemless_appbar.dart';
 import 'widgets/arrow_forward_iconbutton.dart';
+import 'widgets/day_time_column.dart';
+import 'widgets/day_timer_setting_column.dart';
 import 'widgets/number_of_players_column.dart';
 import 'widgets/numbers_container.dart';
 
@@ -41,50 +45,7 @@ class SettingsScreen extends StatelessWidget {
                   const SizedBox(
                     height: appPadding,
                   ),
-                  ListTile(
-                    title: Text(
-                      context.t.setDayTimer,
-                      style: context.listTileTextStyle,
-                    ),
-                    trailing: Switch(
-                        value: settings.enableDayTimer,
-                        onChanged: (val) {
-                          context.read<SettingsBloc>().add(!val
-                              ? const SettingsEvent.closeDayTimer()
-                              : const SettingsEvent.openDayTimer());
-                        }),
-                  ),
-                  Center(
-                    child: AnimatedSize(
-                      duration: Durations.medium2,
-                      alignment: Alignment.topCenter,
-                      curve: Curves.bounceInOut,
-                      child: settings.enableDayTimer
-                          ? Row(
-                              children: [
-                                ArrowBackIconButton(onPressed: () {}),
-                                Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    NumberContainer(
-                                      number: (settings.dayTime / 60).ceil(),
-                                    ),
-                                    Text(
-                                      context.t.min,
-                                      style: context.headline3,
-                                    ),
-                                  ],
-                                ),
-                                NumberContainer(
-                                    number: (settings.dayTime % 60).ceil()),
-                                ArrowForwardIconButton(onPressed: () {}),
-                              ],
-                            )
-                          : const SizedBox(
-                              width: double.infinity,
-                            ),
-                    ),
-                  )
+                  DayTimeColumn(dayTimeInSec: settings.gameTimer.dayTimeInSec),
                 ],
               );
             },

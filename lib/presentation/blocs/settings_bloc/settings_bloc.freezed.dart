@@ -18,57 +18,59 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$SettingsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() firstTimeOpened,
     required TResult Function() incrementPlayerCount,
     required TResult Function() decrementPlayerCount,
-    required TResult Function() openDayTimer,
-    required TResult Function() closeDayTimer,
+    required TResult Function(bool dayTimerEnabled) toggleDayTimer,
+    required TResult Function() incrementDayTimeCount,
+    required TResult Function() decrementDayTimeCount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? firstTimeOpened,
     TResult? Function()? incrementPlayerCount,
     TResult? Function()? decrementPlayerCount,
-    TResult? Function()? openDayTimer,
-    TResult? Function()? closeDayTimer,
+    TResult? Function(bool dayTimerEnabled)? toggleDayTimer,
+    TResult? Function()? incrementDayTimeCount,
+    TResult? Function()? decrementDayTimeCount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? firstTimeOpened,
     TResult Function()? incrementPlayerCount,
     TResult Function()? decrementPlayerCount,
-    TResult Function()? openDayTimer,
-    TResult Function()? closeDayTimer,
+    TResult Function(bool dayTimerEnabled)? toggleDayTimer,
+    TResult Function()? incrementDayTimeCount,
+    TResult Function()? decrementDayTimeCount,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_FirstTimeOpened value) firstTimeOpened,
     required TResult Function(_IncrementPlayerCount value) incrementPlayerCount,
     required TResult Function(_DecrementPlayerCount value) decrementPlayerCount,
-    required TResult Function(_OpenDayTimer value) openDayTimer,
-    required TResult Function(_CloseDayTimer value) closeDayTimer,
+    required TResult Function(_ToggleDayTimer value) toggleDayTimer,
+    required TResult Function(_IncrementDayTimeCount value)
+        incrementDayTimeCount,
+    required TResult Function(_DecrementDayTimeCount value)
+        decrementDayTimeCount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_FirstTimeOpened value)? firstTimeOpened,
     TResult? Function(_IncrementPlayerCount value)? incrementPlayerCount,
     TResult? Function(_DecrementPlayerCount value)? decrementPlayerCount,
-    TResult? Function(_OpenDayTimer value)? openDayTimer,
-    TResult? Function(_CloseDayTimer value)? closeDayTimer,
+    TResult? Function(_ToggleDayTimer value)? toggleDayTimer,
+    TResult? Function(_IncrementDayTimeCount value)? incrementDayTimeCount,
+    TResult? Function(_DecrementDayTimeCount value)? decrementDayTimeCount,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FirstTimeOpened value)? firstTimeOpened,
     TResult Function(_IncrementPlayerCount value)? incrementPlayerCount,
     TResult Function(_DecrementPlayerCount value)? decrementPlayerCount,
-    TResult Function(_OpenDayTimer value)? openDayTimer,
-    TResult Function(_CloseDayTimer value)? closeDayTimer,
+    TResult Function(_ToggleDayTimer value)? toggleDayTimer,
+    TResult Function(_IncrementDayTimeCount value)? incrementDayTimeCount,
+    TResult Function(_DecrementDayTimeCount value)? decrementDayTimeCount,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -90,126 +92,6 @@ class _$SettingsEventCopyWithImpl<$Res, $Val extends SettingsEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-}
-
-/// @nodoc
-abstract class _$$FirstTimeOpenedImplCopyWith<$Res> {
-  factory _$$FirstTimeOpenedImplCopyWith(_$FirstTimeOpenedImpl value,
-          $Res Function(_$FirstTimeOpenedImpl) then) =
-      __$$FirstTimeOpenedImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$FirstTimeOpenedImplCopyWithImpl<$Res>
-    extends _$SettingsEventCopyWithImpl<$Res, _$FirstTimeOpenedImpl>
-    implements _$$FirstTimeOpenedImplCopyWith<$Res> {
-  __$$FirstTimeOpenedImplCopyWithImpl(
-      _$FirstTimeOpenedImpl _value, $Res Function(_$FirstTimeOpenedImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$FirstTimeOpenedImpl implements _FirstTimeOpened {
-  const _$FirstTimeOpenedImpl();
-
-  @override
-  String toString() {
-    return 'SettingsEvent.firstTimeOpened()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$FirstTimeOpenedImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() firstTimeOpened,
-    required TResult Function() incrementPlayerCount,
-    required TResult Function() decrementPlayerCount,
-    required TResult Function() openDayTimer,
-    required TResult Function() closeDayTimer,
-  }) {
-    return firstTimeOpened();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? firstTimeOpened,
-    TResult? Function()? incrementPlayerCount,
-    TResult? Function()? decrementPlayerCount,
-    TResult? Function()? openDayTimer,
-    TResult? Function()? closeDayTimer,
-  }) {
-    return firstTimeOpened?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? firstTimeOpened,
-    TResult Function()? incrementPlayerCount,
-    TResult Function()? decrementPlayerCount,
-    TResult Function()? openDayTimer,
-    TResult Function()? closeDayTimer,
-    required TResult orElse(),
-  }) {
-    if (firstTimeOpened != null) {
-      return firstTimeOpened();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_FirstTimeOpened value) firstTimeOpened,
-    required TResult Function(_IncrementPlayerCount value) incrementPlayerCount,
-    required TResult Function(_DecrementPlayerCount value) decrementPlayerCount,
-    required TResult Function(_OpenDayTimer value) openDayTimer,
-    required TResult Function(_CloseDayTimer value) closeDayTimer,
-  }) {
-    return firstTimeOpened(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_FirstTimeOpened value)? firstTimeOpened,
-    TResult? Function(_IncrementPlayerCount value)? incrementPlayerCount,
-    TResult? Function(_DecrementPlayerCount value)? decrementPlayerCount,
-    TResult? Function(_OpenDayTimer value)? openDayTimer,
-    TResult? Function(_CloseDayTimer value)? closeDayTimer,
-  }) {
-    return firstTimeOpened?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FirstTimeOpened value)? firstTimeOpened,
-    TResult Function(_IncrementPlayerCount value)? incrementPlayerCount,
-    TResult Function(_DecrementPlayerCount value)? decrementPlayerCount,
-    TResult Function(_OpenDayTimer value)? openDayTimer,
-    TResult Function(_CloseDayTimer value)? closeDayTimer,
-    required TResult orElse(),
-  }) {
-    if (firstTimeOpened != null) {
-      return firstTimeOpened(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _FirstTimeOpened implements SettingsEvent {
-  const factory _FirstTimeOpened() = _$FirstTimeOpenedImpl;
 }
 
 /// @nodoc
@@ -251,11 +133,11 @@ class _$IncrementPlayerCountImpl implements _IncrementPlayerCount {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() firstTimeOpened,
     required TResult Function() incrementPlayerCount,
     required TResult Function() decrementPlayerCount,
-    required TResult Function() openDayTimer,
-    required TResult Function() closeDayTimer,
+    required TResult Function(bool dayTimerEnabled) toggleDayTimer,
+    required TResult Function() incrementDayTimeCount,
+    required TResult Function() decrementDayTimeCount,
   }) {
     return incrementPlayerCount();
   }
@@ -263,11 +145,11 @@ class _$IncrementPlayerCountImpl implements _IncrementPlayerCount {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? firstTimeOpened,
     TResult? Function()? incrementPlayerCount,
     TResult? Function()? decrementPlayerCount,
-    TResult? Function()? openDayTimer,
-    TResult? Function()? closeDayTimer,
+    TResult? Function(bool dayTimerEnabled)? toggleDayTimer,
+    TResult? Function()? incrementDayTimeCount,
+    TResult? Function()? decrementDayTimeCount,
   }) {
     return incrementPlayerCount?.call();
   }
@@ -275,11 +157,11 @@ class _$IncrementPlayerCountImpl implements _IncrementPlayerCount {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? firstTimeOpened,
     TResult Function()? incrementPlayerCount,
     TResult Function()? decrementPlayerCount,
-    TResult Function()? openDayTimer,
-    TResult Function()? closeDayTimer,
+    TResult Function(bool dayTimerEnabled)? toggleDayTimer,
+    TResult Function()? incrementDayTimeCount,
+    TResult Function()? decrementDayTimeCount,
     required TResult orElse(),
   }) {
     if (incrementPlayerCount != null) {
@@ -291,11 +173,13 @@ class _$IncrementPlayerCountImpl implements _IncrementPlayerCount {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_FirstTimeOpened value) firstTimeOpened,
     required TResult Function(_IncrementPlayerCount value) incrementPlayerCount,
     required TResult Function(_DecrementPlayerCount value) decrementPlayerCount,
-    required TResult Function(_OpenDayTimer value) openDayTimer,
-    required TResult Function(_CloseDayTimer value) closeDayTimer,
+    required TResult Function(_ToggleDayTimer value) toggleDayTimer,
+    required TResult Function(_IncrementDayTimeCount value)
+        incrementDayTimeCount,
+    required TResult Function(_DecrementDayTimeCount value)
+        decrementDayTimeCount,
   }) {
     return incrementPlayerCount(this);
   }
@@ -303,11 +187,11 @@ class _$IncrementPlayerCountImpl implements _IncrementPlayerCount {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_FirstTimeOpened value)? firstTimeOpened,
     TResult? Function(_IncrementPlayerCount value)? incrementPlayerCount,
     TResult? Function(_DecrementPlayerCount value)? decrementPlayerCount,
-    TResult? Function(_OpenDayTimer value)? openDayTimer,
-    TResult? Function(_CloseDayTimer value)? closeDayTimer,
+    TResult? Function(_ToggleDayTimer value)? toggleDayTimer,
+    TResult? Function(_IncrementDayTimeCount value)? incrementDayTimeCount,
+    TResult? Function(_DecrementDayTimeCount value)? decrementDayTimeCount,
   }) {
     return incrementPlayerCount?.call(this);
   }
@@ -315,11 +199,11 @@ class _$IncrementPlayerCountImpl implements _IncrementPlayerCount {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FirstTimeOpened value)? firstTimeOpened,
     TResult Function(_IncrementPlayerCount value)? incrementPlayerCount,
     TResult Function(_DecrementPlayerCount value)? decrementPlayerCount,
-    TResult Function(_OpenDayTimer value)? openDayTimer,
-    TResult Function(_CloseDayTimer value)? closeDayTimer,
+    TResult Function(_ToggleDayTimer value)? toggleDayTimer,
+    TResult Function(_IncrementDayTimeCount value)? incrementDayTimeCount,
+    TResult Function(_DecrementDayTimeCount value)? decrementDayTimeCount,
     required TResult orElse(),
   }) {
     if (incrementPlayerCount != null) {
@@ -372,11 +256,11 @@ class _$DecrementPlayerCountImpl implements _DecrementPlayerCount {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() firstTimeOpened,
     required TResult Function() incrementPlayerCount,
     required TResult Function() decrementPlayerCount,
-    required TResult Function() openDayTimer,
-    required TResult Function() closeDayTimer,
+    required TResult Function(bool dayTimerEnabled) toggleDayTimer,
+    required TResult Function() incrementDayTimeCount,
+    required TResult Function() decrementDayTimeCount,
   }) {
     return decrementPlayerCount();
   }
@@ -384,11 +268,11 @@ class _$DecrementPlayerCountImpl implements _DecrementPlayerCount {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? firstTimeOpened,
     TResult? Function()? incrementPlayerCount,
     TResult? Function()? decrementPlayerCount,
-    TResult? Function()? openDayTimer,
-    TResult? Function()? closeDayTimer,
+    TResult? Function(bool dayTimerEnabled)? toggleDayTimer,
+    TResult? Function()? incrementDayTimeCount,
+    TResult? Function()? decrementDayTimeCount,
   }) {
     return decrementPlayerCount?.call();
   }
@@ -396,11 +280,11 @@ class _$DecrementPlayerCountImpl implements _DecrementPlayerCount {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? firstTimeOpened,
     TResult Function()? incrementPlayerCount,
     TResult Function()? decrementPlayerCount,
-    TResult Function()? openDayTimer,
-    TResult Function()? closeDayTimer,
+    TResult Function(bool dayTimerEnabled)? toggleDayTimer,
+    TResult Function()? incrementDayTimeCount,
+    TResult Function()? decrementDayTimeCount,
     required TResult orElse(),
   }) {
     if (decrementPlayerCount != null) {
@@ -412,11 +296,13 @@ class _$DecrementPlayerCountImpl implements _DecrementPlayerCount {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_FirstTimeOpened value) firstTimeOpened,
     required TResult Function(_IncrementPlayerCount value) incrementPlayerCount,
     required TResult Function(_DecrementPlayerCount value) decrementPlayerCount,
-    required TResult Function(_OpenDayTimer value) openDayTimer,
-    required TResult Function(_CloseDayTimer value) closeDayTimer,
+    required TResult Function(_ToggleDayTimer value) toggleDayTimer,
+    required TResult Function(_IncrementDayTimeCount value)
+        incrementDayTimeCount,
+    required TResult Function(_DecrementDayTimeCount value)
+        decrementDayTimeCount,
   }) {
     return decrementPlayerCount(this);
   }
@@ -424,11 +310,11 @@ class _$DecrementPlayerCountImpl implements _DecrementPlayerCount {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_FirstTimeOpened value)? firstTimeOpened,
     TResult? Function(_IncrementPlayerCount value)? incrementPlayerCount,
     TResult? Function(_DecrementPlayerCount value)? decrementPlayerCount,
-    TResult? Function(_OpenDayTimer value)? openDayTimer,
-    TResult? Function(_CloseDayTimer value)? closeDayTimer,
+    TResult? Function(_ToggleDayTimer value)? toggleDayTimer,
+    TResult? Function(_IncrementDayTimeCount value)? incrementDayTimeCount,
+    TResult? Function(_DecrementDayTimeCount value)? decrementDayTimeCount,
   }) {
     return decrementPlayerCount?.call(this);
   }
@@ -436,11 +322,11 @@ class _$DecrementPlayerCountImpl implements _DecrementPlayerCount {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FirstTimeOpened value)? firstTimeOpened,
     TResult Function(_IncrementPlayerCount value)? incrementPlayerCount,
     TResult Function(_DecrementPlayerCount value)? decrementPlayerCount,
-    TResult Function(_OpenDayTimer value)? openDayTimer,
-    TResult Function(_CloseDayTimer value)? closeDayTimer,
+    TResult Function(_ToggleDayTimer value)? toggleDayTimer,
+    TResult Function(_IncrementDayTimeCount value)? incrementDayTimeCount,
+    TResult Function(_DecrementDayTimeCount value)? decrementDayTimeCount,
     required TResult orElse(),
   }) {
     if (decrementPlayerCount != null) {
@@ -455,35 +341,193 @@ abstract class _DecrementPlayerCount implements SettingsEvent {
 }
 
 /// @nodoc
-abstract class _$$OpenDayTimerImplCopyWith<$Res> {
-  factory _$$OpenDayTimerImplCopyWith(
-          _$OpenDayTimerImpl value, $Res Function(_$OpenDayTimerImpl) then) =
-      __$$OpenDayTimerImplCopyWithImpl<$Res>;
+abstract class _$$ToggleDayTimerImplCopyWith<$Res> {
+  factory _$$ToggleDayTimerImplCopyWith(_$ToggleDayTimerImpl value,
+          $Res Function(_$ToggleDayTimerImpl) then) =
+      __$$ToggleDayTimerImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool dayTimerEnabled});
 }
 
 /// @nodoc
-class __$$OpenDayTimerImplCopyWithImpl<$Res>
-    extends _$SettingsEventCopyWithImpl<$Res, _$OpenDayTimerImpl>
-    implements _$$OpenDayTimerImplCopyWith<$Res> {
-  __$$OpenDayTimerImplCopyWithImpl(
-      _$OpenDayTimerImpl _value, $Res Function(_$OpenDayTimerImpl) _then)
+class __$$ToggleDayTimerImplCopyWithImpl<$Res>
+    extends _$SettingsEventCopyWithImpl<$Res, _$ToggleDayTimerImpl>
+    implements _$$ToggleDayTimerImplCopyWith<$Res> {
+  __$$ToggleDayTimerImplCopyWithImpl(
+      _$ToggleDayTimerImpl _value, $Res Function(_$ToggleDayTimerImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? dayTimerEnabled = null,
+  }) {
+    return _then(_$ToggleDayTimerImpl(
+      null == dayTimerEnabled
+          ? _value.dayTimerEnabled
+          : dayTimerEnabled // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$OpenDayTimerImpl implements _OpenDayTimer {
-  const _$OpenDayTimerImpl();
+class _$ToggleDayTimerImpl implements _ToggleDayTimer {
+  const _$ToggleDayTimerImpl(this.dayTimerEnabled);
+
+  @override
+  final bool dayTimerEnabled;
 
   @override
   String toString() {
-    return 'SettingsEvent.openDayTimer()';
+    return 'SettingsEvent.toggleDayTimer(dayTimerEnabled: $dayTimerEnabled)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$OpenDayTimerImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$ToggleDayTimerImpl &&
+            (identical(other.dayTimerEnabled, dayTimerEnabled) ||
+                other.dayTimerEnabled == dayTimerEnabled));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, dayTimerEnabled);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ToggleDayTimerImplCopyWith<_$ToggleDayTimerImpl> get copyWith =>
+      __$$ToggleDayTimerImplCopyWithImpl<_$ToggleDayTimerImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() incrementPlayerCount,
+    required TResult Function() decrementPlayerCount,
+    required TResult Function(bool dayTimerEnabled) toggleDayTimer,
+    required TResult Function() incrementDayTimeCount,
+    required TResult Function() decrementDayTimeCount,
+  }) {
+    return toggleDayTimer(dayTimerEnabled);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? incrementPlayerCount,
+    TResult? Function()? decrementPlayerCount,
+    TResult? Function(bool dayTimerEnabled)? toggleDayTimer,
+    TResult? Function()? incrementDayTimeCount,
+    TResult? Function()? decrementDayTimeCount,
+  }) {
+    return toggleDayTimer?.call(dayTimerEnabled);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? incrementPlayerCount,
+    TResult Function()? decrementPlayerCount,
+    TResult Function(bool dayTimerEnabled)? toggleDayTimer,
+    TResult Function()? incrementDayTimeCount,
+    TResult Function()? decrementDayTimeCount,
+    required TResult orElse(),
+  }) {
+    if (toggleDayTimer != null) {
+      return toggleDayTimer(dayTimerEnabled);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_IncrementPlayerCount value) incrementPlayerCount,
+    required TResult Function(_DecrementPlayerCount value) decrementPlayerCount,
+    required TResult Function(_ToggleDayTimer value) toggleDayTimer,
+    required TResult Function(_IncrementDayTimeCount value)
+        incrementDayTimeCount,
+    required TResult Function(_DecrementDayTimeCount value)
+        decrementDayTimeCount,
+  }) {
+    return toggleDayTimer(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_IncrementPlayerCount value)? incrementPlayerCount,
+    TResult? Function(_DecrementPlayerCount value)? decrementPlayerCount,
+    TResult? Function(_ToggleDayTimer value)? toggleDayTimer,
+    TResult? Function(_IncrementDayTimeCount value)? incrementDayTimeCount,
+    TResult? Function(_DecrementDayTimeCount value)? decrementDayTimeCount,
+  }) {
+    return toggleDayTimer?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_IncrementPlayerCount value)? incrementPlayerCount,
+    TResult Function(_DecrementPlayerCount value)? decrementPlayerCount,
+    TResult Function(_ToggleDayTimer value)? toggleDayTimer,
+    TResult Function(_IncrementDayTimeCount value)? incrementDayTimeCount,
+    TResult Function(_DecrementDayTimeCount value)? decrementDayTimeCount,
+    required TResult orElse(),
+  }) {
+    if (toggleDayTimer != null) {
+      return toggleDayTimer(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ToggleDayTimer implements SettingsEvent {
+  const factory _ToggleDayTimer(final bool dayTimerEnabled) =
+      _$ToggleDayTimerImpl;
+
+  bool get dayTimerEnabled;
+  @JsonKey(ignore: true)
+  _$$ToggleDayTimerImplCopyWith<_$ToggleDayTimerImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$IncrementDayTimeCountImplCopyWith<$Res> {
+  factory _$$IncrementDayTimeCountImplCopyWith(
+          _$IncrementDayTimeCountImpl value,
+          $Res Function(_$IncrementDayTimeCountImpl) then) =
+      __$$IncrementDayTimeCountImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$IncrementDayTimeCountImplCopyWithImpl<$Res>
+    extends _$SettingsEventCopyWithImpl<$Res, _$IncrementDayTimeCountImpl>
+    implements _$$IncrementDayTimeCountImplCopyWith<$Res> {
+  __$$IncrementDayTimeCountImplCopyWithImpl(_$IncrementDayTimeCountImpl _value,
+      $Res Function(_$IncrementDayTimeCountImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$IncrementDayTimeCountImpl implements _IncrementDayTimeCount {
+  const _$IncrementDayTimeCountImpl();
+
+  @override
+  String toString() {
+    return 'SettingsEvent.incrementDayTimeCount()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$IncrementDayTimeCountImpl);
   }
 
   @override
@@ -492,39 +536,39 @@ class _$OpenDayTimerImpl implements _OpenDayTimer {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() firstTimeOpened,
     required TResult Function() incrementPlayerCount,
     required TResult Function() decrementPlayerCount,
-    required TResult Function() openDayTimer,
-    required TResult Function() closeDayTimer,
+    required TResult Function(bool dayTimerEnabled) toggleDayTimer,
+    required TResult Function() incrementDayTimeCount,
+    required TResult Function() decrementDayTimeCount,
   }) {
-    return openDayTimer();
+    return incrementDayTimeCount();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? firstTimeOpened,
     TResult? Function()? incrementPlayerCount,
     TResult? Function()? decrementPlayerCount,
-    TResult? Function()? openDayTimer,
-    TResult? Function()? closeDayTimer,
+    TResult? Function(bool dayTimerEnabled)? toggleDayTimer,
+    TResult? Function()? incrementDayTimeCount,
+    TResult? Function()? decrementDayTimeCount,
   }) {
-    return openDayTimer?.call();
+    return incrementDayTimeCount?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? firstTimeOpened,
     TResult Function()? incrementPlayerCount,
     TResult Function()? decrementPlayerCount,
-    TResult Function()? openDayTimer,
-    TResult Function()? closeDayTimer,
+    TResult Function(bool dayTimerEnabled)? toggleDayTimer,
+    TResult Function()? incrementDayTimeCount,
+    TResult Function()? decrementDayTimeCount,
     required TResult orElse(),
   }) {
-    if (openDayTimer != null) {
-      return openDayTimer();
+    if (incrementDayTimeCount != null) {
+      return incrementDayTimeCount();
     }
     return orElse();
   }
@@ -532,78 +576,82 @@ class _$OpenDayTimerImpl implements _OpenDayTimer {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_FirstTimeOpened value) firstTimeOpened,
     required TResult Function(_IncrementPlayerCount value) incrementPlayerCount,
     required TResult Function(_DecrementPlayerCount value) decrementPlayerCount,
-    required TResult Function(_OpenDayTimer value) openDayTimer,
-    required TResult Function(_CloseDayTimer value) closeDayTimer,
+    required TResult Function(_ToggleDayTimer value) toggleDayTimer,
+    required TResult Function(_IncrementDayTimeCount value)
+        incrementDayTimeCount,
+    required TResult Function(_DecrementDayTimeCount value)
+        decrementDayTimeCount,
   }) {
-    return openDayTimer(this);
+    return incrementDayTimeCount(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_FirstTimeOpened value)? firstTimeOpened,
     TResult? Function(_IncrementPlayerCount value)? incrementPlayerCount,
     TResult? Function(_DecrementPlayerCount value)? decrementPlayerCount,
-    TResult? Function(_OpenDayTimer value)? openDayTimer,
-    TResult? Function(_CloseDayTimer value)? closeDayTimer,
+    TResult? Function(_ToggleDayTimer value)? toggleDayTimer,
+    TResult? Function(_IncrementDayTimeCount value)? incrementDayTimeCount,
+    TResult? Function(_DecrementDayTimeCount value)? decrementDayTimeCount,
   }) {
-    return openDayTimer?.call(this);
+    return incrementDayTimeCount?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FirstTimeOpened value)? firstTimeOpened,
     TResult Function(_IncrementPlayerCount value)? incrementPlayerCount,
     TResult Function(_DecrementPlayerCount value)? decrementPlayerCount,
-    TResult Function(_OpenDayTimer value)? openDayTimer,
-    TResult Function(_CloseDayTimer value)? closeDayTimer,
+    TResult Function(_ToggleDayTimer value)? toggleDayTimer,
+    TResult Function(_IncrementDayTimeCount value)? incrementDayTimeCount,
+    TResult Function(_DecrementDayTimeCount value)? decrementDayTimeCount,
     required TResult orElse(),
   }) {
-    if (openDayTimer != null) {
-      return openDayTimer(this);
+    if (incrementDayTimeCount != null) {
+      return incrementDayTimeCount(this);
     }
     return orElse();
   }
 }
 
-abstract class _OpenDayTimer implements SettingsEvent {
-  const factory _OpenDayTimer() = _$OpenDayTimerImpl;
+abstract class _IncrementDayTimeCount implements SettingsEvent {
+  const factory _IncrementDayTimeCount() = _$IncrementDayTimeCountImpl;
 }
 
 /// @nodoc
-abstract class _$$CloseDayTimerImplCopyWith<$Res> {
-  factory _$$CloseDayTimerImplCopyWith(
-          _$CloseDayTimerImpl value, $Res Function(_$CloseDayTimerImpl) then) =
-      __$$CloseDayTimerImplCopyWithImpl<$Res>;
+abstract class _$$DecrementDayTimeCountImplCopyWith<$Res> {
+  factory _$$DecrementDayTimeCountImplCopyWith(
+          _$DecrementDayTimeCountImpl value,
+          $Res Function(_$DecrementDayTimeCountImpl) then) =
+      __$$DecrementDayTimeCountImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$CloseDayTimerImplCopyWithImpl<$Res>
-    extends _$SettingsEventCopyWithImpl<$Res, _$CloseDayTimerImpl>
-    implements _$$CloseDayTimerImplCopyWith<$Res> {
-  __$$CloseDayTimerImplCopyWithImpl(
-      _$CloseDayTimerImpl _value, $Res Function(_$CloseDayTimerImpl) _then)
+class __$$DecrementDayTimeCountImplCopyWithImpl<$Res>
+    extends _$SettingsEventCopyWithImpl<$Res, _$DecrementDayTimeCountImpl>
+    implements _$$DecrementDayTimeCountImplCopyWith<$Res> {
+  __$$DecrementDayTimeCountImplCopyWithImpl(_$DecrementDayTimeCountImpl _value,
+      $Res Function(_$DecrementDayTimeCountImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$CloseDayTimerImpl implements _CloseDayTimer {
-  const _$CloseDayTimerImpl();
+class _$DecrementDayTimeCountImpl implements _DecrementDayTimeCount {
+  const _$DecrementDayTimeCountImpl();
 
   @override
   String toString() {
-    return 'SettingsEvent.closeDayTimer()';
+    return 'SettingsEvent.decrementDayTimeCount()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$CloseDayTimerImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$DecrementDayTimeCountImpl);
   }
 
   @override
@@ -612,39 +660,39 @@ class _$CloseDayTimerImpl implements _CloseDayTimer {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() firstTimeOpened,
     required TResult Function() incrementPlayerCount,
     required TResult Function() decrementPlayerCount,
-    required TResult Function() openDayTimer,
-    required TResult Function() closeDayTimer,
+    required TResult Function(bool dayTimerEnabled) toggleDayTimer,
+    required TResult Function() incrementDayTimeCount,
+    required TResult Function() decrementDayTimeCount,
   }) {
-    return closeDayTimer();
+    return decrementDayTimeCount();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? firstTimeOpened,
     TResult? Function()? incrementPlayerCount,
     TResult? Function()? decrementPlayerCount,
-    TResult? Function()? openDayTimer,
-    TResult? Function()? closeDayTimer,
+    TResult? Function(bool dayTimerEnabled)? toggleDayTimer,
+    TResult? Function()? incrementDayTimeCount,
+    TResult? Function()? decrementDayTimeCount,
   }) {
-    return closeDayTimer?.call();
+    return decrementDayTimeCount?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? firstTimeOpened,
     TResult Function()? incrementPlayerCount,
     TResult Function()? decrementPlayerCount,
-    TResult Function()? openDayTimer,
-    TResult Function()? closeDayTimer,
+    TResult Function(bool dayTimerEnabled)? toggleDayTimer,
+    TResult Function()? incrementDayTimeCount,
+    TResult Function()? decrementDayTimeCount,
     required TResult orElse(),
   }) {
-    if (closeDayTimer != null) {
-      return closeDayTimer();
+    if (decrementDayTimeCount != null) {
+      return decrementDayTimeCount();
     }
     return orElse();
   }
@@ -652,46 +700,48 @@ class _$CloseDayTimerImpl implements _CloseDayTimer {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_FirstTimeOpened value) firstTimeOpened,
     required TResult Function(_IncrementPlayerCount value) incrementPlayerCount,
     required TResult Function(_DecrementPlayerCount value) decrementPlayerCount,
-    required TResult Function(_OpenDayTimer value) openDayTimer,
-    required TResult Function(_CloseDayTimer value) closeDayTimer,
+    required TResult Function(_ToggleDayTimer value) toggleDayTimer,
+    required TResult Function(_IncrementDayTimeCount value)
+        incrementDayTimeCount,
+    required TResult Function(_DecrementDayTimeCount value)
+        decrementDayTimeCount,
   }) {
-    return closeDayTimer(this);
+    return decrementDayTimeCount(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_FirstTimeOpened value)? firstTimeOpened,
     TResult? Function(_IncrementPlayerCount value)? incrementPlayerCount,
     TResult? Function(_DecrementPlayerCount value)? decrementPlayerCount,
-    TResult? Function(_OpenDayTimer value)? openDayTimer,
-    TResult? Function(_CloseDayTimer value)? closeDayTimer,
+    TResult? Function(_ToggleDayTimer value)? toggleDayTimer,
+    TResult? Function(_IncrementDayTimeCount value)? incrementDayTimeCount,
+    TResult? Function(_DecrementDayTimeCount value)? decrementDayTimeCount,
   }) {
-    return closeDayTimer?.call(this);
+    return decrementDayTimeCount?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_FirstTimeOpened value)? firstTimeOpened,
     TResult Function(_IncrementPlayerCount value)? incrementPlayerCount,
     TResult Function(_DecrementPlayerCount value)? decrementPlayerCount,
-    TResult Function(_OpenDayTimer value)? openDayTimer,
-    TResult Function(_CloseDayTimer value)? closeDayTimer,
+    TResult Function(_ToggleDayTimer value)? toggleDayTimer,
+    TResult Function(_IncrementDayTimeCount value)? incrementDayTimeCount,
+    TResult Function(_DecrementDayTimeCount value)? decrementDayTimeCount,
     required TResult orElse(),
   }) {
-    if (closeDayTimer != null) {
-      return closeDayTimer(this);
+    if (decrementDayTimeCount != null) {
+      return decrementDayTimeCount(this);
     }
     return orElse();
   }
 }
 
-abstract class _CloseDayTimer implements SettingsEvent {
-  const factory _CloseDayTimer() = _$CloseDayTimerImpl;
+abstract class _DecrementDayTimeCount implements SettingsEvent {
+  const factory _DecrementDayTimeCount() = _$DecrementDayTimeCountImpl;
 }
 
 /// @nodoc
@@ -826,9 +876,7 @@ class _$SettingsStateImpl implements _SettingsState {
   const _$SettingsStateImpl(
       {this.settings = const Settings(
           numberOfPlayers: 4,
-          enableDayTimer: false,
-          dayTime: 150,
-          nightTime: 150,
+          gameTimer: GameTimer(dayTimeInSec: null, nightTimeInSec: 150),
           firstDayVote: false,
           firstNightIntroduction: false,
           roles: {})});
