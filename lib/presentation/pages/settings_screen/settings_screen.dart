@@ -1,9 +1,15 @@
-import 'dart:js';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ya_mafia/core/constants.dart';
 import 'package:ya_mafia/core/theme/tailor_theme/my_theme.dart';
+import 'package:ya_mafia/presentation/pages/settings_screen/widgets/arrow_back_iconbutton.dart';
 
 import '../../../zgen/i18n/strings.g.dart';
+import '../../blocs/settings_bloc/settings_bloc.dart';
+import '../../common/seemless_appbar.dart';
+import 'widgets/arrow_forward_iconbutton.dart';
+import 'widgets/number_of_players_column.dart';
+import 'widgets/numbers_container.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -11,52 +17,78 @@ class SettingsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              context.t.settings,
-            ),
-            const SizedBox(
-              height: 16,
-            ),
-            Text(context.t.numberOfPlayers),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.arrow_back_ios_new,
-                    color: context.myTheme.green,
+      appBar: const SeemlessAppBar(),
+      body: Padding(
+        padding: const EdgeInsets.all(appPadding),
+        child: SingleChildScrollView(
+          child: BlocBuilder<SettingsBloc, SettingsState>(
+            builder: (context, state) {
+              final settings = state.settings;
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    context.t.settings,
+                    style: context.headline1,
                   ),
-                  iconSize: 40,
-                ),
-                Container(
-                  margin: const EdgeInsets.all(20),
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(8),
-                      color: Colors.white),
-                  width: 96,
-                  height: 80,
-                  alignment: Alignment.center,
-                  child: Text("2",
-                      style: Theme.of(context).textTheme.headlineLarge),
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.arrow_forward_ios,
-                    color: context.myTheme.green,
+                  const SizedBox(
+                    height: appPadding,
                   ),
-                  iconSize: 40,
-                  color: context.myTheme.green,
-                ),
-                // ListTile(title: context.t.,),
-              ],
-            )
-          ],
+                  NumberOfPlayersColumn(
+                    numberOfPlayers: settings.numberOfPlayers,
+                  ),
+                  const SizedBox(
+                    height: appPadding,
+                  ),
+                  ListTile(
+                    title: Text(
+                      context.t.setDayTimer,
+                      style: context.listTileTextStyle,
+                    ),
+                    trailing: Switch(
+                        value: settings.enableDayTimer,
+                        onChanged: (val) {
+                          context.read<SettingsBloc>().add(!val
+                              ? const SettingsEvent.closeDayTimer()
+                              : const SettingsEvent.openDayTimer());
+                        }),
+                  ),
+                  Center(
+                    child: AnimatedSize(
+                      duration: Durations.medium2,
+                      alignment: Alignment.topCenter,
+                      curve: Curves.bounceInOut,
+                      child: settings.enableDayTimer
+                          ? Row(
+                              children: [
+                                ArrowBackIconButton(onPressed: () {}),
+                                Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    NumberContainer(
+                                      number: (settings.dayTime / 60).ceil(),
+                                    ),
+                                    Text(
+                                      context.t.min,
+                                      style: context.headline3,
+                                    ),
+                                  ],
+                                ),
+                                NumberContainer(
+                                    number: (settings.dayTime % 60).ceil()),
+                                ArrowForwardIconButton(onPressed: () {}),
+                              ],
+                            )
+                          : const SizedBox(
+                              width: double.infinity,
+                            ),
+                    ),
+                  )
+                ],
+              );
+            },
+          ),
         ),
       ),
     );
