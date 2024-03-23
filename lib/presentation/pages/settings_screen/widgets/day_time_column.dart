@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ya_mafia/core/theme/tailor_theme/my_theme.dart';
 
+import '../../../../data/enums/day_night.dart';
 import '../../../../zgen/i18n/strings.g.dart';
 import '../../../blocs/settings_bloc/settings_bloc.dart';
 import 'day_timer_setting_column.dart';
@@ -37,7 +38,10 @@ class DayTimeColumn extends StatelessWidget {
             alignment: Alignment.topCenter,
             curve: Curves.bounceInOut,
             child: dayTimeInSec != null
-                ? DayTimeSettingColumn(dayTimeInSec: dayTimeInSec)
+                ? TimeSettingColumn(
+                    dayTimeInSec: dayTimeInSec,
+                    dayNight: DayNight.day,
+                  )
                 : const SizedBox(
                     width: double.infinity,
                   ),
