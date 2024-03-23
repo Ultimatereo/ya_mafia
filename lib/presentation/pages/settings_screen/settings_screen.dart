@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ya_mafia/core/constants.dart';
 import 'package:ya_mafia/core/theme/tailor_theme/my_theme.dart';
-import 'package:ya_mafia/presentation/pages/settings_screen/widgets/arrow_back_iconbutton.dart';
+import 'package:ya_mafia/data/enums/day_night.dart';
+import 'package:ya_mafia/presentation/pages/settings_screen/widgets/extra_settings/extra_settings_column.dart';
 
 import '../../../zgen/i18n/strings.g.dart';
 import '../../blocs/settings_bloc/settings_bloc.dart';
 import '../../common/seemless_appbar.dart';
-import 'widgets/arrow_forward_iconbutton.dart';
-import 'widgets/number_of_players_column.dart';
-import 'widgets/numbers_container.dart';
+import 'widgets/timer/day_time_column.dart';
+import 'widgets/timer/day_timer_setting_column.dart';
+import 'widgets/players/number_of_players_column.dart';
+import 'widgets/roles/roles_column.dart';
 
 class SettingsScreen extends StatelessWidget {
   const SettingsScreen({super.key});
@@ -25,12 +28,26 @@ class SettingsScreen extends StatelessWidget {
             builder: (context, state) {
               final settings = state.settings;
               return Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text(
-                    context.t.settings,
-                    style: context.headline1,
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      IconButton(
+                        onPressed: () {
+                          Navigator.of(context).pop();
+                        },
+                        icon: Icon(
+                          Icons.arrow_back_ios_new,
+                          color: context.green,
+                        ),
+                      ),
+                      Text(
+                        context.t.settings,
+                        style: context.headline1,
+                      ),
+                    ],
                   ),
                   const SizedBox(
                     height: appPadding,
@@ -41,50 +58,37 @@ class SettingsScreen extends StatelessWidget {
                   const SizedBox(
                     height: appPadding,
                   ),
-                  ListTile(
-                    title: Text(
-                      context.t.setDayTimer,
-                      style: context.listTileTextStyle,
-                    ),
-                    trailing: Switch(
-                        value: settings.enableDayTimer,
-                        onChanged: (val) {
-                          context.read<SettingsBloc>().add(!val
-                              ? const SettingsEvent.closeDayTimer()
-                              : const SettingsEvent.openDayTimer());
-                        }),
+                  DayTimeColumn(
+                    dayTimeInSec: settings.gameTimer.dayTimeInSec,
                   ),
-                  Center(
-                    child: AnimatedSize(
-                      duration: Durations.medium2,
-                      alignment: Alignment.topCenter,
-                      curve: Curves.bounceInOut,
-                      child: settings.enableDayTimer
-                          ? Row(
-                              children: [
-                                ArrowBackIconButton(onPressed: () {}),
-                                Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    NumberContainer(
-                                      number: (settings.dayTime / 60).ceil(),
-                                    ),
-                                    Text(
-                                      context.t.min,
-                                      style: context.headline3,
-                                    ),
-                                  ],
-                                ),
-                                NumberContainer(
-                                    number: (settings.dayTime % 60).ceil()),
-                                ArrowForwardIconButton(onPressed: () {}),
-                              ],
-                            )
-                          : const SizedBox(
-                              width: double.infinity,
-                            ),
-                    ),
-                  )
+                  const SizedBox(
+                    height: appPadding,
+                  ),
+                  TimeSettingColumn(
+                    dayNight: DayNight.night,
+                    dayTimeInSec: settings.gameTimer.nightTimeInSec,
+                  ),
+                  const SizedBox(
+                    height: appPadding,
+                  ),
+                  RolesColumn(
+                    roles: settings.roles,
+                  ),
+                  const SizedBox(
+                    height: appPadding,
+                  ),
+                  ExtraSettingsColumn(
+                    firstNightIntroduction: settings.firstNightIntroduction,
+                    firstDayVote: settings.firstDayVote,
+                  ),
+                  const SizedBox(
+                    height: appPadding * 2,
+                  ),
+                  ElevatedButton(
+                      onPressed: () {},
+                      child: Text(
+                        context.t.assignRoles,
+                      )),
                 ],
               );
             },

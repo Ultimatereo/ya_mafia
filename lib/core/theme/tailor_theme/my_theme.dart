@@ -15,12 +15,16 @@ class MyTheme extends ThemeExtension<MyTheme> with _$MyThemeTailorMixin {
       required this.brownMainDark,
       required this.mainLight,
       required this.mainLightLight,
+      required this.listTileColor,
       required this.headline1,
       required this.headline1Yellow,
       required this.headline2,
       required this.numbersStyle,
       required this.listTileTextStyle,
-      required this.headline3});
+      required this.headline3,
+      required this.dialogTitleStyle,
+      required this.dialogSubtitleStyle,
+      required this.dialogActionStyle});
 
   @override
   final Color green;
@@ -35,6 +39,8 @@ class MyTheme extends ThemeExtension<MyTheme> with _$MyThemeTailorMixin {
   @override
   final Color mainLightLight;
   @override
+  final Color listTileColor;
+  @override
   final TextStyle headline1;
   @override
   final TextStyle headline1Yellow;
@@ -46,4 +52,10 @@ class MyTheme extends ThemeExtension<MyTheme> with _$MyThemeTailorMixin {
   final TextStyle listTileTextStyle;
   @override
   final TextStyle headline3;
+  @override
+  final TextStyle dialogTitleStyle;
+  @override
+  final TextStyle dialogSubtitleStyle;
+  @override
+  final TextStyle dialogActionStyle;
 }

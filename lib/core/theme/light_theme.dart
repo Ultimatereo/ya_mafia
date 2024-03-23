@@ -39,10 +39,14 @@ final ThemeData lightTheme = ThemeData(
       headline1Yellow: text28Bold.copyWith(color: yellow),
       headline2: text20.copyWith(color: yellow),
       numbersStyle: numbersText,
+      listTileColor: mainLightLight,
       listTileTextStyle: text16.copyWith(
         color: brownMainDark,
       ),
       headline3: text20.copyWith(color: brownMain),
+      dialogTitleStyle: text24.copyWith(color: brownMainDark),
+      dialogSubtitleStyle: text16.copyWith(color: brownMain),
+      dialogActionStyle: text20.copyWith(color: brownMainDark),
     ),
   ],
 );

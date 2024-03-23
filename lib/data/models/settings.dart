@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:ya_mafia/data/models/game_timer.dart';
 
 import '../enums/game_role.dart';
 part 'settings.freezed.dart';
@@ -7,10 +8,8 @@ part 'settings.freezed.dart';
 abstract class Settings with _$Settings {
   const factory Settings({
     required int numberOfPlayers,
-    required bool enableDayTimer,
-    required int dayTime,
-    required int nightTime,
-    required Map<GameRole, int> roles,
+    required GameTimer gameTimer,
+    @Default({}) Map<GameRole, int> roles,
     required bool firstNightIntroduction,
     required bool firstDayVote,
   }) = _Settings;
