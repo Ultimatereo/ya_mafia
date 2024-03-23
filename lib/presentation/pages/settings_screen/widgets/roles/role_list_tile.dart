@@ -6,6 +6,7 @@ import 'package:ya_mafia/presentation/blocs/settings_bloc/settings_bloc.dart';
 
 import '../../../../../core/constants.dart';
 import '../../../../../data/enums/game_role.dart';
+import '../info_dialog.dart';
 
 class RoleListTile extends StatelessWidget {
   const RoleListTile({
@@ -30,7 +31,19 @@ class RoleListTile extends StatelessWidget {
           Icons.info_outline,
           color: context.listTileTextStyle.color,
         ),
-        onPressed: () {},
+        onPressed: () {
+          showDialog(
+            context: context,
+            barrierDismissible: true,
+            builder: (context) {
+              return InfoDialog(
+                icon: Icons.person,
+                title: role.name(context),
+                subtitle: role.description(context),
+              );
+            },
+          );
+        },
       ),
       title: Text(
         role.name(context),

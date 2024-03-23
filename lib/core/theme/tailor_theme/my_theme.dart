@@ -21,7 +21,10 @@ class MyTheme extends ThemeExtension<MyTheme> with _$MyThemeTailorMixin {
       required this.headline2,
       required this.numbersStyle,
       required this.listTileTextStyle,
-      required this.headline3});
+      required this.headline3,
+      required this.dialogTitleStyle,
+      required this.dialogSubtitleStyle,
+      required this.dialogActionStyle});
 
   @override
   final Color green;
@@ -49,4 +52,10 @@ class MyTheme extends ThemeExtension<MyTheme> with _$MyThemeTailorMixin {
   final TextStyle listTileTextStyle;
   @override
   final TextStyle headline3;
+  @override
+  final TextStyle dialogTitleStyle;
+  @override
+  final TextStyle dialogSubtitleStyle;
+  @override
+  final TextStyle dialogActionStyle;
 }

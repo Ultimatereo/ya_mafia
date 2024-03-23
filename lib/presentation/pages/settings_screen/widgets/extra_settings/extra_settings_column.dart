@@ -5,6 +5,7 @@ import 'package:ya_mafia/core/theme/tailor_theme/my_theme.dart';
 import '../../../../../core/constants.dart';
 import '../../../../../zgen/i18n/strings.g.dart';
 import '../../../../blocs/settings_bloc/settings_bloc.dart';
+import '../info_dialog.dart';
 import 'extra_settings_list_tile.dart';
 
 class ExtraSettingsColumn extends StatelessWidget {
@@ -28,9 +29,21 @@ class ExtraSettingsColumn extends StatelessWidget {
           height: appPadding,
         ),
         ExtraSettingsListTile(
-          text: context.t.extraSettings.firstNightIntro,
+          text: context.t.extraSettings.firstNightIntro.title,
           value: firstNightIntroduction,
-          infoFunction: () {},
+          infoFunction: () {
+            showDialog(
+              context: context,
+              barrierDismissible: true,
+              builder: (context) {
+                return InfoDialog(
+                  icon: Icons.people,
+                  title: context.t.extraSettings.firstNightIntro.title,
+                  subtitle: context.t.extraSettings.firstNightIntro.subtitle,
+                );
+              },
+            );
+          },
           mainFunction: () {
             context.read<SettingsBloc>().add(
                 SettingsEvent.toggleFirstNightIntro(firstNightIntroduction));
@@ -40,9 +53,21 @@ class ExtraSettingsColumn extends StatelessWidget {
           height: 3,
         ),
         ExtraSettingsListTile(
-          text: context.t.extraSettings.firstDayVoting,
+          text: context.t.extraSettings.firstDayVoting.title,
           value: firstDayVote,
-          infoFunction: () {},
+          infoFunction: () {
+            showDialog(
+              context: context,
+              barrierDismissible: true,
+              builder: (context) {
+                return InfoDialog(
+                  icon: Icons.people,
+                  title: context.t.extraSettings.firstDayVoting.title,
+                  subtitle: context.t.extraSettings.firstDayVoting.subtitle,
+                );
+              },
+            );
+          },
           mainFunction: () {
             context
                 .read<SettingsBloc>()
