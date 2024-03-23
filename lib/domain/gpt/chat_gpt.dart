@@ -23,7 +23,7 @@ class ChatGPT {
   final String apiKey;
 
   /// History of interactions with the ChatGPT assistant.
-  List<Map<String, String>> history = [];
+  final List<Map<String, String>> history = [];
 
   /// Dio instance for making HTTP requests.
   late final Dio dio;
@@ -87,6 +87,6 @@ class ChatGPT {
   }
 
   void forget() {
-    history = [];
+    history.clear();
   }
 }
