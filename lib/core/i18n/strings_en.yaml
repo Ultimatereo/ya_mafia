@@ -45,3 +45,6 @@ home:
   rules: Game rules
 
 accepted: Accepted!
+
+buttonText:
+  weAreReady: We are ready!

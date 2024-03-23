@@ -45,3 +45,6 @@ home:
   rules: Правила игры
 
 accepted: Принято!
+
+buttonText:
+  weAreReady: Мы готовы!
