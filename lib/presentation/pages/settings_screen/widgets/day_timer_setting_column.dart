@@ -3,25 +3,28 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ya_mafia/core/theme/tailor_theme/my_theme.dart';
 
 import '../../../../core/constants.dart';
+import '../../../../data/enums/day_night.dart';
 import '../../../../zgen/i18n/strings.g.dart';
 import '../../../blocs/settings_bloc/settings_bloc.dart';
-import 'arrow_back_iconbutton.dart';
-import 'arrow_forward_iconbutton.dart';
 import 'numbers_container.dart';
+import 'timer/arrow_back_iconbutton.dart';
+import 'timer/arrow_forward_iconbutton.dart';
 
-class DayTimeSettingColumn extends StatelessWidget {
-  const DayTimeSettingColumn({
+class TimeSettingColumn extends StatelessWidget {
+  const TimeSettingColumn({
     super.key,
     required this.dayTimeInSec,
+    required this.dayNight,
   });
 
+  final DayNight dayNight;
   final int? dayTimeInSec;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Text(context.t.day, style: context.headline2),
+        Text(dayNight.name(context), style: context.headline2),
         const SizedBox(
           height: appPadding,
         ),
@@ -31,7 +34,7 @@ class DayTimeSettingColumn extends StatelessWidget {
             ArrowBackIconButton(onPressed: () {
               context
                   .read<SettingsBloc>()
-                  .add(const SettingsEvent.decrementDayTimeCount());
+                  .add(SettingsEvent.decrementTimeCount(dayNight));
             }),
             Column(
               children: [
@@ -66,14 +69,10 @@ class DayTimeSettingColumn extends StatelessWidget {
             ArrowForwardIconButton(onPressed: () {
               context
                   .read<SettingsBloc>()
-                  .add(const SettingsEvent.incrementDayTimeCount());
+                  .add(SettingsEvent.incrementTimeCount(dayNight));
             }),
           ],
         ),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [],
-        )
       ],
     );
   }
