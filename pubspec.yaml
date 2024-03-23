@@ -36,6 +36,7 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/images/avatars/
 
   fonts:
     - family: Oswald

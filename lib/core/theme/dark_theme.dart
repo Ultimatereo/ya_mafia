@@ -5,6 +5,10 @@ import 'package:ya_mafia/core/theme/tailor_theme/my_theme.dart';
 import 'package:ya_mafia/core/theme/text_theme.dart';
 
 final ThemeData darkTheme = ThemeData(
+  colorScheme: const ColorScheme.dark(
+    primary: green,
+    secondary: yellow,
+  ),
   brightness: Brightness.dark,
   textButtonTheme: TextButtonThemeData(
     style: TextButton.styleFrom(
@@ -35,6 +39,7 @@ final ThemeData darkTheme = ThemeData(
       brownMainDark: brownMainDark,
       mainLight: mainLight,
       mainLightLight: mainLightLight,
+      cardColor: darkCardColor,
       headline1: text28Bold.copyWith(color: Colors.white),
       headline1Yellow: text28Bold.copyWith(color: yellow),
       headline2: text20.copyWith(color: yellow),
@@ -44,9 +49,11 @@ final ThemeData darkTheme = ThemeData(
         color: Colors.white,
       ),
       headline3: text20.copyWith(color: Colors.white),
+      headline4: text24.copyWith(color: Colors.white),
       dialogTitleStyle: text24.copyWith(color: brownMainDark),
       dialogSubtitleStyle: text16.copyWith(color: brownMain),
       dialogActionStyle: text20.copyWith(color: brownMainDark),
+      cardDescryptionTextStyle: text20.copyWith(color: yellow),
     ),
   ],
 );
