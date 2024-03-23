@@ -21,8 +21,12 @@ mixin _$SettingsEvent {
     required TResult Function() incrementPlayerCount,
     required TResult Function() decrementPlayerCount,
     required TResult Function(bool dayTimerEnabled) toggleDayTimer,
-    required TResult Function() incrementDayTimeCount,
-    required TResult Function() decrementDayTimeCount,
+    required TResult Function(DayNight dayNight) incrementTimeCount,
+    required TResult Function(DayNight dayNight) decrementTimeCount,
+    required TResult Function(GameRole gameRole) incrementGameRoleCount,
+    required TResult Function(GameRole gameRole) decrementGameRoleCount,
+    required TResult Function(bool firstNightIntro) toggleFirstNightIntro,
+    required TResult Function(bool firstDayVoting) toggleFirstDayVoting,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,8 +34,12 @@ mixin _$SettingsEvent {
     TResult? Function()? incrementPlayerCount,
     TResult? Function()? decrementPlayerCount,
     TResult? Function(bool dayTimerEnabled)? toggleDayTimer,
-    TResult? Function()? incrementDayTimeCount,
-    TResult? Function()? decrementDayTimeCount,
+    TResult? Function(DayNight dayNight)? incrementTimeCount,
+    TResult? Function(DayNight dayNight)? decrementTimeCount,
+    TResult? Function(GameRole gameRole)? incrementGameRoleCount,
+    TResult? Function(GameRole gameRole)? decrementGameRoleCount,
+    TResult? Function(bool firstNightIntro)? toggleFirstNightIntro,
+    TResult? Function(bool firstDayVoting)? toggleFirstDayVoting,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -39,8 +47,12 @@ mixin _$SettingsEvent {
     TResult Function()? incrementPlayerCount,
     TResult Function()? decrementPlayerCount,
     TResult Function(bool dayTimerEnabled)? toggleDayTimer,
-    TResult Function()? incrementDayTimeCount,
-    TResult Function()? decrementDayTimeCount,
+    TResult Function(DayNight dayNight)? incrementTimeCount,
+    TResult Function(DayNight dayNight)? decrementTimeCount,
+    TResult Function(GameRole gameRole)? incrementGameRoleCount,
+    TResult Function(GameRole gameRole)? decrementGameRoleCount,
+    TResult Function(bool firstNightIntro)? toggleFirstNightIntro,
+    TResult Function(bool firstDayVoting)? toggleFirstDayVoting,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -49,10 +61,15 @@ mixin _$SettingsEvent {
     required TResult Function(_IncrementPlayerCount value) incrementPlayerCount,
     required TResult Function(_DecrementPlayerCount value) decrementPlayerCount,
     required TResult Function(_ToggleDayTimer value) toggleDayTimer,
-    required TResult Function(_IncrementDayTimeCount value)
-        incrementDayTimeCount,
-    required TResult Function(_DecrementDayTimeCount value)
-        decrementDayTimeCount,
+    required TResult Function(_IncrementTimeCount value) incrementTimeCount,
+    required TResult Function(_DecrementTimeCount value) decrementTimeCount,
+    required TResult Function(_IncrementGameRoleCount value)
+        incrementGameRoleCount,
+    required TResult Function(_DecrementGameRoleCount value)
+        decrementGameRoleCount,
+    required TResult Function(_ToggleFirstNightIntro value)
+        toggleFirstNightIntro,
+    required TResult Function(_ToggleFirstDayVoting value) toggleFirstDayVoting,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,8 +77,12 @@ mixin _$SettingsEvent {
     TResult? Function(_IncrementPlayerCount value)? incrementPlayerCount,
     TResult? Function(_DecrementPlayerCount value)? decrementPlayerCount,
     TResult? Function(_ToggleDayTimer value)? toggleDayTimer,
-    TResult? Function(_IncrementDayTimeCount value)? incrementDayTimeCount,
-    TResult? Function(_DecrementDayTimeCount value)? decrementDayTimeCount,
+    TResult? Function(_IncrementTimeCount value)? incrementTimeCount,
+    TResult? Function(_DecrementTimeCount value)? decrementTimeCount,
+    TResult? Function(_IncrementGameRoleCount value)? incrementGameRoleCount,
+    TResult? Function(_DecrementGameRoleCount value)? decrementGameRoleCount,
+    TResult? Function(_ToggleFirstNightIntro value)? toggleFirstNightIntro,
+    TResult? Function(_ToggleFirstDayVoting value)? toggleFirstDayVoting,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,8 +90,12 @@ mixin _$SettingsEvent {
     TResult Function(_IncrementPlayerCount value)? incrementPlayerCount,
     TResult Function(_DecrementPlayerCount value)? decrementPlayerCount,
     TResult Function(_ToggleDayTimer value)? toggleDayTimer,
-    TResult Function(_IncrementDayTimeCount value)? incrementDayTimeCount,
-    TResult Function(_DecrementDayTimeCount value)? decrementDayTimeCount,
+    TResult Function(_IncrementTimeCount value)? incrementTimeCount,
+    TResult Function(_DecrementTimeCount value)? decrementTimeCount,
+    TResult Function(_IncrementGameRoleCount value)? incrementGameRoleCount,
+    TResult Function(_DecrementGameRoleCount value)? decrementGameRoleCount,
+    TResult Function(_ToggleFirstNightIntro value)? toggleFirstNightIntro,
+    TResult Function(_ToggleFirstDayVoting value)? toggleFirstDayVoting,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -136,8 +161,12 @@ class _$IncrementPlayerCountImpl implements _IncrementPlayerCount {
     required TResult Function() incrementPlayerCount,
     required TResult Function() decrementPlayerCount,
     required TResult Function(bool dayTimerEnabled) toggleDayTimer,
-    required TResult Function() incrementDayTimeCount,
-    required TResult Function() decrementDayTimeCount,
+    required TResult Function(DayNight dayNight) incrementTimeCount,
+    required TResult Function(DayNight dayNight) decrementTimeCount,
+    required TResult Function(GameRole gameRole) incrementGameRoleCount,
+    required TResult Function(GameRole gameRole) decrementGameRoleCount,
+    required TResult Function(bool firstNightIntro) toggleFirstNightIntro,
+    required TResult Function(bool firstDayVoting) toggleFirstDayVoting,
   }) {
     return incrementPlayerCount();
   }
@@ -148,8 +177,12 @@ class _$IncrementPlayerCountImpl implements _IncrementPlayerCount {
     TResult? Function()? incrementPlayerCount,
     TResult? Function()? decrementPlayerCount,
     TResult? Function(bool dayTimerEnabled)? toggleDayTimer,
-    TResult? Function()? incrementDayTimeCount,
-    TResult? Function()? decrementDayTimeCount,
+    TResult? Function(DayNight dayNight)? incrementTimeCount,
+    TResult? Function(DayNight dayNight)? decrementTimeCount,
+    TResult? Function(GameRole gameRole)? incrementGameRoleCount,
+    TResult? Function(GameRole gameRole)? decrementGameRoleCount,
+    TResult? Function(bool firstNightIntro)? toggleFirstNightIntro,
+    TResult? Function(bool firstDayVoting)? toggleFirstDayVoting,
   }) {
     return incrementPlayerCount?.call();
   }
@@ -160,8 +193,12 @@ class _$IncrementPlayerCountImpl implements _IncrementPlayerCount {
     TResult Function()? incrementPlayerCount,
     TResult Function()? decrementPlayerCount,
     TResult Function(bool dayTimerEnabled)? toggleDayTimer,
-    TResult Function()? incrementDayTimeCount,
-    TResult Function()? decrementDayTimeCount,
+    TResult Function(DayNight dayNight)? incrementTimeCount,
+    TResult Function(DayNight dayNight)? decrementTimeCount,
+    TResult Function(GameRole gameRole)? incrementGameRoleCount,
+    TResult Function(GameRole gameRole)? decrementGameRoleCount,
+    TResult Function(bool firstNightIntro)? toggleFirstNightIntro,
+    TResult Function(bool firstDayVoting)? toggleFirstDayVoting,
     required TResult orElse(),
   }) {
     if (incrementPlayerCount != null) {
@@ -176,10 +213,15 @@ class _$IncrementPlayerCountImpl implements _IncrementPlayerCount {
     required TResult Function(_IncrementPlayerCount value) incrementPlayerCount,
     required TResult Function(_DecrementPlayerCount value) decrementPlayerCount,
     required TResult Function(_ToggleDayTimer value) toggleDayTimer,
-    required TResult Function(_IncrementDayTimeCount value)
-        incrementDayTimeCount,
-    required TResult Function(_DecrementDayTimeCount value)
-        decrementDayTimeCount,
+    required TResult Function(_IncrementTimeCount value) incrementTimeCount,
+    required TResult Function(_DecrementTimeCount value) decrementTimeCount,
+    required TResult Function(_IncrementGameRoleCount value)
+        incrementGameRoleCount,
+    required TResult Function(_DecrementGameRoleCount value)
+        decrementGameRoleCount,
+    required TResult Function(_ToggleFirstNightIntro value)
+        toggleFirstNightIntro,
+    required TResult Function(_ToggleFirstDayVoting value) toggleFirstDayVoting,
   }) {
     return incrementPlayerCount(this);
   }
@@ -190,8 +232,12 @@ class _$IncrementPlayerCountImpl implements _IncrementPlayerCount {
     TResult? Function(_IncrementPlayerCount value)? incrementPlayerCount,
     TResult? Function(_DecrementPlayerCount value)? decrementPlayerCount,
     TResult? Function(_ToggleDayTimer value)? toggleDayTimer,
-    TResult? Function(_IncrementDayTimeCount value)? incrementDayTimeCount,
-    TResult? Function(_DecrementDayTimeCount value)? decrementDayTimeCount,
+    TResult? Function(_IncrementTimeCount value)? incrementTimeCount,
+    TResult? Function(_DecrementTimeCount value)? decrementTimeCount,
+    TResult? Function(_IncrementGameRoleCount value)? incrementGameRoleCount,
+    TResult? Function(_DecrementGameRoleCount value)? decrementGameRoleCount,
+    TResult? Function(_ToggleFirstNightIntro value)? toggleFirstNightIntro,
+    TResult? Function(_ToggleFirstDayVoting value)? toggleFirstDayVoting,
   }) {
     return incrementPlayerCount?.call(this);
   }
@@ -202,8 +248,12 @@ class _$IncrementPlayerCountImpl implements _IncrementPlayerCount {
     TResult Function(_IncrementPlayerCount value)? incrementPlayerCount,
     TResult Function(_DecrementPlayerCount value)? decrementPlayerCount,
     TResult Function(_ToggleDayTimer value)? toggleDayTimer,
-    TResult Function(_IncrementDayTimeCount value)? incrementDayTimeCount,
-    TResult Function(_DecrementDayTimeCount value)? decrementDayTimeCount,
+    TResult Function(_IncrementTimeCount value)? incrementTimeCount,
+    TResult Function(_DecrementTimeCount value)? decrementTimeCount,
+    TResult Function(_IncrementGameRoleCount value)? incrementGameRoleCount,
+    TResult Function(_DecrementGameRoleCount value)? decrementGameRoleCount,
+    TResult Function(_ToggleFirstNightIntro value)? toggleFirstNightIntro,
+    TResult Function(_ToggleFirstDayVoting value)? toggleFirstDayVoting,
     required TResult orElse(),
   }) {
     if (incrementPlayerCount != null) {
@@ -259,8 +309,12 @@ class _$DecrementPlayerCountImpl implements _DecrementPlayerCount {
     required TResult Function() incrementPlayerCount,
     required TResult Function() decrementPlayerCount,
     required TResult Function(bool dayTimerEnabled) toggleDayTimer,
-    required TResult Function() incrementDayTimeCount,
-    required TResult Function() decrementDayTimeCount,
+    required TResult Function(DayNight dayNight) incrementTimeCount,
+    required TResult Function(DayNight dayNight) decrementTimeCount,
+    required TResult Function(GameRole gameRole) incrementGameRoleCount,
+    required TResult Function(GameRole gameRole) decrementGameRoleCount,
+    required TResult Function(bool firstNightIntro) toggleFirstNightIntro,
+    required TResult Function(bool firstDayVoting) toggleFirstDayVoting,
   }) {
     return decrementPlayerCount();
   }
@@ -271,8 +325,12 @@ class _$DecrementPlayerCountImpl implements _DecrementPlayerCount {
     TResult? Function()? incrementPlayerCount,
     TResult? Function()? decrementPlayerCount,
     TResult? Function(bool dayTimerEnabled)? toggleDayTimer,
-    TResult? Function()? incrementDayTimeCount,
-    TResult? Function()? decrementDayTimeCount,
+    TResult? Function(DayNight dayNight)? incrementTimeCount,
+    TResult? Function(DayNight dayNight)? decrementTimeCount,
+    TResult? Function(GameRole gameRole)? incrementGameRoleCount,
+    TResult? Function(GameRole gameRole)? decrementGameRoleCount,
+    TResult? Function(bool firstNightIntro)? toggleFirstNightIntro,
+    TResult? Function(bool firstDayVoting)? toggleFirstDayVoting,
   }) {
     return decrementPlayerCount?.call();
   }
@@ -283,8 +341,12 @@ class _$DecrementPlayerCountImpl implements _DecrementPlayerCount {
     TResult Function()? incrementPlayerCount,
     TResult Function()? decrementPlayerCount,
     TResult Function(bool dayTimerEnabled)? toggleDayTimer,
-    TResult Function()? incrementDayTimeCount,
-    TResult Function()? decrementDayTimeCount,
+    TResult Function(DayNight dayNight)? incrementTimeCount,
+    TResult Function(DayNight dayNight)? decrementTimeCount,
+    TResult Function(GameRole gameRole)? incrementGameRoleCount,
+    TResult Function(GameRole gameRole)? decrementGameRoleCount,
+    TResult Function(bool firstNightIntro)? toggleFirstNightIntro,
+    TResult Function(bool firstDayVoting)? toggleFirstDayVoting,
     required TResult orElse(),
   }) {
     if (decrementPlayerCount != null) {
@@ -299,10 +361,15 @@ class _$DecrementPlayerCountImpl implements _DecrementPlayerCount {
     required TResult Function(_IncrementPlayerCount value) incrementPlayerCount,
     required TResult Function(_DecrementPlayerCount value) decrementPlayerCount,
     required TResult Function(_ToggleDayTimer value) toggleDayTimer,
-    required TResult Function(_IncrementDayTimeCount value)
-        incrementDayTimeCount,
-    required TResult Function(_DecrementDayTimeCount value)
-        decrementDayTimeCount,
+    required TResult Function(_IncrementTimeCount value) incrementTimeCount,
+    required TResult Function(_DecrementTimeCount value) decrementTimeCount,
+    required TResult Function(_IncrementGameRoleCount value)
+        incrementGameRoleCount,
+    required TResult Function(_DecrementGameRoleCount value)
+        decrementGameRoleCount,
+    required TResult Function(_ToggleFirstNightIntro value)
+        toggleFirstNightIntro,
+    required TResult Function(_ToggleFirstDayVoting value) toggleFirstDayVoting,
   }) {
     return decrementPlayerCount(this);
   }
@@ -313,8 +380,12 @@ class _$DecrementPlayerCountImpl implements _DecrementPlayerCount {
     TResult? Function(_IncrementPlayerCount value)? incrementPlayerCount,
     TResult? Function(_DecrementPlayerCount value)? decrementPlayerCount,
     TResult? Function(_ToggleDayTimer value)? toggleDayTimer,
-    TResult? Function(_IncrementDayTimeCount value)? incrementDayTimeCount,
-    TResult? Function(_DecrementDayTimeCount value)? decrementDayTimeCount,
+    TResult? Function(_IncrementTimeCount value)? incrementTimeCount,
+    TResult? Function(_DecrementTimeCount value)? decrementTimeCount,
+    TResult? Function(_IncrementGameRoleCount value)? incrementGameRoleCount,
+    TResult? Function(_DecrementGameRoleCount value)? decrementGameRoleCount,
+    TResult? Function(_ToggleFirstNightIntro value)? toggleFirstNightIntro,
+    TResult? Function(_ToggleFirstDayVoting value)? toggleFirstDayVoting,
   }) {
     return decrementPlayerCount?.call(this);
   }
@@ -325,8 +396,12 @@ class _$DecrementPlayerCountImpl implements _DecrementPlayerCount {
     TResult Function(_IncrementPlayerCount value)? incrementPlayerCount,
     TResult Function(_DecrementPlayerCount value)? decrementPlayerCount,
     TResult Function(_ToggleDayTimer value)? toggleDayTimer,
-    TResult Function(_IncrementDayTimeCount value)? incrementDayTimeCount,
-    TResult Function(_DecrementDayTimeCount value)? decrementDayTimeCount,
+    TResult Function(_IncrementTimeCount value)? incrementTimeCount,
+    TResult Function(_DecrementTimeCount value)? decrementTimeCount,
+    TResult Function(_IncrementGameRoleCount value)? incrementGameRoleCount,
+    TResult Function(_DecrementGameRoleCount value)? decrementGameRoleCount,
+    TResult Function(_ToggleFirstNightIntro value)? toggleFirstNightIntro,
+    TResult Function(_ToggleFirstDayVoting value)? toggleFirstDayVoting,
     required TResult orElse(),
   }) {
     if (decrementPlayerCount != null) {
@@ -409,8 +484,12 @@ class _$ToggleDayTimerImpl implements _ToggleDayTimer {
     required TResult Function() incrementPlayerCount,
     required TResult Function() decrementPlayerCount,
     required TResult Function(bool dayTimerEnabled) toggleDayTimer,
-    required TResult Function() incrementDayTimeCount,
-    required TResult Function() decrementDayTimeCount,
+    required TResult Function(DayNight dayNight) incrementTimeCount,
+    required TResult Function(DayNight dayNight) decrementTimeCount,
+    required TResult Function(GameRole gameRole) incrementGameRoleCount,
+    required TResult Function(GameRole gameRole) decrementGameRoleCount,
+    required TResult Function(bool firstNightIntro) toggleFirstNightIntro,
+    required TResult Function(bool firstDayVoting) toggleFirstDayVoting,
   }) {
     return toggleDayTimer(dayTimerEnabled);
   }
@@ -421,8 +500,12 @@ class _$ToggleDayTimerImpl implements _ToggleDayTimer {
     TResult? Function()? incrementPlayerCount,
     TResult? Function()? decrementPlayerCount,
     TResult? Function(bool dayTimerEnabled)? toggleDayTimer,
-    TResult? Function()? incrementDayTimeCount,
-    TResult? Function()? decrementDayTimeCount,
+    TResult? Function(DayNight dayNight)? incrementTimeCount,
+    TResult? Function(DayNight dayNight)? decrementTimeCount,
+    TResult? Function(GameRole gameRole)? incrementGameRoleCount,
+    TResult? Function(GameRole gameRole)? decrementGameRoleCount,
+    TResult? Function(bool firstNightIntro)? toggleFirstNightIntro,
+    TResult? Function(bool firstDayVoting)? toggleFirstDayVoting,
   }) {
     return toggleDayTimer?.call(dayTimerEnabled);
   }
@@ -433,8 +516,12 @@ class _$ToggleDayTimerImpl implements _ToggleDayTimer {
     TResult Function()? incrementPlayerCount,
     TResult Function()? decrementPlayerCount,
     TResult Function(bool dayTimerEnabled)? toggleDayTimer,
-    TResult Function()? incrementDayTimeCount,
-    TResult Function()? decrementDayTimeCount,
+    TResult Function(DayNight dayNight)? incrementTimeCount,
+    TResult Function(DayNight dayNight)? decrementTimeCount,
+    TResult Function(GameRole gameRole)? incrementGameRoleCount,
+    TResult Function(GameRole gameRole)? decrementGameRoleCount,
+    TResult Function(bool firstNightIntro)? toggleFirstNightIntro,
+    TResult Function(bool firstDayVoting)? toggleFirstDayVoting,
     required TResult orElse(),
   }) {
     if (toggleDayTimer != null) {
@@ -449,10 +536,15 @@ class _$ToggleDayTimerImpl implements _ToggleDayTimer {
     required TResult Function(_IncrementPlayerCount value) incrementPlayerCount,
     required TResult Function(_DecrementPlayerCount value) decrementPlayerCount,
     required TResult Function(_ToggleDayTimer value) toggleDayTimer,
-    required TResult Function(_IncrementDayTimeCount value)
-        incrementDayTimeCount,
-    required TResult Function(_DecrementDayTimeCount value)
-        decrementDayTimeCount,
+    required TResult Function(_IncrementTimeCount value) incrementTimeCount,
+    required TResult Function(_DecrementTimeCount value) decrementTimeCount,
+    required TResult Function(_IncrementGameRoleCount value)
+        incrementGameRoleCount,
+    required TResult Function(_DecrementGameRoleCount value)
+        decrementGameRoleCount,
+    required TResult Function(_ToggleFirstNightIntro value)
+        toggleFirstNightIntro,
+    required TResult Function(_ToggleFirstDayVoting value) toggleFirstDayVoting,
   }) {
     return toggleDayTimer(this);
   }
@@ -463,8 +555,12 @@ class _$ToggleDayTimerImpl implements _ToggleDayTimer {
     TResult? Function(_IncrementPlayerCount value)? incrementPlayerCount,
     TResult? Function(_DecrementPlayerCount value)? decrementPlayerCount,
     TResult? Function(_ToggleDayTimer value)? toggleDayTimer,
-    TResult? Function(_IncrementDayTimeCount value)? incrementDayTimeCount,
-    TResult? Function(_DecrementDayTimeCount value)? decrementDayTimeCount,
+    TResult? Function(_IncrementTimeCount value)? incrementTimeCount,
+    TResult? Function(_DecrementTimeCount value)? decrementTimeCount,
+    TResult? Function(_IncrementGameRoleCount value)? incrementGameRoleCount,
+    TResult? Function(_DecrementGameRoleCount value)? decrementGameRoleCount,
+    TResult? Function(_ToggleFirstNightIntro value)? toggleFirstNightIntro,
+    TResult? Function(_ToggleFirstDayVoting value)? toggleFirstDayVoting,
   }) {
     return toggleDayTimer?.call(this);
   }
@@ -475,8 +571,12 @@ class _$ToggleDayTimerImpl implements _ToggleDayTimer {
     TResult Function(_IncrementPlayerCount value)? incrementPlayerCount,
     TResult Function(_DecrementPlayerCount value)? decrementPlayerCount,
     TResult Function(_ToggleDayTimer value)? toggleDayTimer,
-    TResult Function(_IncrementDayTimeCount value)? incrementDayTimeCount,
-    TResult Function(_DecrementDayTimeCount value)? decrementDayTimeCount,
+    TResult Function(_IncrementTimeCount value)? incrementTimeCount,
+    TResult Function(_DecrementTimeCount value)? decrementTimeCount,
+    TResult Function(_IncrementGameRoleCount value)? incrementGameRoleCount,
+    TResult Function(_DecrementGameRoleCount value)? decrementGameRoleCount,
+    TResult Function(_ToggleFirstNightIntro value)? toggleFirstNightIntro,
+    TResult Function(_ToggleFirstDayVoting value)? toggleFirstDayVoting,
     required TResult orElse(),
   }) {
     if (toggleDayTimer != null) {
@@ -497,41 +597,67 @@ abstract class _ToggleDayTimer implements SettingsEvent {
 }
 
 /// @nodoc
-abstract class _$$IncrementDayTimeCountImplCopyWith<$Res> {
-  factory _$$IncrementDayTimeCountImplCopyWith(
-          _$IncrementDayTimeCountImpl value,
-          $Res Function(_$IncrementDayTimeCountImpl) then) =
-      __$$IncrementDayTimeCountImplCopyWithImpl<$Res>;
+abstract class _$$IncrementTimeCountImplCopyWith<$Res> {
+  factory _$$IncrementTimeCountImplCopyWith(_$IncrementTimeCountImpl value,
+          $Res Function(_$IncrementTimeCountImpl) then) =
+      __$$IncrementTimeCountImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({DayNight dayNight});
 }
 
 /// @nodoc
-class __$$IncrementDayTimeCountImplCopyWithImpl<$Res>
-    extends _$SettingsEventCopyWithImpl<$Res, _$IncrementDayTimeCountImpl>
-    implements _$$IncrementDayTimeCountImplCopyWith<$Res> {
-  __$$IncrementDayTimeCountImplCopyWithImpl(_$IncrementDayTimeCountImpl _value,
-      $Res Function(_$IncrementDayTimeCountImpl) _then)
+class __$$IncrementTimeCountImplCopyWithImpl<$Res>
+    extends _$SettingsEventCopyWithImpl<$Res, _$IncrementTimeCountImpl>
+    implements _$$IncrementTimeCountImplCopyWith<$Res> {
+  __$$IncrementTimeCountImplCopyWithImpl(_$IncrementTimeCountImpl _value,
+      $Res Function(_$IncrementTimeCountImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? dayNight = null,
+  }) {
+    return _then(_$IncrementTimeCountImpl(
+      null == dayNight
+          ? _value.dayNight
+          : dayNight // ignore: cast_nullable_to_non_nullable
+              as DayNight,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$IncrementDayTimeCountImpl implements _IncrementDayTimeCount {
-  const _$IncrementDayTimeCountImpl();
+class _$IncrementTimeCountImpl implements _IncrementTimeCount {
+  const _$IncrementTimeCountImpl(this.dayNight);
+
+  @override
+  final DayNight dayNight;
 
   @override
   String toString() {
-    return 'SettingsEvent.incrementDayTimeCount()';
+    return 'SettingsEvent.incrementTimeCount(dayNight: $dayNight)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$IncrementDayTimeCountImpl);
+            other is _$IncrementTimeCountImpl &&
+            (identical(other.dayNight, dayNight) ||
+                other.dayNight == dayNight));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, dayNight);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$IncrementTimeCountImplCopyWith<_$IncrementTimeCountImpl> get copyWith =>
+      __$$IncrementTimeCountImplCopyWithImpl<_$IncrementTimeCountImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -539,10 +665,14 @@ class _$IncrementDayTimeCountImpl implements _IncrementDayTimeCount {
     required TResult Function() incrementPlayerCount,
     required TResult Function() decrementPlayerCount,
     required TResult Function(bool dayTimerEnabled) toggleDayTimer,
-    required TResult Function() incrementDayTimeCount,
-    required TResult Function() decrementDayTimeCount,
+    required TResult Function(DayNight dayNight) incrementTimeCount,
+    required TResult Function(DayNight dayNight) decrementTimeCount,
+    required TResult Function(GameRole gameRole) incrementGameRoleCount,
+    required TResult Function(GameRole gameRole) decrementGameRoleCount,
+    required TResult Function(bool firstNightIntro) toggleFirstNightIntro,
+    required TResult Function(bool firstDayVoting) toggleFirstDayVoting,
   }) {
-    return incrementDayTimeCount();
+    return incrementTimeCount(dayNight);
   }
 
   @override
@@ -551,10 +681,14 @@ class _$IncrementDayTimeCountImpl implements _IncrementDayTimeCount {
     TResult? Function()? incrementPlayerCount,
     TResult? Function()? decrementPlayerCount,
     TResult? Function(bool dayTimerEnabled)? toggleDayTimer,
-    TResult? Function()? incrementDayTimeCount,
-    TResult? Function()? decrementDayTimeCount,
+    TResult? Function(DayNight dayNight)? incrementTimeCount,
+    TResult? Function(DayNight dayNight)? decrementTimeCount,
+    TResult? Function(GameRole gameRole)? incrementGameRoleCount,
+    TResult? Function(GameRole gameRole)? decrementGameRoleCount,
+    TResult? Function(bool firstNightIntro)? toggleFirstNightIntro,
+    TResult? Function(bool firstDayVoting)? toggleFirstDayVoting,
   }) {
-    return incrementDayTimeCount?.call();
+    return incrementTimeCount?.call(dayNight);
   }
 
   @override
@@ -563,12 +697,16 @@ class _$IncrementDayTimeCountImpl implements _IncrementDayTimeCount {
     TResult Function()? incrementPlayerCount,
     TResult Function()? decrementPlayerCount,
     TResult Function(bool dayTimerEnabled)? toggleDayTimer,
-    TResult Function()? incrementDayTimeCount,
-    TResult Function()? decrementDayTimeCount,
+    TResult Function(DayNight dayNight)? incrementTimeCount,
+    TResult Function(DayNight dayNight)? decrementTimeCount,
+    TResult Function(GameRole gameRole)? incrementGameRoleCount,
+    TResult Function(GameRole gameRole)? decrementGameRoleCount,
+    TResult Function(bool firstNightIntro)? toggleFirstNightIntro,
+    TResult Function(bool firstDayVoting)? toggleFirstDayVoting,
     required TResult orElse(),
   }) {
-    if (incrementDayTimeCount != null) {
-      return incrementDayTimeCount();
+    if (incrementTimeCount != null) {
+      return incrementTimeCount(dayNight);
     }
     return orElse();
   }
@@ -579,12 +717,17 @@ class _$IncrementDayTimeCountImpl implements _IncrementDayTimeCount {
     required TResult Function(_IncrementPlayerCount value) incrementPlayerCount,
     required TResult Function(_DecrementPlayerCount value) decrementPlayerCount,
     required TResult Function(_ToggleDayTimer value) toggleDayTimer,
-    required TResult Function(_IncrementDayTimeCount value)
-        incrementDayTimeCount,
-    required TResult Function(_DecrementDayTimeCount value)
-        decrementDayTimeCount,
+    required TResult Function(_IncrementTimeCount value) incrementTimeCount,
+    required TResult Function(_DecrementTimeCount value) decrementTimeCount,
+    required TResult Function(_IncrementGameRoleCount value)
+        incrementGameRoleCount,
+    required TResult Function(_DecrementGameRoleCount value)
+        decrementGameRoleCount,
+    required TResult Function(_ToggleFirstNightIntro value)
+        toggleFirstNightIntro,
+    required TResult Function(_ToggleFirstDayVoting value) toggleFirstDayVoting,
   }) {
-    return incrementDayTimeCount(this);
+    return incrementTimeCount(this);
   }
 
   @override
@@ -593,10 +736,14 @@ class _$IncrementDayTimeCountImpl implements _IncrementDayTimeCount {
     TResult? Function(_IncrementPlayerCount value)? incrementPlayerCount,
     TResult? Function(_DecrementPlayerCount value)? decrementPlayerCount,
     TResult? Function(_ToggleDayTimer value)? toggleDayTimer,
-    TResult? Function(_IncrementDayTimeCount value)? incrementDayTimeCount,
-    TResult? Function(_DecrementDayTimeCount value)? decrementDayTimeCount,
+    TResult? Function(_IncrementTimeCount value)? incrementTimeCount,
+    TResult? Function(_DecrementTimeCount value)? decrementTimeCount,
+    TResult? Function(_IncrementGameRoleCount value)? incrementGameRoleCount,
+    TResult? Function(_DecrementGameRoleCount value)? decrementGameRoleCount,
+    TResult? Function(_ToggleFirstNightIntro value)? toggleFirstNightIntro,
+    TResult? Function(_ToggleFirstDayVoting value)? toggleFirstDayVoting,
   }) {
-    return incrementDayTimeCount?.call(this);
+    return incrementTimeCount?.call(this);
   }
 
   @override
@@ -605,57 +752,93 @@ class _$IncrementDayTimeCountImpl implements _IncrementDayTimeCount {
     TResult Function(_IncrementPlayerCount value)? incrementPlayerCount,
     TResult Function(_DecrementPlayerCount value)? decrementPlayerCount,
     TResult Function(_ToggleDayTimer value)? toggleDayTimer,
-    TResult Function(_IncrementDayTimeCount value)? incrementDayTimeCount,
-    TResult Function(_DecrementDayTimeCount value)? decrementDayTimeCount,
+    TResult Function(_IncrementTimeCount value)? incrementTimeCount,
+    TResult Function(_DecrementTimeCount value)? decrementTimeCount,
+    TResult Function(_IncrementGameRoleCount value)? incrementGameRoleCount,
+    TResult Function(_DecrementGameRoleCount value)? decrementGameRoleCount,
+    TResult Function(_ToggleFirstNightIntro value)? toggleFirstNightIntro,
+    TResult Function(_ToggleFirstDayVoting value)? toggleFirstDayVoting,
     required TResult orElse(),
   }) {
-    if (incrementDayTimeCount != null) {
-      return incrementDayTimeCount(this);
+    if (incrementTimeCount != null) {
+      return incrementTimeCount(this);
     }
     return orElse();
   }
 }
 
-abstract class _IncrementDayTimeCount implements SettingsEvent {
-  const factory _IncrementDayTimeCount() = _$IncrementDayTimeCountImpl;
+abstract class _IncrementTimeCount implements SettingsEvent {
+  const factory _IncrementTimeCount(final DayNight dayNight) =
+      _$IncrementTimeCountImpl;
+
+  DayNight get dayNight;
+  @JsonKey(ignore: true)
+  _$$IncrementTimeCountImplCopyWith<_$IncrementTimeCountImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$DecrementDayTimeCountImplCopyWith<$Res> {
-  factory _$$DecrementDayTimeCountImplCopyWith(
-          _$DecrementDayTimeCountImpl value,
-          $Res Function(_$DecrementDayTimeCountImpl) then) =
-      __$$DecrementDayTimeCountImplCopyWithImpl<$Res>;
+abstract class _$$DecrementTimeCountImplCopyWith<$Res> {
+  factory _$$DecrementTimeCountImplCopyWith(_$DecrementTimeCountImpl value,
+          $Res Function(_$DecrementTimeCountImpl) then) =
+      __$$DecrementTimeCountImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({DayNight dayNight});
 }
 
 /// @nodoc
-class __$$DecrementDayTimeCountImplCopyWithImpl<$Res>
-    extends _$SettingsEventCopyWithImpl<$Res, _$DecrementDayTimeCountImpl>
-    implements _$$DecrementDayTimeCountImplCopyWith<$Res> {
-  __$$DecrementDayTimeCountImplCopyWithImpl(_$DecrementDayTimeCountImpl _value,
-      $Res Function(_$DecrementDayTimeCountImpl) _then)
+class __$$DecrementTimeCountImplCopyWithImpl<$Res>
+    extends _$SettingsEventCopyWithImpl<$Res, _$DecrementTimeCountImpl>
+    implements _$$DecrementTimeCountImplCopyWith<$Res> {
+  __$$DecrementTimeCountImplCopyWithImpl(_$DecrementTimeCountImpl _value,
+      $Res Function(_$DecrementTimeCountImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? dayNight = null,
+  }) {
+    return _then(_$DecrementTimeCountImpl(
+      null == dayNight
+          ? _value.dayNight
+          : dayNight // ignore: cast_nullable_to_non_nullable
+              as DayNight,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$DecrementDayTimeCountImpl implements _DecrementDayTimeCount {
-  const _$DecrementDayTimeCountImpl();
+class _$DecrementTimeCountImpl implements _DecrementTimeCount {
+  const _$DecrementTimeCountImpl(this.dayNight);
+
+  @override
+  final DayNight dayNight;
 
   @override
   String toString() {
-    return 'SettingsEvent.decrementDayTimeCount()';
+    return 'SettingsEvent.decrementTimeCount(dayNight: $dayNight)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DecrementDayTimeCountImpl);
+            other is _$DecrementTimeCountImpl &&
+            (identical(other.dayNight, dayNight) ||
+                other.dayNight == dayNight));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, dayNight);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DecrementTimeCountImplCopyWith<_$DecrementTimeCountImpl> get copyWith =>
+      __$$DecrementTimeCountImplCopyWithImpl<_$DecrementTimeCountImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -663,10 +846,14 @@ class _$DecrementDayTimeCountImpl implements _DecrementDayTimeCount {
     required TResult Function() incrementPlayerCount,
     required TResult Function() decrementPlayerCount,
     required TResult Function(bool dayTimerEnabled) toggleDayTimer,
-    required TResult Function() incrementDayTimeCount,
-    required TResult Function() decrementDayTimeCount,
+    required TResult Function(DayNight dayNight) incrementTimeCount,
+    required TResult Function(DayNight dayNight) decrementTimeCount,
+    required TResult Function(GameRole gameRole) incrementGameRoleCount,
+    required TResult Function(GameRole gameRole) decrementGameRoleCount,
+    required TResult Function(bool firstNightIntro) toggleFirstNightIntro,
+    required TResult Function(bool firstDayVoting) toggleFirstDayVoting,
   }) {
-    return decrementDayTimeCount();
+    return decrementTimeCount(dayNight);
   }
 
   @override
@@ -675,10 +862,14 @@ class _$DecrementDayTimeCountImpl implements _DecrementDayTimeCount {
     TResult? Function()? incrementPlayerCount,
     TResult? Function()? decrementPlayerCount,
     TResult? Function(bool dayTimerEnabled)? toggleDayTimer,
-    TResult? Function()? incrementDayTimeCount,
-    TResult? Function()? decrementDayTimeCount,
+    TResult? Function(DayNight dayNight)? incrementTimeCount,
+    TResult? Function(DayNight dayNight)? decrementTimeCount,
+    TResult? Function(GameRole gameRole)? incrementGameRoleCount,
+    TResult? Function(GameRole gameRole)? decrementGameRoleCount,
+    TResult? Function(bool firstNightIntro)? toggleFirstNightIntro,
+    TResult? Function(bool firstDayVoting)? toggleFirstDayVoting,
   }) {
-    return decrementDayTimeCount?.call();
+    return decrementTimeCount?.call(dayNight);
   }
 
   @override
@@ -687,12 +878,16 @@ class _$DecrementDayTimeCountImpl implements _DecrementDayTimeCount {
     TResult Function()? incrementPlayerCount,
     TResult Function()? decrementPlayerCount,
     TResult Function(bool dayTimerEnabled)? toggleDayTimer,
-    TResult Function()? incrementDayTimeCount,
-    TResult Function()? decrementDayTimeCount,
+    TResult Function(DayNight dayNight)? incrementTimeCount,
+    TResult Function(DayNight dayNight)? decrementTimeCount,
+    TResult Function(GameRole gameRole)? incrementGameRoleCount,
+    TResult Function(GameRole gameRole)? decrementGameRoleCount,
+    TResult Function(bool firstNightIntro)? toggleFirstNightIntro,
+    TResult Function(bool firstDayVoting)? toggleFirstDayVoting,
     required TResult orElse(),
   }) {
-    if (decrementDayTimeCount != null) {
-      return decrementDayTimeCount();
+    if (decrementTimeCount != null) {
+      return decrementTimeCount(dayNight);
     }
     return orElse();
   }
@@ -703,12 +898,17 @@ class _$DecrementDayTimeCountImpl implements _DecrementDayTimeCount {
     required TResult Function(_IncrementPlayerCount value) incrementPlayerCount,
     required TResult Function(_DecrementPlayerCount value) decrementPlayerCount,
     required TResult Function(_ToggleDayTimer value) toggleDayTimer,
-    required TResult Function(_IncrementDayTimeCount value)
-        incrementDayTimeCount,
-    required TResult Function(_DecrementDayTimeCount value)
-        decrementDayTimeCount,
+    required TResult Function(_IncrementTimeCount value) incrementTimeCount,
+    required TResult Function(_DecrementTimeCount value) decrementTimeCount,
+    required TResult Function(_IncrementGameRoleCount value)
+        incrementGameRoleCount,
+    required TResult Function(_DecrementGameRoleCount value)
+        decrementGameRoleCount,
+    required TResult Function(_ToggleFirstNightIntro value)
+        toggleFirstNightIntro,
+    required TResult Function(_ToggleFirstDayVoting value) toggleFirstDayVoting,
   }) {
-    return decrementDayTimeCount(this);
+    return decrementTimeCount(this);
   }
 
   @override
@@ -717,10 +917,14 @@ class _$DecrementDayTimeCountImpl implements _DecrementDayTimeCount {
     TResult? Function(_IncrementPlayerCount value)? incrementPlayerCount,
     TResult? Function(_DecrementPlayerCount value)? decrementPlayerCount,
     TResult? Function(_ToggleDayTimer value)? toggleDayTimer,
-    TResult? Function(_IncrementDayTimeCount value)? incrementDayTimeCount,
-    TResult? Function(_DecrementDayTimeCount value)? decrementDayTimeCount,
+    TResult? Function(_IncrementTimeCount value)? incrementTimeCount,
+    TResult? Function(_DecrementTimeCount value)? decrementTimeCount,
+    TResult? Function(_IncrementGameRoleCount value)? incrementGameRoleCount,
+    TResult? Function(_DecrementGameRoleCount value)? decrementGameRoleCount,
+    TResult? Function(_ToggleFirstNightIntro value)? toggleFirstNightIntro,
+    TResult? Function(_ToggleFirstDayVoting value)? toggleFirstDayVoting,
   }) {
-    return decrementDayTimeCount?.call(this);
+    return decrementTimeCount?.call(this);
   }
 
   @override
@@ -729,19 +933,759 @@ class _$DecrementDayTimeCountImpl implements _DecrementDayTimeCount {
     TResult Function(_IncrementPlayerCount value)? incrementPlayerCount,
     TResult Function(_DecrementPlayerCount value)? decrementPlayerCount,
     TResult Function(_ToggleDayTimer value)? toggleDayTimer,
-    TResult Function(_IncrementDayTimeCount value)? incrementDayTimeCount,
-    TResult Function(_DecrementDayTimeCount value)? decrementDayTimeCount,
+    TResult Function(_IncrementTimeCount value)? incrementTimeCount,
+    TResult Function(_DecrementTimeCount value)? decrementTimeCount,
+    TResult Function(_IncrementGameRoleCount value)? incrementGameRoleCount,
+    TResult Function(_DecrementGameRoleCount value)? decrementGameRoleCount,
+    TResult Function(_ToggleFirstNightIntro value)? toggleFirstNightIntro,
+    TResult Function(_ToggleFirstDayVoting value)? toggleFirstDayVoting,
     required TResult orElse(),
   }) {
-    if (decrementDayTimeCount != null) {
-      return decrementDayTimeCount(this);
+    if (decrementTimeCount != null) {
+      return decrementTimeCount(this);
     }
     return orElse();
   }
 }
 
-abstract class _DecrementDayTimeCount implements SettingsEvent {
-  const factory _DecrementDayTimeCount() = _$DecrementDayTimeCountImpl;
+abstract class _DecrementTimeCount implements SettingsEvent {
+  const factory _DecrementTimeCount(final DayNight dayNight) =
+      _$DecrementTimeCountImpl;
+
+  DayNight get dayNight;
+  @JsonKey(ignore: true)
+  _$$DecrementTimeCountImplCopyWith<_$DecrementTimeCountImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$IncrementGameRoleCountImplCopyWith<$Res> {
+  factory _$$IncrementGameRoleCountImplCopyWith(
+          _$IncrementGameRoleCountImpl value,
+          $Res Function(_$IncrementGameRoleCountImpl) then) =
+      __$$IncrementGameRoleCountImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({GameRole gameRole});
+}
+
+/// @nodoc
+class __$$IncrementGameRoleCountImplCopyWithImpl<$Res>
+    extends _$SettingsEventCopyWithImpl<$Res, _$IncrementGameRoleCountImpl>
+    implements _$$IncrementGameRoleCountImplCopyWith<$Res> {
+  __$$IncrementGameRoleCountImplCopyWithImpl(
+      _$IncrementGameRoleCountImpl _value,
+      $Res Function(_$IncrementGameRoleCountImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? gameRole = null,
+  }) {
+    return _then(_$IncrementGameRoleCountImpl(
+      null == gameRole
+          ? _value.gameRole
+          : gameRole // ignore: cast_nullable_to_non_nullable
+              as GameRole,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$IncrementGameRoleCountImpl implements _IncrementGameRoleCount {
+  const _$IncrementGameRoleCountImpl(this.gameRole);
+
+  @override
+  final GameRole gameRole;
+
+  @override
+  String toString() {
+    return 'SettingsEvent.incrementGameRoleCount(gameRole: $gameRole)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$IncrementGameRoleCountImpl &&
+            (identical(other.gameRole, gameRole) ||
+                other.gameRole == gameRole));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, gameRole);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$IncrementGameRoleCountImplCopyWith<_$IncrementGameRoleCountImpl>
+      get copyWith => __$$IncrementGameRoleCountImplCopyWithImpl<
+          _$IncrementGameRoleCountImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() incrementPlayerCount,
+    required TResult Function() decrementPlayerCount,
+    required TResult Function(bool dayTimerEnabled) toggleDayTimer,
+    required TResult Function(DayNight dayNight) incrementTimeCount,
+    required TResult Function(DayNight dayNight) decrementTimeCount,
+    required TResult Function(GameRole gameRole) incrementGameRoleCount,
+    required TResult Function(GameRole gameRole) decrementGameRoleCount,
+    required TResult Function(bool firstNightIntro) toggleFirstNightIntro,
+    required TResult Function(bool firstDayVoting) toggleFirstDayVoting,
+  }) {
+    return incrementGameRoleCount(gameRole);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? incrementPlayerCount,
+    TResult? Function()? decrementPlayerCount,
+    TResult? Function(bool dayTimerEnabled)? toggleDayTimer,
+    TResult? Function(DayNight dayNight)? incrementTimeCount,
+    TResult? Function(DayNight dayNight)? decrementTimeCount,
+    TResult? Function(GameRole gameRole)? incrementGameRoleCount,
+    TResult? Function(GameRole gameRole)? decrementGameRoleCount,
+    TResult? Function(bool firstNightIntro)? toggleFirstNightIntro,
+    TResult? Function(bool firstDayVoting)? toggleFirstDayVoting,
+  }) {
+    return incrementGameRoleCount?.call(gameRole);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? incrementPlayerCount,
+    TResult Function()? decrementPlayerCount,
+    TResult Function(bool dayTimerEnabled)? toggleDayTimer,
+    TResult Function(DayNight dayNight)? incrementTimeCount,
+    TResult Function(DayNight dayNight)? decrementTimeCount,
+    TResult Function(GameRole gameRole)? incrementGameRoleCount,
+    TResult Function(GameRole gameRole)? decrementGameRoleCount,
+    TResult Function(bool firstNightIntro)? toggleFirstNightIntro,
+    TResult Function(bool firstDayVoting)? toggleFirstDayVoting,
+    required TResult orElse(),
+  }) {
+    if (incrementGameRoleCount != null) {
+      return incrementGameRoleCount(gameRole);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_IncrementPlayerCount value) incrementPlayerCount,
+    required TResult Function(_DecrementPlayerCount value) decrementPlayerCount,
+    required TResult Function(_ToggleDayTimer value) toggleDayTimer,
+    required TResult Function(_IncrementTimeCount value) incrementTimeCount,
+    required TResult Function(_DecrementTimeCount value) decrementTimeCount,
+    required TResult Function(_IncrementGameRoleCount value)
+        incrementGameRoleCount,
+    required TResult Function(_DecrementGameRoleCount value)
+        decrementGameRoleCount,
+    required TResult Function(_ToggleFirstNightIntro value)
+        toggleFirstNightIntro,
+    required TResult Function(_ToggleFirstDayVoting value) toggleFirstDayVoting,
+  }) {
+    return incrementGameRoleCount(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_IncrementPlayerCount value)? incrementPlayerCount,
+    TResult? Function(_DecrementPlayerCount value)? decrementPlayerCount,
+    TResult? Function(_ToggleDayTimer value)? toggleDayTimer,
+    TResult? Function(_IncrementTimeCount value)? incrementTimeCount,
+    TResult? Function(_DecrementTimeCount value)? decrementTimeCount,
+    TResult? Function(_IncrementGameRoleCount value)? incrementGameRoleCount,
+    TResult? Function(_DecrementGameRoleCount value)? decrementGameRoleCount,
+    TResult? Function(_ToggleFirstNightIntro value)? toggleFirstNightIntro,
+    TResult? Function(_ToggleFirstDayVoting value)? toggleFirstDayVoting,
+  }) {
+    return incrementGameRoleCount?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_IncrementPlayerCount value)? incrementPlayerCount,
+    TResult Function(_DecrementPlayerCount value)? decrementPlayerCount,
+    TResult Function(_ToggleDayTimer value)? toggleDayTimer,
+    TResult Function(_IncrementTimeCount value)? incrementTimeCount,
+    TResult Function(_DecrementTimeCount value)? decrementTimeCount,
+    TResult Function(_IncrementGameRoleCount value)? incrementGameRoleCount,
+    TResult Function(_DecrementGameRoleCount value)? decrementGameRoleCount,
+    TResult Function(_ToggleFirstNightIntro value)? toggleFirstNightIntro,
+    TResult Function(_ToggleFirstDayVoting value)? toggleFirstDayVoting,
+    required TResult orElse(),
+  }) {
+    if (incrementGameRoleCount != null) {
+      return incrementGameRoleCount(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _IncrementGameRoleCount implements SettingsEvent {
+  const factory _IncrementGameRoleCount(final GameRole gameRole) =
+      _$IncrementGameRoleCountImpl;
+
+  GameRole get gameRole;
+  @JsonKey(ignore: true)
+  _$$IncrementGameRoleCountImplCopyWith<_$IncrementGameRoleCountImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DecrementGameRoleCountImplCopyWith<$Res> {
+  factory _$$DecrementGameRoleCountImplCopyWith(
+          _$DecrementGameRoleCountImpl value,
+          $Res Function(_$DecrementGameRoleCountImpl) then) =
+      __$$DecrementGameRoleCountImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({GameRole gameRole});
+}
+
+/// @nodoc
+class __$$DecrementGameRoleCountImplCopyWithImpl<$Res>
+    extends _$SettingsEventCopyWithImpl<$Res, _$DecrementGameRoleCountImpl>
+    implements _$$DecrementGameRoleCountImplCopyWith<$Res> {
+  __$$DecrementGameRoleCountImplCopyWithImpl(
+      _$DecrementGameRoleCountImpl _value,
+      $Res Function(_$DecrementGameRoleCountImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? gameRole = null,
+  }) {
+    return _then(_$DecrementGameRoleCountImpl(
+      null == gameRole
+          ? _value.gameRole
+          : gameRole // ignore: cast_nullable_to_non_nullable
+              as GameRole,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$DecrementGameRoleCountImpl implements _DecrementGameRoleCount {
+  const _$DecrementGameRoleCountImpl(this.gameRole);
+
+  @override
+  final GameRole gameRole;
+
+  @override
+  String toString() {
+    return 'SettingsEvent.decrementGameRoleCount(gameRole: $gameRole)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DecrementGameRoleCountImpl &&
+            (identical(other.gameRole, gameRole) ||
+                other.gameRole == gameRole));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, gameRole);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DecrementGameRoleCountImplCopyWith<_$DecrementGameRoleCountImpl>
+      get copyWith => __$$DecrementGameRoleCountImplCopyWithImpl<
+          _$DecrementGameRoleCountImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() incrementPlayerCount,
+    required TResult Function() decrementPlayerCount,
+    required TResult Function(bool dayTimerEnabled) toggleDayTimer,
+    required TResult Function(DayNight dayNight) incrementTimeCount,
+    required TResult Function(DayNight dayNight) decrementTimeCount,
+    required TResult Function(GameRole gameRole) incrementGameRoleCount,
+    required TResult Function(GameRole gameRole) decrementGameRoleCount,
+    required TResult Function(bool firstNightIntro) toggleFirstNightIntro,
+    required TResult Function(bool firstDayVoting) toggleFirstDayVoting,
+  }) {
+    return decrementGameRoleCount(gameRole);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? incrementPlayerCount,
+    TResult? Function()? decrementPlayerCount,
+    TResult? Function(bool dayTimerEnabled)? toggleDayTimer,
+    TResult? Function(DayNight dayNight)? incrementTimeCount,
+    TResult? Function(DayNight dayNight)? decrementTimeCount,
+    TResult? Function(GameRole gameRole)? incrementGameRoleCount,
+    TResult? Function(GameRole gameRole)? decrementGameRoleCount,
+    TResult? Function(bool firstNightIntro)? toggleFirstNightIntro,
+    TResult? Function(bool firstDayVoting)? toggleFirstDayVoting,
+  }) {
+    return decrementGameRoleCount?.call(gameRole);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? incrementPlayerCount,
+    TResult Function()? decrementPlayerCount,
+    TResult Function(bool dayTimerEnabled)? toggleDayTimer,
+    TResult Function(DayNight dayNight)? incrementTimeCount,
+    TResult Function(DayNight dayNight)? decrementTimeCount,
+    TResult Function(GameRole gameRole)? incrementGameRoleCount,
+    TResult Function(GameRole gameRole)? decrementGameRoleCount,
+    TResult Function(bool firstNightIntro)? toggleFirstNightIntro,
+    TResult Function(bool firstDayVoting)? toggleFirstDayVoting,
+    required TResult orElse(),
+  }) {
+    if (decrementGameRoleCount != null) {
+      return decrementGameRoleCount(gameRole);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_IncrementPlayerCount value) incrementPlayerCount,
+    required TResult Function(_DecrementPlayerCount value) decrementPlayerCount,
+    required TResult Function(_ToggleDayTimer value) toggleDayTimer,
+    required TResult Function(_IncrementTimeCount value) incrementTimeCount,
+    required TResult Function(_DecrementTimeCount value) decrementTimeCount,
+    required TResult Function(_IncrementGameRoleCount value)
+        incrementGameRoleCount,
+    required TResult Function(_DecrementGameRoleCount value)
+        decrementGameRoleCount,
+    required TResult Function(_ToggleFirstNightIntro value)
+        toggleFirstNightIntro,
+    required TResult Function(_ToggleFirstDayVoting value) toggleFirstDayVoting,
+  }) {
+    return decrementGameRoleCount(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_IncrementPlayerCount value)? incrementPlayerCount,
+    TResult? Function(_DecrementPlayerCount value)? decrementPlayerCount,
+    TResult? Function(_ToggleDayTimer value)? toggleDayTimer,
+    TResult? Function(_IncrementTimeCount value)? incrementTimeCount,
+    TResult? Function(_DecrementTimeCount value)? decrementTimeCount,
+    TResult? Function(_IncrementGameRoleCount value)? incrementGameRoleCount,
+    TResult? Function(_DecrementGameRoleCount value)? decrementGameRoleCount,
+    TResult? Function(_ToggleFirstNightIntro value)? toggleFirstNightIntro,
+    TResult? Function(_ToggleFirstDayVoting value)? toggleFirstDayVoting,
+  }) {
+    return decrementGameRoleCount?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_IncrementPlayerCount value)? incrementPlayerCount,
+    TResult Function(_DecrementPlayerCount value)? decrementPlayerCount,
+    TResult Function(_ToggleDayTimer value)? toggleDayTimer,
+    TResult Function(_IncrementTimeCount value)? incrementTimeCount,
+    TResult Function(_DecrementTimeCount value)? decrementTimeCount,
+    TResult Function(_IncrementGameRoleCount value)? incrementGameRoleCount,
+    TResult Function(_DecrementGameRoleCount value)? decrementGameRoleCount,
+    TResult Function(_ToggleFirstNightIntro value)? toggleFirstNightIntro,
+    TResult Function(_ToggleFirstDayVoting value)? toggleFirstDayVoting,
+    required TResult orElse(),
+  }) {
+    if (decrementGameRoleCount != null) {
+      return decrementGameRoleCount(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DecrementGameRoleCount implements SettingsEvent {
+  const factory _DecrementGameRoleCount(final GameRole gameRole) =
+      _$DecrementGameRoleCountImpl;
+
+  GameRole get gameRole;
+  @JsonKey(ignore: true)
+  _$$DecrementGameRoleCountImplCopyWith<_$DecrementGameRoleCountImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ToggleFirstNightIntroImplCopyWith<$Res> {
+  factory _$$ToggleFirstNightIntroImplCopyWith(
+          _$ToggleFirstNightIntroImpl value,
+          $Res Function(_$ToggleFirstNightIntroImpl) then) =
+      __$$ToggleFirstNightIntroImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool firstNightIntro});
+}
+
+/// @nodoc
+class __$$ToggleFirstNightIntroImplCopyWithImpl<$Res>
+    extends _$SettingsEventCopyWithImpl<$Res, _$ToggleFirstNightIntroImpl>
+    implements _$$ToggleFirstNightIntroImplCopyWith<$Res> {
+  __$$ToggleFirstNightIntroImplCopyWithImpl(_$ToggleFirstNightIntroImpl _value,
+      $Res Function(_$ToggleFirstNightIntroImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? firstNightIntro = null,
+  }) {
+    return _then(_$ToggleFirstNightIntroImpl(
+      null == firstNightIntro
+          ? _value.firstNightIntro
+          : firstNightIntro // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ToggleFirstNightIntroImpl implements _ToggleFirstNightIntro {
+  const _$ToggleFirstNightIntroImpl(this.firstNightIntro);
+
+  @override
+  final bool firstNightIntro;
+
+  @override
+  String toString() {
+    return 'SettingsEvent.toggleFirstNightIntro(firstNightIntro: $firstNightIntro)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ToggleFirstNightIntroImpl &&
+            (identical(other.firstNightIntro, firstNightIntro) ||
+                other.firstNightIntro == firstNightIntro));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, firstNightIntro);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ToggleFirstNightIntroImplCopyWith<_$ToggleFirstNightIntroImpl>
+      get copyWith => __$$ToggleFirstNightIntroImplCopyWithImpl<
+          _$ToggleFirstNightIntroImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() incrementPlayerCount,
+    required TResult Function() decrementPlayerCount,
+    required TResult Function(bool dayTimerEnabled) toggleDayTimer,
+    required TResult Function(DayNight dayNight) incrementTimeCount,
+    required TResult Function(DayNight dayNight) decrementTimeCount,
+    required TResult Function(GameRole gameRole) incrementGameRoleCount,
+    required TResult Function(GameRole gameRole) decrementGameRoleCount,
+    required TResult Function(bool firstNightIntro) toggleFirstNightIntro,
+    required TResult Function(bool firstDayVoting) toggleFirstDayVoting,
+  }) {
+    return toggleFirstNightIntro(firstNightIntro);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? incrementPlayerCount,
+    TResult? Function()? decrementPlayerCount,
+    TResult? Function(bool dayTimerEnabled)? toggleDayTimer,
+    TResult? Function(DayNight dayNight)? incrementTimeCount,
+    TResult? Function(DayNight dayNight)? decrementTimeCount,
+    TResult? Function(GameRole gameRole)? incrementGameRoleCount,
+    TResult? Function(GameRole gameRole)? decrementGameRoleCount,
+    TResult? Function(bool firstNightIntro)? toggleFirstNightIntro,
+    TResult? Function(bool firstDayVoting)? toggleFirstDayVoting,
+  }) {
+    return toggleFirstNightIntro?.call(firstNightIntro);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? incrementPlayerCount,
+    TResult Function()? decrementPlayerCount,
+    TResult Function(bool dayTimerEnabled)? toggleDayTimer,
+    TResult Function(DayNight dayNight)? incrementTimeCount,
+    TResult Function(DayNight dayNight)? decrementTimeCount,
+    TResult Function(GameRole gameRole)? incrementGameRoleCount,
+    TResult Function(GameRole gameRole)? decrementGameRoleCount,
+    TResult Function(bool firstNightIntro)? toggleFirstNightIntro,
+    TResult Function(bool firstDayVoting)? toggleFirstDayVoting,
+    required TResult orElse(),
+  }) {
+    if (toggleFirstNightIntro != null) {
+      return toggleFirstNightIntro(firstNightIntro);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_IncrementPlayerCount value) incrementPlayerCount,
+    required TResult Function(_DecrementPlayerCount value) decrementPlayerCount,
+    required TResult Function(_ToggleDayTimer value) toggleDayTimer,
+    required TResult Function(_IncrementTimeCount value) incrementTimeCount,
+    required TResult Function(_DecrementTimeCount value) decrementTimeCount,
+    required TResult Function(_IncrementGameRoleCount value)
+        incrementGameRoleCount,
+    required TResult Function(_DecrementGameRoleCount value)
+        decrementGameRoleCount,
+    required TResult Function(_ToggleFirstNightIntro value)
+        toggleFirstNightIntro,
+    required TResult Function(_ToggleFirstDayVoting value) toggleFirstDayVoting,
+  }) {
+    return toggleFirstNightIntro(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_IncrementPlayerCount value)? incrementPlayerCount,
+    TResult? Function(_DecrementPlayerCount value)? decrementPlayerCount,
+    TResult? Function(_ToggleDayTimer value)? toggleDayTimer,
+    TResult? Function(_IncrementTimeCount value)? incrementTimeCount,
+    TResult? Function(_DecrementTimeCount value)? decrementTimeCount,
+    TResult? Function(_IncrementGameRoleCount value)? incrementGameRoleCount,
+    TResult? Function(_DecrementGameRoleCount value)? decrementGameRoleCount,
+    TResult? Function(_ToggleFirstNightIntro value)? toggleFirstNightIntro,
+    TResult? Function(_ToggleFirstDayVoting value)? toggleFirstDayVoting,
+  }) {
+    return toggleFirstNightIntro?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_IncrementPlayerCount value)? incrementPlayerCount,
+    TResult Function(_DecrementPlayerCount value)? decrementPlayerCount,
+    TResult Function(_ToggleDayTimer value)? toggleDayTimer,
+    TResult Function(_IncrementTimeCount value)? incrementTimeCount,
+    TResult Function(_DecrementTimeCount value)? decrementTimeCount,
+    TResult Function(_IncrementGameRoleCount value)? incrementGameRoleCount,
+    TResult Function(_DecrementGameRoleCount value)? decrementGameRoleCount,
+    TResult Function(_ToggleFirstNightIntro value)? toggleFirstNightIntro,
+    TResult Function(_ToggleFirstDayVoting value)? toggleFirstDayVoting,
+    required TResult orElse(),
+  }) {
+    if (toggleFirstNightIntro != null) {
+      return toggleFirstNightIntro(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ToggleFirstNightIntro implements SettingsEvent {
+  const factory _ToggleFirstNightIntro(final bool firstNightIntro) =
+      _$ToggleFirstNightIntroImpl;
+
+  bool get firstNightIntro;
+  @JsonKey(ignore: true)
+  _$$ToggleFirstNightIntroImplCopyWith<_$ToggleFirstNightIntroImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ToggleFirstDayVotingImplCopyWith<$Res> {
+  factory _$$ToggleFirstDayVotingImplCopyWith(_$ToggleFirstDayVotingImpl value,
+          $Res Function(_$ToggleFirstDayVotingImpl) then) =
+      __$$ToggleFirstDayVotingImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({bool firstDayVoting});
+}
+
+/// @nodoc
+class __$$ToggleFirstDayVotingImplCopyWithImpl<$Res>
+    extends _$SettingsEventCopyWithImpl<$Res, _$ToggleFirstDayVotingImpl>
+    implements _$$ToggleFirstDayVotingImplCopyWith<$Res> {
+  __$$ToggleFirstDayVotingImplCopyWithImpl(_$ToggleFirstDayVotingImpl _value,
+      $Res Function(_$ToggleFirstDayVotingImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? firstDayVoting = null,
+  }) {
+    return _then(_$ToggleFirstDayVotingImpl(
+      null == firstDayVoting
+          ? _value.firstDayVoting
+          : firstDayVoting // ignore: cast_nullable_to_non_nullable
+              as bool,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ToggleFirstDayVotingImpl implements _ToggleFirstDayVoting {
+  const _$ToggleFirstDayVotingImpl(this.firstDayVoting);
+
+  @override
+  final bool firstDayVoting;
+
+  @override
+  String toString() {
+    return 'SettingsEvent.toggleFirstDayVoting(firstDayVoting: $firstDayVoting)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ToggleFirstDayVotingImpl &&
+            (identical(other.firstDayVoting, firstDayVoting) ||
+                other.firstDayVoting == firstDayVoting));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, firstDayVoting);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ToggleFirstDayVotingImplCopyWith<_$ToggleFirstDayVotingImpl>
+      get copyWith =>
+          __$$ToggleFirstDayVotingImplCopyWithImpl<_$ToggleFirstDayVotingImpl>(
+              this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() incrementPlayerCount,
+    required TResult Function() decrementPlayerCount,
+    required TResult Function(bool dayTimerEnabled) toggleDayTimer,
+    required TResult Function(DayNight dayNight) incrementTimeCount,
+    required TResult Function(DayNight dayNight) decrementTimeCount,
+    required TResult Function(GameRole gameRole) incrementGameRoleCount,
+    required TResult Function(GameRole gameRole) decrementGameRoleCount,
+    required TResult Function(bool firstNightIntro) toggleFirstNightIntro,
+    required TResult Function(bool firstDayVoting) toggleFirstDayVoting,
+  }) {
+    return toggleFirstDayVoting(firstDayVoting);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? incrementPlayerCount,
+    TResult? Function()? decrementPlayerCount,
+    TResult? Function(bool dayTimerEnabled)? toggleDayTimer,
+    TResult? Function(DayNight dayNight)? incrementTimeCount,
+    TResult? Function(DayNight dayNight)? decrementTimeCount,
+    TResult? Function(GameRole gameRole)? incrementGameRoleCount,
+    TResult? Function(GameRole gameRole)? decrementGameRoleCount,
+    TResult? Function(bool firstNightIntro)? toggleFirstNightIntro,
+    TResult? Function(bool firstDayVoting)? toggleFirstDayVoting,
+  }) {
+    return toggleFirstDayVoting?.call(firstDayVoting);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? incrementPlayerCount,
+    TResult Function()? decrementPlayerCount,
+    TResult Function(bool dayTimerEnabled)? toggleDayTimer,
+    TResult Function(DayNight dayNight)? incrementTimeCount,
+    TResult Function(DayNight dayNight)? decrementTimeCount,
+    TResult Function(GameRole gameRole)? incrementGameRoleCount,
+    TResult Function(GameRole gameRole)? decrementGameRoleCount,
+    TResult Function(bool firstNightIntro)? toggleFirstNightIntro,
+    TResult Function(bool firstDayVoting)? toggleFirstDayVoting,
+    required TResult orElse(),
+  }) {
+    if (toggleFirstDayVoting != null) {
+      return toggleFirstDayVoting(firstDayVoting);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_IncrementPlayerCount value) incrementPlayerCount,
+    required TResult Function(_DecrementPlayerCount value) decrementPlayerCount,
+    required TResult Function(_ToggleDayTimer value) toggleDayTimer,
+    required TResult Function(_IncrementTimeCount value) incrementTimeCount,
+    required TResult Function(_DecrementTimeCount value) decrementTimeCount,
+    required TResult Function(_IncrementGameRoleCount value)
+        incrementGameRoleCount,
+    required TResult Function(_DecrementGameRoleCount value)
+        decrementGameRoleCount,
+    required TResult Function(_ToggleFirstNightIntro value)
+        toggleFirstNightIntro,
+    required TResult Function(_ToggleFirstDayVoting value) toggleFirstDayVoting,
+  }) {
+    return toggleFirstDayVoting(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_IncrementPlayerCount value)? incrementPlayerCount,
+    TResult? Function(_DecrementPlayerCount value)? decrementPlayerCount,
+    TResult? Function(_ToggleDayTimer value)? toggleDayTimer,
+    TResult? Function(_IncrementTimeCount value)? incrementTimeCount,
+    TResult? Function(_DecrementTimeCount value)? decrementTimeCount,
+    TResult? Function(_IncrementGameRoleCount value)? incrementGameRoleCount,
+    TResult? Function(_DecrementGameRoleCount value)? decrementGameRoleCount,
+    TResult? Function(_ToggleFirstNightIntro value)? toggleFirstNightIntro,
+    TResult? Function(_ToggleFirstDayVoting value)? toggleFirstDayVoting,
+  }) {
+    return toggleFirstDayVoting?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_IncrementPlayerCount value)? incrementPlayerCount,
+    TResult Function(_DecrementPlayerCount value)? decrementPlayerCount,
+    TResult Function(_ToggleDayTimer value)? toggleDayTimer,
+    TResult Function(_IncrementTimeCount value)? incrementTimeCount,
+    TResult Function(_DecrementTimeCount value)? decrementTimeCount,
+    TResult Function(_IncrementGameRoleCount value)? incrementGameRoleCount,
+    TResult Function(_DecrementGameRoleCount value)? decrementGameRoleCount,
+    TResult Function(_ToggleFirstNightIntro value)? toggleFirstNightIntro,
+    TResult Function(_ToggleFirstDayVoting value)? toggleFirstDayVoting,
+    required TResult orElse(),
+  }) {
+    if (toggleFirstDayVoting != null) {
+      return toggleFirstDayVoting(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ToggleFirstDayVoting implements SettingsEvent {
+  const factory _ToggleFirstDayVoting(final bool firstDayVoting) =
+      _$ToggleFirstDayVotingImpl;
+
+  bool get firstDayVoting;
+  @JsonKey(ignore: true)
+  _$$ToggleFirstDayVotingImplCopyWith<_$ToggleFirstDayVotingImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -873,16 +1817,9 @@ class __$$SettingsStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$SettingsStateImpl implements _SettingsState {
-  const _$SettingsStateImpl(
-      {this.settings = const Settings(
-          numberOfPlayers: 4,
-          gameTimer: GameTimer(dayTimeInSec: null, nightTimeInSec: 150),
-          firstDayVote: false,
-          firstNightIntroduction: false,
-          roles: {})});
+  const _$SettingsStateImpl({required this.settings});
 
   @override
-  @JsonKey()
   final Settings settings;
 
   @override
@@ -972,7 +1909,8 @@ class _$SettingsStateImpl implements _SettingsState {
 }
 
 abstract class _SettingsState implements SettingsState {
-  const factory _SettingsState({final Settings settings}) = _$SettingsStateImpl;
+  const factory _SettingsState({required final Settings settings}) =
+      _$SettingsStateImpl;
 
   @override
   Settings get settings;

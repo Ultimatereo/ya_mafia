@@ -161,7 +161,7 @@ class _$SettingsImpl implements _Settings {
   const _$SettingsImpl(
       {required this.numberOfPlayers,
       required this.gameTimer,
-      required final Map<GameRole, int> roles,
+      final Map<GameRole, int> roles = const {},
       required this.firstNightIntroduction,
       required this.firstDayVote})
       : _roles = roles;
@@ -172,6 +172,7 @@ class _$SettingsImpl implements _Settings {
   final GameTimer gameTimer;
   final Map<GameRole, int> _roles;
   @override
+  @JsonKey()
   Map<GameRole, int> get roles {
     if (_roles is EqualUnmodifiableMapView) return _roles;
     // ignore: implicit_dynamic_type
@@ -224,7 +225,7 @@ abstract class _Settings implements Settings {
   const factory _Settings(
       {required final int numberOfPlayers,
       required final GameTimer gameTimer,
-      required final Map<GameRole, int> roles,
+      final Map<GameRole, int> roles,
       required final bool firstNightIntroduction,
       required final bool firstDayVote}) = _$SettingsImpl;
 

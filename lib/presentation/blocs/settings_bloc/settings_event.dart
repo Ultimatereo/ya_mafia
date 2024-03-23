@@ -6,6 +6,17 @@ class SettingsEvent with _$SettingsEvent {
   const factory SettingsEvent.decrementPlayerCount() = _DecrementPlayerCount;
   const factory SettingsEvent.toggleDayTimer(bool dayTimerEnabled) =
       _ToggleDayTimer;
-  const factory SettingsEvent.incrementDayTimeCount() = _IncrementDayTimeCount;
-  const factory SettingsEvent.decrementDayTimeCount() = _DecrementDayTimeCount;
+  const factory SettingsEvent.incrementTimeCount(DayNight dayNight) =
+      _IncrementTimeCount;
+  const factory SettingsEvent.decrementTimeCount(DayNight dayNight) =
+      _DecrementTimeCount;
+  const factory SettingsEvent.incrementGameRoleCount(GameRole gameRole) =
+      _IncrementGameRoleCount;
+  const factory SettingsEvent.decrementGameRoleCount(GameRole gameRole) =
+      _DecrementGameRoleCount;
+
+  const factory SettingsEvent.toggleFirstNightIntro(bool firstNightIntro) =
+      _ToggleFirstNightIntro;
+  const factory SettingsEvent.toggleFirstDayVoting(bool firstDayVoting) =
+      _ToggleFirstDayVoting;
 }

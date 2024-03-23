@@ -39,6 +39,7 @@ final ThemeData lightTheme = ThemeData(
       headline1Yellow: text28Bold.copyWith(color: yellow),
       headline2: text20.copyWith(color: yellow),
       numbersStyle: numbersText,
+      listTileColor: mainLightLight,
       listTileTextStyle: text16.copyWith(
         color: brownMainDark,
       ),

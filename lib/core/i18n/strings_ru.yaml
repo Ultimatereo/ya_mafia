@@ -6,6 +6,21 @@ min: мин
 sec: сек
 day: День
 night: Ночь
+roles:
+  roles: Роли
+  mafia: Мафия
+  citizen: Мирный житель
+  doctor: Доктор
+  sheriff: Комиссар
+  maniac: Маньяк
+  prostitute: Путана
+  don: Дон
+
+extraSettings:
+  extraSettings: Дополнительные настройки
+  firstNightIntro: Знакомство мафии в первую ночь
+  firstDayVoting: Голосование в первый день
+assignRoles: Раздать роли
 
 home:
   play: Играть
