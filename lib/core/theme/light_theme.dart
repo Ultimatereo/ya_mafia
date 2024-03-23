@@ -39,6 +39,9 @@ final ThemeData lightTheme = ThemeData(
     side: const BorderSide(color: green),
     overlayColor: const MaterialStatePropertyAll(green),
   ),
+  radioTheme: const RadioThemeData(
+    fillColor: MaterialStatePropertyAll(green),
+  ),
   extensions: <ThemeExtension<dynamic>>[
     MyTheme(
       green: green,

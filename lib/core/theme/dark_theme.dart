@@ -38,6 +38,9 @@ final ThemeData darkTheme = ThemeData(
     checkColor: MaterialStateProperty.all(green),
     side: const BorderSide(color: green),
   ),
+  radioTheme: RadioThemeData(
+    fillColor: MaterialStatePropertyAll(green),
+  ),
   extensions: <ThemeExtension<dynamic>>[
     MyTheme(
       green: green,

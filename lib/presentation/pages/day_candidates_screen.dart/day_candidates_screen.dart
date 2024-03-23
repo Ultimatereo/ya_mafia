@@ -4,6 +4,7 @@ import 'package:ya_mafia/core/theme/tailor_theme/my_theme.dart';
 import 'package:ya_mafia/presentation/common/seemless_appbar.dart';
 
 import '../../../zgen/i18n/strings.g.dart';
+import '../../common/list_view_separator.dart';
 import 'widgets/day_candidates_list_tile.dart';
 
 class DayCandidatesScreen extends StatelessWidget {
@@ -32,11 +33,9 @@ class DayCandidatesScreen extends StatelessWidget {
                 itemCount: 3,
                 shrinkWrap: true,
                 itemBuilder: (context, index) {
-                  return DayCandidateListTile();
+                  return const DayCandidateListTile();
                 },
-                separatorBuilder: (context, index) => const SizedBox(
-                  height: 3,
-                ),
+                separatorBuilder: (context, index) => const ListViewSeparator(),
               ),
             ),
             const SizedBox(
