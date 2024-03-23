@@ -27,6 +27,17 @@ final ThemeData darkTheme = ThemeData(
     trackColor: const MaterialStatePropertyAll(green),
     trackOutlineColor: MaterialStateProperty.all(Colors.white),
   ),
+  checkboxTheme: CheckboxThemeData(
+    fillColor:
+        MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
+      if (states.contains(MaterialState.selected)) {
+        return green;
+      }
+      return Colors.white;
+    }),
+    checkColor: MaterialStateProperty.all(green),
+    side: const BorderSide(color: green),
+  ),
   extensions: <ThemeExtension<dynamic>>[
     MyTheme(
       green: green,
