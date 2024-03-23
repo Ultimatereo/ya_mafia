@@ -15,6 +15,7 @@ class MyTheme extends ThemeExtension<MyTheme> with _$MyThemeTailorMixin {
       required this.brownMainDark,
       required this.mainLight,
       required this.mainLightLight,
+      required this.listTileColor,
       required this.headline1,
       required this.headline1Yellow,
       required this.headline2,
@@ -34,6 +35,8 @@ class MyTheme extends ThemeExtension<MyTheme> with _$MyThemeTailorMixin {
   final Color mainLight;
   @override
   final Color mainLightLight;
+  @override
+  final Color listTileColor;
   @override
   final TextStyle headline1;
   @override

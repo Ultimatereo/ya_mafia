@@ -6,6 +6,21 @@ min: min
 sec: sec
 day: Day
 night: Night
+roles:
+  roles: Roles
+  mafia: Mafia
+  citizen: Citizen
+  doctor: Doctor
+  sheriff: Sheriff
+  maniac: Maniac
+  prostitute: Prostitute
+  don: Don
+
+extraSettings:
+  extraSettings: Extra settings
+  firstNightIntro: First night is mafia introduction
+  firstDayVoting: First day voting
+assignRoles: Assign roles
 
 home:
   play: Play

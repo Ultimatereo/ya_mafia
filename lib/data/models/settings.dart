@@ -9,7 +9,7 @@ abstract class Settings with _$Settings {
   const factory Settings({
     required int numberOfPlayers,
     required GameTimer gameTimer,
-    required Map<GameRole, int> roles,
+    @Default({}) Map<GameRole, int> roles,
     required bool firstNightIntroduction,
     required bool firstDayVote,
   }) = _Settings;
