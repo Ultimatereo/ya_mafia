@@ -1,7 +1,7 @@
 import 'package:ya_mafia/data/enums/avatar.dart';
 
-class User {
+class Player {
   String name;
   Avatar avatar;
-  User({required this.name, required this.avatar});
+  Player({required this.name, required this.avatar});
 }
