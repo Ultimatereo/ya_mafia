@@ -44,6 +44,9 @@ final ThemeData darkTheme = ThemeData(
         color: Colors.white,
       ),
       headline3: text20.copyWith(color: Colors.white),
+      dialogTitleStyle: text24.copyWith(color: brownMainDark),
+      dialogSubtitleStyle: text16.copyWith(color: brownMain),
+      dialogActionStyle: text20.copyWith(color: brownMainDark),
     ),
   ],
 );

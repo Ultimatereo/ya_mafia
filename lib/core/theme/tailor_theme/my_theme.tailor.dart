@@ -22,6 +22,9 @@ mixin _$MyThemeTailorMixin on ThemeExtension<MyTheme> {
   TextStyle get numbersStyle;
   TextStyle get listTileTextStyle;
   TextStyle get headline3;
+  TextStyle get dialogTitleStyle;
+  TextStyle get dialogSubtitleStyle;
+  TextStyle get dialogActionStyle;
 
   @override
   MyTheme copyWith({
@@ -38,6 +41,9 @@ mixin _$MyThemeTailorMixin on ThemeExtension<MyTheme> {
     TextStyle? numbersStyle,
     TextStyle? listTileTextStyle,
     TextStyle? headline3,
+    TextStyle? dialogTitleStyle,
+    TextStyle? dialogSubtitleStyle,
+    TextStyle? dialogActionStyle,
   }) {
     return MyTheme(
       green: green ?? this.green,
@@ -53,6 +59,9 @@ mixin _$MyThemeTailorMixin on ThemeExtension<MyTheme> {
       numbersStyle: numbersStyle ?? this.numbersStyle,
       listTileTextStyle: listTileTextStyle ?? this.listTileTextStyle,
       headline3: headline3 ?? this.headline3,
+      dialogTitleStyle: dialogTitleStyle ?? this.dialogTitleStyle,
+      dialogSubtitleStyle: dialogSubtitleStyle ?? this.dialogSubtitleStyle,
+      dialogActionStyle: dialogActionStyle ?? this.dialogActionStyle,
     );
   }
 
@@ -75,6 +84,12 @@ mixin _$MyThemeTailorMixin on ThemeExtension<MyTheme> {
       listTileTextStyle:
           TextStyle.lerp(listTileTextStyle, other.listTileTextStyle, t)!,
       headline3: TextStyle.lerp(headline3, other.headline3, t)!,
+      dialogTitleStyle:
+          TextStyle.lerp(dialogTitleStyle, other.dialogTitleStyle, t)!,
+      dialogSubtitleStyle:
+          TextStyle.lerp(dialogSubtitleStyle, other.dialogSubtitleStyle, t)!,
+      dialogActionStyle:
+          TextStyle.lerp(dialogActionStyle, other.dialogActionStyle, t)!,
     );
   }
 
@@ -101,7 +116,13 @@ mixin _$MyThemeTailorMixin on ThemeExtension<MyTheme> {
                 .equals(numbersStyle, other.numbersStyle) &&
             const DeepCollectionEquality()
                 .equals(listTileTextStyle, other.listTileTextStyle) &&
-            const DeepCollectionEquality().equals(headline3, other.headline3));
+            const DeepCollectionEquality().equals(headline3, other.headline3) &&
+            const DeepCollectionEquality()
+                .equals(dialogTitleStyle, other.dialogTitleStyle) &&
+            const DeepCollectionEquality()
+                .equals(dialogSubtitleStyle, other.dialogSubtitleStyle) &&
+            const DeepCollectionEquality()
+                .equals(dialogActionStyle, other.dialogActionStyle));
   }
 
   @override
@@ -121,6 +142,9 @@ mixin _$MyThemeTailorMixin on ThemeExtension<MyTheme> {
       const DeepCollectionEquality().hash(numbersStyle),
       const DeepCollectionEquality().hash(listTileTextStyle),
       const DeepCollectionEquality().hash(headline3),
+      const DeepCollectionEquality().hash(dialogTitleStyle),
+      const DeepCollectionEquality().hash(dialogSubtitleStyle),
+      const DeepCollectionEquality().hash(dialogActionStyle),
     );
   }
 }
@@ -140,4 +164,7 @@ extension MyThemeBuildContextProps on BuildContext {
   TextStyle get numbersStyle => myTheme.numbersStyle;
   TextStyle get listTileTextStyle => myTheme.listTileTextStyle;
   TextStyle get headline3 => myTheme.headline3;
+  TextStyle get dialogTitleStyle => myTheme.dialogTitleStyle;
+  TextStyle get dialogSubtitleStyle => myTheme.dialogSubtitleStyle;
+  TextStyle get dialogActionStyle => myTheme.dialogActionStyle;
 }
