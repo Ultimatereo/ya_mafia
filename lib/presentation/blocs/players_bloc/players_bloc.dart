@@ -13,10 +13,30 @@ part 'players_event.dart';
 part 'players_state.dart';
 part 'players_bloc.freezed.dart';
 
+Map<GameRole, int> _rolesCompletionByCitizens(
+    {required int numberOfPlayers, required Map<GameRole, int> roles}) {
+  final newRoles = Map<GameRole, int>.from(roles);
+  var citizens = (newRoles[GameRole.citizen] ?? 0) + numberOfPlayers;
+  for (var e in newRoles.entries) {
+    citizens -= e.value;
+  }
+  newRoles[GameRole.citizen] = citizens;
+  return newRoles;
+}
+
 class PlayersBloc extends Bloc<PlayersEvent, PlayersState> {
   PlayersBloc({required int numberOfPlayers, required Map<GameRole, int> roles})
-      : super(PlayersState.initial(
-            players: Players(numberOfPlayers: numberOfPlayers, roles: roles))) {
+      : super(
+          PlayersState.initial(
+            players: Players(
+              numberOfPlayers: numberOfPlayers,
+              roles: _rolesCompletionByCitizens(
+                numberOfPlayers: numberOfPlayers,
+                roles: roles,
+              ),
+            ),
+          ),
+        ) {
     on<PlayersEvent>(
       (event, emit) {
         event.map(
@@ -40,7 +60,7 @@ class PlayersBloc extends Bloc<PlayersEvent, PlayersState> {
           .map((entry) => entry.key)
           .toList();
       if (availableRoles.isEmpty) {
-        return GameRole.citizen;
+        throw Exception('No roles available');
       }
       final randomIndex = random.nextInt(availableRoles.length);
       return availableRoles[randomIndex];
@@ -48,7 +68,6 @@ class PlayersBloc extends Bloc<PlayersEvent, PlayersState> {
 
     Map<GameRole, int> decreaseRoleCount(
         Map<GameRole, int> roles, GameRole role) {
-      if (role == GameRole.citizen && roles[role] == 0) return roles;
       if (!roles.containsKey(role) || roles[role]! <= 0) {
         throw Exception('Role is not available or its count is already zero');
       }
