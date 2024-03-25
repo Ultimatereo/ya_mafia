@@ -46,7 +46,16 @@ home:
 
 accepted: Принято!
 
+buttonText:
+  weAreReady: Мы готовы!
+  done: Готово!
+  confirm: Подтвердить
+
+candidates: Кандидаты
+whoDiedDay: Кто умер в этот прекрасный день?
+
 game:
   itsMe: Да, это я
   cool: Кайф
   enterYourName: Представься!
+
