@@ -50,12 +50,15 @@ buttonText:
   weAreReady: Мы готовы!
   done: Готово!
   confirm: Подтвердить
+  yesItsMe: Да, это я
+  noItsNotMe: Нет, это не я:(
 
 candidates: Кандидаты
 whoDiedDay: Кто умер в этот прекрасный день?
+mafiaChooses: Мафия делает свой выбор
+whoAreYou: Кто ты?
 
 game:
   itsMe: Да, это я
   cool: Кайф
   enterYourName: Представься!
-

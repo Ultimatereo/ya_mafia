@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:ya_mafia/core/constants.dart';
+import 'package:ya_mafia/core/theme/colors.dart';
 import 'package:ya_mafia/core/theme/tailor_theme/my_theme.dart';
-import 'package:ya_mafia/presentation/common/flip_clock.dart';
-import 'package:ya_mafia/zgen/i18n/strings.g.dart';
+import 'package:ya_mafia/presentation/common/seemless_appbar.dart';
 
-import '../../common/seemless_appbar.dart';
+import '../../../core/constants.dart';
+import '../../../zgen/i18n/strings.g.dart';
+import '../../common/flip_clock.dart';
 
-class DayVotingScreen extends StatelessWidget {
-  const DayVotingScreen({super.key});
+class MafiaDiscussionScreen extends StatelessWidget {
+  const MafiaDiscussionScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -20,14 +21,14 @@ class DayVotingScreen extends StatelessWidget {
           children: [
             //TODO change to sun picture
             Image.asset(
-              'assets/images/sun.webp',
+              'assets/images/moon.webp',
               width: 250,
             ),
             const SizedBox(
               height: appPadding * 2,
             ),
             Text(
-              context.t.day,
+              context.t.night,
               style: context.headline1Yellow,
             ),
             const SizedBox(
@@ -41,8 +42,10 @@ class DayVotingScreen extends StatelessWidget {
             const SizedBox(
               height: appPadding * 2,
             ),
-            ElevatedButton(
-                onPressed: () {}, child: Text(context.t.buttonText.weAreReady))
+            Text(
+              context.t.mafiaChooses,
+              style: context.headline1.copyWith(color: green),
+            )
           ],
         ),
       ),
