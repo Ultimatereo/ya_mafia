@@ -13,7 +13,7 @@ import '../../presentation/pages/mafia_discussion_screen/mafia_discussion_screen
 final rootNavigationKey = GlobalKey<NavigatorState>();
 final router = GoRouter(
   navigatorKey: rootNavigationKey,
-  initialLocation: '/night-voting-screen',
+  initialLocation: '/',
   routes: [
     GoRoute(
       path: '/',
