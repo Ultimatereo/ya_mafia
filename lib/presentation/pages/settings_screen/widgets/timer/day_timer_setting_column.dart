@@ -67,9 +67,9 @@ class TimeSettingColumn extends StatelessWidget {
               ],
             ),
             ArrowForwardIconButton(onPressed: () {
-              context
-                  .read<SettingsBloc>()
-                  .add(SettingsEvent.incrementTimeCount(dayNight));
+              context.read<SettingsBloc>().add(
+                    SettingsEvent.incrementTimeCount(dayNight),
+                  );
             }),
           ],
         ),

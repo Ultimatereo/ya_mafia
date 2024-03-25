@@ -36,7 +36,6 @@ class DayTimeColumn extends StatelessWidget {
           child: AnimatedSize(
             duration: Durations.medium2,
             alignment: Alignment.topCenter,
-            curve: Curves.bounceInOut,
             child: dayTimeInSec != null
                 ? TimeSettingColumn(
                     dayNight: DayNight.day, dayTimeInSec: dayTimeInSec)
