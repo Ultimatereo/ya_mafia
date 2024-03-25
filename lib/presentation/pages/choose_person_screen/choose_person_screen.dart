@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:ya_mafia/core/constants.dart';
 import 'package:ya_mafia/core/theme/tailor_theme/my_theme.dart';
 import 'package:ya_mafia/presentation/common/list_view_with_radios/list_view_with_radios.dart';
@@ -25,7 +24,7 @@ class ChoosePersonScreen extends StatelessWidget {
             const SizedBox(
               height: appPadding,
             ),
-            ListViewWithRadios(),
+            const ListViewWithRadios(),
             const SizedBox(
               height: appPadding,
             ),

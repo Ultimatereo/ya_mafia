@@ -36,7 +36,7 @@ class MafiaDiscussionScreen extends StatelessWidget {
             ),
             CustomFlipClock(
               //TODO: add bloc here
-              duration: Duration(minutes: 1),
+              duration: const Duration(minutes: 1),
               onDoneFunction: () {},
             ),
             const SizedBox(

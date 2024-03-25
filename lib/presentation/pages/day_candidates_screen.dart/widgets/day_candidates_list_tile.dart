@@ -13,7 +13,7 @@ class DayCandidateListTile extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
       decoration: BoxDecoration(
-        color: context.listTileColor,
+        color: context.elevatedColor,
         borderRadius: BorderRadius.circular(listTileCircularRadius),
       ),
       child: Row(
