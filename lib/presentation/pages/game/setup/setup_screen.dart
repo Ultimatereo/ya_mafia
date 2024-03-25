@@ -91,7 +91,7 @@ class PlayerCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(16),
           color: context.myTheme.elevatedColor,
           child: SizedBox(
-            height: 630,
+            height: 650,
             child: child,
           ),
         ),
