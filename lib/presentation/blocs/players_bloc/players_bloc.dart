@@ -40,7 +40,7 @@ class PlayersBloc extends Bloc<PlayersEvent, PlayersState> {
           .map((entry) => entry.key)
           .toList();
       if (availableRoles.isEmpty) {
-        throw Exception('No roles available');
+        return GameRole.citizen;
       }
       final randomIndex = random.nextInt(availableRoles.length);
       return availableRoles[randomIndex];
@@ -48,6 +48,7 @@ class PlayersBloc extends Bloc<PlayersEvent, PlayersState> {
 
     Map<GameRole, int> decreaseRoleCount(
         Map<GameRole, int> roles, GameRole role) {
+      if (role == GameRole.citizen && roles[role] == 0) return roles;
       if (!roles.containsKey(role) || roles[role]! <= 0) {
         throw Exception('Role is not available or its count is already zero');
       }
