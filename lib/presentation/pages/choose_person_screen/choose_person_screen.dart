@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:ya_mafia/core/constants.dart';
 import 'package:ya_mafia/core/theme/tailor_theme/my_theme.dart';
+import 'package:ya_mafia/presentation/common/list_view_with_radios/list_view_with_radios.dart';
 import 'package:ya_mafia/presentation/common/seemless_appbar.dart';
 
 import '../../../zgen/i18n/strings.g.dart';
-import 'widgets/day_candidates_list_view.dart';
 
-class DayCandidatesScreen extends StatelessWidget {
-  const DayCandidatesScreen({super.key});
+class ChoosePersonScreen extends StatelessWidget {
+  const ChoosePersonScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,29 +17,21 @@ class DayCandidatesScreen extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(appPadding),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              context.t.candidates,
+              context.t.whoAreYou,
               style: context.headline1,
             ),
             const SizedBox(
               height: appPadding,
             ),
-            const DayCandidatesListView(),
-            const SizedBox(
-              height: 20,
-            ),
-            Center(
-              child: ElevatedButton(
-                onPressed: () {
-                  //TODO add button function
-                },
-                child: Text(context.t.buttonText.done),
-              ),
-            ),
+            ListViewWithRadios(),
             const SizedBox(
               height: appPadding,
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: Text(context.t.buttonText.confirm),
             ),
           ],
         ),

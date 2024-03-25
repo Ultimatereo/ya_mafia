@@ -1,34 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:ya_mafia/core/theme/tailor_theme/my_theme.dart';
 
-import '../../../../core/constants.dart';
+import '../../../core/constants.dart';
 
-class DayCandidateListTile extends StatelessWidget {
-  const DayCandidateListTile({
+class ListTileWithRadio extends StatelessWidget {
+  const ListTileWithRadio({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
       decoration: BoxDecoration(
         color: context.listTileColor,
         borderRadius: BorderRadius.circular(listTileCircularRadius),
       ),
       child: Row(
         children: [
-          Image.asset('assets/images/mafia.webp', width: 40, height: 40),
+          Image.asset(
+            'assets/images/mafia.webp',
+            height: 40,
+            width: 40,
+          ),
           const SizedBox(width: appPadding),
           Expanded(
             child: Text(
               "data",
-              style: context.listTileTextStyle,
+              style: context.listTileTextStyle, // Text styling
             ),
           ),
-          Checkbox(
+          Radio(
             value: true,
-            onChanged: (bool? val) {},
+            groupValue: 1,
+            onChanged: (val) {},
           ),
         ],
       ),

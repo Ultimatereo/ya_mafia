@@ -50,6 +50,10 @@ buttonText:
   weAreReady: We are ready!
   done: Done!
   confirm: Confirm
+  yesItsMe: Yes, it's me
+  noItsNotMe: No, it's not me:(
 
 candidates: Candidates
 whoDiedDay: Who died on this beautiful day?
+mafiaChooses: The mafia makes its choice
+whoAreYou: Who are you?
