@@ -17,6 +17,7 @@ class PlayerCreator extends StatefulWidget {
 
 class _PlayerCreatorState extends State<PlayerCreator> {
   final controller = TextEditingController();
+  final formKey = GlobalKey<FormState>();
   var avatar = Avatar.one;
   bool isPressed = false;
 
@@ -69,11 +70,17 @@ class _PlayerCreatorState extends State<PlayerCreator> {
                 Padding(
                   padding:
                       const EdgeInsets.symmetric(horizontal: appPadding * 2),
-                  child: TextField(
-                    controller: controller,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(16),
+                  child: Form(
+                    key: formKey,
+                    child: TextFormField(
+                      validator: (value) => (value?.isEmpty ?? true)
+                          ? context.t.game.foggotenName
+                          : null,
+                      controller: controller,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(16),
+                        ),
                       ),
                     ),
                   ),
@@ -84,19 +91,18 @@ class _PlayerCreatorState extends State<PlayerCreator> {
         ),
         const SizedBox(height: appPadding * 3),
         ElevatedButton(
-          onPressed: isPressed
-              ? null
-              : () {
-                  setState(() {
-                    isPressed = true;
-                  });
-                  context.read<PlayersBloc>().add(
-                        PlayersEvent.playerCreated(
-                          name: controller.text,
-                          avatar: avatar,
-                        ),
-                      );
-                },
+          onPressed: () {
+            if (!formKey.currentState!.validate()) return;
+            if (!isPressed) {
+              isPressed = true;
+              context.read<PlayersBloc>().add(
+                    PlayersEvent.playerCreated(
+                      name: controller.text,
+                      avatar: avatar,
+                    ),
+                  );
+            }
+          },
           child: Text(context.t.game.itsMe),
         ),
         const SizedBox(height: appPadding * 3),
