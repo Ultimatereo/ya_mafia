@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:ya_mafia/core/constants.dart';
 import 'package:ya_mafia/core/navigation/delegate.dart';
 import 'package:ya_mafia/core/theme/tailor_theme/my_theme.dart';

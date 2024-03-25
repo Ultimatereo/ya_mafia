@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ya_mafia/core/constants.dart';
+import 'package:ya_mafia/core/navigation/delegate.dart';
 import 'package:ya_mafia/core/theme/tailor_theme/my_theme.dart';
 import 'package:ya_mafia/data/enums/day_night.dart';
 import 'package:ya_mafia/presentation/pages/settings_screen/widgets/extra_settings/extra_settings_column.dart';
@@ -85,10 +85,13 @@ class SettingsScreen extends StatelessWidget {
                     height: appPadding * 2,
                   ),
                   ElevatedButton(
-                      onPressed: () {},
-                      child: Text(
-                        context.t.assignRoles,
-                      )),
+                    onPressed: () {
+                      Nav.goSetup();
+                    },
+                    child: Text(
+                      context.t.assignRoles,
+                    ),
+                  ),
                 ],
               );
             },

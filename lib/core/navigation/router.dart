@@ -3,6 +3,7 @@ import 'package:go_router/go_router.dart';
 import 'package:ya_mafia/presentation/pages/day_candidates_screen.dart/day_candidates_screen.dart';
 import 'package:ya_mafia/presentation/pages/day_decision_screen/day_decision_screen.dart';
 import 'package:ya_mafia/presentation/pages/day_voting_screen/day_voting_screen.dart';
+import 'package:ya_mafia/presentation/pages/game/setup/setup_screen.dart';
 import 'package:ya_mafia/presentation/pages/home/home_screen.dart';
 import 'package:ya_mafia/presentation/pages/settings_screen/settings_screen.dart';
 
@@ -13,16 +14,25 @@ final router = GoRouter(
   routes: [
     GoRoute(
       path: '/',
-      pageBuilder: (context, state) => const MaterialPage(
-        child: HomeScreen(),
-      ),
-    ),
-    GoRoute(
-      path: '/settings',
-      name: 'settings',
-      pageBuilder: (context, state) => const MaterialPage(
-        child: SettingsScreen(),
-      ),
+      pageBuilder: (context, state) => const MaterialPage(child: HomeScreen()),
+      routes: [
+        GoRoute(
+          path: 'settings',
+          name: 'settings',
+          pageBuilder: (context, state) => const MaterialPage(
+            child: SettingsScreen(),
+          ),
+          routes: [
+            GoRoute(
+              path: 'setup',
+              name: 'setup',
+              pageBuilder: (context, state) => const MaterialPage(
+                child: SetupScreen(),
+              ),
+            ),
+          ],
+        ),
+      ],
     ),
     GoRoute(
       path: '/day-voting-screen',

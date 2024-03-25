@@ -53,3 +53,9 @@ buttonText:
 
 candidates: Candidates
 whoDiedDay: Who died on this beautiful day?
+
+game:
+  itsMe: Yes, it's me
+  cool: Cool
+  enterYourName: Introduce yourself!
+
