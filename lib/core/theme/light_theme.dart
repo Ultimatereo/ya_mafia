@@ -6,6 +6,10 @@ import 'package:ya_mafia/core/theme/text_theme.dart';
 import 'colors.dart';
 
 final ThemeData lightTheme = ThemeData(
+  colorScheme: const ColorScheme.light(
+    primary: green,
+    secondary: yellow,
+  ),
   textButtonTheme: TextButtonThemeData(
     style: TextButton.styleFrom(
       textStyle: text24.copyWith(color: yellow),
@@ -50,6 +54,7 @@ final ThemeData lightTheme = ThemeData(
       brownMainDark: brownMainDark,
       mainLight: mainLight,
       mainLightLight: mainLightLight,
+      cardColor: lightCardColor,
       headline1: text28Bold.copyWith(color: Colors.black),
       headline1Yellow: text28Bold.copyWith(color: yellow),
       headline2: text20.copyWith(color: yellow),
@@ -59,9 +64,11 @@ final ThemeData lightTheme = ThemeData(
         color: brownMainDark,
       ),
       headline3: text20.copyWith(color: brownMain),
+      headline4: text24.copyWith(color: darkCardColor),
       dialogTitleStyle: text24.copyWith(color: brownMainDark),
       dialogSubtitleStyle: text16.copyWith(color: brownMain),
       dialogActionStyle: text20.copyWith(color: brownMainDark),
+      cardDescryptionTextStyle: text20.copyWith(color: brownMain),
     ),
   ],
 );

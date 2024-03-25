@@ -57,3 +57,8 @@ candidates: Candidates
 whoDiedDay: Who died on this beautiful day?
 mafiaChooses: The mafia makes its choice
 whoAreYou: Who are you?
+
+game:
+  itsMe: Yes, it's me
+  cool: Cool
+  enterYourName: Introduce yourself!
