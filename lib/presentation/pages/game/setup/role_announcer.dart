@@ -58,16 +58,14 @@ class _RoleAnnouncerState extends State<RoleAnnouncer> {
           ),
           const SizedBox(height: appPadding * 3),
           ElevatedButton(
-            onPressed: isPressed
-                ? null
-                : () {
-                    setState(() {
-                      isPressed = true;
-                    });
-                    context.read<PlayersBloc>().add(
-                          const PlayersEvent.roleAnnounced(),
-                        );
-                  },
+            onPressed: () {
+              if (!isPressed) {
+                isPressed = true;
+                context.read<PlayersBloc>().add(
+                      const PlayersEvent.roleAnnounced(),
+                    );
+              }
+            },
             child: Text(context.t.game.cool),
           ),
           const SizedBox(height: appPadding * 3),

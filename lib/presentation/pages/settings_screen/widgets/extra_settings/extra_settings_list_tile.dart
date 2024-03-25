@@ -37,7 +37,7 @@ class ExtraSettingsListTile extends StatelessWidget {
           mainFunction();
         },
       ),
-      tileColor: context.listTileColor,
+      tileColor: context.elevatedColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(listTileCircularRadius),
       ),

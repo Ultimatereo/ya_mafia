@@ -6,6 +6,3 @@ const Color brownMain = Color(0xFF504349);
 const Color brownMainDark = Color(0xFF352B2F);
 const Color mainLight = Color(0xFFD7CFD3);
 const Color mainLightLight = Color(0xFFEEECEC);
-
-const Color darkCardColor = Color(0xFF32292D);
-const Color lightCardColor = Color(0xFFdddbdc);

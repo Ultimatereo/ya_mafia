@@ -22,7 +22,7 @@ class RoleListTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       visualDensity: VisualDensity.standard,
-      tileColor: context.listTileColor,
+      tileColor: context.elevatedColor,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(listTileCircularRadius),
       ),

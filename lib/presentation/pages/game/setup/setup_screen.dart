@@ -89,7 +89,7 @@ class PlayerCard extends StatelessWidget {
         Material(
           elevation: 3,
           borderRadius: BorderRadius.circular(16),
-          color: context.myTheme.cardColor,
+          color: context.myTheme.elevatedColor,
           child: SizedBox(
             height: 630,
             child: child,
@@ -109,8 +109,10 @@ class PlayerCard extends StatelessWidget {
             ),
             child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text('$currentPlayerIndex/$numberOfPlayers',
-                  style: context.headline3),
+              child: Text(
+                '$currentPlayerIndex/$numberOfPlayers',
+                style: context.headline3.copyWith(color: Colors.white),
+              ),
             ),
           ),
         ),
