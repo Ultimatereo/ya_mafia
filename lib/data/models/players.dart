@@ -10,9 +10,10 @@ abstract class Players with _$Players {
     required int numberOfPlayers,
     required Map<GameRole, int> roles,
     @Default([]) List<Player> players,
+    @Default(1) int currentPlayerIndex,
   }) = _Players;
 
   const Players._();
 
-  get currentPlayerIndex => players.length;
+  GameRole? get currentPlayerRole => players.lastOrNull?.role;
 }

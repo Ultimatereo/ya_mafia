@@ -19,6 +19,7 @@ mixin _$Players {
   int get numberOfPlayers => throw _privateConstructorUsedError;
   Map<GameRole, int> get roles => throw _privateConstructorUsedError;
   List<Player> get players => throw _privateConstructorUsedError;
+  int get currentPlayerIndex => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PlayersCopyWith<Players> get copyWith => throw _privateConstructorUsedError;
@@ -30,7 +31,10 @@ abstract class $PlayersCopyWith<$Res> {
       _$PlayersCopyWithImpl<$Res, Players>;
   @useResult
   $Res call(
-      {int numberOfPlayers, Map<GameRole, int> roles, List<Player> players});
+      {int numberOfPlayers,
+      Map<GameRole, int> roles,
+      List<Player> players,
+      int currentPlayerIndex});
 }
 
 /// @nodoc
@@ -49,6 +53,7 @@ class _$PlayersCopyWithImpl<$Res, $Val extends Players>
     Object? numberOfPlayers = null,
     Object? roles = null,
     Object? players = null,
+    Object? currentPlayerIndex = null,
   }) {
     return _then(_value.copyWith(
       numberOfPlayers: null == numberOfPlayers
@@ -63,6 +68,10 @@ class _$PlayersCopyWithImpl<$Res, $Val extends Players>
           ? _value.players
           : players // ignore: cast_nullable_to_non_nullable
               as List<Player>,
+      currentPlayerIndex: null == currentPlayerIndex
+          ? _value.currentPlayerIndex
+          : currentPlayerIndex // ignore: cast_nullable_to_non_nullable
+              as int,
     ) as $Val);
   }
 }
@@ -75,7 +84,10 @@ abstract class _$$PlayersImplCopyWith<$Res> implements $PlayersCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {int numberOfPlayers, Map<GameRole, int> roles, List<Player> players});
+      {int numberOfPlayers,
+      Map<GameRole, int> roles,
+      List<Player> players,
+      int currentPlayerIndex});
 }
 
 /// @nodoc
@@ -92,6 +104,7 @@ class __$$PlayersImplCopyWithImpl<$Res>
     Object? numberOfPlayers = null,
     Object? roles = null,
     Object? players = null,
+    Object? currentPlayerIndex = null,
   }) {
     return _then(_$PlayersImpl(
       numberOfPlayers: null == numberOfPlayers
@@ -106,6 +119,10 @@ class __$$PlayersImplCopyWithImpl<$Res>
           ? _value._players
           : players // ignore: cast_nullable_to_non_nullable
               as List<Player>,
+      currentPlayerIndex: null == currentPlayerIndex
+          ? _value.currentPlayerIndex
+          : currentPlayerIndex // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -116,7 +133,8 @@ class _$PlayersImpl extends _Players {
   const _$PlayersImpl(
       {required this.numberOfPlayers,
       required final Map<GameRole, int> roles,
-      final List<Player> players = const []})
+      final List<Player> players = const [],
+      this.currentPlayerIndex = 1})
       : _roles = roles,
         _players = players,
         super._();
@@ -141,8 +159,12 @@ class _$PlayersImpl extends _Players {
   }
 
   @override
+  @JsonKey()
+  final int currentPlayerIndex;
+
+  @override
   String toString() {
-    return 'Players(numberOfPlayers: $numberOfPlayers, roles: $roles, players: $players)';
+    return 'Players(numberOfPlayers: $numberOfPlayers, roles: $roles, players: $players, currentPlayerIndex: $currentPlayerIndex)';
   }
 
   @override
@@ -153,7 +175,9 @@ class _$PlayersImpl extends _Players {
             (identical(other.numberOfPlayers, numberOfPlayers) ||
                 other.numberOfPlayers == numberOfPlayers) &&
             const DeepCollectionEquality().equals(other._roles, _roles) &&
-            const DeepCollectionEquality().equals(other._players, _players));
+            const DeepCollectionEquality().equals(other._players, _players) &&
+            (identical(other.currentPlayerIndex, currentPlayerIndex) ||
+                other.currentPlayerIndex == currentPlayerIndex));
   }
 
   @override
@@ -161,7 +185,8 @@ class _$PlayersImpl extends _Players {
       runtimeType,
       numberOfPlayers,
       const DeepCollectionEquality().hash(_roles),
-      const DeepCollectionEquality().hash(_players));
+      const DeepCollectionEquality().hash(_players),
+      currentPlayerIndex);
 
   @JsonKey(ignore: true)
   @override
@@ -174,7 +199,8 @@ abstract class _Players extends Players {
   const factory _Players(
       {required final int numberOfPlayers,
       required final Map<GameRole, int> roles,
-      final List<Player> players}) = _$PlayersImpl;
+      final List<Player> players,
+      final int currentPlayerIndex}) = _$PlayersImpl;
   const _Players._() : super._();
 
   @override
@@ -183,6 +209,8 @@ abstract class _Players extends Players {
   Map<GameRole, int> get roles;
   @override
   List<Player> get players;
+  @override
+  int get currentPlayerIndex;
   @override
   @JsonKey(ignore: true)
   _$$PlayersImplCopyWith<_$PlayersImpl> get copyWith =>

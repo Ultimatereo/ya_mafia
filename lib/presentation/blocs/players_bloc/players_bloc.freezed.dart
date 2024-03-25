@@ -18,45 +18,39 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$PlayersEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function(Player player) createPlayer,
-    required TResult Function() toNextPlayer,
+    required TResult Function(String name, Avatar avatar) playerCreated,
+    required TResult Function() roleAnnounced,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
-    TResult? Function(Player player)? createPlayer,
-    TResult? Function()? toNextPlayer,
+    TResult? Function(String name, Avatar avatar)? playerCreated,
+    TResult? Function()? roleAnnounced,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function(Player player)? createPlayer,
-    TResult Function()? toNextPlayer,
+    TResult Function(String name, Avatar avatar)? playerCreated,
+    TResult Function()? roleAnnounced,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-    required TResult Function(_CreatePlayer value) createPlayer,
-    required TResult Function(_ToNextPlayer value) toNextPlayer,
+    required TResult Function(_PlayerCreated value) playerCreated,
+    required TResult Function(_RoleAnnounced value) roleAnnounced,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
-    TResult? Function(_CreatePlayer value)? createPlayer,
-    TResult? Function(_ToNextPlayer value)? toNextPlayer,
+    TResult? Function(_PlayerCreated value)? playerCreated,
+    TResult? Function(_RoleAnnounced value)? roleAnnounced,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_CreatePlayer value)? createPlayer,
-    TResult Function(_ToNextPlayer value)? toNextPlayer,
+    TResult Function(_PlayerCreated value)? playerCreated,
+    TResult Function(_RoleAnnounced value)? roleAnnounced,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -81,218 +75,112 @@ class _$PlayersEventCopyWithImpl<$Res, $Val extends PlayersEvent>
 }
 
 /// @nodoc
-abstract class _$$StartedImplCopyWith<$Res> {
-  factory _$$StartedImplCopyWith(
-          _$StartedImpl value, $Res Function(_$StartedImpl) then) =
-      __$$StartedImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$StartedImplCopyWithImpl<$Res>
-    extends _$PlayersEventCopyWithImpl<$Res, _$StartedImpl>
-    implements _$$StartedImplCopyWith<$Res> {
-  __$$StartedImplCopyWithImpl(
-      _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$StartedImpl with DiagnosticableTreeMixin implements _Started {
-  const _$StartedImpl();
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'PlayersEvent.started()';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'PlayersEvent.started'));
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$StartedImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function(Player player) createPlayer,
-    required TResult Function() toNextPlayer,
-  }) {
-    return started();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
-    TResult? Function(Player player)? createPlayer,
-    TResult? Function()? toNextPlayer,
-  }) {
-    return started?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function(Player player)? createPlayer,
-    TResult Function()? toNextPlayer,
-    required TResult orElse(),
-  }) {
-    if (started != null) {
-      return started();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-    required TResult Function(_CreatePlayer value) createPlayer,
-    required TResult Function(_ToNextPlayer value) toNextPlayer,
-  }) {
-    return started(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
-    TResult? Function(_CreatePlayer value)? createPlayer,
-    TResult? Function(_ToNextPlayer value)? toNextPlayer,
-  }) {
-    return started?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_CreatePlayer value)? createPlayer,
-    TResult Function(_ToNextPlayer value)? toNextPlayer,
-    required TResult orElse(),
-  }) {
-    if (started != null) {
-      return started(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _Started implements PlayersEvent {
-  const factory _Started() = _$StartedImpl;
-}
-
-/// @nodoc
-abstract class _$$CreatePlayerImplCopyWith<$Res> {
-  factory _$$CreatePlayerImplCopyWith(
-          _$CreatePlayerImpl value, $Res Function(_$CreatePlayerImpl) then) =
-      __$$CreatePlayerImplCopyWithImpl<$Res>;
+abstract class _$$PlayerCreatedImplCopyWith<$Res> {
+  factory _$$PlayerCreatedImplCopyWith(
+          _$PlayerCreatedImpl value, $Res Function(_$PlayerCreatedImpl) then) =
+      __$$PlayerCreatedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({Player player});
+  $Res call({String name, Avatar avatar});
 }
 
 /// @nodoc
-class __$$CreatePlayerImplCopyWithImpl<$Res>
-    extends _$PlayersEventCopyWithImpl<$Res, _$CreatePlayerImpl>
-    implements _$$CreatePlayerImplCopyWith<$Res> {
-  __$$CreatePlayerImplCopyWithImpl(
-      _$CreatePlayerImpl _value, $Res Function(_$CreatePlayerImpl) _then)
+class __$$PlayerCreatedImplCopyWithImpl<$Res>
+    extends _$PlayersEventCopyWithImpl<$Res, _$PlayerCreatedImpl>
+    implements _$$PlayerCreatedImplCopyWith<$Res> {
+  __$$PlayerCreatedImplCopyWithImpl(
+      _$PlayerCreatedImpl _value, $Res Function(_$PlayerCreatedImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? player = null,
+    Object? name = null,
+    Object? avatar = null,
   }) {
-    return _then(_$CreatePlayerImpl(
-      null == player
-          ? _value.player
-          : player // ignore: cast_nullable_to_non_nullable
-              as Player,
+    return _then(_$PlayerCreatedImpl(
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      avatar: null == avatar
+          ? _value.avatar
+          : avatar // ignore: cast_nullable_to_non_nullable
+              as Avatar,
     ));
   }
 }
 
 /// @nodoc
 
-class _$CreatePlayerImpl with DiagnosticableTreeMixin implements _CreatePlayer {
-  const _$CreatePlayerImpl(this.player);
+class _$PlayerCreatedImpl
+    with DiagnosticableTreeMixin
+    implements _PlayerCreated {
+  const _$PlayerCreatedImpl({required this.name, required this.avatar});
 
   @override
-  final Player player;
+  final String name;
+  @override
+  final Avatar avatar;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'PlayersEvent.createPlayer(player: $player)';
+    return 'PlayersEvent.playerCreated(name: $name, avatar: $avatar)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'PlayersEvent.createPlayer'))
-      ..add(DiagnosticsProperty('player', player));
+      ..add(DiagnosticsProperty('type', 'PlayersEvent.playerCreated'))
+      ..add(DiagnosticsProperty('name', name))
+      ..add(DiagnosticsProperty('avatar', avatar));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$CreatePlayerImpl &&
-            (identical(other.player, player) || other.player == player));
+            other is _$PlayerCreatedImpl &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.avatar, avatar) || other.avatar == avatar));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, player);
+  int get hashCode => Object.hash(runtimeType, name, avatar);
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$CreatePlayerImplCopyWith<_$CreatePlayerImpl> get copyWith =>
-      __$$CreatePlayerImplCopyWithImpl<_$CreatePlayerImpl>(this, _$identity);
+  _$$PlayerCreatedImplCopyWith<_$PlayerCreatedImpl> get copyWith =>
+      __$$PlayerCreatedImplCopyWithImpl<_$PlayerCreatedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function(Player player) createPlayer,
-    required TResult Function() toNextPlayer,
+    required TResult Function(String name, Avatar avatar) playerCreated,
+    required TResult Function() roleAnnounced,
   }) {
-    return createPlayer(player);
+    return playerCreated(name, avatar);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
-    TResult? Function(Player player)? createPlayer,
-    TResult? Function()? toNextPlayer,
+    TResult? Function(String name, Avatar avatar)? playerCreated,
+    TResult? Function()? roleAnnounced,
   }) {
-    return createPlayer?.call(player);
+    return playerCreated?.call(name, avatar);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function(Player player)? createPlayer,
-    TResult Function()? toNextPlayer,
+    TResult Function(String name, Avatar avatar)? playerCreated,
+    TResult Function()? roleAnnounced,
     required TResult orElse(),
   }) {
-    if (createPlayer != null) {
-      return createPlayer(player);
+    if (playerCreated != null) {
+      return playerCreated(name, avatar);
     }
     return orElse();
   }
@@ -300,83 +188,85 @@ class _$CreatePlayerImpl with DiagnosticableTreeMixin implements _CreatePlayer {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-    required TResult Function(_CreatePlayer value) createPlayer,
-    required TResult Function(_ToNextPlayer value) toNextPlayer,
+    required TResult Function(_PlayerCreated value) playerCreated,
+    required TResult Function(_RoleAnnounced value) roleAnnounced,
   }) {
-    return createPlayer(this);
+    return playerCreated(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
-    TResult? Function(_CreatePlayer value)? createPlayer,
-    TResult? Function(_ToNextPlayer value)? toNextPlayer,
+    TResult? Function(_PlayerCreated value)? playerCreated,
+    TResult? Function(_RoleAnnounced value)? roleAnnounced,
   }) {
-    return createPlayer?.call(this);
+    return playerCreated?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_CreatePlayer value)? createPlayer,
-    TResult Function(_ToNextPlayer value)? toNextPlayer,
+    TResult Function(_PlayerCreated value)? playerCreated,
+    TResult Function(_RoleAnnounced value)? roleAnnounced,
     required TResult orElse(),
   }) {
-    if (createPlayer != null) {
-      return createPlayer(this);
+    if (playerCreated != null) {
+      return playerCreated(this);
     }
     return orElse();
   }
 }
 
-abstract class _CreatePlayer implements PlayersEvent {
-  const factory _CreatePlayer(final Player player) = _$CreatePlayerImpl;
+abstract class _PlayerCreated implements PlayersEvent {
+  const factory _PlayerCreated(
+      {required final String name,
+      required final Avatar avatar}) = _$PlayerCreatedImpl;
 
-  Player get player;
+  String get name;
+  Avatar get avatar;
   @JsonKey(ignore: true)
-  _$$CreatePlayerImplCopyWith<_$CreatePlayerImpl> get copyWith =>
+  _$$PlayerCreatedImplCopyWith<_$PlayerCreatedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$ToNextPlayerImplCopyWith<$Res> {
-  factory _$$ToNextPlayerImplCopyWith(
-          _$ToNextPlayerImpl value, $Res Function(_$ToNextPlayerImpl) then) =
-      __$$ToNextPlayerImplCopyWithImpl<$Res>;
+abstract class _$$RoleAnnouncedImplCopyWith<$Res> {
+  factory _$$RoleAnnouncedImplCopyWith(
+          _$RoleAnnouncedImpl value, $Res Function(_$RoleAnnouncedImpl) then) =
+      __$$RoleAnnouncedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$ToNextPlayerImplCopyWithImpl<$Res>
-    extends _$PlayersEventCopyWithImpl<$Res, _$ToNextPlayerImpl>
-    implements _$$ToNextPlayerImplCopyWith<$Res> {
-  __$$ToNextPlayerImplCopyWithImpl(
-      _$ToNextPlayerImpl _value, $Res Function(_$ToNextPlayerImpl) _then)
+class __$$RoleAnnouncedImplCopyWithImpl<$Res>
+    extends _$PlayersEventCopyWithImpl<$Res, _$RoleAnnouncedImpl>
+    implements _$$RoleAnnouncedImplCopyWith<$Res> {
+  __$$RoleAnnouncedImplCopyWithImpl(
+      _$RoleAnnouncedImpl _value, $Res Function(_$RoleAnnouncedImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$ToNextPlayerImpl with DiagnosticableTreeMixin implements _ToNextPlayer {
-  const _$ToNextPlayerImpl();
+class _$RoleAnnouncedImpl
+    with DiagnosticableTreeMixin
+    implements _RoleAnnounced {
+  const _$RoleAnnouncedImpl();
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'PlayersEvent.toNextPlayer()';
+    return 'PlayersEvent.roleAnnounced()';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'PlayersEvent.toNextPlayer'));
+    properties.add(DiagnosticsProperty('type', 'PlayersEvent.roleAnnounced'));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ToNextPlayerImpl);
+        (other.runtimeType == runtimeType && other is _$RoleAnnouncedImpl);
   }
 
   @override
@@ -385,33 +275,30 @@ class _$ToNextPlayerImpl with DiagnosticableTreeMixin implements _ToNextPlayer {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function(Player player) createPlayer,
-    required TResult Function() toNextPlayer,
+    required TResult Function(String name, Avatar avatar) playerCreated,
+    required TResult Function() roleAnnounced,
   }) {
-    return toNextPlayer();
+    return roleAnnounced();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
-    TResult? Function(Player player)? createPlayer,
-    TResult? Function()? toNextPlayer,
+    TResult? Function(String name, Avatar avatar)? playerCreated,
+    TResult? Function()? roleAnnounced,
   }) {
-    return toNextPlayer?.call();
+    return roleAnnounced?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function(Player player)? createPlayer,
-    TResult Function()? toNextPlayer,
+    TResult Function(String name, Avatar avatar)? playerCreated,
+    TResult Function()? roleAnnounced,
     required TResult orElse(),
   }) {
-    if (toNextPlayer != null) {
-      return toNextPlayer();
+    if (roleAnnounced != null) {
+      return roleAnnounced();
     }
     return orElse();
   }
@@ -419,92 +306,83 @@ class _$ToNextPlayerImpl with DiagnosticableTreeMixin implements _ToNextPlayer {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-    required TResult Function(_CreatePlayer value) createPlayer,
-    required TResult Function(_ToNextPlayer value) toNextPlayer,
+    required TResult Function(_PlayerCreated value) playerCreated,
+    required TResult Function(_RoleAnnounced value) roleAnnounced,
   }) {
-    return toNextPlayer(this);
+    return roleAnnounced(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
-    TResult? Function(_CreatePlayer value)? createPlayer,
-    TResult? Function(_ToNextPlayer value)? toNextPlayer,
+    TResult? Function(_PlayerCreated value)? playerCreated,
+    TResult? Function(_RoleAnnounced value)? roleAnnounced,
   }) {
-    return toNextPlayer?.call(this);
+    return roleAnnounced?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_CreatePlayer value)? createPlayer,
-    TResult Function(_ToNextPlayer value)? toNextPlayer,
+    TResult Function(_PlayerCreated value)? playerCreated,
+    TResult Function(_RoleAnnounced value)? roleAnnounced,
     required TResult orElse(),
   }) {
-    if (toNextPlayer != null) {
-      return toNextPlayer(this);
+    if (roleAnnounced != null) {
+      return roleAnnounced(this);
     }
     return orElse();
   }
 }
 
-abstract class _ToNextPlayer implements PlayersEvent {
-  const factory _ToNextPlayer() = _$ToNextPlayerImpl;
+abstract class _RoleAnnounced implements PlayersEvent {
+  const factory _RoleAnnounced() = _$RoleAnnouncedImpl;
 }
 
 /// @nodoc
 mixin _$PlayersState {
   Players get players => throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(Players players) $default, {
-    required TResult Function(Players players) playerCreating,
+  TResult when<TResult extends Object?>({
+    required TResult Function(Players players) initial,
     required TResult Function(Players players) roleAnnounce,
-    required TResult Function(Players players) done,
+    required TResult Function(Players players) end,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(Players players)? $default, {
-    TResult? Function(Players players)? playerCreating,
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Players players)? initial,
     TResult? Function(Players players)? roleAnnounce,
-    TResult? Function(Players players)? done,
+    TResult? Function(Players players)? end,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(Players players)? $default, {
-    TResult Function(Players players)? playerCreating,
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Players players)? initial,
     TResult Function(Players players)? roleAnnounce,
-    TResult Function(Players players)? done,
+    TResult Function(Players players)? end,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_PlayersState value) $default, {
-    required TResult Function(_PlayerCreating value) playerCreating,
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
     required TResult Function(_RoleAnnounce value) roleAnnounce,
-    required TResult Function(_Done value) done,
+    required TResult Function(_End value) end,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_PlayersState value)? $default, {
-    TResult? Function(_PlayerCreating value)? playerCreating,
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
     TResult? Function(_RoleAnnounce value)? roleAnnounce,
-    TResult? Function(_Done value)? done,
+    TResult? Function(_End value)? end,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_PlayersState value)? $default, {
-    TResult Function(_PlayerCreating value)? playerCreating,
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
     TResult Function(_RoleAnnounce value)? roleAnnounce,
-    TResult Function(_Done value)? done,
+    TResult Function(_End value)? end,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -558,11 +436,11 @@ class _$PlayersStateCopyWithImpl<$Res, $Val extends PlayersState>
 }
 
 /// @nodoc
-abstract class _$$PlayersStateImplCopyWith<$Res>
+abstract class _$$InitialImplCopyWith<$Res>
     implements $PlayersStateCopyWith<$Res> {
-  factory _$$PlayersStateImplCopyWith(
-          _$PlayersStateImpl value, $Res Function(_$PlayersStateImpl) then) =
-      __$$PlayersStateImplCopyWithImpl<$Res>;
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Players players});
@@ -572,11 +450,11 @@ abstract class _$$PlayersStateImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$PlayersStateImplCopyWithImpl<$Res>
-    extends _$PlayersStateCopyWithImpl<$Res, _$PlayersStateImpl>
-    implements _$$PlayersStateImplCopyWith<$Res> {
-  __$$PlayersStateImplCopyWithImpl(
-      _$PlayersStateImpl _value, $Res Function(_$PlayersStateImpl) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$PlayersStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -584,7 +462,7 @@ class __$$PlayersStateImplCopyWithImpl<$Res>
   $Res call({
     Object? players = null,
   }) {
-    return _then(_$PlayersStateImpl(
+    return _then(_$InitialImpl(
       players: null == players
           ? _value.players
           : players // ignore: cast_nullable_to_non_nullable
@@ -595,22 +473,22 @@ class __$$PlayersStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$PlayersStateImpl with DiagnosticableTreeMixin implements _PlayersState {
-  const _$PlayersStateImpl({required this.players});
+class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
+  const _$InitialImpl({required this.players});
 
   @override
   final Players players;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'PlayersState(players: $players)';
+    return 'PlayersState.initial(players: $players)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'PlayersState'))
+      ..add(DiagnosticsProperty('type', 'PlayersState.initial'))
       ..add(DiagnosticsProperty('players', players));
   }
 
@@ -618,7 +496,7 @@ class _$PlayersStateImpl with DiagnosticableTreeMixin implements _PlayersState {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PlayersStateImpl &&
+            other is _$InitialImpl &&
             (identical(other.players, players) || other.players == players));
   }
 
@@ -628,257 +506,86 @@ class _$PlayersStateImpl with DiagnosticableTreeMixin implements _PlayersState {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PlayersStateImplCopyWith<_$PlayersStateImpl> get copyWith =>
-      __$$PlayersStateImplCopyWithImpl<_$PlayersStateImpl>(this, _$identity);
+  _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
+      __$$InitialImplCopyWithImpl<_$InitialImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(Players players) $default, {
-    required TResult Function(Players players) playerCreating,
+  TResult when<TResult extends Object?>({
+    required TResult Function(Players players) initial,
     required TResult Function(Players players) roleAnnounce,
-    required TResult Function(Players players) done,
+    required TResult Function(Players players) end,
   }) {
-    return $default(players);
+    return initial(players);
   }
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(Players players)? $default, {
-    TResult? Function(Players players)? playerCreating,
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Players players)? initial,
     TResult? Function(Players players)? roleAnnounce,
-    TResult? Function(Players players)? done,
+    TResult? Function(Players players)? end,
   }) {
-    return $default?.call(players);
+    return initial?.call(players);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(Players players)? $default, {
-    TResult Function(Players players)? playerCreating,
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Players players)? initial,
     TResult Function(Players players)? roleAnnounce,
-    TResult Function(Players players)? done,
+    TResult Function(Players players)? end,
     required TResult orElse(),
   }) {
-    if ($default != null) {
-      return $default(players);
+    if (initial != null) {
+      return initial(players);
     }
     return orElse();
   }
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_PlayersState value) $default, {
-    required TResult Function(_PlayerCreating value) playerCreating,
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
     required TResult Function(_RoleAnnounce value) roleAnnounce,
-    required TResult Function(_Done value) done,
+    required TResult Function(_End value) end,
   }) {
-    return $default(this);
+    return initial(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_PlayersState value)? $default, {
-    TResult? Function(_PlayerCreating value)? playerCreating,
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
     TResult? Function(_RoleAnnounce value)? roleAnnounce,
-    TResult? Function(_Done value)? done,
+    TResult? Function(_End value)? end,
   }) {
-    return $default?.call(this);
+    return initial?.call(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_PlayersState value)? $default, {
-    TResult Function(_PlayerCreating value)? playerCreating,
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
     TResult Function(_RoleAnnounce value)? roleAnnounce,
-    TResult Function(_Done value)? done,
+    TResult Function(_End value)? end,
     required TResult orElse(),
   }) {
-    if ($default != null) {
-      return $default(this);
+    if (initial != null) {
+      return initial(this);
     }
     return orElse();
   }
 }
 
-abstract class _PlayersState implements PlayersState {
-  const factory _PlayersState({required final Players players}) =
-      _$PlayersStateImpl;
+abstract class _Initial implements PlayersState {
+  const factory _Initial({required final Players players}) = _$InitialImpl;
 
   @override
   Players get players;
   @override
   @JsonKey(ignore: true)
-  _$$PlayersStateImplCopyWith<_$PlayersStateImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$PlayerCreatingImplCopyWith<$Res>
-    implements $PlayersStateCopyWith<$Res> {
-  factory _$$PlayerCreatingImplCopyWith(_$PlayerCreatingImpl value,
-          $Res Function(_$PlayerCreatingImpl) then) =
-      __$$PlayerCreatingImplCopyWithImpl<$Res>;
-  @override
-  @useResult
-  $Res call({Players players});
-
-  @override
-  $PlayersCopyWith<$Res> get players;
-}
-
-/// @nodoc
-class __$$PlayerCreatingImplCopyWithImpl<$Res>
-    extends _$PlayersStateCopyWithImpl<$Res, _$PlayerCreatingImpl>
-    implements _$$PlayerCreatingImplCopyWith<$Res> {
-  __$$PlayerCreatingImplCopyWithImpl(
-      _$PlayerCreatingImpl _value, $Res Function(_$PlayerCreatingImpl) _then)
-      : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? players = null,
-  }) {
-    return _then(_$PlayerCreatingImpl(
-      players: null == players
-          ? _value.players
-          : players // ignore: cast_nullable_to_non_nullable
-              as Players,
-    ));
-  }
-}
-
-/// @nodoc
-
-class _$PlayerCreatingImpl
-    with DiagnosticableTreeMixin
-    implements _PlayerCreating {
-  const _$PlayerCreatingImpl({required this.players});
-
-  @override
-  final Players players;
-
-  @override
-  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'PlayersState.playerCreating(players: $players)';
-  }
-
-  @override
-  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
-    super.debugFillProperties(properties);
-    properties
-      ..add(DiagnosticsProperty('type', 'PlayersState.playerCreating'))
-      ..add(DiagnosticsProperty('players', players));
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$PlayerCreatingImpl &&
-            (identical(other.players, players) || other.players == players));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, players);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$PlayerCreatingImplCopyWith<_$PlayerCreatingImpl> get copyWith =>
-      __$$PlayerCreatingImplCopyWithImpl<_$PlayerCreatingImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(Players players) $default, {
-    required TResult Function(Players players) playerCreating,
-    required TResult Function(Players players) roleAnnounce,
-    required TResult Function(Players players) done,
-  }) {
-    return playerCreating(players);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(Players players)? $default, {
-    TResult? Function(Players players)? playerCreating,
-    TResult? Function(Players players)? roleAnnounce,
-    TResult? Function(Players players)? done,
-  }) {
-    return playerCreating?.call(players);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(Players players)? $default, {
-    TResult Function(Players players)? playerCreating,
-    TResult Function(Players players)? roleAnnounce,
-    TResult Function(Players players)? done,
-    required TResult orElse(),
-  }) {
-    if (playerCreating != null) {
-      return playerCreating(players);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_PlayersState value) $default, {
-    required TResult Function(_PlayerCreating value) playerCreating,
-    required TResult Function(_RoleAnnounce value) roleAnnounce,
-    required TResult Function(_Done value) done,
-  }) {
-    return playerCreating(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_PlayersState value)? $default, {
-    TResult? Function(_PlayerCreating value)? playerCreating,
-    TResult? Function(_RoleAnnounce value)? roleAnnounce,
-    TResult? Function(_Done value)? done,
-  }) {
-    return playerCreating?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_PlayersState value)? $default, {
-    TResult Function(_PlayerCreating value)? playerCreating,
-    TResult Function(_RoleAnnounce value)? roleAnnounce,
-    TResult Function(_Done value)? done,
-    required TResult orElse(),
-  }) {
-    if (playerCreating != null) {
-      return playerCreating(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _PlayerCreating implements PlayersState {
-  const factory _PlayerCreating({required final Players players}) =
-      _$PlayerCreatingImpl;
-
-  @override
-  Players get players;
-  @override
-  @JsonKey(ignore: true)
-  _$$PlayerCreatingImplCopyWith<_$PlayerCreatingImpl> get copyWith =>
+  _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -958,33 +665,30 @@ class _$RoleAnnounceImpl with DiagnosticableTreeMixin implements _RoleAnnounce {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(Players players) $default, {
-    required TResult Function(Players players) playerCreating,
+  TResult when<TResult extends Object?>({
+    required TResult Function(Players players) initial,
     required TResult Function(Players players) roleAnnounce,
-    required TResult Function(Players players) done,
+    required TResult Function(Players players) end,
   }) {
     return roleAnnounce(players);
   }
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(Players players)? $default, {
-    TResult? Function(Players players)? playerCreating,
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Players players)? initial,
     TResult? Function(Players players)? roleAnnounce,
-    TResult? Function(Players players)? done,
+    TResult? Function(Players players)? end,
   }) {
     return roleAnnounce?.call(players);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(Players players)? $default, {
-    TResult Function(Players players)? playerCreating,
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Players players)? initial,
     TResult Function(Players players)? roleAnnounce,
-    TResult Function(Players players)? done,
+    TResult Function(Players players)? end,
     required TResult orElse(),
   }) {
     if (roleAnnounce != null) {
@@ -995,33 +699,30 @@ class _$RoleAnnounceImpl with DiagnosticableTreeMixin implements _RoleAnnounce {
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_PlayersState value) $default, {
-    required TResult Function(_PlayerCreating value) playerCreating,
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
     required TResult Function(_RoleAnnounce value) roleAnnounce,
-    required TResult Function(_Done value) done,
+    required TResult Function(_End value) end,
   }) {
     return roleAnnounce(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_PlayersState value)? $default, {
-    TResult? Function(_PlayerCreating value)? playerCreating,
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
     TResult? Function(_RoleAnnounce value)? roleAnnounce,
-    TResult? Function(_Done value)? done,
+    TResult? Function(_End value)? end,
   }) {
     return roleAnnounce?.call(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_PlayersState value)? $default, {
-    TResult Function(_PlayerCreating value)? playerCreating,
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
     TResult Function(_RoleAnnounce value)? roleAnnounce,
-    TResult Function(_Done value)? done,
+    TResult Function(_End value)? end,
     required TResult orElse(),
   }) {
     if (roleAnnounce != null) {
@@ -1044,11 +745,9 @@ abstract class _RoleAnnounce implements PlayersState {
 }
 
 /// @nodoc
-abstract class _$$DoneImplCopyWith<$Res>
-    implements $PlayersStateCopyWith<$Res> {
-  factory _$$DoneImplCopyWith(
-          _$DoneImpl value, $Res Function(_$DoneImpl) then) =
-      __$$DoneImplCopyWithImpl<$Res>;
+abstract class _$$EndImplCopyWith<$Res> implements $PlayersStateCopyWith<$Res> {
+  factory _$$EndImplCopyWith(_$EndImpl value, $Res Function(_$EndImpl) then) =
+      __$$EndImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Players players});
@@ -1058,10 +757,10 @@ abstract class _$$DoneImplCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$DoneImplCopyWithImpl<$Res>
-    extends _$PlayersStateCopyWithImpl<$Res, _$DoneImpl>
-    implements _$$DoneImplCopyWith<$Res> {
-  __$$DoneImplCopyWithImpl(_$DoneImpl _value, $Res Function(_$DoneImpl) _then)
+class __$$EndImplCopyWithImpl<$Res>
+    extends _$PlayersStateCopyWithImpl<$Res, _$EndImpl>
+    implements _$$EndImplCopyWith<$Res> {
+  __$$EndImplCopyWithImpl(_$EndImpl _value, $Res Function(_$EndImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1069,7 +768,7 @@ class __$$DoneImplCopyWithImpl<$Res>
   $Res call({
     Object? players = null,
   }) {
-    return _then(_$DoneImpl(
+    return _then(_$EndImpl(
       players: null == players
           ? _value.players
           : players // ignore: cast_nullable_to_non_nullable
@@ -1080,22 +779,22 @@ class __$$DoneImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$DoneImpl with DiagnosticableTreeMixin implements _Done {
-  const _$DoneImpl({required this.players});
+class _$EndImpl with DiagnosticableTreeMixin implements _End {
+  const _$EndImpl({required this.players});
 
   @override
   final Players players;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'PlayersState.done(players: $players)';
+    return 'PlayersState.end(players: $players)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'PlayersState.done'))
+      ..add(DiagnosticsProperty('type', 'PlayersState.end'))
       ..add(DiagnosticsProperty('players', players));
   }
 
@@ -1103,7 +802,7 @@ class _$DoneImpl with DiagnosticableTreeMixin implements _Done {
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$DoneImpl &&
+            other is _$EndImpl &&
             (identical(other.players, players) || other.players == players));
   }
 
@@ -1113,91 +812,85 @@ class _$DoneImpl with DiagnosticableTreeMixin implements _Done {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$DoneImplCopyWith<_$DoneImpl> get copyWith =>
-      __$$DoneImplCopyWithImpl<_$DoneImpl>(this, _$identity);
+  _$$EndImplCopyWith<_$EndImpl> get copyWith =>
+      __$$EndImplCopyWithImpl<_$EndImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(Players players) $default, {
-    required TResult Function(Players players) playerCreating,
+  TResult when<TResult extends Object?>({
+    required TResult Function(Players players) initial,
     required TResult Function(Players players) roleAnnounce,
-    required TResult Function(Players players) done,
+    required TResult Function(Players players) end,
   }) {
-    return done(players);
+    return end(players);
   }
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(Players players)? $default, {
-    TResult? Function(Players players)? playerCreating,
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(Players players)? initial,
     TResult? Function(Players players)? roleAnnounce,
-    TResult? Function(Players players)? done,
+    TResult? Function(Players players)? end,
   }) {
-    return done?.call(players);
+    return end?.call(players);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(Players players)? $default, {
-    TResult Function(Players players)? playerCreating,
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(Players players)? initial,
     TResult Function(Players players)? roleAnnounce,
-    TResult Function(Players players)? done,
+    TResult Function(Players players)? end,
     required TResult orElse(),
   }) {
-    if (done != null) {
-      return done(players);
+    if (end != null) {
+      return end(players);
     }
     return orElse();
   }
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_PlayersState value) $default, {
-    required TResult Function(_PlayerCreating value) playerCreating,
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
     required TResult Function(_RoleAnnounce value) roleAnnounce,
-    required TResult Function(_Done value) done,
+    required TResult Function(_End value) end,
   }) {
-    return done(this);
+    return end(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_PlayersState value)? $default, {
-    TResult? Function(_PlayerCreating value)? playerCreating,
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
     TResult? Function(_RoleAnnounce value)? roleAnnounce,
-    TResult? Function(_Done value)? done,
+    TResult? Function(_End value)? end,
   }) {
-    return done?.call(this);
+    return end?.call(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_PlayersState value)? $default, {
-    TResult Function(_PlayerCreating value)? playerCreating,
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
     TResult Function(_RoleAnnounce value)? roleAnnounce,
-    TResult Function(_Done value)? done,
+    TResult Function(_End value)? end,
     required TResult orElse(),
   }) {
-    if (done != null) {
-      return done(this);
+    if (end != null) {
+      return end(this);
     }
     return orElse();
   }
 }
 
-abstract class _Done implements PlayersState {
-  const factory _Done({required final Players players}) = _$DoneImpl;
+abstract class _End implements PlayersState {
+  const factory _End({required final Players players}) = _$EndImpl;
 
   @override
   Players get players;
   @override
   @JsonKey(ignore: true)
-  _$$DoneImplCopyWith<_$DoneImpl> get copyWith =>
+  _$$EndImplCopyWith<_$EndImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

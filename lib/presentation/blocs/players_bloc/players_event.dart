@@ -2,7 +2,7 @@ part of 'players_bloc.dart';
 
 @freezed
 class PlayersEvent with _$PlayersEvent {
-  const factory PlayersEvent.started() = _Started;
-  const factory PlayersEvent.createPlayer(Player player) = _CreatePlayer;
-  const factory PlayersEvent.toNextPlayer() = _ToNextPlayer;
+  const factory PlayersEvent.playerCreated(
+      {required String name, required Avatar avatar}) = _PlayerCreated;
+  const factory PlayersEvent.roleAnnounced() = _RoleAnnounced;
 }

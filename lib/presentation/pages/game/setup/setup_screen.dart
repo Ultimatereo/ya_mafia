@@ -1,17 +1,23 @@
+import 'package:flip_card/flip_card.dart';
+import 'package:flip_card/flip_card_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ya_mafia/core/constants.dart';
 import 'package:ya_mafia/core/theme/tailor_theme/my_theme.dart';
-import 'package:ya_mafia/data/enums/avatar.dart';
-import 'package:ya_mafia/presentation/blocs/game_bloc/game_bloc.dart';
 import 'package:ya_mafia/presentation/blocs/players_bloc/players_bloc.dart';
 import 'package:ya_mafia/presentation/blocs/settings_bloc/settings_bloc.dart';
 import 'package:ya_mafia/presentation/pages/game/setup/player_creator.dart';
 import 'package:ya_mafia/presentation/pages/game/setup/role_announcer.dart';
-import 'package:ya_mafia/zgen/i18n/strings.g.dart';
 
-class SetupScreen extends StatelessWidget {
+class SetupScreen extends StatefulWidget {
   const SetupScreen({super.key});
+
+  @override
+  State<SetupScreen> createState() => _SetupScreenState();
+}
+
+class _SetupScreenState extends State<SetupScreen> {
+  final controller = FlipCardController();
 
   @override
   Widget build(BuildContext context) {
@@ -29,50 +35,86 @@ class SetupScreen extends StatelessWidget {
                 roles: settings.roles,
               );
             },
-            child: BlocBuilder<PlayersBloc, PlayersState>(
+            child: BlocConsumer<PlayersBloc, PlayersState>(
+              listener: (context, state) {
+                state.maybeWhen(
+                  end: (_) {},
+                  orElse: controller.toggleCard,
+                );
+              },
               builder: (context, state) {
-                return Stack(
-                  children: [
-                    Material(
-                      elevation: 3,
-                      borderRadius: BorderRadius.circular(16),
-                      color: context.myTheme.cardColor,
-                      child: SizedBox(
-                        height: 600,
-                        child: state.mapOrNull(
-                          (value) => PlayerCreator(),
-                          roleAnnounce: (v) => RoleAnnouncer(),
-                          playerCreating: (v) => PlayerCreator(),
-                        ),
-                      ),
+                return FlipCard(
+                  controller: controller,
+                  front: PlayerCard(
+                    currentPlayerIndex: state.players.currentPlayerIndex,
+                    numberOfPlayers: state.players.numberOfPlayers,
+                    child: PlayerCreator(
+                      key: ValueKey(state.players.currentPlayerIndex),
                     ),
-                    Positioned(
-                      top: 0,
-                      right: 0,
-                      child: Container(
-                        height: 40,
-                        decoration: BoxDecoration(
-                          color: context.myTheme.green,
-                          borderRadius: const BorderRadius.only(
-                            topRight: Radius.circular(16),
-                            bottomLeft: Radius.circular(16),
-                          ),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                              '${state.players.currentPlayerIndex}/${state.players.numberOfPlayers}',
-                              style: context.headline3),
-                        ),
-                      ),
+                  ),
+                  back: PlayerCard(
+                    currentPlayerIndex: state.players.currentPlayerIndex,
+                    numberOfPlayers: state.players.numberOfPlayers,
+                    child: RoleAnnouncer(
+                      key: ValueKey(state.players.currentPlayerIndex),
                     ),
-                  ],
+                  ),
+                  flipOnTouch: false,
                 );
               },
             ),
           ),
         ),
       ),
+    );
+  }
+}
+
+class PlayerCard extends StatelessWidget {
+  const PlayerCard({
+    super.key,
+    required this.child,
+    required this.currentPlayerIndex,
+    required this.numberOfPlayers,
+  });
+
+  final Widget child;
+  final int currentPlayerIndex;
+  final int numberOfPlayers;
+
+  @override
+  Widget build(BuildContext context) {
+    return Stack(
+      children: [
+        Material(
+          elevation: 3,
+          borderRadius: BorderRadius.circular(16),
+          color: context.myTheme.cardColor,
+          child: SizedBox(
+            height: 630,
+            child: child,
+          ),
+        ),
+        Positioned(
+          top: 0,
+          right: 0,
+          child: Container(
+            height: 40,
+            decoration: BoxDecoration(
+              color: context.myTheme.green,
+              borderRadius: const BorderRadius.only(
+                topRight: Radius.circular(16),
+                bottomLeft: Radius.circular(16),
+              ),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text('$currentPlayerIndex/$numberOfPlayers',
+                  style: context.headline3),
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

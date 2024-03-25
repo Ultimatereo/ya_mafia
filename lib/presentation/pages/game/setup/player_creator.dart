@@ -3,15 +3,28 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ya_mafia/core/constants.dart';
 import 'package:ya_mafia/core/theme/tailor_theme/my_theme.dart';
 import 'package:ya_mafia/data/enums/avatar.dart';
-import 'package:ya_mafia/data/models/player.dart';
-import 'package:ya_mafia/presentation/blocs/game_bloc/game_bloc.dart';
 import 'package:ya_mafia/presentation/blocs/players_bloc/players_bloc.dart';
 import 'package:ya_mafia/zgen/i18n/strings.g.dart';
 
-class PlayerCreator extends StatelessWidget {
+class PlayerCreator extends StatefulWidget {
   const PlayerCreator({
     super.key,
   });
+
+  @override
+  State<PlayerCreator> createState() => _PlayerCreatorState();
+}
+
+class _PlayerCreatorState extends State<PlayerCreator> {
+  final controller = TextEditingController();
+  var avatar = Avatar.one;
+  bool isPressed = false;
+
+  @override
+  void dispose() {
+    super.dispose();
+    controller.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,19 +36,27 @@ class PlayerCreator extends StatelessWidget {
             child: Column(
               children: [
                 const SizedBox(height: appPadding * 3),
-                const SizedBox(
+                SizedBox(
                   height: 150,
-                  width: 150,
-                  child: Placeholder(),
+                  child: Image.asset(
+                    avatar.path,
+                  ),
                 ),
                 const SizedBox(height: appPadding * 3),
                 SizedBox(
-                  height: 60,
+                  height: 70,
                   child: ListView(
-                    padding: const EdgeInsets.symmetric(horizontal: appPadding),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: appPadding * 2),
                     scrollDirection: Axis.horizontal,
                     children: Avatar.values
-                        .map((e) => AvatarChooser(avatar: e))
+                        .map((e) => AvatarChooser(
+                              avatar: e,
+                              isActive: avatar == e,
+                              onTap: () => setState(() {
+                                avatar = e;
+                              }),
+                            ))
                         .toList(),
                   ),
                 ),
@@ -49,6 +70,7 @@ class PlayerCreator extends StatelessWidget {
                   padding:
                       const EdgeInsets.symmetric(horizontal: appPadding * 2),
                   child: TextField(
+                    controller: controller,
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(16),
@@ -62,10 +84,19 @@ class PlayerCreator extends StatelessWidget {
         ),
         const SizedBox(height: appPadding * 3),
         ElevatedButton(
-          onPressed: () {
-            context.read<PlayersBloc>().add(PlayersEvent.createPlayer(
-                Player(name: '', avatar: Avatar.eight)));
-          },
+          onPressed: isPressed
+              ? null
+              : () {
+                  setState(() {
+                    isPressed = true;
+                  });
+                  context.read<PlayersBloc>().add(
+                        PlayersEvent.playerCreated(
+                          name: controller.text,
+                          avatar: avatar,
+                        ),
+                      );
+                },
           child: Text(context.t.game.itsMe),
         ),
         const SizedBox(height: appPadding * 3),
@@ -78,16 +109,37 @@ class AvatarChooser extends StatelessWidget {
   const AvatarChooser({
     super.key,
     required this.avatar,
+    required this.isActive,
+    required this.onTap,
   });
 
   final Avatar avatar;
+  final bool isActive;
+  final Function() onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Image.asset(
-      avatar.path,
-      fit: BoxFit.cover,
-      width: 66,
+    return Material(
+      color: Colors.transparent,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+        side: BorderSide(
+          color: isActive ? context.myTheme.yellow : Colors.transparent,
+          width: 1,
+        ),
+      ),
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(16),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 8),
+          child: Image.asset(
+            avatar.path,
+            fit: BoxFit.cover,
+            width: 66,
+          ),
+        ),
+      ),
     );
   }
 }
