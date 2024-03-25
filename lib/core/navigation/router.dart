@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:ya_mafia/presentation/pages/game/setup/setup_screen.dart';
 import 'package:ya_mafia/presentation/pages/home/home_screen.dart';
 import 'package:ya_mafia/presentation/pages/settings_screen/settings_screen.dart';
 
@@ -11,13 +12,24 @@ final router = GoRouter(
     GoRoute(
       path: '/',
       pageBuilder: (context, state) => const MaterialPage(child: HomeScreen()),
-    ),
-    GoRoute(
-      path: '/settings',
-      name: 'settings',
-      pageBuilder: (context, state) => const MaterialPage(
-        child: SettingsScreen(),
-      ),
+      routes: [
+        GoRoute(
+          path: 'settings',
+          name: 'settings',
+          pageBuilder: (context, state) => const MaterialPage(
+            child: SettingsScreen(),
+          ),
+          routes: [
+            GoRoute(
+              path: 'setup',
+              name: 'setup',
+              pageBuilder: (context, state) => const MaterialPage(
+                child: SetupScreen(),
+              ),
+            ),
+          ],
+        ),
+      ],
     ),
   ],
 );

@@ -45,3 +45,8 @@ home:
   rules: Game rules
 
 accepted: Accepted!
+
+game:
+  itsMe: Yes, it's me
+  cool: Cool
+  enterYourName: Introduce yourself!

@@ -45,3 +45,8 @@ home:
   rules: Правила игры
 
 accepted: Принято!
+
+game:
+  itsMe: Да, это я
+  cool: Кайф
+  enterYourName: Представься!
