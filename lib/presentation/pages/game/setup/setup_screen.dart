@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ya_mafia/core/constants.dart';
 import 'package:ya_mafia/core/theme/tailor_theme/my_theme.dart';
+import 'package:ya_mafia/presentation/blocs/game_bloc/game_bloc.dart';
 import 'package:ya_mafia/presentation/blocs/players_bloc/players_bloc.dart';
 import 'package:ya_mafia/presentation/blocs/settings_bloc/settings_bloc.dart';
 import 'package:ya_mafia/presentation/pages/game/setup/player_creator.dart';
@@ -41,7 +42,16 @@ class _SetupScreenState extends State<SetupScreen> {
               listener: (context, state) {
                 state.maybeWhen(
                   end: (_) {
-                    Nav.goDayVote();
+                    context
+                        .read<GameBloc>()
+                        .add(GameEvent.dayStarted(state.players.players));
+                    final int? dayTimeInSec = context
+                        .read<SettingsBloc>()
+                        .state
+                        .settings
+                        .gameTimer
+                        .dayTimeInSec;
+                    Nav.goDayVote(dayTimeInSec);
                   },
                   orElse: controller.toggleCard,
                 );

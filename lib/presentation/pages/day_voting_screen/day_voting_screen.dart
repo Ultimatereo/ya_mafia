@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ya_mafia/core/constants.dart';
+import 'package:ya_mafia/core/navigation/delegate.dart';
 import 'package:ya_mafia/core/theme/tailor_theme/my_theme.dart';
 import 'package:ya_mafia/presentation/common/flip_clock.dart';
 import 'package:ya_mafia/zgen/i18n/strings.g.dart';
@@ -7,7 +8,9 @@ import 'package:ya_mafia/zgen/i18n/strings.g.dart';
 import '../../common/seemless_appbar.dart';
 
 class DayVotingScreen extends StatelessWidget {
-  const DayVotingScreen({super.key});
+  const DayVotingScreen({super.key, required this.seconds});
+
+  final int? seconds;
 
   @override
   Widget build(BuildContext context) {
@@ -33,16 +36,20 @@ class DayVotingScreen extends StatelessWidget {
             const SizedBox(
               height: appPadding * 2,
             ),
-            CustomFlipClock(
-              //TODO: add bloc here
-              duration: const Duration(minutes: 1),
-              onDoneFunction: () {},
-            ),
+            if (seconds != null)
+              CustomFlipClock(
+                //TODO: add bloc here
+                duration: Duration(seconds: seconds ?? 0),
+                onDoneFunction: () {},
+              ),
             const SizedBox(
               height: appPadding * 2,
             ),
             ElevatedButton(
-                onPressed: () {}, child: Text(context.t.buttonText.weAreReady))
+                onPressed: () {
+                  Nav.goCandidatesScreen();
+                },
+                child: Text(context.t.buttonText.weAreReady))
           ],
         ),
       ),

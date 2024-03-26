@@ -8,5 +8,7 @@ class Nav {
   static fuckGoBack([dynamic data]) => _context.pop(data);
   static goSettings() => _context.goNamed('settings');
   static goSetup() => _context.goNamed('setup');
-  static goDayVote() => _context.goNamed('day-voting-screen');
+  static goDayVote(int? seconds) =>
+      _context.goNamed('day-voting-screen', extra: seconds);
+  static goCandidatesScreen() => _context.goNamed('day-candidates-screen');
 }
