@@ -58,10 +58,10 @@ final router = GoRouter(
       ],
     ),
     // GoRoute(
-    //   path: '/day-decision-screen',
-    //   name: 'day-decision-screen',
+    //   path: '/day-candidates-screen',
+    //   name: 'day-candidates-screen',
     //   pageBuilder: (context, state) => const MaterialPage(
-    //     child: DayDecisionScreen(),
+    //     child: DayCandidatesScreen(),
     //   ),
     // ),
     GoRoute(

@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ya_mafia/core/constants.dart';
-import 'package:ya_mafia/core/navigation/delegate.dart';
 import 'package:ya_mafia/core/theme/tailor_theme/my_theme.dart';
 import 'package:ya_mafia/presentation/blocs/day_bloc/day_bloc.dart';
 import 'package:ya_mafia/presentation/common/flip_clock.dart';
+import 'package:ya_mafia/presentation/pages/day/players_data_provider.dart';
 import 'package:ya_mafia/zgen/i18n/strings.g.dart';
 
 class DayVotingScreen extends StatelessWidget {
-  const DayVotingScreen({super.key, required this.seconds});
+  const DayVotingScreen({
+    super.key,
+    required this.seconds,
+    required this.playersDataProvider,
+  });
 
   final int? seconds;
+  final PlayersDataProvider playersDataProvider;
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +24,6 @@ class DayVotingScreen extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          //TODO change to sun picture
           Image.asset(
             'assets/images/sun.webp',
             width: 250,
@@ -36,7 +40,6 @@ class DayVotingScreen extends StatelessWidget {
           ),
           if (seconds != null)
             CustomFlipClock(
-              //TODO: add bloc here
               duration: Duration(seconds: seconds ?? 0),
               onDoneFunction: () {},
             ),
@@ -44,7 +47,11 @@ class DayVotingScreen extends StatelessWidget {
             height: appPadding * 2,
           ),
           ElevatedButton(
-              onPressed: () {}, child: Text(context.t.buttonText.weAreReady))
+              onPressed: () {
+                context.read<DayBloc>().add(DayEvent.candidatesSelectionChanged(
+                    players: playersDataProvider.getPlayers));
+              },
+              child: Text(context.t.buttonText.weAreReady))
         ],
       ),
     );
