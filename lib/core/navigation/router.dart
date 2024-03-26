@@ -8,6 +8,7 @@ import 'package:ya_mafia/presentation/pages/home/home_screen.dart';
 import 'package:ya_mafia/presentation/pages/night_voting_screen.dart/night_voting_screen.dart';
 import 'package:ya_mafia/presentation/pages/settings_screen/settings_screen.dart';
 
+import '../../presentation/pages/day_screen.dart';
 import '../../presentation/pages/mafia_discussion_screen/mafia_discussion_screen.dart';
 
 final rootNavigationKey = GlobalKey<NavigatorState>();
@@ -34,22 +35,22 @@ final router = GoRouter(
               ),
               routes: [
                 GoRoute(
-                  path: 'day-voting-screen',
-                  name: 'day-voting-screen',
+                  path: 'day-screen',
+                  name: 'day-screen',
                   pageBuilder: (context, state) => MaterialPage(
-                    child: DayVotingScreen(
-                      seconds: state.extra as int?,
-                    ),
+                    child: DayScreen(
+                        // seconds: state.extra as int?,
+                        ),
                   ),
-                  routes: [
-                    GoRoute(
-                      path: 'day-candidates-screen',
-                      name: 'day-candidates-screen',
-                      pageBuilder: (context, state) => const MaterialPage(
-                        child: DayCandidatesScreen(),
-                      ),
-                    ),
-                  ],
+                  // routes: [
+                  //   GoRoute(
+                  //     path: 'day-screen',
+                  //     name: 'day-screen',
+                  //     pageBuilder: (context, state) => const MaterialPage(
+                  //       child: DayScreen(),
+                  //     ),
+                  //   ),
+                  // ],
                 ),
                 GoRoute(
                   path: 'mafia-discussion-screen',

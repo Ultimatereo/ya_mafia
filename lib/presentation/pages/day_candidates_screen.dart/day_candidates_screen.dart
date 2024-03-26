@@ -14,52 +14,36 @@ class DayCandidatesScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: const SeemlessAppBar(),
-      body: Padding(
-        padding: const EdgeInsets.all(appPadding),
-        child: BlocListener<GameBloc, GameState>(
-          listener: (context, state) {
-            state.maybeWhen(
-              dayPhase: () {
-                context.read<DayBloc>().add(const DayEvent.started());
-              },
-              orElse: () {},
-            );
-          },
-          child: BlocBuilder<DayBloc, DayState>(
-            builder: (context, state) {
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    context.t.candidates,
-                    style: context.headline1,
-                  ),
-                  const SizedBox(
-                    height: appPadding,
-                  ),
-                  const DayCandidatesListView(),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Center(
-                    child: ElevatedButton(
-                      onPressed: () {
-                        //TODO add button function
-                      },
-                      child: Text(context.t.buttonText.done),
-                    ),
-                  ),
-                  const SizedBox(
-                    height: appPadding,
-                  ),
-                ],
-              );
-            },
-          ),
-        ),
-      ),
+    return BlocBuilder<DayBloc, DayState>(
+      builder: (context, state) {
+        return Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              context.t.candidates,
+              style: context.headline1,
+            ),
+            const SizedBox(
+              height: appPadding,
+            ),
+            const DayCandidatesListView(),
+            const SizedBox(
+              height: 20,
+            ),
+            Center(
+              child: ElevatedButton(
+                onPressed: () {
+                  //TODO add button function
+                },
+                child: Text(context.t.buttonText.done),
+              ),
+            ),
+            const SizedBox(
+              height: appPadding,
+            ),
+          ],
+        );
+      },
     );
   }
 }

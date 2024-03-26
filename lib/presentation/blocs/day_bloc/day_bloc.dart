@@ -9,9 +9,14 @@ part 'day_state.dart';
 part 'day_bloc.freezed.dart';
 
 class DayBloc extends Bloc<DayEvent, DayState> {
-  DayBloc() : super(const _Voting()) {
+  DayBloc() : super(const _Initial()) {
     on<DayEvent>((event, emit) {
-      event.map(started: (_) {});
+      event.map(
+        dayStarted: (value) {
+          emit(const DayState.voting(seconds: 5));
+        },
+        candidatesSelectionChanged: (value) {},
+      );
     });
   }
 }

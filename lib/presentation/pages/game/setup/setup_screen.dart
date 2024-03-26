@@ -45,13 +45,13 @@ class _SetupScreenState extends State<SetupScreen> {
                     context
                         .read<GameBloc>()
                         .add(GameEvent.dayStarted(state.players.players));
-                    final int? dayTimeInSec = context
-                        .read<SettingsBloc>()
-                        .state
-                        .settings
-                        .gameTimer
-                        .dayTimeInSec;
-                    Nav.goDayVote(dayTimeInSec);
+                    // final int? dayTimeInSec = context
+                    //     .read<SettingsBloc>()
+                    //     .state
+                    //     .settings
+                    //     .gameTimer
+                    //     .dayTimeInSec;
+                    Nav.goDayVote();
                   },
                   orElse: controller.toggleCard,
                 );
