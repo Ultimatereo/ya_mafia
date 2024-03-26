@@ -13,9 +13,11 @@ class DayBloc extends Bloc<DayEvent, DayState> {
     on<DayEvent>((event, emit) {
       event.map(
         dayStarted: (value) {
-          emit(const DayState.voting(seconds: 5));
+          emit(DayState.voting(seconds: value.seconds));
         },
-        candidatesSelectionChanged: (value) {},
+        candidatesSelectionChanged: (value) {
+          emit(DayState.candidatesOpened(players: value.players));
+        },
       );
     });
   }

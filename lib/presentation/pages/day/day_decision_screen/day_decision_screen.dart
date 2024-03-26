@@ -3,7 +3,7 @@ import 'package:ya_mafia/core/constants.dart';
 import 'package:ya_mafia/core/theme/tailor_theme/my_theme.dart';
 import 'package:ya_mafia/presentation/common/seemless_appbar.dart';
 
-import '../../../zgen/i18n/strings.g.dart';
+import '../../../../zgen/i18n/strings.g.dart';
 
 class DayDecisionScreen extends StatelessWidget {
   const DayDecisionScreen({super.key});
