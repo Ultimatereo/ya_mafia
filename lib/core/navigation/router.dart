@@ -8,6 +8,7 @@ import 'package:ya_mafia/presentation/pages/home/home_screen.dart';
 import 'package:ya_mafia/presentation/pages/night_voting_screen.dart/night_voting_screen.dart';
 import 'package:ya_mafia/presentation/pages/settings_screen/settings_screen.dart';
 
+import '../../data/models/player.dart';
 import '../../presentation/pages/day_screen.dart';
 import '../../presentation/pages/mafia_discussion_screen/mafia_discussion_screen.dart';
 
@@ -39,8 +40,9 @@ final router = GoRouter(
                   name: 'day-screen',
                   pageBuilder: (context, state) => MaterialPage(
                     child: DayScreen(
-                        // seconds: state.extra as int?,
-                        ),
+                      players: state.extra as List<Player>,
+                      // seconds: state.extra as int?,
+                    ),
                   ),
                   // routes: [
                   //   GoRoute(

@@ -41,18 +41,7 @@ class _SetupScreenState extends State<SetupScreen> {
             child: BlocConsumer<PlayersBloc, PlayersState>(
               listener: (context, state) {
                 state.maybeWhen(
-                  end: (_) {
-                    context
-                        .read<GameBloc>()
-                        .add(GameEvent.dayStarted(state.players.players));
-                    // final int? dayTimeInSec = context
-                    //     .read<SettingsBloc>()
-                    //     .state
-                    //     .settings
-                    //     .gameTimer
-                    //     .dayTimeInSec;
-                    Nav.goDayVote();
-                  },
+                  end: (state) => Nav.goDayVote(state.players),
                   orElse: controller.toggleCard,
                 );
               },

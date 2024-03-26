@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ya_mafia/core/constants.dart';
 import 'package:ya_mafia/presentation/blocs/game_bloc/game_bloc.dart';
+import 'package:ya_mafia/presentation/blocs/players_bloc/players_bloc.dart';
 import 'package:ya_mafia/presentation/common/seemless_appbar.dart';
 import 'package:ya_mafia/presentation/pages/day_candidates_screen.dart/day_candidates_screen.dart';
 import 'package:ya_mafia/presentation/pages/day_voting_screen/day_voting_screen.dart';
@@ -9,8 +10,24 @@ import 'package:ya_mafia/presentation/pages/day_voting_screen/day_voting_screen.
 import '../../data/models/player.dart';
 import '../blocs/day_bloc/day_bloc.dart';
 
-class DayScreen extends StatelessWidget {
-  const DayScreen({super.key});
+class DayScreen extends StatefulWidget {
+  final List<Player> players;
+
+  const DayScreen({
+    required this.players,
+    super.key,
+  });
+
+  @override
+  State<DayScreen> createState() => _DayScreenState();
+}
+
+class _DayScreenState extends State<DayScreen> {
+  @override
+  void initState() {
+    context.read<GameBloc>().add(GameEvent.dayStarted(widget.players));
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
