@@ -16,9 +16,11 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$Player {
+  int get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   Avatar get avatar => throw _privateConstructorUsedError;
   GameRole get role => throw _privateConstructorUsedError;
+  bool get isDead => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $PlayerCopyWith<Player> get copyWith => throw _privateConstructorUsedError;
@@ -29,7 +31,7 @@ abstract class $PlayerCopyWith<$Res> {
   factory $PlayerCopyWith(Player value, $Res Function(Player) then) =
       _$PlayerCopyWithImpl<$Res, Player>;
   @useResult
-  $Res call({String name, Avatar avatar, GameRole role});
+  $Res call({int id, String name, Avatar avatar, GameRole role, bool isDead});
 }
 
 /// @nodoc
@@ -45,11 +47,17 @@ class _$PlayerCopyWithImpl<$Res, $Val extends Player>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? name = null,
     Object? avatar = null,
     Object? role = null,
+    Object? isDead = null,
   }) {
     return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -62,6 +70,10 @@ class _$PlayerCopyWithImpl<$Res, $Val extends Player>
           ? _value.role
           : role // ignore: cast_nullable_to_non_nullable
               as GameRole,
+      isDead: null == isDead
+          ? _value.isDead
+          : isDead // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -73,7 +85,7 @@ abstract class _$$PlayerImplCopyWith<$Res> implements $PlayerCopyWith<$Res> {
       __$$PlayerImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, Avatar avatar, GameRole role});
+  $Res call({int id, String name, Avatar avatar, GameRole role, bool isDead});
 }
 
 /// @nodoc
@@ -87,11 +99,17 @@ class __$$PlayerImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = null,
     Object? name = null,
     Object? avatar = null,
     Object? role = null,
+    Object? isDead = null,
   }) {
     return _then(_$PlayerImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -104,6 +122,10 @@ class __$$PlayerImplCopyWithImpl<$Res>
           ? _value.role
           : role // ignore: cast_nullable_to_non_nullable
               as GameRole,
+      isDead: null == isDead
+          ? _value.isDead
+          : isDead // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -112,18 +134,27 @@ class __$$PlayerImplCopyWithImpl<$Res>
 
 class _$PlayerImpl implements _Player {
   const _$PlayerImpl(
-      {required this.name, required this.avatar, required this.role});
+      {required this.id,
+      required this.name,
+      required this.avatar,
+      required this.role,
+      this.isDead = false});
 
+  @override
+  final int id;
   @override
   final String name;
   @override
   final Avatar avatar;
   @override
   final GameRole role;
+  @override
+  @JsonKey()
+  final bool isDead;
 
   @override
   String toString() {
-    return 'Player(name: $name, avatar: $avatar, role: $role)';
+    return 'Player(id: $id, name: $name, avatar: $avatar, role: $role, isDead: $isDead)';
   }
 
   @override
@@ -131,13 +162,15 @@ class _$PlayerImpl implements _Player {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$PlayerImpl &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.avatar, avatar) || other.avatar == avatar) &&
-            (identical(other.role, role) || other.role == role));
+            (identical(other.role, role) || other.role == role) &&
+            (identical(other.isDead, isDead) || other.isDead == isDead));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, name, avatar, role);
+  int get hashCode => Object.hash(runtimeType, id, name, avatar, role, isDead);
 
   @JsonKey(ignore: true)
   @override
@@ -148,16 +181,22 @@ class _$PlayerImpl implements _Player {
 
 abstract class _Player implements Player {
   const factory _Player(
-      {required final String name,
+      {required final int id,
+      required final String name,
       required final Avatar avatar,
-      required final GameRole role}) = _$PlayerImpl;
+      required final GameRole role,
+      final bool isDead}) = _$PlayerImpl;
 
+  @override
+  int get id;
   @override
   String get name;
   @override
   Avatar get avatar;
   @override
   GameRole get role;
+  @override
+  bool get isDead;
   @override
   @JsonKey(ignore: true)
   _$$PlayerImplCopyWith<_$PlayerImpl> get copyWith =>

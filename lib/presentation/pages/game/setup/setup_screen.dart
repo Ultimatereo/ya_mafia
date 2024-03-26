@@ -9,6 +9,8 @@ import 'package:ya_mafia/presentation/blocs/settings_bloc/settings_bloc.dart';
 import 'package:ya_mafia/presentation/pages/game/setup/player_creator.dart';
 import 'package:ya_mafia/presentation/pages/game/setup/role_announcer.dart';
 
+import '../../../../core/navigation/delegate.dart';
+
 class SetupScreen extends StatefulWidget {
   const SetupScreen({super.key});
 
@@ -38,7 +40,9 @@ class _SetupScreenState extends State<SetupScreen> {
             child: BlocConsumer<PlayersBloc, PlayersState>(
               listener: (context, state) {
                 state.maybeWhen(
-                  end: (_) {},
+                  end: (_) {
+                    Nav.goDayVote();
+                  },
                   orElse: controller.toggleCard,
                 );
               },
@@ -57,6 +61,7 @@ class _SetupScreenState extends State<SetupScreen> {
                     numberOfPlayers: state.players.numberOfPlayers,
                     child: RoleAnnouncer(
                       key: ValueKey(state.players.currentPlayerIndex),
+                      currentPlayerRole: state.players.currentPlayerRole,
                     ),
                   ),
                   flipOnTouch: false,

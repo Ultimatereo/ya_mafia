@@ -32,17 +32,26 @@ final router = GoRouter(
               pageBuilder: (context, state) => const MaterialPage(
                 child: SetupScreen(),
               ),
+              routes: [
+                GoRoute(
+                  path: 'day-voting-screen',
+                  name: 'day-voting-screen',
+                  pageBuilder: (context, state) => const MaterialPage(
+                    child: DayVotingScreen(),
+                  ),
+                ),
+                GoRoute(
+                  path: 'mafia-discussion-screen',
+                  name: 'mafia-discussion-screen',
+                  pageBuilder: (context, state) => const MaterialPage(
+                    child: MafiaDiscussionScreen(),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
       ],
-    ),
-    GoRoute(
-      path: '/day-voting-screen',
-      name: 'day-voting-screen',
-      pageBuilder: (context, state) => const MaterialPage(
-        child: DayVotingScreen(),
-      ),
     ),
     GoRoute(
       path: '/day-candidates-screen',
@@ -56,13 +65,6 @@ final router = GoRouter(
       name: 'day-decision-screen',
       pageBuilder: (context, state) => const MaterialPage(
         child: DayDecisionScreen(),
-      ),
-    ),
-    GoRoute(
-      path: '/mafia-discussion-screen',
-      name: 'mafia-discussion-screen',
-      pageBuilder: (context, state) => const MaterialPage(
-        child: MafiaDiscussionScreen(),
       ),
     ),
     GoRoute(
