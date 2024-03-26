@@ -5,6 +5,10 @@ import 'package:ya_mafia/core/theme/tailor_theme/my_theme.dart';
 import 'package:ya_mafia/core/theme/text_theme.dart';
 
 final ThemeData darkTheme = ThemeData(
+  colorScheme: const ColorScheme.dark(
+    primary: green,
+    secondary: yellow,
+  ),
   brightness: Brightness.dark,
   textButtonTheme: TextButtonThemeData(
     style: TextButton.styleFrom(
@@ -27,6 +31,20 @@ final ThemeData darkTheme = ThemeData(
     trackColor: const MaterialStatePropertyAll(green),
     trackOutlineColor: MaterialStateProperty.all(Colors.white),
   ),
+  checkboxTheme: CheckboxThemeData(
+    fillColor:
+        MaterialStateProperty.resolveWith<Color>((Set<MaterialState> states) {
+      if (states.contains(MaterialState.selected)) {
+        return green;
+      }
+      return Colors.white;
+    }),
+    checkColor: MaterialStateProperty.all(green),
+    side: const BorderSide(color: green),
+  ),
+  radioTheme: const RadioThemeData(
+    fillColor: MaterialStatePropertyAll(green),
+  ),
   extensions: <ThemeExtension<dynamic>>[
     MyTheme(
       green: green,
@@ -39,10 +57,16 @@ final ThemeData darkTheme = ThemeData(
       headline1Yellow: text28Bold.copyWith(color: yellow),
       headline2: text20.copyWith(color: yellow),
       numbersStyle: numbersText,
+      elevatedColor: brownMainDark,
       listTileTextStyle: text16.copyWith(
         color: Colors.white,
       ),
       headline3: text20.copyWith(color: Colors.white),
+      headline4: text24,
+      dialogTitleStyle: text24.copyWith(color: brownMainDark),
+      dialogSubtitleStyle: text16.copyWith(color: brownMain),
+      dialogActionStyle: text20.copyWith(color: brownMainDark),
+      cardDescryptionTextStyle: text20.copyWith(color: yellow),
     ),
   ],
 );

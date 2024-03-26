@@ -9,7 +9,7 @@ import 'core/theme/dark_theme.dart';
 import 'core/theme/light_theme.dart';
 import 'zgen/i18n/strings.g.dart';
 
-void settingUpSystemUIOverlay() {
+Future<void> settingUpSystemUIOverlay() async {
 // Setting SystemUIOverlay
   SystemChrome.setSystemUIOverlayStyle(
     const SystemUiOverlayStyle(
@@ -19,12 +19,12 @@ void settingUpSystemUIOverlay() {
     ),
   );
 // Setting SystemUIMode
-  SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
+  await SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
 }
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  settingUpSystemUIOverlay();
+  await settingUpSystemUIOverlay();
   LocaleSettings.useDeviceLocale();
 
   runApp(TranslationProvider(child: const MainApp()));

@@ -4,7 +4,62 @@ numberOfPlayers: Number of players
 setDayTimer: Set a timer for discussions during the day
 min: min
 sec: sec
+day: Day
+night: Night
+roles:
+  roles: Roles
+  mafia:
+    name: Mafia
+    descr: Members of the Mafia work together as a team to eliminate the Citizens. They secretly choose one player to eliminate each night. Their goal is to remain undiscovered while reducing the number of Citizens.
+  citizen:
+    name: Citizen
+    descr: Citizens are the "ordinary" players who do not have special abilities. Their objective is to identify and eliminate all the Mafia members through discussion and voting during the daytime. They rely on deduction and collaboration to win.
+  doctor:
+    name: Doctor
+    descr: The Doctor is a protective role. Each night, they choose one player to protect from being eliminated by the Mafia. They can choose themselves or another player, but they cannot choose the same player two nights in a row or save themeselves more than once.
+  sheriff:
+    name: Sheriff
+    descr: The Sheriff is an investigative role. Each night, they can choose one player to investigate, discovering whether they are a member of the Mafia or not. This role is critical for gathering information and guiding the Citizens' decisions.
+  maniac:
+    name: Maniac
+    descr: The Maniac is a chaotic neutral role, playing for themselves. They win by being the last player standing. Each night, they can choose one player to eliminate; however, their identity and objective are hidden from other players.
+  prostitute:
+    name: Prostitute
+    descr: Prostitute plays for a team of civilians. The task of the Prostitute is to help a team of Civilians by blocking the Mafia and Maniac teams at night. Each turn has the right to choose one player with whom she will spend the night.
+  don:
+    name: Don
+    descr: Don is at the head of the mafia and makes the final decision to kill a civilian if his team cannot come to an agreement.
+
+extraSettings:
+  extraSettings: Extra settings
+  firstNightIntro:
+    title: First night is mafia introduction
+    subtitle: When the roles are distributed, the host announces the onset of night, and all players close their eyes (or put on masks that do not allow them to see anything). After the host's phrase "The Mafia wakes up", all the mafia players open their eyes. Without saying a word, they meet eyes, get to know each other. Then, at the signal of the presenter, the mafia "falls asleep" again, then the day comes, and everyone opens their eyes.
+  firstDayVoting:
+    title: First day voting
+    subtitle: The ability to vote on the first day, as soon as all players have received roles
+assignRoles: Assign roles
 
 home:
   play: Play
   rules: Game rules
+
+accepted: Accepted!
+
+buttonText:
+  weAreReady: We are ready!
+  done: Done!
+  confirm: Confirm
+  yesItsMe: Yes, it's me
+  noItsNotMe: No, it's not me:(
+
+candidates: Candidates
+whoDiedDay: Who died on this beautiful day?
+mafiaChooses: The mafia makes its choice
+whoAreYou: Who are you?
+
+game:
+  itsMe: Yes, it's me
+  cool: Cool
+  enterYourName: Introduce yourself!
+  foggotenName: Have you forgotten your name?)
