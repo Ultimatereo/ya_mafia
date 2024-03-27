@@ -24,7 +24,9 @@ class ChoosePersonScreen extends StatelessWidget {
             const SizedBox(
               height: appPadding,
             ),
-            const ListViewWithRadios(),
+            const ListViewWithRadios(
+              players: [],
+            ),
             const SizedBox(
               height: appPadding,
             ),

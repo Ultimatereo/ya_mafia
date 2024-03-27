@@ -39,7 +39,7 @@ final ThemeData darkTheme = ThemeData(
       }
       return Colors.white;
     }),
-    checkColor: MaterialStateProperty.all(green),
+    checkColor: MaterialStateProperty.all(Colors.white),
     side: const BorderSide(color: green),
   ),
   radioTheme: const RadioThemeData(

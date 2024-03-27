@@ -7,8 +7,11 @@ part 'player.freezed.dart';
 @freezed
 class Player with _$Player {
   const factory Player({
+    required int id,
     required String name,
     required Avatar avatar,
     required GameRole role,
+    @Default(false) bool isSelectedForDeath,
+    @Default(false) bool isDead,
   }) = _Player;
 }

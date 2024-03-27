@@ -19,7 +19,9 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
                 gameTimer:
                     const GameTimer(dayTimeInSec: null, nightTimeInSec: 180),
                 roles: Map.fromEntries(
-                  GameRole.values.map((e) => MapEntry(e, 0)),
+                  GameRole.values
+                      .where((element) => element != GameRole.citizen)
+                      .map((e) => MapEntry(e, 0)),
                 ),
                 firstNightIntroduction: false,
                 firstDayVote: false),
