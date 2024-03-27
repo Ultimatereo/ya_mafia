@@ -1,13 +1,15 @@
+// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:ya_mafia/presentation/pages/day_candidates_screen.dart/day_candidates_screen.dart';
-import 'package:ya_mafia/presentation/pages/day_decision_screen/day_decision_screen.dart';
-import 'package:ya_mafia/presentation/pages/day_voting_screen/day_voting_screen.dart';
+import 'package:ya_mafia/presentation/pages/day/day_screen.dart';
+import 'package:ya_mafia/presentation/pages/death_screen/death_screen.dart';
+
 import 'package:ya_mafia/presentation/pages/game/setup/setup_screen.dart';
 import 'package:ya_mafia/presentation/pages/home/home_screen.dart';
 import 'package:ya_mafia/presentation/pages/night_voting_screen.dart/night_voting_screen.dart';
 import 'package:ya_mafia/presentation/pages/settings_screen/settings_screen.dart';
 
+import '../../data/models/player.dart';
 import '../../presentation/pages/mafia_discussion_screen/mafia_discussion_screen.dart';
 
 final rootNavigationKey = GlobalKey<NavigatorState>();
@@ -32,39 +34,45 @@ final router = GoRouter(
               pageBuilder: (context, state) => const MaterialPage(
                 child: SetupScreen(),
               ),
+              routes: [
+                GoRoute(
+                  path: 'day-screen',
+                  name: 'day-screen',
+                  pageBuilder: (context, state) => MaterialPage(
+                    child: DayScreen(
+                      args: state.extra as DayScreenArgs,
+                    ),
+                  ),
+                ),
+                GoRoute(
+                  path: 'death-screen',
+                  name: 'death-screen',
+                  pageBuilder: (context, state) => MaterialPage(
+                    child: DeathScreen(
+                      player: state.extra as Player,
+                    ),
+                  ),
+                ),
+                GoRoute(
+                  path: 'mafia-discussion-screen',
+                  name: 'mafia-discussion-screen',
+                  pageBuilder: (context, state) => const MaterialPage(
+                    child: MafiaDiscussionScreen(),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
       ],
     ),
-    GoRoute(
-      path: '/day-voting-screen',
-      name: 'day-voting-screen',
-      pageBuilder: (context, state) => const MaterialPage(
-        child: DayVotingScreen(),
-      ),
-    ),
-    GoRoute(
-      path: '/day-candidates-screen',
-      name: 'day-candidates-screen',
-      pageBuilder: (context, state) => const MaterialPage(
-        child: DayCandidatesScreen(),
-      ),
-    ),
-    GoRoute(
-      path: '/day-decision-screen',
-      name: 'day-decision-screen',
-      pageBuilder: (context, state) => const MaterialPage(
-        child: DayDecisionScreen(),
-      ),
-    ),
-    GoRoute(
-      path: '/mafia-discussion-screen',
-      name: 'mafia-discussion-screen',
-      pageBuilder: (context, state) => const MaterialPage(
-        child: MafiaDiscussionScreen(),
-      ),
-    ),
+    // GoRoute(
+    //   path: '/day-candidates-screen',
+    //   name: 'day-candidates-screen',
+    //   pageBuilder: (context, state) => const MaterialPage(
+    //     child: DayCandidatesScreen(),
+    //   ),
+    // ),
     GoRoute(
       path: '/night-voting-screen',
       name: 'night-voting-screen',

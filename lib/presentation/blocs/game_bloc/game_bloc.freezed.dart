@@ -18,45 +18,39 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$GameEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function() userSubmit,
-    required TResult Function() toNext,
+    required TResult Function(List<Player> players) dayStarted,
+    required TResult Function(Player player) dayEnded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
-    TResult? Function()? userSubmit,
-    TResult? Function()? toNext,
+    TResult? Function(List<Player> players)? dayStarted,
+    TResult? Function(Player player)? dayEnded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? userSubmit,
-    TResult Function()? toNext,
+    TResult Function(List<Player> players)? dayStarted,
+    TResult Function(Player player)? dayEnded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-    required TResult Function(_UserSubmit value) userSubmit,
-    required TResult Function(_ToNext value) toNext,
+    required TResult Function(_Started value) dayStarted,
+    required TResult Function(_DayEnded value) dayEnded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
-    TResult? Function(_UserSubmit value)? userSubmit,
-    TResult? Function(_ToNext value)? toNext,
+    TResult? Function(_Started value)? dayStarted,
+    TResult? Function(_DayEnded value)? dayEnded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_UserSubmit value)? userSubmit,
-    TResult Function(_ToNext value)? toNext,
+    TResult Function(_Started value)? dayStarted,
+    TResult Function(_DayEnded value)? dayEnded,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -84,6 +78,8 @@ abstract class _$$StartedImplCopyWith<$Res> {
   factory _$$StartedImplCopyWith(
           _$StartedImpl value, $Res Function(_$StartedImpl) then) =
       __$$StartedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<Player> players});
 }
 
 /// @nodoc
@@ -93,57 +89,84 @@ class __$$StartedImplCopyWithImpl<$Res>
   __$$StartedImplCopyWithImpl(
       _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? players = null,
+  }) {
+    return _then(_$StartedImpl(
+      null == players
+          ? _value._players
+          : players // ignore: cast_nullable_to_non_nullable
+              as List<Player>,
+    ));
+  }
 }
 
 /// @nodoc
 
 class _$StartedImpl implements _Started {
-  const _$StartedImpl();
+  const _$StartedImpl(final List<Player> players) : _players = players;
+
+  final List<Player> _players;
+  @override
+  List<Player> get players {
+    if (_players is EqualUnmodifiableListView) return _players;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_players);
+  }
 
   @override
   String toString() {
-    return 'GameEvent.started()';
+    return 'GameEvent.dayStarted(players: $players)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$StartedImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$StartedImpl &&
+            const DeepCollectionEquality().equals(other._players, _players));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_players));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$StartedImplCopyWith<_$StartedImpl> get copyWith =>
+      __$$StartedImplCopyWithImpl<_$StartedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function() userSubmit,
-    required TResult Function() toNext,
+    required TResult Function(List<Player> players) dayStarted,
+    required TResult Function(Player player) dayEnded,
   }) {
-    return started();
+    return dayStarted(players);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
-    TResult? Function()? userSubmit,
-    TResult? Function()? toNext,
+    TResult? Function(List<Player> players)? dayStarted,
+    TResult? Function(Player player)? dayEnded,
   }) {
-    return started?.call();
+    return dayStarted?.call(players);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? userSubmit,
-    TResult Function()? toNext,
+    TResult Function(List<Player> players)? dayStarted,
+    TResult Function(Player player)? dayEnded,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started();
+    if (dayStarted != null) {
+      return dayStarted(players);
     }
     return orElse();
   }
@@ -151,107 +174,142 @@ class _$StartedImpl implements _Started {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-    required TResult Function(_UserSubmit value) userSubmit,
-    required TResult Function(_ToNext value) toNext,
+    required TResult Function(_Started value) dayStarted,
+    required TResult Function(_DayEnded value) dayEnded,
   }) {
-    return started(this);
+    return dayStarted(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
-    TResult? Function(_UserSubmit value)? userSubmit,
-    TResult? Function(_ToNext value)? toNext,
+    TResult? Function(_Started value)? dayStarted,
+    TResult? Function(_DayEnded value)? dayEnded,
   }) {
-    return started?.call(this);
+    return dayStarted?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_UserSubmit value)? userSubmit,
-    TResult Function(_ToNext value)? toNext,
+    TResult Function(_Started value)? dayStarted,
+    TResult Function(_DayEnded value)? dayEnded,
     required TResult orElse(),
   }) {
-    if (started != null) {
-      return started(this);
+    if (dayStarted != null) {
+      return dayStarted(this);
     }
     return orElse();
   }
 }
 
 abstract class _Started implements GameEvent {
-  const factory _Started() = _$StartedImpl;
+  const factory _Started(final List<Player> players) = _$StartedImpl;
+
+  List<Player> get players;
+  @JsonKey(ignore: true)
+  _$$StartedImplCopyWith<_$StartedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$UserSubmitImplCopyWith<$Res> {
-  factory _$$UserSubmitImplCopyWith(
-          _$UserSubmitImpl value, $Res Function(_$UserSubmitImpl) then) =
-      __$$UserSubmitImplCopyWithImpl<$Res>;
+abstract class _$$DayEndedImplCopyWith<$Res> {
+  factory _$$DayEndedImplCopyWith(
+          _$DayEndedImpl value, $Res Function(_$DayEndedImpl) then) =
+      __$$DayEndedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Player player});
+
+  $PlayerCopyWith<$Res> get player;
 }
 
 /// @nodoc
-class __$$UserSubmitImplCopyWithImpl<$Res>
-    extends _$GameEventCopyWithImpl<$Res, _$UserSubmitImpl>
-    implements _$$UserSubmitImplCopyWith<$Res> {
-  __$$UserSubmitImplCopyWithImpl(
-      _$UserSubmitImpl _value, $Res Function(_$UserSubmitImpl) _then)
+class __$$DayEndedImplCopyWithImpl<$Res>
+    extends _$GameEventCopyWithImpl<$Res, _$DayEndedImpl>
+    implements _$$DayEndedImplCopyWith<$Res> {
+  __$$DayEndedImplCopyWithImpl(
+      _$DayEndedImpl _value, $Res Function(_$DayEndedImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? player = null,
+  }) {
+    return _then(_$DayEndedImpl(
+      null == player
+          ? _value.player
+          : player // ignore: cast_nullable_to_non_nullable
+              as Player,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PlayerCopyWith<$Res> get player {
+    return $PlayerCopyWith<$Res>(_value.player, (value) {
+      return _then(_value.copyWith(player: value));
+    });
+  }
 }
 
 /// @nodoc
 
-class _$UserSubmitImpl implements _UserSubmit {
-  const _$UserSubmitImpl();
+class _$DayEndedImpl implements _DayEnded {
+  const _$DayEndedImpl(this.player);
+
+  @override
+  final Player player;
 
   @override
   String toString() {
-    return 'GameEvent.userSubmit()';
+    return 'GameEvent.dayEnded(player: $player)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$UserSubmitImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$DayEndedImpl &&
+            (identical(other.player, player) || other.player == player));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode => Object.hash(runtimeType, player);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DayEndedImplCopyWith<_$DayEndedImpl> get copyWith =>
+      __$$DayEndedImplCopyWithImpl<_$DayEndedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function() userSubmit,
-    required TResult Function() toNext,
+    required TResult Function(List<Player> players) dayStarted,
+    required TResult Function(Player player) dayEnded,
   }) {
-    return userSubmit();
+    return dayEnded(player);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
-    TResult? Function()? userSubmit,
-    TResult? Function()? toNext,
+    TResult? Function(List<Player> players)? dayStarted,
+    TResult? Function(Player player)? dayEnded,
   }) {
-    return userSubmit?.call();
+    return dayEnded?.call(player);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? userSubmit,
-    TResult Function()? toNext,
+    TResult Function(List<Player> players)? dayStarted,
+    TResult Function(Player player)? dayEnded,
     required TResult orElse(),
   }) {
-    if (userSubmit != null) {
-      return userSubmit();
+    if (dayEnded != null) {
+      return dayEnded(player);
     }
     return orElse();
   }
@@ -259,193 +317,93 @@ class _$UserSubmitImpl implements _UserSubmit {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-    required TResult Function(_UserSubmit value) userSubmit,
-    required TResult Function(_ToNext value) toNext,
+    required TResult Function(_Started value) dayStarted,
+    required TResult Function(_DayEnded value) dayEnded,
   }) {
-    return userSubmit(this);
+    return dayEnded(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
-    TResult? Function(_UserSubmit value)? userSubmit,
-    TResult? Function(_ToNext value)? toNext,
+    TResult? Function(_Started value)? dayStarted,
+    TResult? Function(_DayEnded value)? dayEnded,
   }) {
-    return userSubmit?.call(this);
+    return dayEnded?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_UserSubmit value)? userSubmit,
-    TResult Function(_ToNext value)? toNext,
+    TResult Function(_Started value)? dayStarted,
+    TResult Function(_DayEnded value)? dayEnded,
     required TResult orElse(),
   }) {
-    if (userSubmit != null) {
-      return userSubmit(this);
+    if (dayEnded != null) {
+      return dayEnded(this);
     }
     return orElse();
   }
 }
 
-abstract class _UserSubmit implements GameEvent {
-  const factory _UserSubmit() = _$UserSubmitImpl;
-}
+abstract class _DayEnded implements GameEvent {
+  const factory _DayEnded(final Player player) = _$DayEndedImpl;
 
-/// @nodoc
-abstract class _$$ToNextImplCopyWith<$Res> {
-  factory _$$ToNextImplCopyWith(
-          _$ToNextImpl value, $Res Function(_$ToNextImpl) then) =
-      __$$ToNextImplCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$$ToNextImplCopyWithImpl<$Res>
-    extends _$GameEventCopyWithImpl<$Res, _$ToNextImpl>
-    implements _$$ToNextImplCopyWith<$Res> {
-  __$$ToNextImplCopyWithImpl(
-      _$ToNextImpl _value, $Res Function(_$ToNextImpl) _then)
-      : super(_value, _then);
-}
-
-/// @nodoc
-
-class _$ToNextImpl implements _ToNext {
-  const _$ToNextImpl();
-
-  @override
-  String toString() {
-    return 'GameEvent.toNext()';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$ToNextImpl);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() started,
-    required TResult Function() userSubmit,
-    required TResult Function() toNext,
-  }) {
-    return toNext();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? started,
-    TResult? Function()? userSubmit,
-    TResult? Function()? toNext,
-  }) {
-    return toNext?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? started,
-    TResult Function()? userSubmit,
-    TResult Function()? toNext,
-    required TResult orElse(),
-  }) {
-    if (toNext != null) {
-      return toNext();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_Started value) started,
-    required TResult Function(_UserSubmit value) userSubmit,
-    required TResult Function(_ToNext value) toNext,
-  }) {
-    return toNext(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_Started value)? started,
-    TResult? Function(_UserSubmit value)? userSubmit,
-    TResult? Function(_ToNext value)? toNext,
-  }) {
-    return toNext?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_UserSubmit value)? userSubmit,
-    TResult Function(_ToNext value)? toNext,
-    required TResult orElse(),
-  }) {
-    if (toNext != null) {
-      return toNext(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _ToNext implements GameEvent {
-  const factory _ToNext() = _$ToNextImpl;
+  Player get player;
+  @JsonKey(ignore: true)
+  _$$DayEndedImplCopyWith<_$DayEndedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
 mixin _$GameState {
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(Settings settings) $default, {
-    required TResult Function() createUser,
-    required TResult Function() roleAnnounce,
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(List<Player> players) dayPhase,
+    required TResult Function() nightPhase,
+    required TResult Function() endGame,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(Settings settings)? $default, {
-    TResult? Function()? createUser,
-    TResult? Function()? roleAnnounce,
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(List<Player> players)? dayPhase,
+    TResult? Function()? nightPhase,
+    TResult? Function()? endGame,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(Settings settings)? $default, {
-    TResult Function()? createUser,
-    TResult Function()? roleAnnounce,
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(List<Player> players)? dayPhase,
+    TResult Function()? nightPhase,
+    TResult Function()? endGame,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_GameState value) $default, {
-    required TResult Function(_CreateUser value) createUser,
-    required TResult Function(_RoleAnnounce value) roleAnnounce,
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_DayPhase value) dayPhase,
+    required TResult Function(_NightPhase value) nightPhase,
+    required TResult Function(_EndGame value) endGame,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_GameState value)? $default, {
-    TResult? Function(_CreateUser value)? createUser,
-    TResult? Function(_RoleAnnounce value)? roleAnnounce,
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_DayPhase value)? dayPhase,
+    TResult? Function(_NightPhase value)? nightPhase,
+    TResult? Function(_EndGame value)? endGame,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_GameState value)? $default, {
-    TResult Function(_CreateUser value)? createUser,
-    TResult Function(_RoleAnnounce value)? roleAnnounce,
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_DayPhase value)? dayPhase,
+    TResult Function(_NightPhase value)? nightPhase,
+    TResult Function(_EndGame value)? endGame,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -469,186 +427,302 @@ class _$GameStateCopyWithImpl<$Res, $Val extends GameState>
 }
 
 /// @nodoc
-abstract class _$$GameStateImplCopyWith<$Res> {
-  factory _$$GameStateImplCopyWith(
-          _$GameStateImpl value, $Res Function(_$GameStateImpl) then) =
-      __$$GameStateImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({Settings settings});
-
-  $SettingsCopyWith<$Res> get settings;
+abstract class _$$InitialImplCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$GameStateImplCopyWithImpl<$Res>
-    extends _$GameStateCopyWithImpl<$Res, _$GameStateImpl>
-    implements _$$GameStateImplCopyWith<$Res> {
-  __$$GameStateImplCopyWithImpl(
-      _$GameStateImpl _value, $Res Function(_$GameStateImpl) _then)
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$GameStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$InitialImpl implements _Initial {
+  const _$InitialImpl();
+
+  @override
+  String toString() {
+    return 'GameState.initial()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$InitialImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(List<Player> players) dayPhase,
+    required TResult Function() nightPhase,
+    required TResult Function() endGame,
+  }) {
+    return initial();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(List<Player> players)? dayPhase,
+    TResult? Function()? nightPhase,
+    TResult? Function()? endGame,
+  }) {
+    return initial?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(List<Player> players)? dayPhase,
+    TResult Function()? nightPhase,
+    TResult Function()? endGame,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_DayPhase value) dayPhase,
+    required TResult Function(_NightPhase value) nightPhase,
+    required TResult Function(_EndGame value) endGame,
+  }) {
+    return initial(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_DayPhase value)? dayPhase,
+    TResult? Function(_NightPhase value)? nightPhase,
+    TResult? Function(_EndGame value)? endGame,
+  }) {
+    return initial?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_DayPhase value)? dayPhase,
+    TResult Function(_NightPhase value)? nightPhase,
+    TResult Function(_EndGame value)? endGame,
+    required TResult orElse(),
+  }) {
+    if (initial != null) {
+      return initial(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Initial implements GameState {
+  const factory _Initial() = _$InitialImpl;
+}
+
+/// @nodoc
+abstract class _$$DayPhaseImplCopyWith<$Res> {
+  factory _$$DayPhaseImplCopyWith(
+          _$DayPhaseImpl value, $Res Function(_$DayPhaseImpl) then) =
+      __$$DayPhaseImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<Player> players});
+}
+
+/// @nodoc
+class __$$DayPhaseImplCopyWithImpl<$Res>
+    extends _$GameStateCopyWithImpl<$Res, _$DayPhaseImpl>
+    implements _$$DayPhaseImplCopyWith<$Res> {
+  __$$DayPhaseImplCopyWithImpl(
+      _$DayPhaseImpl _value, $Res Function(_$DayPhaseImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? settings = null,
+    Object? players = null,
   }) {
-    return _then(_$GameStateImpl(
-      settings: null == settings
-          ? _value.settings
-          : settings // ignore: cast_nullable_to_non_nullable
-              as Settings,
+    return _then(_$DayPhaseImpl(
+      players: null == players
+          ? _value._players
+          : players // ignore: cast_nullable_to_non_nullable
+              as List<Player>,
     ));
-  }
-
-  @override
-  @pragma('vm:prefer-inline')
-  $SettingsCopyWith<$Res> get settings {
-    return $SettingsCopyWith<$Res>(_value.settings, (value) {
-      return _then(_value.copyWith(settings: value));
-    });
   }
 }
 
 /// @nodoc
 
-class _$GameStateImpl implements _GameState {
-  const _$GameStateImpl({required this.settings});
+class _$DayPhaseImpl implements _DayPhase {
+  const _$DayPhaseImpl({required final List<Player> players})
+      : _players = players;
 
+  final List<Player> _players;
   @override
-  final Settings settings;
+  List<Player> get players {
+    if (_players is EqualUnmodifiableListView) return _players;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_players);
+  }
 
   @override
   String toString() {
-    return 'GameState(settings: $settings)';
+    return 'GameState.dayPhase(players: $players)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$GameStateImpl &&
-            (identical(other.settings, settings) ||
-                other.settings == settings));
+            other is _$DayPhaseImpl &&
+            const DeepCollectionEquality().equals(other._players, _players));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, settings);
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_players));
 
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$GameStateImplCopyWith<_$GameStateImpl> get copyWith =>
-      __$$GameStateImplCopyWithImpl<_$GameStateImpl>(this, _$identity);
+  _$$DayPhaseImplCopyWith<_$DayPhaseImpl> get copyWith =>
+      __$$DayPhaseImplCopyWithImpl<_$DayPhaseImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(Settings settings) $default, {
-    required TResult Function() createUser,
-    required TResult Function() roleAnnounce,
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(List<Player> players) dayPhase,
+    required TResult Function() nightPhase,
+    required TResult Function() endGame,
   }) {
-    return $default(settings);
+    return dayPhase(players);
   }
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(Settings settings)? $default, {
-    TResult? Function()? createUser,
-    TResult? Function()? roleAnnounce,
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(List<Player> players)? dayPhase,
+    TResult? Function()? nightPhase,
+    TResult? Function()? endGame,
   }) {
-    return $default?.call(settings);
+    return dayPhase?.call(players);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(Settings settings)? $default, {
-    TResult Function()? createUser,
-    TResult Function()? roleAnnounce,
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(List<Player> players)? dayPhase,
+    TResult Function()? nightPhase,
+    TResult Function()? endGame,
     required TResult orElse(),
   }) {
-    if ($default != null) {
-      return $default(settings);
+    if (dayPhase != null) {
+      return dayPhase(players);
     }
     return orElse();
   }
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_GameState value) $default, {
-    required TResult Function(_CreateUser value) createUser,
-    required TResult Function(_RoleAnnounce value) roleAnnounce,
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_DayPhase value) dayPhase,
+    required TResult Function(_NightPhase value) nightPhase,
+    required TResult Function(_EndGame value) endGame,
   }) {
-    return $default(this);
+    return dayPhase(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_GameState value)? $default, {
-    TResult? Function(_CreateUser value)? createUser,
-    TResult? Function(_RoleAnnounce value)? roleAnnounce,
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_DayPhase value)? dayPhase,
+    TResult? Function(_NightPhase value)? nightPhase,
+    TResult? Function(_EndGame value)? endGame,
   }) {
-    return $default?.call(this);
+    return dayPhase?.call(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_GameState value)? $default, {
-    TResult Function(_CreateUser value)? createUser,
-    TResult Function(_RoleAnnounce value)? roleAnnounce,
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_DayPhase value)? dayPhase,
+    TResult Function(_NightPhase value)? nightPhase,
+    TResult Function(_EndGame value)? endGame,
     required TResult orElse(),
   }) {
-    if ($default != null) {
-      return $default(this);
+    if (dayPhase != null) {
+      return dayPhase(this);
     }
     return orElse();
   }
 }
 
-abstract class _GameState implements GameState {
-  const factory _GameState({required final Settings settings}) =
-      _$GameStateImpl;
+abstract class _DayPhase implements GameState {
+  const factory _DayPhase({required final List<Player> players}) =
+      _$DayPhaseImpl;
 
-  Settings get settings;
+  List<Player> get players;
   @JsonKey(ignore: true)
-  _$$GameStateImplCopyWith<_$GameStateImpl> get copyWith =>
+  _$$DayPhaseImplCopyWith<_$DayPhaseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$CreateUserImplCopyWith<$Res> {
-  factory _$$CreateUserImplCopyWith(
-          _$CreateUserImpl value, $Res Function(_$CreateUserImpl) then) =
-      __$$CreateUserImplCopyWithImpl<$Res>;
+abstract class _$$NightPhaseImplCopyWith<$Res> {
+  factory _$$NightPhaseImplCopyWith(
+          _$NightPhaseImpl value, $Res Function(_$NightPhaseImpl) then) =
+      __$$NightPhaseImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$CreateUserImplCopyWithImpl<$Res>
-    extends _$GameStateCopyWithImpl<$Res, _$CreateUserImpl>
-    implements _$$CreateUserImplCopyWith<$Res> {
-  __$$CreateUserImplCopyWithImpl(
-      _$CreateUserImpl _value, $Res Function(_$CreateUserImpl) _then)
+class __$$NightPhaseImplCopyWithImpl<$Res>
+    extends _$GameStateCopyWithImpl<$Res, _$NightPhaseImpl>
+    implements _$$NightPhaseImplCopyWith<$Res> {
+  __$$NightPhaseImplCopyWithImpl(
+      _$NightPhaseImpl _value, $Res Function(_$NightPhaseImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$CreateUserImpl implements _CreateUser {
-  const _$CreateUserImpl();
+class _$NightPhaseImpl implements _NightPhase {
+  const _$NightPhaseImpl();
 
   @override
   String toString() {
-    return 'GameState.createUser()';
+    return 'GameState.nightPhase()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$CreateUserImpl);
+        (other.runtimeType == runtimeType && other is _$NightPhaseImpl);
   }
 
   @override
@@ -656,107 +730,113 @@ class _$CreateUserImpl implements _CreateUser {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(Settings settings) $default, {
-    required TResult Function() createUser,
-    required TResult Function() roleAnnounce,
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(List<Player> players) dayPhase,
+    required TResult Function() nightPhase,
+    required TResult Function() endGame,
   }) {
-    return createUser();
+    return nightPhase();
   }
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(Settings settings)? $default, {
-    TResult? Function()? createUser,
-    TResult? Function()? roleAnnounce,
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(List<Player> players)? dayPhase,
+    TResult? Function()? nightPhase,
+    TResult? Function()? endGame,
   }) {
-    return createUser?.call();
+    return nightPhase?.call();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(Settings settings)? $default, {
-    TResult Function()? createUser,
-    TResult Function()? roleAnnounce,
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(List<Player> players)? dayPhase,
+    TResult Function()? nightPhase,
+    TResult Function()? endGame,
     required TResult orElse(),
   }) {
-    if (createUser != null) {
-      return createUser();
+    if (nightPhase != null) {
+      return nightPhase();
     }
     return orElse();
   }
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_GameState value) $default, {
-    required TResult Function(_CreateUser value) createUser,
-    required TResult Function(_RoleAnnounce value) roleAnnounce,
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_DayPhase value) dayPhase,
+    required TResult Function(_NightPhase value) nightPhase,
+    required TResult Function(_EndGame value) endGame,
   }) {
-    return createUser(this);
+    return nightPhase(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_GameState value)? $default, {
-    TResult? Function(_CreateUser value)? createUser,
-    TResult? Function(_RoleAnnounce value)? roleAnnounce,
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_DayPhase value)? dayPhase,
+    TResult? Function(_NightPhase value)? nightPhase,
+    TResult? Function(_EndGame value)? endGame,
   }) {
-    return createUser?.call(this);
+    return nightPhase?.call(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_GameState value)? $default, {
-    TResult Function(_CreateUser value)? createUser,
-    TResult Function(_RoleAnnounce value)? roleAnnounce,
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_DayPhase value)? dayPhase,
+    TResult Function(_NightPhase value)? nightPhase,
+    TResult Function(_EndGame value)? endGame,
     required TResult orElse(),
   }) {
-    if (createUser != null) {
-      return createUser(this);
+    if (nightPhase != null) {
+      return nightPhase(this);
     }
     return orElse();
   }
 }
 
-abstract class _CreateUser implements GameState {
-  const factory _CreateUser() = _$CreateUserImpl;
+abstract class _NightPhase implements GameState {
+  const factory _NightPhase() = _$NightPhaseImpl;
 }
 
 /// @nodoc
-abstract class _$$RoleAnnounceImplCopyWith<$Res> {
-  factory _$$RoleAnnounceImplCopyWith(
-          _$RoleAnnounceImpl value, $Res Function(_$RoleAnnounceImpl) then) =
-      __$$RoleAnnounceImplCopyWithImpl<$Res>;
+abstract class _$$EndGameImplCopyWith<$Res> {
+  factory _$$EndGameImplCopyWith(
+          _$EndGameImpl value, $Res Function(_$EndGameImpl) then) =
+      __$$EndGameImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$RoleAnnounceImplCopyWithImpl<$Res>
-    extends _$GameStateCopyWithImpl<$Res, _$RoleAnnounceImpl>
-    implements _$$RoleAnnounceImplCopyWith<$Res> {
-  __$$RoleAnnounceImplCopyWithImpl(
-      _$RoleAnnounceImpl _value, $Res Function(_$RoleAnnounceImpl) _then)
+class __$$EndGameImplCopyWithImpl<$Res>
+    extends _$GameStateCopyWithImpl<$Res, _$EndGameImpl>
+    implements _$$EndGameImplCopyWith<$Res> {
+  __$$EndGameImplCopyWithImpl(
+      _$EndGameImpl _value, $Res Function(_$EndGameImpl) _then)
       : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$RoleAnnounceImpl implements _RoleAnnounce {
-  const _$RoleAnnounceImpl();
+class _$EndGameImpl implements _EndGame {
+  const _$EndGameImpl();
 
   @override
   String toString() {
-    return 'GameState.roleAnnounce()';
+    return 'GameState.endGame()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$RoleAnnounceImpl);
+        (other.runtimeType == runtimeType && other is _$EndGameImpl);
   }
 
   @override
@@ -764,73 +844,79 @@ class _$RoleAnnounceImpl implements _RoleAnnounce {
 
   @override
   @optionalTypeArgs
-  TResult when<TResult extends Object?>(
-    TResult Function(Settings settings) $default, {
-    required TResult Function() createUser,
-    required TResult Function() roleAnnounce,
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(List<Player> players) dayPhase,
+    required TResult Function() nightPhase,
+    required TResult Function() endGame,
   }) {
-    return roleAnnounce();
+    return endGame();
   }
 
   @override
   @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(Settings settings)? $default, {
-    TResult? Function()? createUser,
-    TResult? Function()? roleAnnounce,
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(List<Player> players)? dayPhase,
+    TResult? Function()? nightPhase,
+    TResult? Function()? endGame,
   }) {
-    return roleAnnounce?.call();
+    return endGame?.call();
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>(
-    TResult Function(Settings settings)? $default, {
-    TResult Function()? createUser,
-    TResult Function()? roleAnnounce,
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(List<Player> players)? dayPhase,
+    TResult Function()? nightPhase,
+    TResult Function()? endGame,
     required TResult orElse(),
   }) {
-    if (roleAnnounce != null) {
-      return roleAnnounce();
+    if (endGame != null) {
+      return endGame();
     }
     return orElse();
   }
 
   @override
   @optionalTypeArgs
-  TResult map<TResult extends Object?>(
-    TResult Function(_GameState value) $default, {
-    required TResult Function(_CreateUser value) createUser,
-    required TResult Function(_RoleAnnounce value) roleAnnounce,
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_DayPhase value) dayPhase,
+    required TResult Function(_NightPhase value) nightPhase,
+    required TResult Function(_EndGame value) endGame,
   }) {
-    return roleAnnounce(this);
+    return endGame(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>(
-    TResult? Function(_GameState value)? $default, {
-    TResult? Function(_CreateUser value)? createUser,
-    TResult? Function(_RoleAnnounce value)? roleAnnounce,
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_DayPhase value)? dayPhase,
+    TResult? Function(_NightPhase value)? nightPhase,
+    TResult? Function(_EndGame value)? endGame,
   }) {
-    return roleAnnounce?.call(this);
+    return endGame?.call(this);
   }
 
   @override
   @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>(
-    TResult Function(_GameState value)? $default, {
-    TResult Function(_CreateUser value)? createUser,
-    TResult Function(_RoleAnnounce value)? roleAnnounce,
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_DayPhase value)? dayPhase,
+    TResult Function(_NightPhase value)? nightPhase,
+    TResult Function(_EndGame value)? endGame,
     required TResult orElse(),
   }) {
-    if (roleAnnounce != null) {
-      return roleAnnounce(this);
+    if (endGame != null) {
+      return endGame(this);
     }
     return orElse();
   }
 }
 
-abstract class _RoleAnnounce implements GameState {
-  const factory _RoleAnnounce() = _$RoleAnnounceImpl;
+abstract class _EndGame implements GameState {
+  const factory _EndGame() = _$EndGameImpl;
 }

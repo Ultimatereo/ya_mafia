@@ -1,12 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ya_mafia/core/theme/tailor_theme/my_theme.dart';
 
-import '../../../core/constants.dart';
+import '../../../../../core/constants.dart';
+import '../../../../../data/models/player.dart';
+import '../../../../blocs/day_bloc/day_bloc.dart';
 
 class ListTileWithRadio extends StatelessWidget {
   const ListTileWithRadio({
     super.key,
+    required this.player,
+    required this.players,
+    required this.selectedPlayerId,
   });
+
+  final List<Player> players;
+  final Player player;
+  final int? selectedPlayerId;
 
   @override
   Widget build(BuildContext context) {
@@ -19,21 +29,26 @@ class ListTileWithRadio extends StatelessWidget {
       child: Row(
         children: [
           Image.asset(
-            'assets/images/mafia.webp',
+            player.avatar.path,
             height: 40,
             width: 40,
           ),
           const SizedBox(width: appPadding),
           Expanded(
             child: Text(
-              "data",
+              player.name,
               style: context.listTileTextStyle, // Text styling
             ),
           ),
           Radio(
-            value: true,
-            groupValue: 1,
-            onChanged: (val) {},
+            value: player.id,
+            groupValue: selectedPlayerId,
+            onChanged: (val) {
+              context.read<DayBloc>().add(
+                    DayEvent.candidatesAssigned(
+                        players: players, player: player),
+                  );
+            },
           ),
         ],
       ),

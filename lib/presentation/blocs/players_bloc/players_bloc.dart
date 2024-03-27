@@ -16,11 +16,10 @@ part 'players_bloc.freezed.dart';
 Map<GameRole, int> _rolesCompletionByCitizens(
     {required int numberOfPlayers, required Map<GameRole, int> roles}) {
   final newRoles = Map<GameRole, int>.from(roles);
-  var citizens = (newRoles[GameRole.citizen] ?? 0) + numberOfPlayers;
   for (var e in newRoles.entries) {
-    citizens -= e.value;
+    numberOfPlayers -= e.value;
   }
-  newRoles[GameRole.citizen] = citizens;
+  newRoles[GameRole.citizen] = numberOfPlayers;
   return newRoles;
 }
 
@@ -86,6 +85,7 @@ class PlayersBloc extends Bloc<PlayersEvent, PlayersState> {
     final newPlayers = currentState.players.copyWith(roles: newRoles, players: [
       ...currentState.players.players,
       Player(
+        id: currentState.players.currentPlayerIndex,
         name: name,
         avatar: avatar,
         role: role,

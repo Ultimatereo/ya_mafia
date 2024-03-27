@@ -27,7 +27,7 @@ class RolesColumn extends StatelessWidget {
         ListView.separated(
           physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
-          itemCount: GameRole.values.length,
+          itemCount: GameRole.values.length - 1,
           itemBuilder: (context, index) => RoleListTile(
             role: roles.keys.toList()[index],
             number: roles.values.toList()[index],

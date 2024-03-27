@@ -7,8 +7,9 @@ import 'package:ya_mafia/presentation/blocs/players_bloc/players_bloc.dart';
 import 'package:ya_mafia/zgen/i18n/strings.g.dart';
 
 class RoleAnnouncer extends StatefulWidget {
-  const RoleAnnouncer({super.key});
+  const RoleAnnouncer({super.key, required this.currentPlayerRole});
 
+  final GameRole? currentPlayerRole;
   @override
   State<RoleAnnouncer> createState() => _RoleAnnouncerState();
 }
@@ -23,36 +24,30 @@ class _RoleAnnouncerState extends State<RoleAnnouncer> {
         children: [
           Expanded(
             child: SingleChildScrollView(
-              child: BlocBuilder<PlayersBloc, PlayersState>(
-                builder: (context, state) {
-                  return Column(
-                    children: [
-                      const SizedBox(height: appPadding * 3),
-                      const SizedBox(
-                        height: 150,
-                        width: 150,
-                        child: Placeholder(),
-                      ),
-                      const SizedBox(height: appPadding * 2),
-                      Text(
-                        state.players.currentPlayerRole?.name(context) ??
-                            'Error...',
-                        style: context.headline4,
-                      ),
-                      const SizedBox(height: appPadding),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: appPadding * 2),
-                        child: Text(
-                          state.players.currentPlayerRole
-                                  ?.description(context) ??
-                              'Error...',
-                          style: context.cardDescryptionTextStyle,
-                        ),
-                      ),
-                    ],
-                  );
-                },
+              child: Column(
+                children: [
+                  const SizedBox(height: appPadding * 3),
+                  const SizedBox(
+                    height: 150,
+                    width: 150,
+                    child: Placeholder(),
+                  ),
+                  const SizedBox(height: appPadding * 2),
+                  Text(
+                    widget.currentPlayerRole?.name(context) ?? 'Error...',
+                    style: context.headline4,
+                  ),
+                  const SizedBox(height: appPadding),
+                  Padding(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: appPadding * 2),
+                    child: Text(
+                      widget.currentPlayerRole?.description(context) ??
+                          'Error...',
+                      style: context.cardDescryptionTextStyle,
+                    ),
+                  ),
+                ],
               ),
             ),
           ),

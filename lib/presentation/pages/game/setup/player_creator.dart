@@ -92,7 +92,7 @@ class _PlayerCreatorState extends State<PlayerCreator> {
         const SizedBox(height: appPadding * 3),
         ElevatedButton(
           onPressed: () {
-            if (!formKey.currentState!.validate()) return;
+            // if (!formKey.currentState!.validate()) return;
             if (!isPressed) {
               isPressed = true;
               context.read<PlayersBloc>().add(
