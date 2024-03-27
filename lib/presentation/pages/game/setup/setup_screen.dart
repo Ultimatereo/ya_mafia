@@ -6,6 +6,7 @@ import 'package:ya_mafia/core/constants.dart';
 import 'package:ya_mafia/core/theme/tailor_theme/my_theme.dart';
 import 'package:ya_mafia/presentation/blocs/players_bloc/players_bloc.dart';
 import 'package:ya_mafia/presentation/blocs/settings_bloc/settings_bloc.dart';
+import 'package:ya_mafia/presentation/pages/day/day_screen.dart';
 import 'package:ya_mafia/presentation/pages/game/setup/player_creator.dart';
 import 'package:ya_mafia/presentation/pages/game/setup/role_announcer.dart';
 
@@ -40,7 +41,20 @@ class _SetupScreenState extends State<SetupScreen> {
             child: BlocConsumer<PlayersBloc, PlayersState>(
               listener: (context, state) {
                 state.maybeWhen(
-                  end: (state) => Nav.goDayVote(state.players),
+                  end: (state) {
+                    final seconds = context
+                        .read<SettingsBloc>()
+                        .state
+                        .settings
+                        .gameTimer
+                        .dayTimeInSec;
+                    return Nav.goDayVote(
+                      DayScreenArgs(
+                        dayTimeInSec: seconds,
+                        players: state.players,
+                      ),
+                    );
+                  },
                   orElse: controller.toggleCard,
                 );
               },

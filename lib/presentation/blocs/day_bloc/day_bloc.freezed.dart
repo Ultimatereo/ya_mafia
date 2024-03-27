@@ -16,51 +16,71 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$DayEvent {
-  List<Player> get players => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(int? seconds, List<Player> players) dayStarted,
-    required TResult Function(List<Player> players) candidatesSelectionChanged,
+    required TResult Function(List<Player> players) candidatesSelectionOpened,
+    required TResult Function(int id, bool isSelected)
+        candidatesSelectionChanged,
+    required TResult Function(List<Player> players) candidatesAssigned,
+    required TResult Function(Player player) candidateForDeathSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int? seconds, List<Player> players)? dayStarted,
-    TResult? Function(List<Player> players)? candidatesSelectionChanged,
+    TResult? Function(List<Player> players)? candidatesSelectionOpened,
+    TResult? Function(int id, bool isSelected)? candidatesSelectionChanged,
+    TResult? Function(List<Player> players)? candidatesAssigned,
+    TResult? Function(Player player)? candidateForDeathSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int? seconds, List<Player> players)? dayStarted,
-    TResult Function(List<Player> players)? candidatesSelectionChanged,
+    TResult Function(List<Player> players)? candidatesSelectionOpened,
+    TResult Function(int id, bool isSelected)? candidatesSelectionChanged,
+    TResult Function(List<Player> players)? candidatesAssigned,
+    TResult Function(Player player)? candidateForDeathSelected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_dayStarted value) dayStarted,
+    required TResult Function(_candidatesSelectionOpened value)
+        candidatesSelectionOpened,
     required TResult Function(_candidatesSelectionChanged value)
         candidatesSelectionChanged,
+    required TResult Function(_candidatesAssigned value) candidatesAssigned,
+    required TResult Function(_candidateForDeathSelected value)
+        candidateForDeathSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_dayStarted value)? dayStarted,
+    TResult? Function(_candidatesSelectionOpened value)?
+        candidatesSelectionOpened,
     TResult? Function(_candidatesSelectionChanged value)?
         candidatesSelectionChanged,
+    TResult? Function(_candidatesAssigned value)? candidatesAssigned,
+    TResult? Function(_candidateForDeathSelected value)?
+        candidateForDeathSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_dayStarted value)? dayStarted,
+    TResult Function(_candidatesSelectionOpened value)?
+        candidatesSelectionOpened,
     TResult Function(_candidatesSelectionChanged value)?
         candidatesSelectionChanged,
+    TResult Function(_candidatesAssigned value)? candidatesAssigned,
+    TResult Function(_candidateForDeathSelected value)?
+        candidateForDeathSelected,
     required TResult orElse(),
   }) =>
-      throw _privateConstructorUsedError;
-
-  @JsonKey(ignore: true)
-  $DayEventCopyWith<DayEvent> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -68,8 +88,6 @@ mixin _$DayEvent {
 abstract class $DayEventCopyWith<$Res> {
   factory $DayEventCopyWith(DayEvent value, $Res Function(DayEvent) then) =
       _$DayEventCopyWithImpl<$Res, DayEvent>;
-  @useResult
-  $Res call({List<Player> players});
 }
 
 /// @nodoc
@@ -81,28 +99,13 @@ class _$DayEventCopyWithImpl<$Res, $Val extends DayEvent>
   final $Val _value;
   // ignore: unused_field
   final $Res Function($Val) _then;
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? players = null,
-  }) {
-    return _then(_value.copyWith(
-      players: null == players
-          ? _value.players
-          : players // ignore: cast_nullable_to_non_nullable
-              as List<Player>,
-    ) as $Val);
-  }
 }
 
 /// @nodoc
-abstract class _$$dayStartedImplCopyWith<$Res>
-    implements $DayEventCopyWith<$Res> {
+abstract class _$$dayStartedImplCopyWith<$Res> {
   factory _$$dayStartedImplCopyWith(
           _$dayStartedImpl value, $Res Function(_$dayStartedImpl) then) =
       __$$dayStartedImplCopyWithImpl<$Res>;
-  @override
   @useResult
   $Res call({int? seconds, List<Player> players});
 }
@@ -188,7 +191,11 @@ class _$dayStartedImpl with DiagnosticableTreeMixin implements _dayStarted {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(int? seconds, List<Player> players) dayStarted,
-    required TResult Function(List<Player> players) candidatesSelectionChanged,
+    required TResult Function(List<Player> players) candidatesSelectionOpened,
+    required TResult Function(int id, bool isSelected)
+        candidatesSelectionChanged,
+    required TResult Function(List<Player> players) candidatesAssigned,
+    required TResult Function(Player player) candidateForDeathSelected,
   }) {
     return dayStarted(seconds, players);
   }
@@ -197,7 +204,10 @@ class _$dayStartedImpl with DiagnosticableTreeMixin implements _dayStarted {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int? seconds, List<Player> players)? dayStarted,
-    TResult? Function(List<Player> players)? candidatesSelectionChanged,
+    TResult? Function(List<Player> players)? candidatesSelectionOpened,
+    TResult? Function(int id, bool isSelected)? candidatesSelectionChanged,
+    TResult? Function(List<Player> players)? candidatesAssigned,
+    TResult? Function(Player player)? candidateForDeathSelected,
   }) {
     return dayStarted?.call(seconds, players);
   }
@@ -206,7 +216,10 @@ class _$dayStartedImpl with DiagnosticableTreeMixin implements _dayStarted {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int? seconds, List<Player> players)? dayStarted,
-    TResult Function(List<Player> players)? candidatesSelectionChanged,
+    TResult Function(List<Player> players)? candidatesSelectionOpened,
+    TResult Function(int id, bool isSelected)? candidatesSelectionChanged,
+    TResult Function(List<Player> players)? candidatesAssigned,
+    TResult Function(Player player)? candidateForDeathSelected,
     required TResult orElse(),
   }) {
     if (dayStarted != null) {
@@ -219,8 +232,13 @@ class _$dayStartedImpl with DiagnosticableTreeMixin implements _dayStarted {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_dayStarted value) dayStarted,
+    required TResult Function(_candidatesSelectionOpened value)
+        candidatesSelectionOpened,
     required TResult Function(_candidatesSelectionChanged value)
         candidatesSelectionChanged,
+    required TResult Function(_candidatesAssigned value) candidatesAssigned,
+    required TResult Function(_candidateForDeathSelected value)
+        candidateForDeathSelected,
   }) {
     return dayStarted(this);
   }
@@ -229,8 +247,13 @@ class _$dayStartedImpl with DiagnosticableTreeMixin implements _dayStarted {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_dayStarted value)? dayStarted,
+    TResult? Function(_candidatesSelectionOpened value)?
+        candidatesSelectionOpened,
     TResult? Function(_candidatesSelectionChanged value)?
         candidatesSelectionChanged,
+    TResult? Function(_candidatesAssigned value)? candidatesAssigned,
+    TResult? Function(_candidateForDeathSelected value)?
+        candidateForDeathSelected,
   }) {
     return dayStarted?.call(this);
   }
@@ -239,8 +262,13 @@ class _$dayStartedImpl with DiagnosticableTreeMixin implements _dayStarted {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_dayStarted value)? dayStarted,
+    TResult Function(_candidatesSelectionOpened value)?
+        candidatesSelectionOpened,
     TResult Function(_candidatesSelectionChanged value)?
         candidatesSelectionChanged,
+    TResult Function(_candidatesAssigned value)? candidatesAssigned,
+    TResult Function(_candidateForDeathSelected value)?
+        candidateForDeathSelected,
     required TResult orElse(),
   }) {
     if (dayStarted != null) {
@@ -256,24 +284,202 @@ abstract class _dayStarted implements DayEvent {
       required final List<Player> players}) = _$dayStartedImpl;
 
   int? get seconds;
-  @override
   List<Player> get players;
-  @override
   @JsonKey(ignore: true)
   _$$dayStartedImplCopyWith<_$dayStartedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$candidatesSelectionChangedImplCopyWith<$Res>
-    implements $DayEventCopyWith<$Res> {
+abstract class _$$candidatesSelectionOpenedImplCopyWith<$Res> {
+  factory _$$candidatesSelectionOpenedImplCopyWith(
+          _$candidatesSelectionOpenedImpl value,
+          $Res Function(_$candidatesSelectionOpenedImpl) then) =
+      __$$candidatesSelectionOpenedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<Player> players});
+}
+
+/// @nodoc
+class __$$candidatesSelectionOpenedImplCopyWithImpl<$Res>
+    extends _$DayEventCopyWithImpl<$Res, _$candidatesSelectionOpenedImpl>
+    implements _$$candidatesSelectionOpenedImplCopyWith<$Res> {
+  __$$candidatesSelectionOpenedImplCopyWithImpl(
+      _$candidatesSelectionOpenedImpl _value,
+      $Res Function(_$candidatesSelectionOpenedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? players = null,
+  }) {
+    return _then(_$candidatesSelectionOpenedImpl(
+      players: null == players
+          ? _value._players
+          : players // ignore: cast_nullable_to_non_nullable
+              as List<Player>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$candidatesSelectionOpenedImpl
+    with DiagnosticableTreeMixin
+    implements _candidatesSelectionOpened {
+  const _$candidatesSelectionOpenedImpl({required final List<Player> players})
+      : _players = players;
+
+  final List<Player> _players;
+  @override
+  List<Player> get players {
+    if (_players is EqualUnmodifiableListView) return _players;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_players);
+  }
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'DayEvent.candidatesSelectionOpened(players: $players)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'DayEvent.candidatesSelectionOpened'))
+      ..add(DiagnosticsProperty('players', players));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$candidatesSelectionOpenedImpl &&
+            const DeepCollectionEquality().equals(other._players, _players));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_players));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$candidatesSelectionOpenedImplCopyWith<_$candidatesSelectionOpenedImpl>
+      get copyWith => __$$candidatesSelectionOpenedImplCopyWithImpl<
+          _$candidatesSelectionOpenedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int? seconds, List<Player> players) dayStarted,
+    required TResult Function(List<Player> players) candidatesSelectionOpened,
+    required TResult Function(int id, bool isSelected)
+        candidatesSelectionChanged,
+    required TResult Function(List<Player> players) candidatesAssigned,
+    required TResult Function(Player player) candidateForDeathSelected,
+  }) {
+    return candidatesSelectionOpened(players);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int? seconds, List<Player> players)? dayStarted,
+    TResult? Function(List<Player> players)? candidatesSelectionOpened,
+    TResult? Function(int id, bool isSelected)? candidatesSelectionChanged,
+    TResult? Function(List<Player> players)? candidatesAssigned,
+    TResult? Function(Player player)? candidateForDeathSelected,
+  }) {
+    return candidatesSelectionOpened?.call(players);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int? seconds, List<Player> players)? dayStarted,
+    TResult Function(List<Player> players)? candidatesSelectionOpened,
+    TResult Function(int id, bool isSelected)? candidatesSelectionChanged,
+    TResult Function(List<Player> players)? candidatesAssigned,
+    TResult Function(Player player)? candidateForDeathSelected,
+    required TResult orElse(),
+  }) {
+    if (candidatesSelectionOpened != null) {
+      return candidatesSelectionOpened(players);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_dayStarted value) dayStarted,
+    required TResult Function(_candidatesSelectionOpened value)
+        candidatesSelectionOpened,
+    required TResult Function(_candidatesSelectionChanged value)
+        candidatesSelectionChanged,
+    required TResult Function(_candidatesAssigned value) candidatesAssigned,
+    required TResult Function(_candidateForDeathSelected value)
+        candidateForDeathSelected,
+  }) {
+    return candidatesSelectionOpened(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_dayStarted value)? dayStarted,
+    TResult? Function(_candidatesSelectionOpened value)?
+        candidatesSelectionOpened,
+    TResult? Function(_candidatesSelectionChanged value)?
+        candidatesSelectionChanged,
+    TResult? Function(_candidatesAssigned value)? candidatesAssigned,
+    TResult? Function(_candidateForDeathSelected value)?
+        candidateForDeathSelected,
+  }) {
+    return candidatesSelectionOpened?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_dayStarted value)? dayStarted,
+    TResult Function(_candidatesSelectionOpened value)?
+        candidatesSelectionOpened,
+    TResult Function(_candidatesSelectionChanged value)?
+        candidatesSelectionChanged,
+    TResult Function(_candidatesAssigned value)? candidatesAssigned,
+    TResult Function(_candidateForDeathSelected value)?
+        candidateForDeathSelected,
+    required TResult orElse(),
+  }) {
+    if (candidatesSelectionOpened != null) {
+      return candidatesSelectionOpened(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _candidatesSelectionOpened implements DayEvent {
+  const factory _candidatesSelectionOpened(
+      {required final List<Player> players}) = _$candidatesSelectionOpenedImpl;
+
+  List<Player> get players;
+  @JsonKey(ignore: true)
+  _$$candidatesSelectionOpenedImplCopyWith<_$candidatesSelectionOpenedImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$candidatesSelectionChangedImplCopyWith<$Res> {
   factory _$$candidatesSelectionChangedImplCopyWith(
           _$candidatesSelectionChangedImpl value,
           $Res Function(_$candidatesSelectionChangedImpl) then) =
       __$$candidatesSelectionChangedImplCopyWithImpl<$Res>;
-  @override
   @useResult
-  $Res call({List<Player> players});
+  $Res call({int id, bool isSelected});
 }
 
 /// @nodoc
@@ -288,13 +494,18 @@ class __$$candidatesSelectionChangedImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? players = null,
+    Object? id = null,
+    Object? isSelected = null,
   }) {
     return _then(_$candidatesSelectionChangedImpl(
-      players: null == players
-          ? _value._players
-          : players // ignore: cast_nullable_to_non_nullable
-              as List<Player>,
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      isSelected: null == isSelected
+          ? _value.isSelected
+          : isSelected // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -304,20 +515,17 @@ class __$$candidatesSelectionChangedImplCopyWithImpl<$Res>
 class _$candidatesSelectionChangedImpl
     with DiagnosticableTreeMixin
     implements _candidatesSelectionChanged {
-  const _$candidatesSelectionChangedImpl({required final List<Player> players})
-      : _players = players;
+  const _$candidatesSelectionChangedImpl(
+      {required this.id, required this.isSelected});
 
-  final List<Player> _players;
   @override
-  List<Player> get players {
-    if (_players is EqualUnmodifiableListView) return _players;
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_players);
-  }
+  final int id;
+  @override
+  final bool isSelected;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'DayEvent.candidatesSelectionChanged(players: $players)';
+    return 'DayEvent.candidatesSelectionChanged(id: $id, isSelected: $isSelected)';
   }
 
   @override
@@ -325,7 +533,8 @@ class _$candidatesSelectionChangedImpl
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'DayEvent.candidatesSelectionChanged'))
-      ..add(DiagnosticsProperty('players', players));
+      ..add(DiagnosticsProperty('id', id))
+      ..add(DiagnosticsProperty('isSelected', isSelected));
   }
 
   @override
@@ -333,12 +542,13 @@ class _$candidatesSelectionChangedImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$candidatesSelectionChangedImpl &&
-            const DeepCollectionEquality().equals(other._players, _players));
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.isSelected, isSelected) ||
+                other.isSelected == isSelected));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_players));
+  int get hashCode => Object.hash(runtimeType, id, isSelected);
 
   @JsonKey(ignore: true)
   @override
@@ -351,29 +561,39 @@ class _$candidatesSelectionChangedImpl
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(int? seconds, List<Player> players) dayStarted,
-    required TResult Function(List<Player> players) candidatesSelectionChanged,
+    required TResult Function(List<Player> players) candidatesSelectionOpened,
+    required TResult Function(int id, bool isSelected)
+        candidatesSelectionChanged,
+    required TResult Function(List<Player> players) candidatesAssigned,
+    required TResult Function(Player player) candidateForDeathSelected,
   }) {
-    return candidatesSelectionChanged(players);
+    return candidatesSelectionChanged(id, isSelected);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function(int? seconds, List<Player> players)? dayStarted,
-    TResult? Function(List<Player> players)? candidatesSelectionChanged,
+    TResult? Function(List<Player> players)? candidatesSelectionOpened,
+    TResult? Function(int id, bool isSelected)? candidatesSelectionChanged,
+    TResult? Function(List<Player> players)? candidatesAssigned,
+    TResult? Function(Player player)? candidateForDeathSelected,
   }) {
-    return candidatesSelectionChanged?.call(players);
+    return candidatesSelectionChanged?.call(id, isSelected);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(int? seconds, List<Player> players)? dayStarted,
-    TResult Function(List<Player> players)? candidatesSelectionChanged,
+    TResult Function(List<Player> players)? candidatesSelectionOpened,
+    TResult Function(int id, bool isSelected)? candidatesSelectionChanged,
+    TResult Function(List<Player> players)? candidatesAssigned,
+    TResult Function(Player player)? candidateForDeathSelected,
     required TResult orElse(),
   }) {
     if (candidatesSelectionChanged != null) {
-      return candidatesSelectionChanged(players);
+      return candidatesSelectionChanged(id, isSelected);
     }
     return orElse();
   }
@@ -382,8 +602,13 @@ class _$candidatesSelectionChangedImpl
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_dayStarted value) dayStarted,
+    required TResult Function(_candidatesSelectionOpened value)
+        candidatesSelectionOpened,
     required TResult Function(_candidatesSelectionChanged value)
         candidatesSelectionChanged,
+    required TResult Function(_candidatesAssigned value) candidatesAssigned,
+    required TResult Function(_candidateForDeathSelected value)
+        candidateForDeathSelected,
   }) {
     return candidatesSelectionChanged(this);
   }
@@ -392,8 +617,13 @@ class _$candidatesSelectionChangedImpl
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_dayStarted value)? dayStarted,
+    TResult? Function(_candidatesSelectionOpened value)?
+        candidatesSelectionOpened,
     TResult? Function(_candidatesSelectionChanged value)?
         candidatesSelectionChanged,
+    TResult? Function(_candidatesAssigned value)? candidatesAssigned,
+    TResult? Function(_candidateForDeathSelected value)?
+        candidateForDeathSelected,
   }) {
     return candidatesSelectionChanged?.call(this);
   }
@@ -402,8 +632,13 @@ class _$candidatesSelectionChangedImpl
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_dayStarted value)? dayStarted,
+    TResult Function(_candidatesSelectionOpened value)?
+        candidatesSelectionOpened,
     TResult Function(_candidatesSelectionChanged value)?
         candidatesSelectionChanged,
+    TResult Function(_candidatesAssigned value)? candidatesAssigned,
+    TResult Function(_candidateForDeathSelected value)?
+        candidateForDeathSelected,
     required TResult orElse(),
   }) {
     if (candidatesSelectionChanged != null) {
@@ -415,13 +650,378 @@ class _$candidatesSelectionChangedImpl
 
 abstract class _candidatesSelectionChanged implements DayEvent {
   const factory _candidatesSelectionChanged(
-      {required final List<Player> players}) = _$candidatesSelectionChangedImpl;
+      {required final int id,
+      required final bool isSelected}) = _$candidatesSelectionChangedImpl;
 
-  @override
-  List<Player> get players;
-  @override
+  int get id;
+  bool get isSelected;
   @JsonKey(ignore: true)
   _$$candidatesSelectionChangedImplCopyWith<_$candidatesSelectionChangedImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$candidatesAssignedImplCopyWith<$Res> {
+  factory _$$candidatesAssignedImplCopyWith(_$candidatesAssignedImpl value,
+          $Res Function(_$candidatesAssignedImpl) then) =
+      __$$candidatesAssignedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<Player> players});
+}
+
+/// @nodoc
+class __$$candidatesAssignedImplCopyWithImpl<$Res>
+    extends _$DayEventCopyWithImpl<$Res, _$candidatesAssignedImpl>
+    implements _$$candidatesAssignedImplCopyWith<$Res> {
+  __$$candidatesAssignedImplCopyWithImpl(_$candidatesAssignedImpl _value,
+      $Res Function(_$candidatesAssignedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? players = null,
+  }) {
+    return _then(_$candidatesAssignedImpl(
+      players: null == players
+          ? _value._players
+          : players // ignore: cast_nullable_to_non_nullable
+              as List<Player>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$candidatesAssignedImpl
+    with DiagnosticableTreeMixin
+    implements _candidatesAssigned {
+  const _$candidatesAssignedImpl({required final List<Player> players})
+      : _players = players;
+
+  final List<Player> _players;
+  @override
+  List<Player> get players {
+    if (_players is EqualUnmodifiableListView) return _players;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_players);
+  }
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'DayEvent.candidatesAssigned(players: $players)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'DayEvent.candidatesAssigned'))
+      ..add(DiagnosticsProperty('players', players));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$candidatesAssignedImpl &&
+            const DeepCollectionEquality().equals(other._players, _players));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_players));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$candidatesAssignedImplCopyWith<_$candidatesAssignedImpl> get copyWith =>
+      __$$candidatesAssignedImplCopyWithImpl<_$candidatesAssignedImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int? seconds, List<Player> players) dayStarted,
+    required TResult Function(List<Player> players) candidatesSelectionOpened,
+    required TResult Function(int id, bool isSelected)
+        candidatesSelectionChanged,
+    required TResult Function(List<Player> players) candidatesAssigned,
+    required TResult Function(Player player) candidateForDeathSelected,
+  }) {
+    return candidatesAssigned(players);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int? seconds, List<Player> players)? dayStarted,
+    TResult? Function(List<Player> players)? candidatesSelectionOpened,
+    TResult? Function(int id, bool isSelected)? candidatesSelectionChanged,
+    TResult? Function(List<Player> players)? candidatesAssigned,
+    TResult? Function(Player player)? candidateForDeathSelected,
+  }) {
+    return candidatesAssigned?.call(players);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int? seconds, List<Player> players)? dayStarted,
+    TResult Function(List<Player> players)? candidatesSelectionOpened,
+    TResult Function(int id, bool isSelected)? candidatesSelectionChanged,
+    TResult Function(List<Player> players)? candidatesAssigned,
+    TResult Function(Player player)? candidateForDeathSelected,
+    required TResult orElse(),
+  }) {
+    if (candidatesAssigned != null) {
+      return candidatesAssigned(players);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_dayStarted value) dayStarted,
+    required TResult Function(_candidatesSelectionOpened value)
+        candidatesSelectionOpened,
+    required TResult Function(_candidatesSelectionChanged value)
+        candidatesSelectionChanged,
+    required TResult Function(_candidatesAssigned value) candidatesAssigned,
+    required TResult Function(_candidateForDeathSelected value)
+        candidateForDeathSelected,
+  }) {
+    return candidatesAssigned(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_dayStarted value)? dayStarted,
+    TResult? Function(_candidatesSelectionOpened value)?
+        candidatesSelectionOpened,
+    TResult? Function(_candidatesSelectionChanged value)?
+        candidatesSelectionChanged,
+    TResult? Function(_candidatesAssigned value)? candidatesAssigned,
+    TResult? Function(_candidateForDeathSelected value)?
+        candidateForDeathSelected,
+  }) {
+    return candidatesAssigned?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_dayStarted value)? dayStarted,
+    TResult Function(_candidatesSelectionOpened value)?
+        candidatesSelectionOpened,
+    TResult Function(_candidatesSelectionChanged value)?
+        candidatesSelectionChanged,
+    TResult Function(_candidatesAssigned value)? candidatesAssigned,
+    TResult Function(_candidateForDeathSelected value)?
+        candidateForDeathSelected,
+    required TResult orElse(),
+  }) {
+    if (candidatesAssigned != null) {
+      return candidatesAssigned(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _candidatesAssigned implements DayEvent {
+  const factory _candidatesAssigned({required final List<Player> players}) =
+      _$candidatesAssignedImpl;
+
+  List<Player> get players;
+  @JsonKey(ignore: true)
+  _$$candidatesAssignedImplCopyWith<_$candidatesAssignedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$candidateForDeathSelectedImplCopyWith<$Res> {
+  factory _$$candidateForDeathSelectedImplCopyWith(
+          _$candidateForDeathSelectedImpl value,
+          $Res Function(_$candidateForDeathSelectedImpl) then) =
+      __$$candidateForDeathSelectedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Player player});
+
+  $PlayerCopyWith<$Res> get player;
+}
+
+/// @nodoc
+class __$$candidateForDeathSelectedImplCopyWithImpl<$Res>
+    extends _$DayEventCopyWithImpl<$Res, _$candidateForDeathSelectedImpl>
+    implements _$$candidateForDeathSelectedImplCopyWith<$Res> {
+  __$$candidateForDeathSelectedImplCopyWithImpl(
+      _$candidateForDeathSelectedImpl _value,
+      $Res Function(_$candidateForDeathSelectedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? player = null,
+  }) {
+    return _then(_$candidateForDeathSelectedImpl(
+      player: null == player
+          ? _value.player
+          : player // ignore: cast_nullable_to_non_nullable
+              as Player,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PlayerCopyWith<$Res> get player {
+    return $PlayerCopyWith<$Res>(_value.player, (value) {
+      return _then(_value.copyWith(player: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$candidateForDeathSelectedImpl
+    with DiagnosticableTreeMixin
+    implements _candidateForDeathSelected {
+  const _$candidateForDeathSelectedImpl({required this.player});
+
+  @override
+  final Player player;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'DayEvent.candidateForDeathSelected(player: $player)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'DayEvent.candidateForDeathSelected'))
+      ..add(DiagnosticsProperty('player', player));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$candidateForDeathSelectedImpl &&
+            (identical(other.player, player) || other.player == player));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, player);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$candidateForDeathSelectedImplCopyWith<_$candidateForDeathSelectedImpl>
+      get copyWith => __$$candidateForDeathSelectedImplCopyWithImpl<
+          _$candidateForDeathSelectedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(int? seconds, List<Player> players) dayStarted,
+    required TResult Function(List<Player> players) candidatesSelectionOpened,
+    required TResult Function(int id, bool isSelected)
+        candidatesSelectionChanged,
+    required TResult Function(List<Player> players) candidatesAssigned,
+    required TResult Function(Player player) candidateForDeathSelected,
+  }) {
+    return candidateForDeathSelected(player);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(int? seconds, List<Player> players)? dayStarted,
+    TResult? Function(List<Player> players)? candidatesSelectionOpened,
+    TResult? Function(int id, bool isSelected)? candidatesSelectionChanged,
+    TResult? Function(List<Player> players)? candidatesAssigned,
+    TResult? Function(Player player)? candidateForDeathSelected,
+  }) {
+    return candidateForDeathSelected?.call(player);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(int? seconds, List<Player> players)? dayStarted,
+    TResult Function(List<Player> players)? candidatesSelectionOpened,
+    TResult Function(int id, bool isSelected)? candidatesSelectionChanged,
+    TResult Function(List<Player> players)? candidatesAssigned,
+    TResult Function(Player player)? candidateForDeathSelected,
+    required TResult orElse(),
+  }) {
+    if (candidateForDeathSelected != null) {
+      return candidateForDeathSelected(player);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_dayStarted value) dayStarted,
+    required TResult Function(_candidatesSelectionOpened value)
+        candidatesSelectionOpened,
+    required TResult Function(_candidatesSelectionChanged value)
+        candidatesSelectionChanged,
+    required TResult Function(_candidatesAssigned value) candidatesAssigned,
+    required TResult Function(_candidateForDeathSelected value)
+        candidateForDeathSelected,
+  }) {
+    return candidateForDeathSelected(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_dayStarted value)? dayStarted,
+    TResult? Function(_candidatesSelectionOpened value)?
+        candidatesSelectionOpened,
+    TResult? Function(_candidatesSelectionChanged value)?
+        candidatesSelectionChanged,
+    TResult? Function(_candidatesAssigned value)? candidatesAssigned,
+    TResult? Function(_candidateForDeathSelected value)?
+        candidateForDeathSelected,
+  }) {
+    return candidateForDeathSelected?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_dayStarted value)? dayStarted,
+    TResult Function(_candidatesSelectionOpened value)?
+        candidatesSelectionOpened,
+    TResult Function(_candidatesSelectionChanged value)?
+        candidatesSelectionChanged,
+    TResult Function(_candidatesAssigned value)? candidatesAssigned,
+    TResult Function(_candidateForDeathSelected value)?
+        candidateForDeathSelected,
+    required TResult orElse(),
+  }) {
+    if (candidateForDeathSelected != null) {
+      return candidateForDeathSelected(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _candidateForDeathSelected implements DayEvent {
+  const factory _candidateForDeathSelected({required final Player player}) =
+      _$candidateForDeathSelectedImpl;
+
+  Player get player;
+  @JsonKey(ignore: true)
+  _$$candidateForDeathSelectedImplCopyWith<_$candidateForDeathSelectedImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -431,24 +1031,27 @@ mixin _$DayState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(int? seconds) voting,
-    required TResult Function(List<Player> players) candidatesOpened,
-    required TResult Function() votingEnded,
+    required TResult Function(List<Player> players) candidatesChanged,
+    required TResult Function(List<Player> players) candidatesAssigned,
+    required TResult Function(Player player) candidateForDeathSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(int? seconds)? voting,
-    TResult? Function(List<Player> players)? candidatesOpened,
-    TResult? Function()? votingEnded,
+    TResult? Function(List<Player> players)? candidatesChanged,
+    TResult? Function(List<Player> players)? candidatesAssigned,
+    TResult? Function(Player player)? candidateForDeathSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(int? seconds)? voting,
-    TResult Function(List<Player> players)? candidatesOpened,
-    TResult Function()? votingEnded,
+    TResult Function(List<Player> players)? candidatesChanged,
+    TResult Function(List<Player> players)? candidatesAssigned,
+    TResult Function(Player player)? candidateForDeathSelected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -456,24 +1059,30 @@ mixin _$DayState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Voting value) voting,
-    required TResult Function(_CandidatesOpened value) candidatesOpened,
-    required TResult Function(_VotingEnded value) votingEnded,
+    required TResult Function(_CandidatesOpened value) candidatesChanged,
+    required TResult Function(_CandidatesAssigned value) candidatesAssigned,
+    required TResult Function(_CandidateForDeathSelected value)
+        candidateForDeathSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Voting value)? voting,
-    TResult? Function(_CandidatesOpened value)? candidatesOpened,
-    TResult? Function(_VotingEnded value)? votingEnded,
+    TResult? Function(_CandidatesOpened value)? candidatesChanged,
+    TResult? Function(_CandidatesAssigned value)? candidatesAssigned,
+    TResult? Function(_CandidateForDeathSelected value)?
+        candidateForDeathSelected,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Voting value)? voting,
-    TResult Function(_CandidatesOpened value)? candidatesOpened,
-    TResult Function(_VotingEnded value)? votingEnded,
+    TResult Function(_CandidatesOpened value)? candidatesChanged,
+    TResult Function(_CandidatesAssigned value)? candidatesAssigned,
+    TResult Function(_CandidateForDeathSelected value)?
+        candidateForDeathSelected,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -542,8 +1151,9 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(int? seconds) voting,
-    required TResult Function(List<Player> players) candidatesOpened,
-    required TResult Function() votingEnded,
+    required TResult Function(List<Player> players) candidatesChanged,
+    required TResult Function(List<Player> players) candidatesAssigned,
+    required TResult Function(Player player) candidateForDeathSelected,
   }) {
     return initial();
   }
@@ -553,8 +1163,9 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(int? seconds)? voting,
-    TResult? Function(List<Player> players)? candidatesOpened,
-    TResult? Function()? votingEnded,
+    TResult? Function(List<Player> players)? candidatesChanged,
+    TResult? Function(List<Player> players)? candidatesAssigned,
+    TResult? Function(Player player)? candidateForDeathSelected,
   }) {
     return initial?.call();
   }
@@ -564,8 +1175,9 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(int? seconds)? voting,
-    TResult Function(List<Player> players)? candidatesOpened,
-    TResult Function()? votingEnded,
+    TResult Function(List<Player> players)? candidatesChanged,
+    TResult Function(List<Player> players)? candidatesAssigned,
+    TResult Function(Player player)? candidateForDeathSelected,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -579,8 +1191,10 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Voting value) voting,
-    required TResult Function(_CandidatesOpened value) candidatesOpened,
-    required TResult Function(_VotingEnded value) votingEnded,
+    required TResult Function(_CandidatesOpened value) candidatesChanged,
+    required TResult Function(_CandidatesAssigned value) candidatesAssigned,
+    required TResult Function(_CandidateForDeathSelected value)
+        candidateForDeathSelected,
   }) {
     return initial(this);
   }
@@ -590,8 +1204,10 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Voting value)? voting,
-    TResult? Function(_CandidatesOpened value)? candidatesOpened,
-    TResult? Function(_VotingEnded value)? votingEnded,
+    TResult? Function(_CandidatesOpened value)? candidatesChanged,
+    TResult? Function(_CandidatesAssigned value)? candidatesAssigned,
+    TResult? Function(_CandidateForDeathSelected value)?
+        candidateForDeathSelected,
   }) {
     return initial?.call(this);
   }
@@ -601,8 +1217,10 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Voting value)? voting,
-    TResult Function(_CandidatesOpened value)? candidatesOpened,
-    TResult Function(_VotingEnded value)? votingEnded,
+    TResult Function(_CandidatesOpened value)? candidatesChanged,
+    TResult Function(_CandidatesAssigned value)? candidatesAssigned,
+    TResult Function(_CandidateForDeathSelected value)?
+        candidateForDeathSelected,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -690,8 +1308,9 @@ class _$VotingImpl with DiagnosticableTreeMixin implements _Voting {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(int? seconds) voting,
-    required TResult Function(List<Player> players) candidatesOpened,
-    required TResult Function() votingEnded,
+    required TResult Function(List<Player> players) candidatesChanged,
+    required TResult Function(List<Player> players) candidatesAssigned,
+    required TResult Function(Player player) candidateForDeathSelected,
   }) {
     return voting(seconds);
   }
@@ -701,8 +1320,9 @@ class _$VotingImpl with DiagnosticableTreeMixin implements _Voting {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(int? seconds)? voting,
-    TResult? Function(List<Player> players)? candidatesOpened,
-    TResult? Function()? votingEnded,
+    TResult? Function(List<Player> players)? candidatesChanged,
+    TResult? Function(List<Player> players)? candidatesAssigned,
+    TResult? Function(Player player)? candidateForDeathSelected,
   }) {
     return voting?.call(seconds);
   }
@@ -712,8 +1332,9 @@ class _$VotingImpl with DiagnosticableTreeMixin implements _Voting {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(int? seconds)? voting,
-    TResult Function(List<Player> players)? candidatesOpened,
-    TResult Function()? votingEnded,
+    TResult Function(List<Player> players)? candidatesChanged,
+    TResult Function(List<Player> players)? candidatesAssigned,
+    TResult Function(Player player)? candidateForDeathSelected,
     required TResult orElse(),
   }) {
     if (voting != null) {
@@ -727,8 +1348,10 @@ class _$VotingImpl with DiagnosticableTreeMixin implements _Voting {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Voting value) voting,
-    required TResult Function(_CandidatesOpened value) candidatesOpened,
-    required TResult Function(_VotingEnded value) votingEnded,
+    required TResult Function(_CandidatesOpened value) candidatesChanged,
+    required TResult Function(_CandidatesAssigned value) candidatesAssigned,
+    required TResult Function(_CandidateForDeathSelected value)
+        candidateForDeathSelected,
   }) {
     return voting(this);
   }
@@ -738,8 +1361,10 @@ class _$VotingImpl with DiagnosticableTreeMixin implements _Voting {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Voting value)? voting,
-    TResult? Function(_CandidatesOpened value)? candidatesOpened,
-    TResult? Function(_VotingEnded value)? votingEnded,
+    TResult? Function(_CandidatesOpened value)? candidatesChanged,
+    TResult? Function(_CandidatesAssigned value)? candidatesAssigned,
+    TResult? Function(_CandidateForDeathSelected value)?
+        candidateForDeathSelected,
   }) {
     return voting?.call(this);
   }
@@ -749,8 +1374,10 @@ class _$VotingImpl with DiagnosticableTreeMixin implements _Voting {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Voting value)? voting,
-    TResult Function(_CandidatesOpened value)? candidatesOpened,
-    TResult Function(_VotingEnded value)? votingEnded,
+    TResult Function(_CandidatesOpened value)? candidatesChanged,
+    TResult Function(_CandidatesAssigned value)? candidatesAssigned,
+    TResult Function(_CandidateForDeathSelected value)?
+        candidateForDeathSelected,
     required TResult orElse(),
   }) {
     if (voting != null) {
@@ -818,14 +1445,14 @@ class _$CandidatesOpenedImpl
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'DayState.candidatesOpened(players: $players)';
+    return 'DayState.candidatesChanged(players: $players)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
     properties
-      ..add(DiagnosticsProperty('type', 'DayState.candidatesOpened'))
+      ..add(DiagnosticsProperty('type', 'DayState.candidatesChanged'))
       ..add(DiagnosticsProperty('players', players));
   }
 
@@ -853,10 +1480,11 @@ class _$CandidatesOpenedImpl
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(int? seconds) voting,
-    required TResult Function(List<Player> players) candidatesOpened,
-    required TResult Function() votingEnded,
+    required TResult Function(List<Player> players) candidatesChanged,
+    required TResult Function(List<Player> players) candidatesAssigned,
+    required TResult Function(Player player) candidateForDeathSelected,
   }) {
-    return candidatesOpened(players);
+    return candidatesChanged(players);
   }
 
   @override
@@ -864,10 +1492,11 @@ class _$CandidatesOpenedImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(int? seconds)? voting,
-    TResult? Function(List<Player> players)? candidatesOpened,
-    TResult? Function()? votingEnded,
+    TResult? Function(List<Player> players)? candidatesChanged,
+    TResult? Function(List<Player> players)? candidatesAssigned,
+    TResult? Function(Player player)? candidateForDeathSelected,
   }) {
-    return candidatesOpened?.call(players);
+    return candidatesChanged?.call(players);
   }
 
   @override
@@ -875,12 +1504,13 @@ class _$CandidatesOpenedImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(int? seconds)? voting,
-    TResult Function(List<Player> players)? candidatesOpened,
-    TResult Function()? votingEnded,
+    TResult Function(List<Player> players)? candidatesChanged,
+    TResult Function(List<Player> players)? candidatesAssigned,
+    TResult Function(Player player)? candidateForDeathSelected,
     required TResult orElse(),
   }) {
-    if (candidatesOpened != null) {
-      return candidatesOpened(players);
+    if (candidatesChanged != null) {
+      return candidatesChanged(players);
     }
     return orElse();
   }
@@ -890,10 +1520,12 @@ class _$CandidatesOpenedImpl
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Voting value) voting,
-    required TResult Function(_CandidatesOpened value) candidatesOpened,
-    required TResult Function(_VotingEnded value) votingEnded,
+    required TResult Function(_CandidatesOpened value) candidatesChanged,
+    required TResult Function(_CandidatesAssigned value) candidatesAssigned,
+    required TResult Function(_CandidateForDeathSelected value)
+        candidateForDeathSelected,
   }) {
-    return candidatesOpened(this);
+    return candidatesChanged(this);
   }
 
   @override
@@ -901,10 +1533,12 @@ class _$CandidatesOpenedImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Voting value)? voting,
-    TResult? Function(_CandidatesOpened value)? candidatesOpened,
-    TResult? Function(_VotingEnded value)? votingEnded,
+    TResult? Function(_CandidatesOpened value)? candidatesChanged,
+    TResult? Function(_CandidatesAssigned value)? candidatesAssigned,
+    TResult? Function(_CandidateForDeathSelected value)?
+        candidateForDeathSelected,
   }) {
-    return candidatesOpened?.call(this);
+    return candidatesChanged?.call(this);
   }
 
   @override
@@ -912,12 +1546,14 @@ class _$CandidatesOpenedImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Voting value)? voting,
-    TResult Function(_CandidatesOpened value)? candidatesOpened,
-    TResult Function(_VotingEnded value)? votingEnded,
+    TResult Function(_CandidatesOpened value)? candidatesChanged,
+    TResult Function(_CandidatesAssigned value)? candidatesAssigned,
+    TResult Function(_CandidateForDeathSelected value)?
+        candidateForDeathSelected,
     required TResult orElse(),
   }) {
-    if (candidatesOpened != null) {
-      return candidatesOpened(this);
+    if (candidatesChanged != null) {
+      return candidatesChanged(this);
     }
     return orElse();
   }
@@ -934,55 +1570,94 @@ abstract class _CandidatesOpened implements DayState {
 }
 
 /// @nodoc
-abstract class _$$VotingEndedImplCopyWith<$Res> {
-  factory _$$VotingEndedImplCopyWith(
-          _$VotingEndedImpl value, $Res Function(_$VotingEndedImpl) then) =
-      __$$VotingEndedImplCopyWithImpl<$Res>;
+abstract class _$$CandidatesAssignedImplCopyWith<$Res> {
+  factory _$$CandidatesAssignedImplCopyWith(_$CandidatesAssignedImpl value,
+          $Res Function(_$CandidatesAssignedImpl) then) =
+      __$$CandidatesAssignedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<Player> players});
 }
 
 /// @nodoc
-class __$$VotingEndedImplCopyWithImpl<$Res>
-    extends _$DayStateCopyWithImpl<$Res, _$VotingEndedImpl>
-    implements _$$VotingEndedImplCopyWith<$Res> {
-  __$$VotingEndedImplCopyWithImpl(
-      _$VotingEndedImpl _value, $Res Function(_$VotingEndedImpl) _then)
+class __$$CandidatesAssignedImplCopyWithImpl<$Res>
+    extends _$DayStateCopyWithImpl<$Res, _$CandidatesAssignedImpl>
+    implements _$$CandidatesAssignedImplCopyWith<$Res> {
+  __$$CandidatesAssignedImplCopyWithImpl(_$CandidatesAssignedImpl _value,
+      $Res Function(_$CandidatesAssignedImpl) _then)
       : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? players = null,
+  }) {
+    return _then(_$CandidatesAssignedImpl(
+      players: null == players
+          ? _value._players
+          : players // ignore: cast_nullable_to_non_nullable
+              as List<Player>,
+    ));
+  }
 }
 
 /// @nodoc
 
-class _$VotingEndedImpl with DiagnosticableTreeMixin implements _VotingEnded {
-  const _$VotingEndedImpl();
+class _$CandidatesAssignedImpl
+    with DiagnosticableTreeMixin
+    implements _CandidatesAssigned {
+  const _$CandidatesAssignedImpl({required final List<Player> players})
+      : _players = players;
+
+  final List<Player> _players;
+  @override
+  List<Player> get players {
+    if (_players is EqualUnmodifiableListView) return _players;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_players);
+  }
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'DayState.votingEnded()';
+    return 'DayState.candidatesAssigned(players: $players)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties.add(DiagnosticsProperty('type', 'DayState.votingEnded'));
+    properties
+      ..add(DiagnosticsProperty('type', 'DayState.candidatesAssigned'))
+      ..add(DiagnosticsProperty('players', players));
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$VotingEndedImpl);
+        (other.runtimeType == runtimeType &&
+            other is _$CandidatesAssignedImpl &&
+            const DeepCollectionEquality().equals(other._players, _players));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(_players));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CandidatesAssignedImplCopyWith<_$CandidatesAssignedImpl> get copyWith =>
+      __$$CandidatesAssignedImplCopyWithImpl<_$CandidatesAssignedImpl>(
+          this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(int? seconds) voting,
-    required TResult Function(List<Player> players) candidatesOpened,
-    required TResult Function() votingEnded,
+    required TResult Function(List<Player> players) candidatesChanged,
+    required TResult Function(List<Player> players) candidatesAssigned,
+    required TResult Function(Player player) candidateForDeathSelected,
   }) {
-    return votingEnded();
+    return candidatesAssigned(players);
   }
 
   @override
@@ -990,10 +1665,11 @@ class _$VotingEndedImpl with DiagnosticableTreeMixin implements _VotingEnded {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(int? seconds)? voting,
-    TResult? Function(List<Player> players)? candidatesOpened,
-    TResult? Function()? votingEnded,
+    TResult? Function(List<Player> players)? candidatesChanged,
+    TResult? Function(List<Player> players)? candidatesAssigned,
+    TResult? Function(Player player)? candidateForDeathSelected,
   }) {
-    return votingEnded?.call();
+    return candidatesAssigned?.call(players);
   }
 
   @override
@@ -1001,12 +1677,13 @@ class _$VotingEndedImpl with DiagnosticableTreeMixin implements _VotingEnded {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(int? seconds)? voting,
-    TResult Function(List<Player> players)? candidatesOpened,
-    TResult Function()? votingEnded,
+    TResult Function(List<Player> players)? candidatesChanged,
+    TResult Function(List<Player> players)? candidatesAssigned,
+    TResult Function(Player player)? candidateForDeathSelected,
     required TResult orElse(),
   }) {
-    if (votingEnded != null) {
-      return votingEnded();
+    if (candidatesAssigned != null) {
+      return candidatesAssigned(players);
     }
     return orElse();
   }
@@ -1016,10 +1693,12 @@ class _$VotingEndedImpl with DiagnosticableTreeMixin implements _VotingEnded {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_Voting value) voting,
-    required TResult Function(_CandidatesOpened value) candidatesOpened,
-    required TResult Function(_VotingEnded value) votingEnded,
+    required TResult Function(_CandidatesOpened value) candidatesChanged,
+    required TResult Function(_CandidatesAssigned value) candidatesAssigned,
+    required TResult Function(_CandidateForDeathSelected value)
+        candidateForDeathSelected,
   }) {
-    return votingEnded(this);
+    return candidatesAssigned(this);
   }
 
   @override
@@ -1027,10 +1706,12 @@ class _$VotingEndedImpl with DiagnosticableTreeMixin implements _VotingEnded {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_Voting value)? voting,
-    TResult? Function(_CandidatesOpened value)? candidatesOpened,
-    TResult? Function(_VotingEnded value)? votingEnded,
+    TResult? Function(_CandidatesOpened value)? candidatesChanged,
+    TResult? Function(_CandidatesAssigned value)? candidatesAssigned,
+    TResult? Function(_CandidateForDeathSelected value)?
+        candidateForDeathSelected,
   }) {
-    return votingEnded?.call(this);
+    return candidatesAssigned?.call(this);
   }
 
   @override
@@ -1038,17 +1719,203 @@ class _$VotingEndedImpl with DiagnosticableTreeMixin implements _VotingEnded {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_Voting value)? voting,
-    TResult Function(_CandidatesOpened value)? candidatesOpened,
-    TResult Function(_VotingEnded value)? votingEnded,
+    TResult Function(_CandidatesOpened value)? candidatesChanged,
+    TResult Function(_CandidatesAssigned value)? candidatesAssigned,
+    TResult Function(_CandidateForDeathSelected value)?
+        candidateForDeathSelected,
     required TResult orElse(),
   }) {
-    if (votingEnded != null) {
-      return votingEnded(this);
+    if (candidatesAssigned != null) {
+      return candidatesAssigned(this);
     }
     return orElse();
   }
 }
 
-abstract class _VotingEnded implements DayState {
-  const factory _VotingEnded() = _$VotingEndedImpl;
+abstract class _CandidatesAssigned implements DayState {
+  const factory _CandidatesAssigned({required final List<Player> players}) =
+      _$CandidatesAssignedImpl;
+
+  List<Player> get players;
+  @JsonKey(ignore: true)
+  _$$CandidatesAssignedImplCopyWith<_$CandidatesAssignedImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CandidateForDeathSelectedImplCopyWith<$Res> {
+  factory _$$CandidateForDeathSelectedImplCopyWith(
+          _$CandidateForDeathSelectedImpl value,
+          $Res Function(_$CandidateForDeathSelectedImpl) then) =
+      __$$CandidateForDeathSelectedImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({Player player});
+
+  $PlayerCopyWith<$Res> get player;
+}
+
+/// @nodoc
+class __$$CandidateForDeathSelectedImplCopyWithImpl<$Res>
+    extends _$DayStateCopyWithImpl<$Res, _$CandidateForDeathSelectedImpl>
+    implements _$$CandidateForDeathSelectedImplCopyWith<$Res> {
+  __$$CandidateForDeathSelectedImplCopyWithImpl(
+      _$CandidateForDeathSelectedImpl _value,
+      $Res Function(_$CandidateForDeathSelectedImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? player = null,
+  }) {
+    return _then(_$CandidateForDeathSelectedImpl(
+      player: null == player
+          ? _value.player
+          : player // ignore: cast_nullable_to_non_nullable
+              as Player,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PlayerCopyWith<$Res> get player {
+    return $PlayerCopyWith<$Res>(_value.player, (value) {
+      return _then(_value.copyWith(player: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$CandidateForDeathSelectedImpl
+    with DiagnosticableTreeMixin
+    implements _CandidateForDeathSelected {
+  const _$CandidateForDeathSelectedImpl({required this.player});
+
+  @override
+  final Player player;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'DayState.candidateForDeathSelected(player: $player)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'DayState.candidateForDeathSelected'))
+      ..add(DiagnosticsProperty('player', player));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CandidateForDeathSelectedImpl &&
+            (identical(other.player, player) || other.player == player));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, player);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CandidateForDeathSelectedImplCopyWith<_$CandidateForDeathSelectedImpl>
+      get copyWith => __$$CandidateForDeathSelectedImplCopyWithImpl<
+          _$CandidateForDeathSelectedImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(int? seconds) voting,
+    required TResult Function(List<Player> players) candidatesChanged,
+    required TResult Function(List<Player> players) candidatesAssigned,
+    required TResult Function(Player player) candidateForDeathSelected,
+  }) {
+    return candidateForDeathSelected(player);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(int? seconds)? voting,
+    TResult? Function(List<Player> players)? candidatesChanged,
+    TResult? Function(List<Player> players)? candidatesAssigned,
+    TResult? Function(Player player)? candidateForDeathSelected,
+  }) {
+    return candidateForDeathSelected?.call(player);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(int? seconds)? voting,
+    TResult Function(List<Player> players)? candidatesChanged,
+    TResult Function(List<Player> players)? candidatesAssigned,
+    TResult Function(Player player)? candidateForDeathSelected,
+    required TResult orElse(),
+  }) {
+    if (candidateForDeathSelected != null) {
+      return candidateForDeathSelected(player);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_Voting value) voting,
+    required TResult Function(_CandidatesOpened value) candidatesChanged,
+    required TResult Function(_CandidatesAssigned value) candidatesAssigned,
+    required TResult Function(_CandidateForDeathSelected value)
+        candidateForDeathSelected,
+  }) {
+    return candidateForDeathSelected(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Voting value)? voting,
+    TResult? Function(_CandidatesOpened value)? candidatesChanged,
+    TResult? Function(_CandidatesAssigned value)? candidatesAssigned,
+    TResult? Function(_CandidateForDeathSelected value)?
+        candidateForDeathSelected,
+  }) {
+    return candidateForDeathSelected?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_Voting value)? voting,
+    TResult Function(_CandidatesOpened value)? candidatesChanged,
+    TResult Function(_CandidatesAssigned value)? candidatesAssigned,
+    TResult Function(_CandidateForDeathSelected value)?
+        candidateForDeathSelected,
+    required TResult orElse(),
+  }) {
+    if (candidateForDeathSelected != null) {
+      return candidateForDeathSelected(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CandidateForDeathSelected implements DayState {
+  const factory _CandidateForDeathSelected({required final Player player}) =
+      _$CandidateForDeathSelectedImpl;
+
+  Player get player;
+  @JsonKey(ignore: true)
+  _$$CandidateForDeathSelectedImplCopyWith<_$CandidateForDeathSelectedImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }

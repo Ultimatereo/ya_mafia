@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ya_mafia/core/constants.dart';
 import 'package:ya_mafia/core/theme/tailor_theme/my_theme.dart';
+import 'package:ya_mafia/presentation/blocs/day_bloc/day_bloc.dart';
 
 import '../../../../data/models/player.dart';
 import '../../../../zgen/i18n/strings.g.dart';
@@ -35,7 +37,9 @@ class DayCandidatesScreen extends StatelessWidget {
         Center(
           child: ElevatedButton(
             onPressed: () {
-              //TODO add button function
+              context.read<DayBloc>().add(
+                    DayEvent.candidatesAssigned(players: players),
+                  );
             },
             child: Text(context.t.buttonText.done),
           ),

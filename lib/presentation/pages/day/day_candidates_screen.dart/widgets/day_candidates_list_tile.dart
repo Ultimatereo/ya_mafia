@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ya_mafia/core/theme/tailor_theme/my_theme.dart';
+import 'package:ya_mafia/presentation/blocs/day_bloc/day_bloc.dart';
 
 import '../../../../../core/constants.dart';
 import '../../../../../data/models/player.dart';
@@ -31,8 +33,15 @@ class DayCandidateListTile extends StatelessWidget {
             ),
           ),
           Checkbox(
-            value: true,
-            onChanged: (bool? val) {},
+            value: player.isSelectedForDeath,
+            onChanged: (bool? val) {
+              context.read<DayBloc>().add(
+                    DayEvent.candidatesSelectionChanged(
+                      id: player.id,
+                      isSelected: val!,
+                    ),
+                  );
+            },
           ),
         ],
       ),

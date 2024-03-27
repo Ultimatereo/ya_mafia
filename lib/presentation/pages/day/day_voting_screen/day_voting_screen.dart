@@ -48,7 +48,7 @@ class DayVotingScreen extends StatelessWidget {
           ),
           ElevatedButton(
               onPressed: () {
-                context.read<DayBloc>().add(DayEvent.candidatesSelectionChanged(
+                context.read<DayBloc>().add(DayEvent.candidatesSelectionOpened(
                     players: playersDataProvider.getPlayers));
               },
               child: Text(context.t.buttonText.weAreReady))

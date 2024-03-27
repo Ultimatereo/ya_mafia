@@ -20,6 +20,7 @@ mixin _$Player {
   String get name => throw _privateConstructorUsedError;
   Avatar get avatar => throw _privateConstructorUsedError;
   GameRole get role => throw _privateConstructorUsedError;
+  bool get isSelectedForDeath => throw _privateConstructorUsedError;
   bool get isDead => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -31,7 +32,13 @@ abstract class $PlayerCopyWith<$Res> {
   factory $PlayerCopyWith(Player value, $Res Function(Player) then) =
       _$PlayerCopyWithImpl<$Res, Player>;
   @useResult
-  $Res call({int id, String name, Avatar avatar, GameRole role, bool isDead});
+  $Res call(
+      {int id,
+      String name,
+      Avatar avatar,
+      GameRole role,
+      bool isSelectedForDeath,
+      bool isDead});
 }
 
 /// @nodoc
@@ -51,6 +58,7 @@ class _$PlayerCopyWithImpl<$Res, $Val extends Player>
     Object? name = null,
     Object? avatar = null,
     Object? role = null,
+    Object? isSelectedForDeath = null,
     Object? isDead = null,
   }) {
     return _then(_value.copyWith(
@@ -70,6 +78,10 @@ class _$PlayerCopyWithImpl<$Res, $Val extends Player>
           ? _value.role
           : role // ignore: cast_nullable_to_non_nullable
               as GameRole,
+      isSelectedForDeath: null == isSelectedForDeath
+          ? _value.isSelectedForDeath
+          : isSelectedForDeath // ignore: cast_nullable_to_non_nullable
+              as bool,
       isDead: null == isDead
           ? _value.isDead
           : isDead // ignore: cast_nullable_to_non_nullable
@@ -85,7 +97,13 @@ abstract class _$$PlayerImplCopyWith<$Res> implements $PlayerCopyWith<$Res> {
       __$$PlayerImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({int id, String name, Avatar avatar, GameRole role, bool isDead});
+  $Res call(
+      {int id,
+      String name,
+      Avatar avatar,
+      GameRole role,
+      bool isSelectedForDeath,
+      bool isDead});
 }
 
 /// @nodoc
@@ -103,6 +121,7 @@ class __$$PlayerImplCopyWithImpl<$Res>
     Object? name = null,
     Object? avatar = null,
     Object? role = null,
+    Object? isSelectedForDeath = null,
     Object? isDead = null,
   }) {
     return _then(_$PlayerImpl(
@@ -122,6 +141,10 @@ class __$$PlayerImplCopyWithImpl<$Res>
           ? _value.role
           : role // ignore: cast_nullable_to_non_nullable
               as GameRole,
+      isSelectedForDeath: null == isSelectedForDeath
+          ? _value.isSelectedForDeath
+          : isSelectedForDeath // ignore: cast_nullable_to_non_nullable
+              as bool,
       isDead: null == isDead
           ? _value.isDead
           : isDead // ignore: cast_nullable_to_non_nullable
@@ -138,6 +161,7 @@ class _$PlayerImpl implements _Player {
       required this.name,
       required this.avatar,
       required this.role,
+      this.isSelectedForDeath = false,
       this.isDead = false});
 
   @override
@@ -150,11 +174,14 @@ class _$PlayerImpl implements _Player {
   final GameRole role;
   @override
   @JsonKey()
+  final bool isSelectedForDeath;
+  @override
+  @JsonKey()
   final bool isDead;
 
   @override
   String toString() {
-    return 'Player(id: $id, name: $name, avatar: $avatar, role: $role, isDead: $isDead)';
+    return 'Player(id: $id, name: $name, avatar: $avatar, role: $role, isSelectedForDeath: $isSelectedForDeath, isDead: $isDead)';
   }
 
   @override
@@ -166,11 +193,14 @@ class _$PlayerImpl implements _Player {
             (identical(other.name, name) || other.name == name) &&
             (identical(other.avatar, avatar) || other.avatar == avatar) &&
             (identical(other.role, role) || other.role == role) &&
+            (identical(other.isSelectedForDeath, isSelectedForDeath) ||
+                other.isSelectedForDeath == isSelectedForDeath) &&
             (identical(other.isDead, isDead) || other.isDead == isDead));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, id, name, avatar, role, isDead);
+  int get hashCode => Object.hash(
+      runtimeType, id, name, avatar, role, isSelectedForDeath, isDead);
 
   @JsonKey(ignore: true)
   @override
@@ -185,6 +215,7 @@ abstract class _Player implements Player {
       required final String name,
       required final Avatar avatar,
       required final GameRole role,
+      final bool isSelectedForDeath,
       final bool isDead}) = _$PlayerImpl;
 
   @override
@@ -195,6 +226,8 @@ abstract class _Player implements Player {
   Avatar get avatar;
   @override
   GameRole get role;
+  @override
+  bool get isSelectedForDeath;
   @override
   bool get isDead;
   @override

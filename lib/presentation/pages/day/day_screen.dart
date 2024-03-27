@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ya_mafia/core/constants.dart';
 import 'package:ya_mafia/presentation/blocs/game_bloc/game_bloc.dart';
-import 'package:ya_mafia/presentation/blocs/settings_bloc/settings_bloc.dart';
 import 'package:ya_mafia/presentation/common/seemless_appbar.dart';
 import 'package:ya_mafia/presentation/pages/day/day_candidates_screen.dart/day_candidates_screen.dart';
 import 'package:ya_mafia/presentation/pages/day/day_decision_screen/day_decision_screen.dart';
@@ -12,15 +11,24 @@ import 'package:ya_mafia/presentation/pages/day/day_voting_screen/day_voting_scr
 import '../../../data/models/player.dart';
 import '../../blocs/day_bloc/day_bloc.dart';
 
-class DayScreen extends StatefulWidget implements PlayersDataProvider {
+class DayScreenArgs {
+  final int? dayTimeInSec;
   final List<Player> players;
+  DayScreenArgs({
+    required this.dayTimeInSec,
+    required this.players,
+  });
+}
+
+class DayScreen extends StatefulWidget implements PlayersDataProvider {
+  final DayScreenArgs args;
 
   @override
-  List<Player> get getPlayers => players;
+  List<Player> get getPlayers => args.players;
 
   const DayScreen({
-    required this.players,
     super.key,
+    required this.args,
   });
 
   @override
@@ -28,12 +36,10 @@ class DayScreen extends StatefulWidget implements PlayersDataProvider {
 }
 
 class _DayScreenState extends State<DayScreen> {
-  late int? dayTimeInSec;
   @override
   void initState() {
-    context.read<GameBloc>().add(GameEvent.dayStarted(widget.players));
-    dayTimeInSec =
-        context.read<SettingsBloc>().state.settings.gameTimer.dayTimeInSec;
+    context.read<GameBloc>().add(GameEvent.dayStarted(widget.args.players));
+
     super.initState();
   }
 
@@ -49,7 +55,7 @@ class _DayScreenState extends State<DayScreen> {
               dayPhase: (List<Player> players) {
                 context.read<DayBloc>().add(
                       DayEvent.dayStarted(
-                        seconds: dayTimeInSec,
+                        seconds: widget.args.dayTimeInSec,
                         players: players,
                       ),
                     );
@@ -66,13 +72,15 @@ class _DayScreenState extends State<DayScreen> {
                     playersDataProvider: widget,
                   );
                 },
-                candidatesOpened: (List<Player> players) {
+                candidatesChanged: (List<Player> players) {
                   return DayCandidatesScreen(
                     players: players,
                   );
                 },
-                votingEnded: () {
-                  return const DayDecisionScreen();
+                candidatesAssigned: (List<Player> players) {
+                  return DayDecisionScreen(
+                    players: players,
+                  );
                 },
                 orElse: () {
                   return const SizedBox.shrink();

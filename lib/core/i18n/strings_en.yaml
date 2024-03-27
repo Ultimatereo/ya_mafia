@@ -52,11 +52,14 @@ buttonText:
   confirm: Confirm
   yesItsMe: Yes, it's me
   noItsNotMe: No, it's not me:(
+  goodbye: Goodbye!
 
 candidates: Candidates
-whoDiedDay: Who died on this beautiful day?
+whoDiedDay: Who will die on this beautiful day?
 mafiaChooses: The mafia makes its choice
 whoAreYou: Who are you?
+todayDied: Today died
+timeForTheLastWord: Time for the last word
 
 game:
   itsMe: Yes, it's me

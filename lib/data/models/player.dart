@@ -11,6 +11,7 @@ class Player with _$Player {
     required String name,
     required Avatar avatar,
     required GameRole role,
+    @Default(false) bool isSelectedForDeath,
     @Default(false) bool isDead,
   }) = _Player;
 }

@@ -52,11 +52,14 @@ buttonText:
   confirm: Подтвердить
   yesItsMe: Да, это я
   noItsNotMe: Нет, это не я:(
+  goodbye: Прощай!
 
 candidates: Кандидаты
-whoDiedDay: Кто умер в этот прекрасный день?
+whoDiedDay: Кто умрет в этот прекрасный день?
 mafiaChooses: Мафия делает свой выбор
 whoAreYou: Кто ты?
+todayDied: Сегодня умер
+timeForTheLastWord: Время для последнего слова
 
 game:
   itsMe: Да, это я
