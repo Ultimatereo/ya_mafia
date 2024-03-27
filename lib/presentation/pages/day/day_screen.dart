@@ -77,9 +77,10 @@ class _DayScreenState extends State<DayScreen> {
                     players: players,
                   );
                 },
-                candidatesAssigned: (List<Player> players) {
+                candidatesAssigned: (List<Player> players, Player? player) {
                   return DayDecisionScreen(
                     players: players,
+                    selectedPlayer: player,
                   );
                 },
                 orElse: () {

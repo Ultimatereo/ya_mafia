@@ -12,10 +12,16 @@ class GameBloc extends Bloc<GameEvent, GameState> {
     on<GameEvent>((event, emit) {
       event.map(
         dayStarted: (val) {
-          emit(GameState.dayPhase(players: val.players));
+          emit(
+            GameState.dayPhase(
+              players: val.players,
+            ),
+          );
         },
         dayEnded: (value) {
-          emit(const GameState.nightPhase());
+          emit(
+            const GameState.nightPhase(),
+          );
         },
         // userSubmit: (_) {},
         // toNext: (_) {

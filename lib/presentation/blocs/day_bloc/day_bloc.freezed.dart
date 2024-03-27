@@ -22,7 +22,8 @@ mixin _$DayEvent {
     required TResult Function(List<Player> players) candidatesSelectionOpened,
     required TResult Function(int id, bool isSelected)
         candidatesSelectionChanged,
-    required TResult Function(List<Player> players) candidatesAssigned,
+    required TResult Function(List<Player> players, Player? player)
+        candidatesAssigned,
     required TResult Function(Player player) candidateForDeathSelected,
   }) =>
       throw _privateConstructorUsedError;
@@ -31,7 +32,7 @@ mixin _$DayEvent {
     TResult? Function(int? seconds, List<Player> players)? dayStarted,
     TResult? Function(List<Player> players)? candidatesSelectionOpened,
     TResult? Function(int id, bool isSelected)? candidatesSelectionChanged,
-    TResult? Function(List<Player> players)? candidatesAssigned,
+    TResult? Function(List<Player> players, Player? player)? candidatesAssigned,
     TResult? Function(Player player)? candidateForDeathSelected,
   }) =>
       throw _privateConstructorUsedError;
@@ -40,7 +41,7 @@ mixin _$DayEvent {
     TResult Function(int? seconds, List<Player> players)? dayStarted,
     TResult Function(List<Player> players)? candidatesSelectionOpened,
     TResult Function(int id, bool isSelected)? candidatesSelectionChanged,
-    TResult Function(List<Player> players)? candidatesAssigned,
+    TResult Function(List<Player> players, Player? player)? candidatesAssigned,
     TResult Function(Player player)? candidateForDeathSelected,
     required TResult orElse(),
   }) =>
@@ -194,7 +195,8 @@ class _$dayStartedImpl with DiagnosticableTreeMixin implements _dayStarted {
     required TResult Function(List<Player> players) candidatesSelectionOpened,
     required TResult Function(int id, bool isSelected)
         candidatesSelectionChanged,
-    required TResult Function(List<Player> players) candidatesAssigned,
+    required TResult Function(List<Player> players, Player? player)
+        candidatesAssigned,
     required TResult Function(Player player) candidateForDeathSelected,
   }) {
     return dayStarted(seconds, players);
@@ -206,7 +208,7 @@ class _$dayStartedImpl with DiagnosticableTreeMixin implements _dayStarted {
     TResult? Function(int? seconds, List<Player> players)? dayStarted,
     TResult? Function(List<Player> players)? candidatesSelectionOpened,
     TResult? Function(int id, bool isSelected)? candidatesSelectionChanged,
-    TResult? Function(List<Player> players)? candidatesAssigned,
+    TResult? Function(List<Player> players, Player? player)? candidatesAssigned,
     TResult? Function(Player player)? candidateForDeathSelected,
   }) {
     return dayStarted?.call(seconds, players);
@@ -218,7 +220,7 @@ class _$dayStartedImpl with DiagnosticableTreeMixin implements _dayStarted {
     TResult Function(int? seconds, List<Player> players)? dayStarted,
     TResult Function(List<Player> players)? candidatesSelectionOpened,
     TResult Function(int id, bool isSelected)? candidatesSelectionChanged,
-    TResult Function(List<Player> players)? candidatesAssigned,
+    TResult Function(List<Player> players, Player? player)? candidatesAssigned,
     TResult Function(Player player)? candidateForDeathSelected,
     required TResult orElse(),
   }) {
@@ -378,7 +380,8 @@ class _$candidatesSelectionOpenedImpl
     required TResult Function(List<Player> players) candidatesSelectionOpened,
     required TResult Function(int id, bool isSelected)
         candidatesSelectionChanged,
-    required TResult Function(List<Player> players) candidatesAssigned,
+    required TResult Function(List<Player> players, Player? player)
+        candidatesAssigned,
     required TResult Function(Player player) candidateForDeathSelected,
   }) {
     return candidatesSelectionOpened(players);
@@ -390,7 +393,7 @@ class _$candidatesSelectionOpenedImpl
     TResult? Function(int? seconds, List<Player> players)? dayStarted,
     TResult? Function(List<Player> players)? candidatesSelectionOpened,
     TResult? Function(int id, bool isSelected)? candidatesSelectionChanged,
-    TResult? Function(List<Player> players)? candidatesAssigned,
+    TResult? Function(List<Player> players, Player? player)? candidatesAssigned,
     TResult? Function(Player player)? candidateForDeathSelected,
   }) {
     return candidatesSelectionOpened?.call(players);
@@ -402,7 +405,7 @@ class _$candidatesSelectionOpenedImpl
     TResult Function(int? seconds, List<Player> players)? dayStarted,
     TResult Function(List<Player> players)? candidatesSelectionOpened,
     TResult Function(int id, bool isSelected)? candidatesSelectionChanged,
-    TResult Function(List<Player> players)? candidatesAssigned,
+    TResult Function(List<Player> players, Player? player)? candidatesAssigned,
     TResult Function(Player player)? candidateForDeathSelected,
     required TResult orElse(),
   }) {
@@ -564,7 +567,8 @@ class _$candidatesSelectionChangedImpl
     required TResult Function(List<Player> players) candidatesSelectionOpened,
     required TResult Function(int id, bool isSelected)
         candidatesSelectionChanged,
-    required TResult Function(List<Player> players) candidatesAssigned,
+    required TResult Function(List<Player> players, Player? player)
+        candidatesAssigned,
     required TResult Function(Player player) candidateForDeathSelected,
   }) {
     return candidatesSelectionChanged(id, isSelected);
@@ -576,7 +580,7 @@ class _$candidatesSelectionChangedImpl
     TResult? Function(int? seconds, List<Player> players)? dayStarted,
     TResult? Function(List<Player> players)? candidatesSelectionOpened,
     TResult? Function(int id, bool isSelected)? candidatesSelectionChanged,
-    TResult? Function(List<Player> players)? candidatesAssigned,
+    TResult? Function(List<Player> players, Player? player)? candidatesAssigned,
     TResult? Function(Player player)? candidateForDeathSelected,
   }) {
     return candidatesSelectionChanged?.call(id, isSelected);
@@ -588,7 +592,7 @@ class _$candidatesSelectionChangedImpl
     TResult Function(int? seconds, List<Player> players)? dayStarted,
     TResult Function(List<Player> players)? candidatesSelectionOpened,
     TResult Function(int id, bool isSelected)? candidatesSelectionChanged,
-    TResult Function(List<Player> players)? candidatesAssigned,
+    TResult Function(List<Player> players, Player? player)? candidatesAssigned,
     TResult Function(Player player)? candidateForDeathSelected,
     required TResult orElse(),
   }) {
@@ -666,7 +670,9 @@ abstract class _$$candidatesAssignedImplCopyWith<$Res> {
           $Res Function(_$candidatesAssignedImpl) then) =
       __$$candidatesAssignedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<Player> players});
+  $Res call({List<Player> players, Player? player});
+
+  $PlayerCopyWith<$Res>? get player;
 }
 
 /// @nodoc
@@ -681,13 +687,30 @@ class __$$candidatesAssignedImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? players = null,
+    Object? player = freezed,
   }) {
     return _then(_$candidatesAssignedImpl(
       players: null == players
           ? _value._players
           : players // ignore: cast_nullable_to_non_nullable
               as List<Player>,
+      player: freezed == player
+          ? _value.player
+          : player // ignore: cast_nullable_to_non_nullable
+              as Player?,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PlayerCopyWith<$Res>? get player {
+    if (_value.player == null) {
+      return null;
+    }
+
+    return $PlayerCopyWith<$Res>(_value.player!, (value) {
+      return _then(_value.copyWith(player: value));
+    });
   }
 }
 
@@ -696,7 +719,8 @@ class __$$candidatesAssignedImplCopyWithImpl<$Res>
 class _$candidatesAssignedImpl
     with DiagnosticableTreeMixin
     implements _candidatesAssigned {
-  const _$candidatesAssignedImpl({required final List<Player> players})
+  const _$candidatesAssignedImpl(
+      {required final List<Player> players, required this.player})
       : _players = players;
 
   final List<Player> _players;
@@ -708,8 +732,11 @@ class _$candidatesAssignedImpl
   }
 
   @override
+  final Player? player;
+
+  @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'DayEvent.candidatesAssigned(players: $players)';
+    return 'DayEvent.candidatesAssigned(players: $players, player: $player)';
   }
 
   @override
@@ -717,7 +744,8 @@ class _$candidatesAssignedImpl
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'DayEvent.candidatesAssigned'))
-      ..add(DiagnosticsProperty('players', players));
+      ..add(DiagnosticsProperty('players', players))
+      ..add(DiagnosticsProperty('player', player));
   }
 
   @override
@@ -725,12 +753,13 @@ class _$candidatesAssignedImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$candidatesAssignedImpl &&
-            const DeepCollectionEquality().equals(other._players, _players));
+            const DeepCollectionEquality().equals(other._players, _players) &&
+            (identical(other.player, player) || other.player == player));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_players));
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_players), player);
 
   @JsonKey(ignore: true)
   @override
@@ -746,10 +775,11 @@ class _$candidatesAssignedImpl
     required TResult Function(List<Player> players) candidatesSelectionOpened,
     required TResult Function(int id, bool isSelected)
         candidatesSelectionChanged,
-    required TResult Function(List<Player> players) candidatesAssigned,
+    required TResult Function(List<Player> players, Player? player)
+        candidatesAssigned,
     required TResult Function(Player player) candidateForDeathSelected,
   }) {
-    return candidatesAssigned(players);
+    return candidatesAssigned(players, player);
   }
 
   @override
@@ -758,10 +788,10 @@ class _$candidatesAssignedImpl
     TResult? Function(int? seconds, List<Player> players)? dayStarted,
     TResult? Function(List<Player> players)? candidatesSelectionOpened,
     TResult? Function(int id, bool isSelected)? candidatesSelectionChanged,
-    TResult? Function(List<Player> players)? candidatesAssigned,
+    TResult? Function(List<Player> players, Player? player)? candidatesAssigned,
     TResult? Function(Player player)? candidateForDeathSelected,
   }) {
-    return candidatesAssigned?.call(players);
+    return candidatesAssigned?.call(players, player);
   }
 
   @override
@@ -770,12 +800,12 @@ class _$candidatesAssignedImpl
     TResult Function(int? seconds, List<Player> players)? dayStarted,
     TResult Function(List<Player> players)? candidatesSelectionOpened,
     TResult Function(int id, bool isSelected)? candidatesSelectionChanged,
-    TResult Function(List<Player> players)? candidatesAssigned,
+    TResult Function(List<Player> players, Player? player)? candidatesAssigned,
     TResult Function(Player player)? candidateForDeathSelected,
     required TResult orElse(),
   }) {
     if (candidatesAssigned != null) {
-      return candidatesAssigned(players);
+      return candidatesAssigned(players, player);
     }
     return orElse();
   }
@@ -831,10 +861,12 @@ class _$candidatesAssignedImpl
 }
 
 abstract class _candidatesAssigned implements DayEvent {
-  const factory _candidatesAssigned({required final List<Player> players}) =
-      _$candidatesAssignedImpl;
+  const factory _candidatesAssigned(
+      {required final List<Player> players,
+      required final Player? player}) = _$candidatesAssignedImpl;
 
   List<Player> get players;
+  Player? get player;
   @JsonKey(ignore: true)
   _$$candidatesAssignedImplCopyWith<_$candidatesAssignedImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -931,7 +963,8 @@ class _$candidateForDeathSelectedImpl
     required TResult Function(List<Player> players) candidatesSelectionOpened,
     required TResult Function(int id, bool isSelected)
         candidatesSelectionChanged,
-    required TResult Function(List<Player> players) candidatesAssigned,
+    required TResult Function(List<Player> players, Player? player)
+        candidatesAssigned,
     required TResult Function(Player player) candidateForDeathSelected,
   }) {
     return candidateForDeathSelected(player);
@@ -943,7 +976,7 @@ class _$candidateForDeathSelectedImpl
     TResult? Function(int? seconds, List<Player> players)? dayStarted,
     TResult? Function(List<Player> players)? candidatesSelectionOpened,
     TResult? Function(int id, bool isSelected)? candidatesSelectionChanged,
-    TResult? Function(List<Player> players)? candidatesAssigned,
+    TResult? Function(List<Player> players, Player? player)? candidatesAssigned,
     TResult? Function(Player player)? candidateForDeathSelected,
   }) {
     return candidateForDeathSelected?.call(player);
@@ -955,7 +988,7 @@ class _$candidateForDeathSelectedImpl
     TResult Function(int? seconds, List<Player> players)? dayStarted,
     TResult Function(List<Player> players)? candidatesSelectionOpened,
     TResult Function(int id, bool isSelected)? candidatesSelectionChanged,
-    TResult Function(List<Player> players)? candidatesAssigned,
+    TResult Function(List<Player> players, Player? player)? candidatesAssigned,
     TResult Function(Player player)? candidateForDeathSelected,
     required TResult orElse(),
   }) {
@@ -1032,7 +1065,8 @@ mixin _$DayState {
     required TResult Function() initial,
     required TResult Function(int? seconds) voting,
     required TResult Function(List<Player> players) candidatesChanged,
-    required TResult Function(List<Player> players) candidatesAssigned,
+    required TResult Function(List<Player> players, Player? player)
+        candidatesAssigned,
     required TResult Function(Player player) candidateForDeathSelected,
   }) =>
       throw _privateConstructorUsedError;
@@ -1041,7 +1075,7 @@ mixin _$DayState {
     TResult? Function()? initial,
     TResult? Function(int? seconds)? voting,
     TResult? Function(List<Player> players)? candidatesChanged,
-    TResult? Function(List<Player> players)? candidatesAssigned,
+    TResult? Function(List<Player> players, Player? player)? candidatesAssigned,
     TResult? Function(Player player)? candidateForDeathSelected,
   }) =>
       throw _privateConstructorUsedError;
@@ -1050,7 +1084,7 @@ mixin _$DayState {
     TResult Function()? initial,
     TResult Function(int? seconds)? voting,
     TResult Function(List<Player> players)? candidatesChanged,
-    TResult Function(List<Player> players)? candidatesAssigned,
+    TResult Function(List<Player> players, Player? player)? candidatesAssigned,
     TResult Function(Player player)? candidateForDeathSelected,
     required TResult orElse(),
   }) =>
@@ -1152,7 +1186,8 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
     required TResult Function() initial,
     required TResult Function(int? seconds) voting,
     required TResult Function(List<Player> players) candidatesChanged,
-    required TResult Function(List<Player> players) candidatesAssigned,
+    required TResult Function(List<Player> players, Player? player)
+        candidatesAssigned,
     required TResult Function(Player player) candidateForDeathSelected,
   }) {
     return initial();
@@ -1164,7 +1199,7 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
     TResult? Function()? initial,
     TResult? Function(int? seconds)? voting,
     TResult? Function(List<Player> players)? candidatesChanged,
-    TResult? Function(List<Player> players)? candidatesAssigned,
+    TResult? Function(List<Player> players, Player? player)? candidatesAssigned,
     TResult? Function(Player player)? candidateForDeathSelected,
   }) {
     return initial?.call();
@@ -1176,7 +1211,7 @@ class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
     TResult Function()? initial,
     TResult Function(int? seconds)? voting,
     TResult Function(List<Player> players)? candidatesChanged,
-    TResult Function(List<Player> players)? candidatesAssigned,
+    TResult Function(List<Player> players, Player? player)? candidatesAssigned,
     TResult Function(Player player)? candidateForDeathSelected,
     required TResult orElse(),
   }) {
@@ -1309,7 +1344,8 @@ class _$VotingImpl with DiagnosticableTreeMixin implements _Voting {
     required TResult Function() initial,
     required TResult Function(int? seconds) voting,
     required TResult Function(List<Player> players) candidatesChanged,
-    required TResult Function(List<Player> players) candidatesAssigned,
+    required TResult Function(List<Player> players, Player? player)
+        candidatesAssigned,
     required TResult Function(Player player) candidateForDeathSelected,
   }) {
     return voting(seconds);
@@ -1321,7 +1357,7 @@ class _$VotingImpl with DiagnosticableTreeMixin implements _Voting {
     TResult? Function()? initial,
     TResult? Function(int? seconds)? voting,
     TResult? Function(List<Player> players)? candidatesChanged,
-    TResult? Function(List<Player> players)? candidatesAssigned,
+    TResult? Function(List<Player> players, Player? player)? candidatesAssigned,
     TResult? Function(Player player)? candidateForDeathSelected,
   }) {
     return voting?.call(seconds);
@@ -1333,7 +1369,7 @@ class _$VotingImpl with DiagnosticableTreeMixin implements _Voting {
     TResult Function()? initial,
     TResult Function(int? seconds)? voting,
     TResult Function(List<Player> players)? candidatesChanged,
-    TResult Function(List<Player> players)? candidatesAssigned,
+    TResult Function(List<Player> players, Player? player)? candidatesAssigned,
     TResult Function(Player player)? candidateForDeathSelected,
     required TResult orElse(),
   }) {
@@ -1481,7 +1517,8 @@ class _$CandidatesOpenedImpl
     required TResult Function() initial,
     required TResult Function(int? seconds) voting,
     required TResult Function(List<Player> players) candidatesChanged,
-    required TResult Function(List<Player> players) candidatesAssigned,
+    required TResult Function(List<Player> players, Player? player)
+        candidatesAssigned,
     required TResult Function(Player player) candidateForDeathSelected,
   }) {
     return candidatesChanged(players);
@@ -1493,7 +1530,7 @@ class _$CandidatesOpenedImpl
     TResult? Function()? initial,
     TResult? Function(int? seconds)? voting,
     TResult? Function(List<Player> players)? candidatesChanged,
-    TResult? Function(List<Player> players)? candidatesAssigned,
+    TResult? Function(List<Player> players, Player? player)? candidatesAssigned,
     TResult? Function(Player player)? candidateForDeathSelected,
   }) {
     return candidatesChanged?.call(players);
@@ -1505,7 +1542,7 @@ class _$CandidatesOpenedImpl
     TResult Function()? initial,
     TResult Function(int? seconds)? voting,
     TResult Function(List<Player> players)? candidatesChanged,
-    TResult Function(List<Player> players)? candidatesAssigned,
+    TResult Function(List<Player> players, Player? player)? candidatesAssigned,
     TResult Function(Player player)? candidateForDeathSelected,
     required TResult orElse(),
   }) {
@@ -1575,7 +1612,9 @@ abstract class _$$CandidatesAssignedImplCopyWith<$Res> {
           $Res Function(_$CandidatesAssignedImpl) then) =
       __$$CandidatesAssignedImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({List<Player> players});
+  $Res call({List<Player> players, Player? player});
+
+  $PlayerCopyWith<$Res>? get player;
 }
 
 /// @nodoc
@@ -1590,13 +1629,30 @@ class __$$CandidatesAssignedImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? players = null,
+    Object? player = freezed,
   }) {
     return _then(_$CandidatesAssignedImpl(
       players: null == players
           ? _value._players
           : players // ignore: cast_nullable_to_non_nullable
               as List<Player>,
+      player: freezed == player
+          ? _value.player
+          : player // ignore: cast_nullable_to_non_nullable
+              as Player?,
     ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $PlayerCopyWith<$Res>? get player {
+    if (_value.player == null) {
+      return null;
+    }
+
+    return $PlayerCopyWith<$Res>(_value.player!, (value) {
+      return _then(_value.copyWith(player: value));
+    });
   }
 }
 
@@ -1605,7 +1661,8 @@ class __$$CandidatesAssignedImplCopyWithImpl<$Res>
 class _$CandidatesAssignedImpl
     with DiagnosticableTreeMixin
     implements _CandidatesAssigned {
-  const _$CandidatesAssignedImpl({required final List<Player> players})
+  const _$CandidatesAssignedImpl(
+      {required final List<Player> players, required this.player})
       : _players = players;
 
   final List<Player> _players;
@@ -1617,8 +1674,11 @@ class _$CandidatesAssignedImpl
   }
 
   @override
+  final Player? player;
+
+  @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'DayState.candidatesAssigned(players: $players)';
+    return 'DayState.candidatesAssigned(players: $players, player: $player)';
   }
 
   @override
@@ -1626,7 +1686,8 @@ class _$CandidatesAssignedImpl
     super.debugFillProperties(properties);
     properties
       ..add(DiagnosticsProperty('type', 'DayState.candidatesAssigned'))
-      ..add(DiagnosticsProperty('players', players));
+      ..add(DiagnosticsProperty('players', players))
+      ..add(DiagnosticsProperty('player', player));
   }
 
   @override
@@ -1634,12 +1695,13 @@ class _$CandidatesAssignedImpl
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CandidatesAssignedImpl &&
-            const DeepCollectionEquality().equals(other._players, _players));
+            const DeepCollectionEquality().equals(other._players, _players) &&
+            (identical(other.player, player) || other.player == player));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(_players));
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_players), player);
 
   @JsonKey(ignore: true)
   @override
@@ -1654,10 +1716,11 @@ class _$CandidatesAssignedImpl
     required TResult Function() initial,
     required TResult Function(int? seconds) voting,
     required TResult Function(List<Player> players) candidatesChanged,
-    required TResult Function(List<Player> players) candidatesAssigned,
+    required TResult Function(List<Player> players, Player? player)
+        candidatesAssigned,
     required TResult Function(Player player) candidateForDeathSelected,
   }) {
-    return candidatesAssigned(players);
+    return candidatesAssigned(players, player);
   }
 
   @override
@@ -1666,10 +1729,10 @@ class _$CandidatesAssignedImpl
     TResult? Function()? initial,
     TResult? Function(int? seconds)? voting,
     TResult? Function(List<Player> players)? candidatesChanged,
-    TResult? Function(List<Player> players)? candidatesAssigned,
+    TResult? Function(List<Player> players, Player? player)? candidatesAssigned,
     TResult? Function(Player player)? candidateForDeathSelected,
   }) {
-    return candidatesAssigned?.call(players);
+    return candidatesAssigned?.call(players, player);
   }
 
   @override
@@ -1678,12 +1741,12 @@ class _$CandidatesAssignedImpl
     TResult Function()? initial,
     TResult Function(int? seconds)? voting,
     TResult Function(List<Player> players)? candidatesChanged,
-    TResult Function(List<Player> players)? candidatesAssigned,
+    TResult Function(List<Player> players, Player? player)? candidatesAssigned,
     TResult Function(Player player)? candidateForDeathSelected,
     required TResult orElse(),
   }) {
     if (candidatesAssigned != null) {
-      return candidatesAssigned(players);
+      return candidatesAssigned(players, player);
     }
     return orElse();
   }
@@ -1733,10 +1796,12 @@ class _$CandidatesAssignedImpl
 }
 
 abstract class _CandidatesAssigned implements DayState {
-  const factory _CandidatesAssigned({required final List<Player> players}) =
-      _$CandidatesAssignedImpl;
+  const factory _CandidatesAssigned(
+      {required final List<Player> players,
+      required final Player? player}) = _$CandidatesAssignedImpl;
 
   List<Player> get players;
+  Player? get player;
   @JsonKey(ignore: true)
   _$$CandidatesAssignedImplCopyWith<_$CandidatesAssignedImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -1832,7 +1897,8 @@ class _$CandidateForDeathSelectedImpl
     required TResult Function() initial,
     required TResult Function(int? seconds) voting,
     required TResult Function(List<Player> players) candidatesChanged,
-    required TResult Function(List<Player> players) candidatesAssigned,
+    required TResult Function(List<Player> players, Player? player)
+        candidatesAssigned,
     required TResult Function(Player player) candidateForDeathSelected,
   }) {
     return candidateForDeathSelected(player);
@@ -1844,7 +1910,7 @@ class _$CandidateForDeathSelectedImpl
     TResult? Function()? initial,
     TResult? Function(int? seconds)? voting,
     TResult? Function(List<Player> players)? candidatesChanged,
-    TResult? Function(List<Player> players)? candidatesAssigned,
+    TResult? Function(List<Player> players, Player? player)? candidatesAssigned,
     TResult? Function(Player player)? candidateForDeathSelected,
   }) {
     return candidateForDeathSelected?.call(player);
@@ -1856,7 +1922,7 @@ class _$CandidateForDeathSelectedImpl
     TResult Function()? initial,
     TResult Function(int? seconds)? voting,
     TResult Function(List<Player> players)? candidatesChanged,
-    TResult Function(List<Player> players)? candidatesAssigned,
+    TResult Function(List<Player> players, Player? player)? candidatesAssigned,
     TResult Function(Player player)? candidateForDeathSelected,
     required TResult orElse(),
   }) {

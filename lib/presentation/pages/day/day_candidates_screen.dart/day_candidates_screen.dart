@@ -38,7 +38,10 @@ class DayCandidatesScreen extends StatelessWidget {
           child: ElevatedButton(
             onPressed: () {
               context.read<DayBloc>().add(
-                    DayEvent.candidatesAssigned(players: players),
+                    DayEvent.candidatesAssigned(
+                      players: players,
+                      player: null,
+                    ),
                   );
             },
             child: Text(context.t.buttonText.done),

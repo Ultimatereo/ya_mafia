@@ -1,17 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ya_mafia/core/constants.dart';
+import 'package:ya_mafia/core/navigation/delegate.dart';
 import 'package:ya_mafia/core/theme/tailor_theme/my_theme.dart';
+import 'package:ya_mafia/presentation/blocs/day_bloc/day_bloc.dart';
 import 'package:ya_mafia/presentation/common/seemless_appbar.dart';
 import 'package:ya_mafia/presentation/pages/death_screen/death_screen.dart';
 
 import '../../../../data/models/player.dart';
 import '../../../../zgen/i18n/strings.g.dart';
-import '../../../common/list_view_with_radios/list_view_with_radios.dart';
+import 'list_view_with_radios/list_view_with_radios.dart';
 
 class DayDecisionScreen extends StatelessWidget {
-  const DayDecisionScreen({super.key, required this.players});
+  const DayDecisionScreen({
+    super.key,
+    required this.players,
+    required this.selectedPlayer,
+  });
 
   final List<Player> players;
+  final Player? selectedPlayer;
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +39,7 @@ class DayDecisionScreen extends StatelessWidget {
             ),
             ListViewWithRadios(
               players: players,
+              selectedPlayerId: selectedPlayer?.id,
             ),
             const SizedBox(
               height: appPadding,
@@ -38,11 +47,9 @@ class DayDecisionScreen extends StatelessWidget {
             //TODO add button function
             ElevatedButton(
               onPressed: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => DeathScreen(
-                    player: players[0],
-                  ),
-                ));
+                if (selectedPlayer != null) {
+                  Nav.goDeathScreen(selectedPlayer!);
+                }
               },
               child: Text(context.t.buttonText.confirm),
             ),
