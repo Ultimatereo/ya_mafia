@@ -22,7 +22,10 @@ class SettingsScreen extends StatelessWidget {
     return Scaffold(
       appBar: const SeemlessAppBar(),
       body: Padding(
-        padding: const EdgeInsets.all(appPadding),
+        padding: const EdgeInsets.symmetric(horizontal: appPadding) +
+            EdgeInsets.only(
+              bottom: MediaQuery.viewPaddingOf(context).bottom,
+            ),
         child: SingleChildScrollView(
           child: BlocBuilder<SettingsBloc, SettingsState>(
             builder: (context, state) {
@@ -91,6 +94,9 @@ class SettingsScreen extends StatelessWidget {
                     child: Text(
                       context.t.assignRoles,
                     ),
+                  ),
+                  const SizedBox(
+                    height: appPadding * 2,
                   ),
                 ],
               );
