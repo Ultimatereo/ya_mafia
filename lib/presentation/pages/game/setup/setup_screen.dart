@@ -6,9 +6,10 @@ import 'package:ya_mafia/core/constants.dart';
 import 'package:ya_mafia/core/theme/tailor_theme/my_theme.dart';
 import 'package:ya_mafia/presentation/blocs/players_bloc/players_bloc.dart';
 import 'package:ya_mafia/presentation/blocs/settings_bloc/settings_bloc.dart';
-import 'package:ya_mafia/presentation/pages/day/day_screen.dart';
 import 'package:ya_mafia/presentation/pages/game/setup/player_creator.dart';
 import 'package:ya_mafia/presentation/pages/game/setup/role_announcer.dart';
+import 'package:ya_mafia/presentation/pages/game/widgets/moon.dart';
+import 'package:ya_mafia/presentation/pages/game/widgets/sun.dart';
 
 import '../../../../core/navigation/delegate.dart';
 
@@ -21,6 +22,15 @@ class SetupScreen extends StatefulWidget {
 
 class _SetupScreenState extends State<SetupScreen> {
   final controller = FlipCardController();
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      precacheImage(Moon.provider, context);
+      precacheImage(Sun.provider, context);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,18 +52,7 @@ class _SetupScreenState extends State<SetupScreen> {
               listener: (context, state) {
                 state.maybeWhen(
                   end: (state) {
-                    final seconds = context
-                        .read<SettingsBloc>()
-                        .state
-                        .settings
-                        .gameTimer
-                        .dayTimeInSec;
-                    return Nav.goDayVote(
-                      DayScreenArgs(
-                        dayTimeInSec: seconds,
-                        players: state.players,
-                      ),
-                    );
+                    return Nav.goToLobby(state.players);
                   },
                   orElse: controller.toggleCard,
                 );

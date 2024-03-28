@@ -9,7 +9,7 @@ enum GameRole {
   sheriff,
   maniac,
   prostitute,
-  don,
+  // don,
 }
 
 extension GameRoleExtension on GameRole {
@@ -27,8 +27,8 @@ extension GameRoleExtension on GameRole {
         return context.t.roles.maniac.name;
       case GameRole.prostitute:
         return context.t.roles.prostitute.name;
-      case GameRole.don:
-        return context.t.roles.don.name;
+      // case GameRole.don:
+      //   return context.t.roles.don.name;
     }
   }
 
@@ -46,8 +46,8 @@ extension GameRoleExtension on GameRole {
         return context.t.roles.maniac.descr;
       case GameRole.prostitute:
         return context.t.roles.prostitute.descr;
-      case GameRole.don:
-        return context.t.roles.don.descr;
+      // case GameRole.don:
+      //   return context.t.roles.don.descr;
     }
   }
 }

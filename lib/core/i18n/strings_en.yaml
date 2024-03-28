@@ -50,6 +50,7 @@ buttonText:
   weAreReady: We are ready!
   done: Done!
   confirm: Confirm
+  cancel: Cancel
   yesItsMe: Yes, it's me
   noItsNotMe: No, it's not me:(
   goodbye: Goodbye!
@@ -66,3 +67,4 @@ game:
   cool: Cool
   enterYourName: Introduce yourself!
   foggotenName: Have you forgotten your name?)
+  startGame: Start the game

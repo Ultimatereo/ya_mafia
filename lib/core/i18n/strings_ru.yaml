@@ -50,6 +50,7 @@ buttonText:
   weAreReady: Мы готовы!
   done: Готово!
   confirm: Подтвердить
+  cancel: Отмена
   yesItsMe: Да, это я
   noItsNotMe: Нет, это не я:(
   goodbye: Прощай!
@@ -66,3 +67,4 @@ game:
   cool: Кайф
   enterYourName: Представься!
   foggotenName: Ты забыл своё имя?)
+  startGame: Начать игру
