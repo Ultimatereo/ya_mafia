@@ -35,7 +35,11 @@ class HomeScreen extends StatelessWidget {
               children: [
                 const PlayButton(),
                 const SizedBox(height: appPadding),
-                TextButton(onPressed: () {}, child: Text(context.t.home.rules)),
+                TextButton(
+                    onPressed: () {
+                      Nav.goRules();
+                    },
+                    child: Text(context.t.home.rules)),
               ],
             ),
           ),

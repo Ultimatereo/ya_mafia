@@ -30,4 +30,5 @@ class Nav {
       );
 
   static goHome() => _context.goNamed('/');
+  static goRules() => _context.goNamed('rules');
 }
