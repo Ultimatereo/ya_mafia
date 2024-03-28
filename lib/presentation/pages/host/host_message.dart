@@ -163,7 +163,10 @@ class _HostMessageState extends State<HostMessage> {
       initialSelection: _selectedVoice,
       controller: voiceController,
       requestFocusOnTap: false,
-      label: Text(context.t.voice),
+      label: Text(
+        context.t.voice,
+        style: context.listTileTextStyle,
+      ),
       onSelected: (Map<String, String>? voice) {
         setState(() {
           _selectedVoice = voice;
