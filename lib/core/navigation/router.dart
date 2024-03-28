@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ya_mafia/core/navigation/axis_animation.dart';
+import 'package:ya_mafia/core/navigation/confirmation_pop_scope.dart';
 import 'package:ya_mafia/core/navigation/delegate.dart';
 import 'package:ya_mafia/presentation/pages/game/day/day_screen.dart';
 import 'package:ya_mafia/presentation/pages/game/death_screen/death_screen.dart';
@@ -33,16 +34,17 @@ final router = GoRouter(
           pageBuilder: (context, state) => const MaterialPage(
             child: SettingsScreen(),
           ),
-          routes: [],
-        ),
-        GoRoute(
-          path: 'setup',
-          name: 'setup',
-          pageBuilder: (context, state) => SharedAxisTransitionPage(
-            transitionType: SharedAxisTransitionType.vertical,
-            key: const ValueKey('setup'),
-            child: const SetupScreen(),
-          ),
+          routes: [
+            GoRoute(
+              path: 'setup',
+              name: 'setup',
+              pageBuilder: (context, state) => SharedAxisTransitionPage(
+                transitionType: SharedAxisTransitionType.vertical,
+                key: const ValueKey('setup'),
+                child: const ConfirmationPopScope(child: SetupScreen()),
+              ),
+            ),
+          ],
         ),
         GoRoute(
           path: 'lobby',
@@ -50,7 +52,9 @@ final router = GoRouter(
           pageBuilder: (context, state) => SharedAxisTransitionPage(
             key: const ValueKey('lobby'),
             transitionType: SharedAxisTransitionType.scaled,
-            child: LobbyScreen(players: state.extra as List<Player>),
+            child: ConfirmationPopScope(
+              child: LobbyScreen(players: state.extra as List<Player>),
+            ),
           ),
         ),
       ],
@@ -96,14 +100,16 @@ final router = GoRouter(
       pageBuilder: (context, state) => SharedAxisTransitionPage(
         key: const ValueKey('game'),
         transitionType: SharedAxisTransitionType.scaled,
-        child: AnimatedSky(
-          key: const ValueKey('day'),
-          child: Center(
-            child: ElevatedButton(
-              onPressed: () {
-                Nav.goNight();
-              },
-              child: const Text('to Night'),
+        child: ConfirmationPopScope(
+          child: AnimatedSky(
+            key: const ValueKey('day'),
+            child: Center(
+              child: ElevatedButton(
+                onPressed: () {
+                  Nav.goNight();
+                },
+                child: const Text('to Night'),
+              ),
             ),
           ),
         ),
@@ -115,15 +121,17 @@ final router = GoRouter(
       pageBuilder: (context, state) => SharedAxisTransitionPage(
         key: const ValueKey('game'),
         transitionType: SharedAxisTransitionType.scaled,
-        child: AnimatedSky(
-          key: const ValueKey('night'),
-          isNight: true,
-          child: Center(
-            child: ElevatedButton(
-              onPressed: () {
-                Nav.goDay();
-              },
-              child: const Text('to Day'),
+        child: ConfirmationPopScope(
+          child: AnimatedSky(
+            key: const ValueKey('night'),
+            isNight: true,
+            child: Center(
+              child: ElevatedButton(
+                onPressed: () {
+                  Nav.goDay();
+                },
+                child: const Text('to Day'),
+              ),
             ),
           ),
         ),

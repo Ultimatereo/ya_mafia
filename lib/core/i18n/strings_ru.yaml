@@ -68,3 +68,5 @@ game:
   enterYourName: Представься!
   foggotenName: Ты забыл своё имя?)
   startGame: Начать игру
+
+exitConfirmation: Вы уверены, что хотите выйти?
