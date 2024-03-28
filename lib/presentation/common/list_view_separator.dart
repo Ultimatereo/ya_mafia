@@ -6,7 +6,7 @@ class ListViewSeparator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const SizedBox(
-      height: 3,
+      height: 8,
     );
   }
 }

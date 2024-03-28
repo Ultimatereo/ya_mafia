@@ -52,7 +52,7 @@ class _SetupScreenState extends State<SetupScreen> {
               listener: (context, state) {
                 state.maybeWhen(
                   end: (state) {
-                    return Nav.goToLobby(state.players);
+                    return Nav.goToStart(state.players);
                   },
                   orElse: controller.toggleCard,
                 );

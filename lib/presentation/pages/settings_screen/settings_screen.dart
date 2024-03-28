@@ -89,7 +89,7 @@ class SettingsScreen extends StatelessWidget {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      Nav.goSetup();
+                      Nav.goToLobby();
                     },
                     child: Text(
                       context.t.assignRoles,

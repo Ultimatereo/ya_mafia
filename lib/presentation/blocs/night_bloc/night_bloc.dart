@@ -8,10 +8,13 @@ part 'night_state.dart';
 part 'night_bloc.freezed.dart';
 
 class NightBloc extends Bloc<NightEvent, NightState> {
-  NightBloc() : super(_Greeting()) {
+  NightBloc() : super(const _Initial()) {
     on<NightEvent>(
       (event, emit) {
         event.mapOrNull(
+          greetingStarted: (_) => emit(const NightState.greeting()),
+          discussionStarted: (v) => emit(NightState.discussion(v.players)),
+          mafiaDiscussionEnded: (v) => _mafiaDiscussionEnded(v, emit),
           changePlayer: (v) => _changePlayer(v, emit),
           vote: (v) => _vote(v, emit),
         );
@@ -19,43 +22,56 @@ class NightBloc extends Bloc<NightEvent, NightState> {
     );
   }
 
+  void _mafiaDiscussionEnded(
+      _MafiaDiscussionEnded value, Emitter<NightState> emit) {
+    state.maybeWhen(
+      greeting: () => emit(const NightState.end({})),
+      discussion: (value) =>
+          emit(NightState.voting(players: value, playersRemaining: value)),
+      orElse: () => throw Error(),
+    );
+  }
+
   void _changePlayer(_ChangePlayer value, Emitter<NightState> emit) {
     state.maybeWhen(
-      voting: (currentPlayerIndex, players, result) {
+      voting: (currentPlayerIndex, players, playersRemaining, result) {
         emit(
           _Voting(
             players: players,
+            playersRemaining: playersRemaining,
             currentPlayerIndex: value.currentPlayerIndex,
             result: result,
           ),
         );
       },
-      orElse: () => Error(),
+      orElse: () => throw Error(),
     );
   }
 
   void _vote(_Vote value, Emitter<NightState> emit) {
     state.maybeWhen(
-      voting: (currentPlayerIndex, players, result) {
+      voting: (currentPlayerIndex, players, playersRemaining, result) {
         final newResult = Map<GameRole, Set<int>>.from(result);
-        final player = players[currentPlayerIndex];
+        final player = playersRemaining[currentPlayerIndex];
 
-        if (value.chosenPlayerId != null) {
+        if (value.chosenPlayerIndex != null) {
           final role = player.role;
           if (newResult[role] == null) {
             newResult[role] = {};
           }
-          newResult[role]!.add(value.chosenPlayerId!);
+          newResult[role]!.add(value.chosenPlayerIndex!);
         }
 
-        if (players.length == 1) {
+        if (playersRemaining.length == 1) {
           emit(_End(newResult));
           return;
         }
 
         emit(
           _Voting(
-            players: players.where((e) => e != player).toList(),
+            players: players,
+            playersRemaining:
+                playersRemaining.where((e) => e != player).toList(),
             currentPlayerIndex: 0,
             result: newResult,
           ),
