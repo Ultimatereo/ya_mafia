@@ -5,7 +5,6 @@ import 'package:ya_mafia/core/navigation/delegate.dart';
 import 'package:ya_mafia/core/theme/tailor_theme/my_theme.dart';
 import 'package:ya_mafia/presentation/blocs/night_bloc/night_bloc.dart';
 import 'package:ya_mafia/presentation/common/seemless_appbar.dart';
-import 'package:ya_mafia/presentation/pages/game/twilight.dart';
 import 'package:ya_mafia/presentation/pages/game/widgets/moon.dart';
 
 import '../../../../core/theme/colors.dart';
@@ -23,7 +22,7 @@ class NightPlayerConfirmScreen extends StatelessWidget {
         builder: (context, state) {
           return state.maybeMap(
             voting: (value) {
-              var player = value.players[value.currentPlayerIndex];
+              var player = value.playersRemaining[value.currentPlayerIndex];
               return Padding(
                 padding: const EdgeInsets.all(appPadding),
                 child: Center(
@@ -61,7 +60,10 @@ class NightPlayerConfirmScreen extends StatelessWidget {
                             children: [
                               ElevatedButton(
                                 onPressed: () {
-                                  Nav.goNightVote();
+                                  Nav.goNightVote(
+                                    player: player,
+                                    players: value.players,
+                                  );
                                 },
                                 child: Text(context.t.buttonText.yesItsMe),
                               ),

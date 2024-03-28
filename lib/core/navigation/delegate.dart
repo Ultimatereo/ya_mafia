@@ -34,6 +34,13 @@ class Nav {
         prevBackground,
       ));
   static goNightConfirm() => _context.goNamed('night-confirm');
-  static goNightVote() => _context.goNamed('night-voting');
+  static goNightVote({
+    required Player player,
+    required List<Player> players,
+  }) =>
+      _context.goNamed(
+        'night-voting',
+        extra: (player, players),
+      );
   static goChoosePlayer() => _context.goNamed('choose-player');
 }

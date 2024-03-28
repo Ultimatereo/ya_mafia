@@ -117,7 +117,10 @@ final router = GoRouter(
               pageBuilder: (context, state) => SharedAxisTransitionPage(
                 key: const ValueKey('night-voting'),
                 transitionType: SharedAxisTransitionType.horizontal,
-                child: const NightVotingScreen(),
+                child: NightVotingScreen(
+                  player: (state.extra as (Player, List<Player>)).$1,
+                  players: (state.extra as (Player, List<Player>)).$2,
+                ),
               ),
             ),
           ],
