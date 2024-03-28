@@ -43,4 +43,5 @@ class Nav {
         extra: (player, players),
       );
   static goChoosePlayer() => _context.goNamed('choose-player');
+  static goHome() => _context.goNamed('/');
 }

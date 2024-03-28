@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ya_mafia/data/enums/game_result.dart';
 
 import '../../zgen/i18n/strings.g.dart';
 
@@ -84,6 +85,17 @@ extension GameRoleExtension on GameRole {
         return 'assets/images/mafia_icons/maniac.webp';
       case GameRole.prostitute:
         return 'assets/images/mafia_icons/prostitute.webp';
+    }
+  }
+
+  GameResult gameResult() {
+    switch (this) {
+      case GameRole.mafia:
+        return GameResult.mafia;
+      case GameRole.maniac:
+        return GameResult.maniac;
+      default:
+        return GameResult.citizen;
     }
   }
 }

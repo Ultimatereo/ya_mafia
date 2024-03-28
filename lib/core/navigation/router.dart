@@ -1,14 +1,15 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:animations/animations.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ya_mafia/core/navigation/axis_animation.dart';
 import 'package:ya_mafia/core/navigation/confirmation_pop_scope.dart';
 import 'package:ya_mafia/core/navigation/delegate.dart';
 import 'package:ya_mafia/core/navigation/fade_animation.dart';
+import 'package:ya_mafia/data/enums/game_result.dart';
 import 'package:ya_mafia/presentation/pages/game/day/day_screen.dart';
 import 'package:ya_mafia/presentation/pages/game/death_screen/death_screen.dart';
+import 'package:ya_mafia/presentation/pages/game/endgame_screen.dart';
 import 'package:ya_mafia/presentation/pages/game/lobby.dart';
 import 'package:ya_mafia/presentation/pages/game/night/choose_person_screen.dart';
 import 'package:ya_mafia/presentation/pages/game/night/night_voting_screen.dart';
@@ -18,7 +19,6 @@ import 'package:ya_mafia/presentation/pages/game/widgets/animated_sky.dart';
 import 'package:ya_mafia/presentation/pages/home/home_screen.dart';
 import 'package:ya_mafia/presentation/pages/game/night/night_player_confirm_screen.dart';
 import 'package:ya_mafia/presentation/pages/settings_screen/settings_screen.dart';
-
 import '../../data/models/player.dart';
 import '../../presentation/pages/game/night/mafia_discussion_screen.dart';
 
@@ -29,7 +29,10 @@ final router = GoRouter(
   routes: [
     GoRoute(
       path: '/',
-      pageBuilder: (context, state) => const MaterialPage(child: HomeScreen()),
+      name: '/',
+      pageBuilder: (context, state) => const MaterialPage(
+        child: HomeScreen(),
+      ),
       routes: [
         GoRoute(
           path: 'settings',

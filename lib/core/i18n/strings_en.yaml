@@ -62,6 +62,7 @@ buttonText:
   goodbye: Goodbye!
   skip: Skip
   thx: Thank you!
+  endGame: End game
 
 candidates: Candidates
 whoDiedDay: Who will die on this beautiful day?
@@ -78,3 +79,14 @@ game:
   startGame: Start the game
 
 exitConfirmation: Are you sure you want to exit?
+
+gameResult:
+  mafiaWon:
+    title: The mafia won!
+    subtitle: Citizens, rest in peace!
+  citizenWon:
+    title: The citizens won!
+    subtitle: Mafia, rest in peace!
+  maniacWon:
+    title: The maniac won!
+    subtitle: This is a success!
