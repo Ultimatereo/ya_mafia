@@ -54,6 +54,7 @@ buttonText:
   yesItsMe: Да, это я
   noItsNotMe: Нет, это не я:(
   goodbye: Прощай!
+  endGame: Закончить игру
 
 candidates: Кандидаты
 whoDiedDay: Кто умрет в этот прекрасный день?
@@ -70,3 +71,14 @@ game:
   startGame: Начать игру
 
 exitConfirmation: Вы уверены, что хотите выйти?
+
+gameResult:
+  mafiaWon:
+    title: Победила мафия!
+    subtitle: Мирные жители, покойтесь с миром!
+  citizenWon:
+    title: Мирные жители победили!
+    subtitle: Мафия, покойтесь с миром!
+  maniacWon:
+    title: Победил маньяк!
+    subtitle: Это успех!
