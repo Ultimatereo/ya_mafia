@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:ya_mafia/core/theme/tailor_theme/my_theme.dart';
 import 'package:ya_mafia/zgen/i18n/strings.g.dart';
 
 const String str =
@@ -18,7 +19,6 @@ class _HostMessageState extends State<HostMessage> {
 
   Map<String, String>? _selectedVoice;
   final Map<String, List<Map<String, String>>> _voices = {};
-  late Future<void> _future;
   int? _currentWordStart, _currentWordEnd;
 
   @override
@@ -122,26 +122,33 @@ class _HostMessageState extends State<HostMessage> {
               height: 30,
             ),
             _speakerSelector(context),
-            RichText(
-              textAlign: TextAlign.center,
-              text: TextSpan(
-                children: <TextSpan>[
-                  TextSpan(
-                    text: str.substring(0, _currentWordStart),
-                  ),
-                  if (_currentWordStart != null)
+            const SizedBox(
+              height: 56,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(24.0),
+              child: RichText(
+                textAlign: TextAlign.center,
+                text: TextSpan(
+                  children: <TextSpan>[
                     TextSpan(
-                      text: str.substring(_currentWordStart!, _currentWordEnd),
-                      style: const TextStyle(
-                        color: Colors.black,
-                        backgroundColor: Colors.purpleAccent,
+                      text: str.substring(0, _currentWordStart),
+                      style: context.listTileTextStyle,
+                    ),
+                    if (_currentWordStart != null)
+                      TextSpan(
+                        text:
+                            str.substring(_currentWordStart!, _currentWordEnd),
+                        style: context.listTileTextStyle
+                            .copyWith(color: context.yellow),
                       ),
-                    ),
-                  if (_currentWordEnd != null)
-                    TextSpan(
-                      text: str.substring(_currentWordEnd!),
-                    ),
-                ],
+                    if (_currentWordEnd != null)
+                      TextSpan(
+                        text: str.substring(_currentWordEnd!),
+                        style: context.listTileTextStyle,
+                      ),
+                  ],
+                ),
               ),
             ),
           ],
@@ -172,5 +179,11 @@ class _HostMessageState extends State<HostMessage> {
               }).toList() ??
               [],
     );
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _flutterTts.stop();
   }
 }
