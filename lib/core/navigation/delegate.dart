@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ya_mafia/core/navigation/router.dart';
-import 'package:ya_mafia/presentation/pages/day/day_screen.dart';
+import 'package:ya_mafia/presentation/pages/game/day/day_screen.dart';
 
 import '../../data/models/player.dart';
 
@@ -20,4 +20,12 @@ class Nav {
         extra: player,
       );
   static goCandidatesScreen() => _context.goNamed('day-candidates-screen');
+
+  static goDay() => _context.goNamed('day');
+  static goNight() => _context.goNamed('night');
+
+  static goToLobby(List<Player> players) => _context.goNamed(
+        'lobby',
+        extra: players,
+      );
 }
