@@ -73,63 +73,76 @@ class _NightVotingScreenState extends State<NightVotingScreen> {
                       ],
                     ),
                   ),
-                  Container(
-                    width: double.infinity,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(16),
-                      color: brownMainDark,
-                    ),
+                  SizedBox(
                     height: isCitizen ? 300 : 475,
-                    child: Center(
-                      child: isCitizen
-                          ? ElevatedButton(
-                              onPressed: func,
-                              child: Text(context.t.buttonText.thx),
-                            )
-                          : Stack(
-                              children: [
-                                Column(
-                                  children: [
-                                    const SizedBox(height: appPadding),
-                                    Text(
-                                      player.role.hint(context),
-                                      style: context.headline1Yellow,
-                                    ),
-                                    Expanded(
-                                      child: ListViewWithRadios(
-                                        padding: const EdgeInsets.all(
-                                              appPadding,
-                                            ) +
-                                            const EdgeInsets.only(
-                                              bottom: appPadding * 3 + 52,
-                                            ),
-                                        players: widget.players,
-                                        selectedindex: currentPlayerIndex,
-                                        onTap: (i) {
-                                          currentPlayerIndex = i;
-                                          setState(() {});
-                                        },
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Positioned(
-                                  bottom: appPadding * 2,
-                                  right: 0,
-                                  left: 0,
-                                  child: Center(
-                                    child: ElevatedButton(
-                                      onPressed: currentPlayerIndex == null
-                                          ? null
-                                          : func,
-                                      child: Text(
-                                        context.t.buttonText.confirm,
-                                      ),
-                                    ),
-                                  ),
-                                )
-                              ],
+                    child: Stack(
+                      children: [
+                        Hero(
+                          tag: 'actionCard',
+                          child: Container(
+                            width: double.infinity,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(16),
+                              color: brownMainDark,
                             ),
+                            height: isCitizen ? 300 : 475,
+                          ),
+                        ),
+                        if (isCitizen)
+                          Center(
+                            child: Hero(
+                              tag: 'actionButton',
+                              child: ElevatedButton(
+                                onPressed: func,
+                                child: Text(context.t.buttonText.thx),
+                              ),
+                            ),
+                          ),
+                        if (!isCitizen)
+                          Column(
+                            children: [
+                              const SizedBox(height: appPadding),
+                              Text(
+                                player.role.hint(context),
+                                style: context.headline1Yellow,
+                              ),
+                              Expanded(
+                                child: ListViewWithRadios(
+                                  padding: const EdgeInsets.all(
+                                        appPadding,
+                                      ) +
+                                      const EdgeInsets.only(
+                                        bottom: appPadding * 3 + 52,
+                                      ),
+                                  players: widget.players,
+                                  selectedindex: currentPlayerIndex,
+                                  onTap: (i) {
+                                    currentPlayerIndex = i;
+                                    setState(() {});
+                                  },
+                                ),
+                              ),
+                            ],
+                          ),
+                        if (!isCitizen)
+                          Positioned(
+                            bottom: appPadding * 2,
+                            right: 0,
+                            left: 0,
+                            child: Center(
+                              child: Hero(
+                                tag: 'actionButton',
+                                child: ElevatedButton(
+                                  onPressed:
+                                      currentPlayerIndex == null ? null : func,
+                                  child: Text(
+                                    context.t.buttonText.confirm,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                      ],
                     ),
                   )
                 ],

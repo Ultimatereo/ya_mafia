@@ -48,35 +48,50 @@ class NightPlayerConfirmScreen extends StatelessWidget {
                           ],
                         ),
                       ),
-                      Container(
-                        width: MediaQuery.of(context).size.width,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(16),
-                            color: brownMainDark),
-                        height: 300,
-                        child: Center(
-                          child: Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              ElevatedButton(
-                                onPressed: () {
-                                  Nav.goNightVote(
-                                    player: player,
-                                    players: value.players,
-                                  );
-                                },
-                                child: Text(context.t.buttonText.yesItsMe),
-                              ),
-                              const SizedBox(height: appPadding),
-                              TextButton(
-                                onPressed: () {
-                                  Nav.goChoosePlayer();
-                                },
-                                child: Text(context.t.buttonText.noItsNotMe),
-                              ),
-                            ],
+                      Stack(
+                        children: [
+                          Hero(
+                            tag: 'actionCard',
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(16),
+                                  color: brownMainDark),
+                              height: 300,
+                              width: MediaQuery.of(context).size.width,
+                            ),
                           ),
-                        ),
+                          SizedBox(
+                            height: 300,
+                            child: Center(
+                              child: Column(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Hero(
+                                    tag: 'actionButton',
+                                    child: ElevatedButton(
+                                      onPressed: () {
+                                        Nav.goNightVote(
+                                          player: player,
+                                          players: value.players,
+                                        );
+                                      },
+                                      child:
+                                          Text(context.t.buttonText.yesItsMe),
+                                    ),
+                                  ),
+                                  const SizedBox(height: appPadding),
+                                  TextButton(
+                                    onPressed: () {
+                                      Nav.goChoosePlayer();
+                                    },
+                                    child:
+                                        Text(context.t.buttonText.noItsNotMe),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
                       )
                     ],
                   ),
