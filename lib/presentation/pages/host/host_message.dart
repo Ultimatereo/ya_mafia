@@ -3,7 +3,7 @@ import 'package:flutter_tts/flutter_tts.dart';
 import 'package:ya_mafia/zgen/i18n/strings.g.dart';
 
 const String str =
-    "Дамы и господа, сегодняшняя ночь в игре Мафия была наполнена интригой и неожиданными поворотами событий! На нашем сегодняшнем городском совещании выяснилось, что мафия попыталась совершить убийство - целью оказался наш уважаемый горожанин Антон. Однако, противостоять смерти смог благодаря действиям нашего доблестного доктора, который своевременно оказал ему помощь и предотвратил трагедию! Сейчас важно остаться бдительными и держать ухо востро - мафия продолжает свои попытки, но благодаря нашим гражданским усилиям мы сможем выявить их и предотвратить новые атаки. Все вместе мы можем победить в этой схватке за нашу благополучную городскую жизнь!";
+    "Under the cloak of darkness, the Mafia set their sights on Anton, aiming to eliminate him from the town. However, just as their sinister plans were about to be realized, a vigilant Doctor intervened, rushing to Anton's aid and saving him from certain death. The town awakens to the news of Anton's miraculous escape, sparking a wave of relief and gratitude among the townspeople. Whispers of suspicion fill the air as they ponder who among them could be part of the ruthless Mafia. With tensions mounting, the town braces itself for another day of deception and deduction in their quest to root out the hidden threats lurking within their midst.";
 
 class HostMessage extends StatefulWidget {
   const HostMessage({super.key});
@@ -19,33 +19,36 @@ class _HostMessageState extends State<HostMessage> {
   Map<String, String>? _selectedVoice;
   final Map<String, List<Map<String, String>>> _voices = {};
   late Future<void> _future;
+  int? _currentWordStart, _currentWordEnd;
 
   @override
   void initState() {
     super.initState();
     _future = initTTS();
+    _flutterTts.setProgressHandler((text, start, end, word) {
+      setState(() {
+        _currentWordStart = start;
+        _currentWordEnd = end;
+      });
+    });
   }
 
   Future<void> initTTS() async {
-    await _flutterTts.getVoices.then((data) {
-      try {
-        final List<Map<String, String>> voices = List<Map>.from(data)
-            .map((Map m) => m.map((key, value) =>
-                MapEntry<String, String>(key.toString(), value.toString())))
-            .toList();
-        for (Map<String, String> voice in voices) {
-          String key =
-              voice["locale"]?.substring(0, voice["locale"]?.indexOf('-')) ??
-                  "en";
-          _voices.putIfAbsent(key, () => <Map<String, String>>[]);
-          _voices[key]!.add(voice);
-        }
-        setVoice(_voices[context.t.language]?.first);
-        _flutterTts.speak(str);
-        print(_voices);
-      } catch (e) {
-        print(e);
+    await _flutterTts.getVoices.then((data) async {
+      // await Future.delayed(const Duration(seconds: 10));
+      final List<Map<String, String>> voices = List<Map>.from(data)
+          .map((Map m) => m.map((key, value) =>
+              MapEntry<String, String>(key.toString(), value.toString())))
+          .toList();
+      for (Map<String, String> voice in voices) {
+        String key =
+            voice["locale"]?.substring(0, voice["locale"]?.indexOf('-')) ??
+                "en";
+        _voices.putIfAbsent(key, () => <Map<String, String>>[]);
+        _voices[key]!.add(voice);
       }
+      _selectedVoice = _voices[context.t.language]?.first;
+      setVoice(_voices[context.t.language]?.first);
     });
   }
 
@@ -62,9 +65,10 @@ class _HostMessageState extends State<HostMessage> {
       future: _future,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
+          // _flutterTts.speak(str);
           return _buildLanguageChoiceAndText(context);
         }
-        return const CircularProgressIndicator();
+        return const LinearProgressIndicator();
       },
     );
   }
@@ -74,6 +78,7 @@ class _HostMessageState extends State<HostMessage> {
       body: _buildUI(context),
       floatingActionButton: Row(
         mainAxisAlignment: MainAxisAlignment.end,
+        // crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           FloatingActionButton(
             onPressed: () {
@@ -101,10 +106,35 @@ class _HostMessageState extends State<HostMessage> {
       child: Center(
         child: Column(
           // mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.center,
-          // crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.start,
+          // crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const SizedBox(
+              height: 30,
+            ),
             _speakerSelector(context),
+            RichText(
+              textAlign: TextAlign.center,
+              text: TextSpan(
+                children: <TextSpan>[
+                  TextSpan(
+                    text: str.substring(0, _currentWordStart),
+                  ),
+                  if (_currentWordStart != null)
+                    TextSpan(
+                      text: str.substring(_currentWordStart!, _currentWordEnd),
+                      style: const TextStyle(
+                        color: Colors.black,
+                        backgroundColor: Colors.purpleAccent,
+                      ),
+                    ),
+                  if (_currentWordEnd != null)
+                    TextSpan(
+                      text: str.substring(_currentWordEnd!),
+                    ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
@@ -116,7 +146,7 @@ class _HostMessageState extends State<HostMessage> {
       width: 300,
       initialSelection: _selectedVoice,
       controller: voiceController,
-      requestFocusOnTap: true,
+      requestFocusOnTap: false,
       label: Text(context.t.voice),
       onSelected: (Map<String, String>? voice) {
         setState(() {
