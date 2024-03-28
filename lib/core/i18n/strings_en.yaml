@@ -2,6 +2,7 @@ test: Test
 settings: Settings
 numberOfPlayers: Number of players
 setDayTimer: Set a timer for discussions during the day
+language: en
 min: min
 sec: sec
 day: Day
