@@ -16,56 +16,71 @@ class LobbyScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<GameBloc, GameState>(
-      listener: (context, state) {
-        state.whenOrNull(
-          dayPhase: (players) {
-            Nav.goDay();
-          },
-          nightPhase: (players) {
-            Nav.goNight();
-          },
-        );
-      },
-      child: Scaffold(
-        body: Stack(
-          children: [
-            const Center(
-              child: Padding(
-                padding: EdgeInsets.symmetric(vertical: 0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    Expanded(
-                        child: Padding(
-                      padding: EdgeInsets.only(bottom: appPadding * 2),
-                      child: Sun(),
-                    )),
-                    Expanded(
-                      child: Padding(
-                        padding: EdgeInsets.only(top: appPadding * 2),
-                        child: Moon(),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Center(
-              child: ElevatedButton(
-                onPressed: () {
-                  context.read<GameBloc>().add(
-                        GameEvent.startGame(
-                          players: players,
-                          settings: context.read<SettingsBloc>().state.settings,
+    return BlocProvider(
+      create: (context) => GameBloc(),
+      child: BlocListener<GameBloc, GameState>(
+        listener: (context, state) {
+          state.whenOrNull(
+            dayPhase: (players) {
+              Nav.goDay();
+            },
+            nightPhase: (players) {
+              Nav.goNight(
+                players: context
+                        .read<SettingsBloc>()
+                        .state
+                        .settings
+                        .firstNightIntroduction
+                    ? null
+                    : players,
+                prevBackground: Theme.of(context).scaffoldBackgroundColor,
+              );
+            },
+          );
+        },
+        child: Builder(builder: (context) {
+          return Scaffold(
+            body: Stack(
+              children: [
+                const Center(
+                  child: Padding(
+                    padding: EdgeInsets.symmetric(vertical: 0),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Expanded(
+                            child: Padding(
+                          padding: EdgeInsets.only(bottom: appPadding * 2),
+                          child: Sun(),
+                        )),
+                        Expanded(
+                          child: Padding(
+                            padding: EdgeInsets.only(top: appPadding * 2),
+                            child: Moon(),
+                          ),
                         ),
-                      );
-                },
-                child: Text(context.t.game.startGame),
-              ),
-            )
-          ],
-        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Center(
+                  child: ElevatedButton(
+                    onPressed: () {
+                      context.read<GameBloc>().add(
+                            GameEvent.startGame(
+                              players: players,
+                              settings:
+                                  context.read<SettingsBloc>().state.settings,
+                            ),
+                          );
+                    },
+                    child: Text(context.t.game.startGame),
+                  ),
+                )
+              ],
+            ),
+          );
+        }),
       ),
     );
   }

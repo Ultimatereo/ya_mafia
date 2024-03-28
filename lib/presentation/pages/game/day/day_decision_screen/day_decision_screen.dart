@@ -9,7 +9,7 @@ import 'package:ya_mafia/presentation/pages/game/death_screen/death_screen.dart'
 
 import '../../../../../data/models/player.dart';
 import '../../../../../zgen/i18n/strings.g.dart';
-import 'list_view_with_radios/list_view_with_radios.dart';
+import '../../../../common/list_view_with_radios/list_view_with_radios.dart';
 
 class DayDecisionScreen extends StatelessWidget {
   const DayDecisionScreen({
@@ -37,10 +37,10 @@ class DayDecisionScreen extends StatelessWidget {
             const SizedBox(
               height: appPadding,
             ),
-            ListViewWithRadios(
-              players: players,
-              selectedPlayerId: selectedPlayer?.id,
-            ),
+            // ListViewWithRadios(
+            //   players: players,
+            //   selectedindex: selectedPlayer?.id,
+            // ),
             const SizedBox(
               height: appPadding,
             ),

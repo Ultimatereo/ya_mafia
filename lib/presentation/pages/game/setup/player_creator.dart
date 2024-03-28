@@ -18,6 +18,7 @@ class PlayerCreator extends StatefulWidget {
 class _PlayerCreatorState extends State<PlayerCreator> {
   final controller = TextEditingController();
   final formKey = GlobalKey<FormState>();
+  final focus = FocusNode();
   var avatar = Avatar.one;
   bool isPressed = false;
 
@@ -73,6 +74,7 @@ class _PlayerCreatorState extends State<PlayerCreator> {
                   child: Form(
                     key: formKey,
                     child: TextFormField(
+                      focusNode: focus,
                       validator: (value) => (value?.isEmpty ?? true)
                           ? context.t.game.foggotenName
                           : null,
@@ -92,9 +94,10 @@ class _PlayerCreatorState extends State<PlayerCreator> {
         const SizedBox(height: appPadding * 3),
         ElevatedButton(
           onPressed: () {
-            // if (!formKey.currentState!.validate()) return;
+            if (!formKey.currentState!.validate()) return;
             if (!isPressed) {
               isPressed = true;
+              focus.unfocus();
               context.read<PlayersBloc>().add(
                     PlayersEvent.playerCreated(
                       name: controller.text,
