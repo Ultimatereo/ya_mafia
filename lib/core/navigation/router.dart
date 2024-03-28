@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:ya_mafia/core/navigation/axis_animation.dart';
 import 'package:ya_mafia/core/navigation/confirmation_pop_scope.dart';
 import 'package:ya_mafia/core/navigation/delegate.dart';
+import 'package:ya_mafia/core/navigation/fade_animation.dart';
 import 'package:ya_mafia/presentation/pages/game/day/day_screen.dart';
 import 'package:ya_mafia/presentation/pages/game/death_screen/death_screen.dart';
 import 'package:ya_mafia/presentation/pages/game/lobby.dart';
@@ -36,7 +37,7 @@ final router = GoRouter(
           pageBuilder: (context, state) => SharedAxisTransitionPage(
             key: const ValueKey('settings'),
             transitionType: SharedAxisTransitionType.scaled,
-            child: SettingsScreen(),
+            child: const SettingsScreen(),
           ),
           routes: [
             GoRoute(
@@ -100,8 +101,9 @@ final router = GoRouter(
           name: 'night-confirm',
           pageBuilder: (context, state) => SharedAxisTransitionPage(
             key: const ValueKey('night-confirm'),
-            transitionType: SharedAxisTransitionType.horizontal,
-            child: const NightPlayerConfirmScreen(),
+            transitionType: SharedAxisTransitionType.vertical,
+            child:
+                const ConfirmationPopScope(child: NightPlayerConfirmScreen()),
           ),
           routes: [
             GoRoute(
@@ -109,19 +111,22 @@ final router = GoRouter(
               name: 'choose-player',
               pageBuilder: (context, state) => SharedAxisTransitionPage(
                 key: const ValueKey('choose-player'),
-                transitionType: SharedAxisTransitionType.horizontal,
+                transitionType: SharedAxisTransitionType.vertical,
                 child: const ChoosePersonScreen(),
               ),
             ),
             GoRoute(
               path: 'night-voting',
               name: 'night-voting',
-              pageBuilder: (context, state) => SharedAxisTransitionPage(
+              pageBuilder: (context, state) => FadeTransitionPage(
                 key: const ValueKey('night-voting'),
-                transitionType: SharedAxisTransitionType.scaled,
-                child: NightVotingScreen(
-                  player: (state.extra as (Player, List<Player>)).$1,
-                  players: (state.extra as (Player, List<Player>)).$2,
+                child: PopScope(
+                  canPop: false,
+                  onPopInvoked: (v) {},
+                  child: NightVotingScreen(
+                    player: (state.extra as (Player, List<Player>)).$1,
+                    players: (state.extra as (Player, List<Player>)).$2,
+                  ),
                 ),
               ),
             ),

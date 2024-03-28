@@ -35,6 +35,11 @@ class ChoosePersonScreen extends StatelessWidget {
                         voting: (currentPlayerIndex, players, playersRemaining,
                             result) {
                           return ListViewWithRadios(
+                            padding: EdgeInsets.only(
+                              bottom: appPadding * 8 +
+                                  52 +
+                                  MediaQuery.viewPaddingOf(context).bottom,
+                            ),
                             players: playersRemaining,
                             selectedindex: currentPlayerIndex,
                             onTap: (v) {
@@ -56,9 +61,12 @@ class ChoosePersonScreen extends StatelessWidget {
                     bottom: appPadding * 4 +
                         MediaQuery.viewPaddingOf(context).bottom,
                     child: Center(
-                      child: ElevatedButton(
-                        onPressed: Nav.fuckGoBack,
-                        child: Text(context.t.buttonText.confirm),
+                      child: Hero(
+                        tag: 'actionButton',
+                        child: ElevatedButton(
+                          onPressed: Nav.fuckGoBack,
+                          child: Text(context.t.buttonText.confirm),
+                        ),
                       ),
                     ),
                   ),

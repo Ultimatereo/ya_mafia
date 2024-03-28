@@ -79,13 +79,42 @@ class _NightVotingScreenState extends State<NightVotingScreen> {
                       children: [
                         Hero(
                           tag: 'actionCard',
-                          child: Container(
-                            width: double.infinity,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(16),
-                              color: brownMainDark,
-                            ),
-                            height: isCitizen ? 300 : 475,
+                          child: Material(
+                            color: brownMainDark,
+                            borderRadius: BorderRadius.circular(16),
+                            child: isCitizen
+                                ? const SizedBox.expand()
+                                : Column(
+                                    children: [
+                                      const SizedBox(height: appPadding),
+                                      Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                          horizontal: appPadding,
+                                        ),
+                                        child: Text(
+                                          player.role.hint(context),
+                                          style: context.headline1Yellow,
+                                          textAlign: TextAlign.center,
+                                        ),
+                                      ),
+                                      Expanded(
+                                        child: ListViewWithRadios(
+                                          padding: const EdgeInsets.all(
+                                                appPadding,
+                                              ) +
+                                              const EdgeInsets.only(
+                                                bottom: appPadding * 3 + 52,
+                                              ),
+                                          players: widget.players,
+                                          selectedindex: currentPlayerIndex,
+                                          onTap: (i) {
+                                            currentPlayerIndex = i;
+                                            setState(() {});
+                                          },
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                           ),
                         ),
                         if (isCitizen)
@@ -97,34 +126,8 @@ class _NightVotingScreenState extends State<NightVotingScreen> {
                                 child: Text(context.t.buttonText.thx),
                               ),
                             ),
-                          ),
-                        if (!isCitizen)
-                          Column(
-                            children: [
-                              const SizedBox(height: appPadding),
-                              Text(
-                                player.role.hint(context),
-                                style: context.headline1Yellow,
-                              ),
-                              Expanded(
-                                child: ListViewWithRadios(
-                                  padding: const EdgeInsets.all(
-                                        appPadding,
-                                      ) +
-                                      const EdgeInsets.only(
-                                        bottom: appPadding * 3 + 52,
-                                      ),
-                                  players: widget.players,
-                                  selectedindex: currentPlayerIndex,
-                                  onTap: (i) {
-                                    currentPlayerIndex = i;
-                                    setState(() {});
-                                  },
-                                ),
-                              ),
-                            ],
-                          ),
-                        if (!isCitizen)
+                          )
+                        else
                           Positioned(
                             bottom: appPadding * 2,
                             right: 0,
