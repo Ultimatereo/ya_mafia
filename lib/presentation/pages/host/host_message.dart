@@ -18,15 +18,16 @@ class _HostMessageState extends State<HostMessage> {
 
   Map<String, String>? _selectedVoice;
   final Map<String, List<Map<String, String>>> _voices = {};
+  late Future<void> _future;
 
   @override
   void initState() {
     super.initState();
-    initTTS();
+    _future = initTTS();
   }
 
-  void initTTS() {
-    _flutterTts.getVoices.then((data) {
+  Future<void> initTTS() async {
+    await _flutterTts.getVoices.then((data) {
       try {
         final List<Map<String, String>> voices = List<Map>.from(data)
             .map((Map m) => m.map((key, value) =>
@@ -57,6 +58,21 @@ class _HostMessageState extends State<HostMessage> {
 
   @override
   Widget build(BuildContext context) {
+    return FutureBuilder(
+      future: _future,
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.done) {
+          return _buildLanguageChoiceAndText(context);
+        }
+        return const Padding(
+          padding: EdgeInsets.all(50),
+          child: CircularProgressIndicator(),
+        );
+      },
+    );
+  }
+
+  Widget _buildLanguageChoiceAndText(BuildContext context) {
     return Scaffold(
       body: _buildUI(context),
       floatingActionButton: Row(
@@ -112,13 +128,12 @@ class _HostMessageState extends State<HostMessage> {
         });
       },
       dropdownMenuEntries:
-          _voices[context.t.language]?.map((Map<String, String> voice) {
-                return DropdownMenuEntry<Map<String, String>>(
-                  value: voice,
-                  label: voice["name"]?? "unknown",
-                );
-              }).toList() ??
-              <DropdownMenuEntry<Map<String, String>>>[],
+          _voices[context.t.language]!.map((Map<String, String> voice) {
+        return DropdownMenuEntry<Map<String, String>>(
+          value: voice,
+          label: voice["name"] ?? "unknown",
+        );
+      }).toList(),
     );
   }
 }
