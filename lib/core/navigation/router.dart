@@ -33,7 +33,9 @@ final router = GoRouter(
         GoRoute(
           path: 'settings',
           name: 'settings',
-          pageBuilder: (context, state) => const MaterialPage(
+          pageBuilder: (context, state) => SharedAxisTransitionPage(
+            key: const ValueKey('settings'),
+            transitionType: SharedAxisTransitionType.scaled,
             child: SettingsScreen(),
           ),
           routes: [
@@ -116,7 +118,7 @@ final router = GoRouter(
               name: 'night-voting',
               pageBuilder: (context, state) => SharedAxisTransitionPage(
                 key: const ValueKey('night-voting'),
-                transitionType: SharedAxisTransitionType.horizontal,
+                transitionType: SharedAxisTransitionType.scaled,
                 child: NightVotingScreen(
                   player: (state.extra as (Player, List<Player>)).$1,
                   players: (state.extra as (Player, List<Player>)).$2,
