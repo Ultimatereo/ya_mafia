@@ -10,7 +10,13 @@ BuildContext get _context => rootNavigationKey.currentContext!;
 class Nav {
   static fuckGoBack([dynamic data]) => _context.pop(data);
   static goSettings() => _context.goNamed('settings');
-  static goSetup() => _context.goNamed('setup');
+  static goToLobby() => _context.goNamed('lobby');
+
+  static goToStart(List<Player> players) => _context.goNamed(
+        'start',
+        extra: players,
+      );
+
   static goDayVote(DayScreenArgs args) => _context.goNamed(
         'day-screen',
         extra: args,
@@ -22,10 +28,12 @@ class Nav {
   static goCandidatesScreen() => _context.goNamed('day-candidates-screen');
 
   static goDay() => _context.goNamed('day');
-  static goNight() => _context.goNamed('night');
-
-  static goToLobby(List<Player> players) => _context.goNamed(
-        'lobby',
-        extra: players,
-      );
+  static goNight({List<Player>? players, Color? prevBackground}) =>
+      _context.goNamed('mafia-discussion-screen', extra: (
+        players,
+        prevBackground,
+      ));
+  static goNightConfirm() => _context.goNamed('night-confirm');
+  static goNightVote() => _context.goNamed('night-voting');
+  static goChoosePlayer() => _context.goNamed('choose-player');
 }

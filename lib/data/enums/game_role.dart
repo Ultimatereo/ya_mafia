@@ -51,6 +51,25 @@ extension GameRoleExtension on GameRole {
     }
   }
 
+  String hint(BuildContext context) {
+    switch (this) {
+      case GameRole.mafia:
+        return context.t.roles.mafia.hint;
+      case GameRole.citizen:
+        return context.t.roles.citizen.hint;
+      case GameRole.doctor:
+        return context.t.roles.doctor.hint;
+      case GameRole.sheriff:
+        return context.t.roles.sheriff.hint;
+      case GameRole.maniac:
+        return context.t.roles.maniac.hint;
+      case GameRole.prostitute:
+        return context.t.roles.prostitute.hint;
+      // case GameRole.don:
+      //   return context.t.roles.don.hint;
+    }
+  }
+
   String path() {
     switch (this) {
       case GameRole.mafia:
