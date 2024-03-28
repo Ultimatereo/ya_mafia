@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:ya_mafia/presentation/pages/day/day_decision_screen/list_view_with_radios/list_tile_with_radio.dart';
+import 'package:ya_mafia/presentation/pages/game/day/day_decision_screen/list_view_with_radios/list_tile_with_radio.dart';
 
-import '../../../../../data/models/player.dart';
-import '../../../../common/list_view_separator.dart';
+import '../../../../../../data/models/player.dart';
+import '../../../../../common/list_view_separator.dart';
 
 class ListViewWithRadios extends StatelessWidget {
   const ListViewWithRadios({

@@ -5,10 +5,10 @@ import 'package:ya_mafia/core/navigation/delegate.dart';
 import 'package:ya_mafia/core/theme/tailor_theme/my_theme.dart';
 import 'package:ya_mafia/presentation/blocs/day_bloc/day_bloc.dart';
 import 'package:ya_mafia/presentation/common/seemless_appbar.dart';
-import 'package:ya_mafia/presentation/pages/death_screen/death_screen.dart';
+import 'package:ya_mafia/presentation/pages/game/death_screen/death_screen.dart';
 
-import '../../../../data/models/player.dart';
-import '../../../../zgen/i18n/strings.g.dart';
+import '../../../../../data/models/player.dart';
+import '../../../../../zgen/i18n/strings.g.dart';
 import 'list_view_with_radios/list_view_with_radios.dart';
 
 class DayDecisionScreen extends StatelessWidget {

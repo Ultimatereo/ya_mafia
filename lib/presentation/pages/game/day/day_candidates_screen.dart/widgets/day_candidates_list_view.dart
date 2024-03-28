@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../../../data/models/player.dart';
+import '../../../../../../data/models/player.dart';
 import 'day_candidates_list_tile.dart';
-import '../../../../common/list_view_separator.dart';
+import '../../../../../common/list_view_separator.dart';
 
 class DayCandidatesListView extends StatelessWidget {
   const DayCandidatesListView({

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ya_mafia/core/theme/tailor_theme/my_theme.dart';
 
-import '../../../../../core/constants.dart';
-import '../../../../../data/models/player.dart';
-import '../../../../blocs/day_bloc/day_bloc.dart';
+import '../../../../../../core/constants.dart';
+import '../../../../../../data/models/player.dart';
+import '../../../../../blocs/day_bloc/day_bloc.dart';
 
 class ListTileWithRadio extends StatelessWidget {
   const ListTileWithRadio({

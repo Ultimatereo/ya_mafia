@@ -3,13 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ya_mafia/core/constants.dart';
 import 'package:ya_mafia/presentation/blocs/game_bloc/game_bloc.dart';
 import 'package:ya_mafia/presentation/common/seemless_appbar.dart';
-import 'package:ya_mafia/presentation/pages/day/day_candidates_screen.dart/day_candidates_screen.dart';
-import 'package:ya_mafia/presentation/pages/day/day_decision_screen/day_decision_screen.dart';
-import 'package:ya_mafia/presentation/pages/day/players_data_provider.dart';
-import 'package:ya_mafia/presentation/pages/day/day_voting_screen/day_voting_screen.dart';
+import 'package:ya_mafia/presentation/pages/game/day/day_candidates_screen.dart/day_candidates_screen.dart';
+import 'package:ya_mafia/presentation/pages/game/day/day_decision_screen/day_decision_screen.dart';
+import 'package:ya_mafia/presentation/pages/game/day/players_data_provider.dart';
+import 'package:ya_mafia/presentation/pages/game/day/day_voting_screen/day_voting_screen.dart';
 
-import '../../../data/models/player.dart';
-import '../../blocs/day_bloc/day_bloc.dart';
+import '../../../../data/models/player.dart';
+import '../../../blocs/day_bloc/day_bloc.dart';
 
 class DayScreenArgs {
   final int? dayTimeInSec;

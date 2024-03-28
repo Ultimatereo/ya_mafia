@@ -4,8 +4,8 @@ import 'package:ya_mafia/core/constants.dart';
 import 'package:ya_mafia/core/theme/tailor_theme/my_theme.dart';
 import 'package:ya_mafia/presentation/blocs/day_bloc/day_bloc.dart';
 
-import '../../../../data/models/player.dart';
-import '../../../../zgen/i18n/strings.g.dart';
+import '../../../../../data/models/player.dart';
+import '../../../../../zgen/i18n/strings.g.dart';
 import 'widgets/day_candidates_list_view.dart';
 
 class DayCandidatesScreen extends StatelessWidget {

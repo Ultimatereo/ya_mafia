@@ -1,11 +1,13 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:ya_mafia/core/constants.dart';
 import 'package:ya_mafia/core/theme/tailor_theme/my_theme.dart';
 import 'package:ya_mafia/presentation/common/seemless_appbar.dart';
-import 'package:ya_mafia/presentation/pages/choose_person_screen/choose_person_screen.dart';
+import 'package:ya_mafia/presentation/pages/game/night/choose_person_screen.dart';
 
-import '../../../core/theme/colors.dart';
-import '../../../zgen/i18n/strings.g.dart';
+import '../../../../core/theme/colors.dart';
+import '../../../../zgen/i18n/strings.g.dart';
 
 class NightVotingScreen extends StatelessWidget {
   const NightVotingScreen({super.key});
@@ -20,14 +22,16 @@ class NightVotingScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Expanded(
+              Flexible(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset(
-                      'assets/images/moon.webp',
-                      height: 160,
-                      width: 160,
+                    Flexible(
+                      child: Image.asset(
+                        'assets/images/moon.webp',
+                        height: 160,
+                        width: 160,
+                      ),
                     ),
                     const SizedBox(
                       height: appPadding,

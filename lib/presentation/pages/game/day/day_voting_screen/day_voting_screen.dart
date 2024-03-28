@@ -4,7 +4,7 @@ import 'package:ya_mafia/core/constants.dart';
 import 'package:ya_mafia/core/theme/tailor_theme/my_theme.dart';
 import 'package:ya_mafia/presentation/blocs/day_bloc/day_bloc.dart';
 import 'package:ya_mafia/presentation/common/flip_clock.dart';
-import 'package:ya_mafia/presentation/pages/day/players_data_provider.dart';
+import 'package:ya_mafia/presentation/pages/game/day/players_data_provider.dart';
 import 'package:ya_mafia/zgen/i18n/strings.g.dart';
 
 class DayVotingScreen extends StatelessWidget {

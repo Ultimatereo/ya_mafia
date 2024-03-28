@@ -4,8 +4,8 @@ import 'package:ya_mafia/presentation/common/flip_clock.dart';
 import 'package:ya_mafia/presentation/common/seemless_appbar.dart';
 import 'package:ya_mafia/zgen/i18n/strings.g.dart';
 
-import '../../../core/constants.dart';
-import '../../../data/models/player.dart';
+import '../../../../core/constants.dart';
+import '../../../../data/models/player.dart';
 import 'widgets/image_in_black_n_white.dart';
 
 class DeathScreen extends StatelessWidget {
