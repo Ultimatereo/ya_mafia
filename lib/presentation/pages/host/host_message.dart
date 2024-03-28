@@ -24,7 +24,9 @@ class _HostMessageState extends State<HostMessage> {
   @override
   void initState() {
     super.initState();
-    _future = initTTS();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      initTTS();
+    });
     _flutterTts.setProgressHandler((text, start, end, word) {
       setState(() {
         _currentWordStart = start;
@@ -34,21 +36,28 @@ class _HostMessageState extends State<HostMessage> {
   }
 
   Future<void> initTTS() async {
-    await _flutterTts.getVoices.then((data) async {
+    await _flutterTts.getVoices.then((data) {
       // await Future.delayed(const Duration(seconds: 10));
       final List<Map<String, String>> voices = List<Map>.from(data)
           .map((Map m) => m.map((key, value) =>
               MapEntry<String, String>(key.toString(), value.toString())))
           .toList();
       for (Map<String, String> voice in voices) {
-        String key =
-            voice["locale"]?.substring(0, voice["locale"]?.indexOf('-')) ??
-                "en";
-        _voices.putIfAbsent(key, () => <Map<String, String>>[]);
-        _voices[key]!.add(voice);
+        try {
+          String key =
+              voice["locale"]?.substring(0, voice["locale"]?.indexOf('-')) ??
+                  "en";
+          _voices.putIfAbsent(key, () => <Map<String, String>>[]);
+          _voices[key]!.add(voice);
+        } catch (e) {
+          print(e);
+        }
       }
-      _selectedVoice = _voices[context.t.language]?.first;
-      setVoice(_voices[context.t.language]?.first);
+      setState(() {
+        _selectedVoice = _voices[context.t.language]?.first;
+        setVoice(_voices[context.t.language]?.first);
+        _flutterTts.speak(str);
+      });
     });
   }
 
@@ -61,16 +70,16 @@ class _HostMessageState extends State<HostMessage> {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: _future,
-      builder: (context, snapshot) {
-        if (snapshot.connectionState == ConnectionState.done) {
-          // _flutterTts.speak(str);
-          return _buildLanguageChoiceAndText(context);
-        }
-        return const LinearProgressIndicator();
-      },
-    );
+    // return FutureBuilder(
+    //   future: _future,
+    //   builder: (context, snapshot) {
+    //     if (snapshot.connectionState == ConnectionState.done) {
+    //       return _buildLanguageChoiceAndText(context);
+    //     }
+    //     return const LinearProgressIndicator();
+    //   },
+    // );
+    return _buildLanguageChoiceAndText(context);
   }
 
   Widget _buildLanguageChoiceAndText(BuildContext context) {
@@ -155,12 +164,13 @@ class _HostMessageState extends State<HostMessage> {
         });
       },
       dropdownMenuEntries:
-          _voices[context.t.language]!.map((Map<String, String> voice) {
-        return DropdownMenuEntry<Map<String, String>>(
-          value: voice,
-          label: voice["name"] ?? "unknown",
-        );
-      }).toList(),
+          _voices[context.t.language]?.map((Map<String, String> voice) {
+                return DropdownMenuEntry<Map<String, String>>(
+                  value: voice,
+                  label: voice["name"] ?? "unknown",
+                );
+              }).toList() ??
+              [],
     );
   }
 }
