@@ -63,6 +63,7 @@ buttonText:
   skip: Skip
   thx: Thank you!
   endGame: End game
+  next: Next
 
 candidates: Candidates
 whoDiedDay: Who will die on this beautiful day?
@@ -90,3 +91,11 @@ gameResult:
   maniacWon:
     title: The maniac won!
     subtitle: This is a success!
+
+gameRules:
+  one: Set the number of players and set up timers for day and night discussions. Select roles by increasing or decreasing their number, and switch additional settings for specific rules of the game.
+  two: Enter your name and select your character's smiley face. Next, your role is revealed; for example, if you are a mafia, secretly develop a strategy to outsmart others. After your role is known, pass the device to the next player to continue.
+  three: Confirm when all players are ready to start the game. During the day, players discuss and use the app to vote for someone they suspect of belonging to the mafia. After voting, confirm your choice and proceed to the results.
+  four: At night, give the device to each player so that they secretly perform the action of their role.
+  five: When a player has been eliminated, their identity is revealed on the screen. They are given 30 seconds for their final words. Press "Goodbye" to continue the game after they've spoken.
+  six: The game concludes with a victory screen showcasing which side has triumphed. Celebrate your win or reflect on the game, then tap "End Game" to close out the session and perhaps start a new adventure!

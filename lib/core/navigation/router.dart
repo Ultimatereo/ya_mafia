@@ -17,6 +17,8 @@ import 'package:ya_mafia/presentation/pages/game/night/night_voting_screen.dart'
 import 'package:ya_mafia/presentation/pages/game/setup/setup_screen.dart';
 import 'package:ya_mafia/presentation/pages/game/widgets/animated_sky.dart';
 import 'package:ya_mafia/presentation/pages/home/home_screen.dart';
+import 'package:ya_mafia/presentation/pages/game/night/night_voting_screen.dart';
+import 'package:ya_mafia/presentation/pages/rules/game_rules_screen.dart';
 import 'package:ya_mafia/presentation/pages/game/night/night_player_confirm_screen.dart';
 import 'package:ya_mafia/presentation/pages/settings_screen/settings_screen.dart';
 import '../../data/models/player.dart';
@@ -34,6 +36,13 @@ final router = GoRouter(
         child: HomeScreen(),
       ),
       routes: [
+        GoRoute(
+          path: 'rules',
+          name: 'rules',
+          pageBuilder: (context, state) => const MaterialPage(
+            child: GameRulesScreen(),
+          ),
+        ),
         GoRoute(
           path: 'settings',
           name: 'settings',
