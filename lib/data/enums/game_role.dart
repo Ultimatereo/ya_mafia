@@ -50,4 +50,21 @@ extension GameRoleExtension on GameRole {
       //   return context.t.roles.don.descr;
     }
   }
+
+  String path() {
+    switch (this) {
+      case GameRole.mafia:
+        return 'assets/images/mafia_icons/mafia.webp';
+      case GameRole.citizen:
+        return 'assets/images/mafia_icons/citizen.webp';
+      case GameRole.doctor:
+        return 'assets/images/mafia_icons/doctor.webp';
+      case GameRole.sheriff:
+        return 'assets/images/mafia_icons/sheriff.webp';
+      case GameRole.maniac:
+        return 'assets/images/mafia_icons/maniac.webp';
+      case GameRole.prostitute:
+        return 'assets/images/mafia_icons/prostitute.webp';
+    }
+  }
 }
