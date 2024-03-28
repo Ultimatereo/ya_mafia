@@ -14,4 +14,5 @@ class Nav {
         extra: args,
       );
   static goCandidatesScreen() => _context.goNamed('day-candidates-screen');
+  static goHost() => _context.goNamed("/host");
 }

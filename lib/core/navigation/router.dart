@@ -2,12 +2,12 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ya_mafia/presentation/pages/day/day_screen.dart';
-
 import 'package:ya_mafia/presentation/pages/game/setup/setup_screen.dart';
 import 'package:ya_mafia/presentation/pages/home/home_screen.dart';
 import 'package:ya_mafia/presentation/pages/night_voting_screen.dart/night_voting_screen.dart';
 import 'package:ya_mafia/presentation/pages/settings_screen/settings_screen.dart';
 
+import '../../presentation/pages/host/host_message.dart';
 import '../../presentation/pages/mafia_discussion_screen/mafia_discussion_screen.dart';
 
 final rootNavigationKey = GlobalKey<NavigatorState>();
@@ -69,5 +69,12 @@ final router = GoRouter(
         child: NightVotingScreen(),
       ),
     ),
+    // GoRoute(
+    //   path: '/message',
+    //   name: 'message',
+    //   pageBuilder: (context, state) => const MaterialPage(
+    //     child: HostMessageScreen(),
+    //   ),
+    // ),
   ],
 );
