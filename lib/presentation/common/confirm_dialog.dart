@@ -24,16 +24,18 @@ Future<bool> confirmDialog(BuildContext context, {required String text}) async {
             ),
           ),
           actions: [
-            FilledButton.tonal(
-              onPressed: () {
-                check = true;
-                Navigator.of(context).pop();
-              },
-              child: Text(
-                context.t.buttonText.confirm,
-                style: context.dialogActionStyle,
-              ),
-            )
+            Builder(builder: (context) {
+              return FilledButton.tonal(
+                onPressed: () {
+                  check = true;
+                  Navigator.of(context).pop();
+                },
+                child: Text(
+                  context.t.buttonText.confirm,
+                  style: context.dialogActionStyle,
+                ),
+              );
+            })
           ],
         );
       });
