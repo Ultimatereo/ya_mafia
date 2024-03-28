@@ -52,7 +52,9 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
   void _decrementPlayerCount(Emitter<SettingsState> emit) {
     final currentState = state;
     final newNumberOfPlayers = currentState.settings.numberOfPlayers - 1;
-    if (newNumberOfPlayers > 1) {
+    final numberOfRolesSelected =
+        currentState.settings.roles.values.fold(0, (prev, curr) => prev + curr);
+    if (newNumberOfPlayers > 1 && numberOfRolesSelected <= newNumberOfPlayers) {
       final newSettings =
           currentState.settings.copyWith(numberOfPlayers: newNumberOfPlayers);
       emit(SettingsState.editing(settings: newSettings));

@@ -20,6 +20,7 @@ class DayTimeColumn extends StatelessWidget {
     return Column(
       children: [
         ListTile(
+          contentPadding: EdgeInsets.zero,
           title: Text(
             context.t.setDayTimer,
             style: context.listTileTextStyle,

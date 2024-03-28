@@ -27,10 +27,16 @@ class _RoleAnnouncerState extends State<RoleAnnouncer> {
               child: Column(
                 children: [
                   const SizedBox(height: appPadding * 3),
-                  const SizedBox(
+                  SizedBox(
                     height: 150,
                     width: 150,
-                    child: Placeholder(),
+                    child: widget.currentPlayerRole != null
+                        ? ClipRRect(
+                            borderRadius:
+                                BorderRadius.circular(listTileCircularRadius),
+                            child:
+                                Image.asset(widget.currentPlayerRole!.path()))
+                        : const Placeholder(),
                   ),
                   const SizedBox(height: appPadding * 2),
                   Text(
