@@ -64,10 +64,7 @@ class _HostMessageState extends State<HostMessage> {
         if (snapshot.connectionState == ConnectionState.done) {
           return _buildLanguageChoiceAndText(context);
         }
-        return const Padding(
-          padding: EdgeInsets.all(50),
-          child: CircularProgressIndicator(),
-        );
+        return const CircularProgressIndicator();
       },
     );
   }
