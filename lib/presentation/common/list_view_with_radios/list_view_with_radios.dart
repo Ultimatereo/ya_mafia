@@ -8,22 +8,30 @@ class ListViewWithRadios extends StatelessWidget {
   const ListViewWithRadios({
     super.key,
     required this.players,
+    this.selectedindex,
+    required this.onTap,
+    this.padding,
   });
 
   final List<Player> players;
+  final int? selectedindex;
+  final void Function(int?) onTap;
+  final EdgeInsets? padding;
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: ListView.separated(
-        itemBuilder: (context, index) {
-          return ListTileWithRadio(
-            player: players[index],
-          );
-        },
-        separatorBuilder: (context, index) => const ListViewSeparator(),
-        itemCount: players.length,
-      ),
+    return ListView.separated(
+      padding: padding,
+      itemBuilder: (context, index) {
+        return ListTileWithRadio(
+          selectedIndex: selectedindex,
+          player: players[index],
+          index: index,
+          onTap: onTap,
+        );
+      },
+      separatorBuilder: (context, index) => const ListViewSeparator(),
+      itemCount: players.length,
     );
   }
 }

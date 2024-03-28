@@ -5,8 +5,6 @@ import 'package:ya_mafia/core/theme/tailor_theme/my_theme.dart';
 import 'package:ya_mafia/presentation/common/seemless_appbar.dart';
 import 'package:ya_mafia/zgen/i18n/strings.g.dart';
 
-import '../host/host_message.dart';
-
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
@@ -38,17 +36,10 @@ class HomeScreen extends StatelessWidget {
                 const PlayButton(),
                 const SizedBox(height: appPadding),
                 TextButton(
-                  onPressed: () {
-                    Navigator.of(context).push(
-                        MaterialPageRoute(
-                            builder: (context) => const HostMessage()
-                        )
-                    );
-                  },
-                  child: Text(
-                    context.t.home.rules,
-                  ),
-                ),
+                    onPressed: () {
+                      Nav.goRules();
+                    },
+                    child: Text(context.t.home.rules)),
               ],
             ),
           ),

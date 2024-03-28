@@ -15,16 +15,24 @@ class DayBloc extends Bloc<DayEvent, DayState> {
     on<DayEvent>((event, emit) {
       event.map(
         dayStarted: (value) {
-          emit(DayState.voting(seconds: value.seconds));
+          emit(
+            DayState.voting(seconds: value.seconds),
+          );
         },
         candidatesSelectionOpened: (value) {
           _players = value.players;
-          emit(DayState.candidatesChanged(players: value.players));
+          emit(
+            DayState.candidatesChanged(
+              players: value.players,
+            ),
+          );
         },
         candidatesSelectionChanged: (value) {
           _players = _players.map((player) {
             if (player.id == value.id) {
-              return player.copyWith(isSelectedForDeath: value.isSelected);
+              return player.copyWith(
+                isSelectedForDeath: value.isSelected,
+              );
             } else {
               return player;
             }
@@ -37,10 +45,19 @@ class DayBloc extends Bloc<DayEvent, DayState> {
                 (element) => element.isSelectedForDeath,
               )
               .toList();
-          emit(DayState.candidatesAssigned(players: candidates));
+          if (candidates.isNotEmpty) {
+            emit(DayState.candidatesAssigned(
+              players: candidates,
+              player: value.player,
+            ));
+          }
         },
         candidateForDeathSelected: (value) {
-          emit(DayState.candidateForDeathSelected(player: value.player));
+          emit(
+            DayState.candidateForDeathSelected(
+              player: value.player,
+            ),
+          );
         },
       );
     });

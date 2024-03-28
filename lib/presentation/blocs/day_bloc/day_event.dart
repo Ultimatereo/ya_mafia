@@ -15,6 +15,7 @@ class DayEvent with _$DayEvent {
   }) = _candidatesSelectionChanged;
   const factory DayEvent.candidatesAssigned({
     required List<Player> players,
+    required Player? player,
   }) = _candidatesAssigned;
   const factory DayEvent.candidateForDeathSelected({
     required Player player,

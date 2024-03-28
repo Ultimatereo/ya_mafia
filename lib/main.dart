@@ -5,6 +5,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:ya_mafia/core/navigation/router.dart';
 import 'package:ya_mafia/presentation/blocs/day_bloc/day_bloc.dart';
 import 'package:ya_mafia/presentation/blocs/game_bloc/game_bloc.dart';
+import 'package:ya_mafia/presentation/blocs/night_bloc/night_bloc.dart';
 import 'package:ya_mafia/presentation/blocs/settings_bloc/settings_bloc.dart';
 
 import 'core/theme/dark_theme.dart';
@@ -47,6 +48,9 @@ class MainApp extends StatelessWidget {
         ),
         BlocProvider<DayBloc>(
           create: (context) => DayBloc(),
+        ),
+        BlocProvider<NightBloc>(
+          create: (context) => NightBloc(),
         ),
       ],
       child: MaterialApp.router(
