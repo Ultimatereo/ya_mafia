@@ -28,4 +28,6 @@ class Nav {
         'lobby',
         extra: players,
       );
+
+  static goHome() => _context.goNamed('/');
 }
