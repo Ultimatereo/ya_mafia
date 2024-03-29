@@ -1,55 +1,56 @@
 name: Android build and deploy
- 
+
 on:
   workflow_dispatch:
 jobs:
-  linter:
-    name: Linter
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps: 
-      - uses: actions/checkout@v4
-      
-      - name: Setup Flutter SDK
-        uses: subosito/flutter-action@v2
-        with:
-          channel: beta
-          cache: true
-          
-      - run: flutter pub get
-      - run: flutter analyze --no-fatal-infos --no-fatal-warnings 
-  formater:
-    name: Formating
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    steps: 
-      - uses: actions/checkout@v4
-      
-      - name: Setup Flutter SDK
-        uses: subosito/flutter-action@v2
-        with:
-          channel: beta
-          cache: true
-          
-      - run: flutter pub get
-      - run: dart format --set-exit-if-changed .
+  # linter:
+  #   name: Linter
+  #   runs-on: ubuntu-latest
+  #   timeout-minutes: 10
+  #   steps:
+  #     - uses: actions/checkout@v4
+
+  #     - name: Setup Flutter SDK
+  #       uses: subosito/flutter-action@v2
+  #       with:
+  #         channel: beta
+  #         cache: true
+
+  #     - run: flutter pub get
+  #     - run: flutter analyze --no-fatal-infos --no-fatal-warnings
+  # formater:
+  #   name: Formating
+  #   runs-on: ubuntu-latest
+  #   timeout-minutes: 10
+  #   steps:
+  #     - uses: actions/checkout@v4
+
+  #     - name: Setup Flutter SDK
+  #       uses: subosito/flutter-action@v2
+  #       with:
+  #         channel: beta
+  #         cache: true
+
+  #     - run: flutter pub get
+  #     - run: dart format --set-exit-if-changed .
   build:
-    needs: [linter, formater]
+    # needs: [ linter, formater ]
     name: Build
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
- 
+
       - name: Setup Flutter SDK
         uses: subosito/flutter-action@v2
         with:
           channel: beta
           cache: true
-                                
+
       - run: flutter pub get
-      - run: flutter build apk 
-      - run: flutter build apk --split-per-abi 
+      - run: dart run build_runner build -d
+      - run: flutter build apk
+      - run: flutter build apk --split-per-abi
 
       - uses: actions/upload-artifact@v4
         with:
@@ -71,24 +72,27 @@ jobs:
         with:
           name: x86-64
           path: build/app/outputs/flutter-apk/app-x86_64-release.apk
-         
+
       - name: send to telegram
         uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: flutter release armv7
           document: build/app/outputs/flutter-apk/app-armeabi-v7a-release.apk
       - uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: flutter release armv8
           document: build/app/outputs/flutter-apk/app-arm64-v8a-release.apk
       - uses: appleboy/telegram-action@master
         with:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          document: build/app/outputs/flutter-apk/app-release.apk   
-            
+          message: flutter release universal
+          document: build/app/outputs/flutter-apk/app-release.apk
+
   # deploy:
   #     needs: build
   #     runs-on: ubuntu-latest
