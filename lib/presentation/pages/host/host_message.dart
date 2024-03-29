@@ -142,11 +142,11 @@ class _HostMessageState extends State<HostMessage> {
                         style: context.listTileTextStyle
                             .copyWith(color: context.yellow),
                       ),
-                    if (_currentWordEnd != null)
-                      TextSpan(
-                        text: str.substring(_currentWordEnd!),
-                        style: context.listTileTextStyle,
-                      ),
+                    // if (_currentWordEnd != null)
+                    //   TextSpan(
+                    //     text: str.substring(_currentWordEnd!),
+                    //     style: context.listTileTextStyle,
+                    //   ),
                   ],
                 ),
               ),
