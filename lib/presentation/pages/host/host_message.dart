@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:ya_mafia/core/theme/tailor_theme/my_theme.dart';
+import 'package:ya_mafia/domain/prompt_builder.dart';
 import 'package:ya_mafia/zgen/i18n/strings.g.dart';
 
-const String str =
-    "Under the cloak of darkness, the Mafia set their sights on Anton, aiming to eliminate him from the town. However, just as their sinister plans were about to be realized, a vigilant Doctor intervened, rushing to Anton's aid and saving him from certain death. The town awakens to the news of Anton's miraculous escape, sparking a wave of relief and gratitude among the townspeople. Whispers of suspicion fill the air as they ponder who among them could be part of the ruthless Mafia. With tensions mounting, the town braces itself for another day of deception and deduction in their quest to root out the hidden threats lurking within their midst.";
+// const String str =
+//     "Under the cloak of darkness, the Mafia set their sights on Anton, aiming to eliminate him from the town. However, just as their sinister plans were about to be realized, a vigilant Doctor intervened, rushing to Anton's aid and saving him from certain death. The town awakens to the news of Anton's miraculous escape, sparking a wave of relief and gratitude among the townspeople. Whispers of suspicion fill the air as they ponder who among them could be part of the ruthless Mafia. With tensions mounting, the town braces itself for another day of deception and deduction in their quest to root out the hidden threats lurking within their midst.";
 
 class HostMessage extends StatefulWidget {
-  const HostMessage({super.key});
+  final String whoWasKilled;
+  final String whoWasSaved;
+  const HostMessage({super.key, required this.whoWasKilled, required this.whoWasSaved});
 
   @override
   State<HostMessage> createState() => _HostMessageState();
@@ -16,14 +19,17 @@ class HostMessage extends StatefulWidget {
 class _HostMessageState extends State<HostMessage> {
   final FlutterTts _flutterTts = FlutterTts();
   final TextEditingController voiceController = TextEditingController();
-
+  final PromptBuilder promptBuilder = PromptBuilder();
   Map<String, String>? _selectedVoice;
   final Map<String, List<Map<String, String>>> _voices = {};
   int? _currentWordStart, _currentWordEnd;
-
+  String? str;
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      createStr();
+    });
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       initTTS();
     });
@@ -33,6 +39,13 @@ class _HostMessageState extends State<HostMessage> {
         _currentWordEnd = end;
       });
     });
+  }
+
+  Future<void> createStr() async {
+
+      str = await promptBuilder.answer(context.t.language, widget.whoWasKilled, widget.whoWasSaved);
+      setState(() {
+      });
   }
 
   Future<void> initTTS() async {
@@ -56,7 +69,7 @@ class _HostMessageState extends State<HostMessage> {
       setState(() {
         _selectedVoice = _voices[context.t.language]?.first;
         setVoice(_voices[context.t.language]?.first);
-        _flutterTts.speak(str);
+        _flutterTts.speak(str!);
       });
     });
   }
@@ -92,7 +105,7 @@ class _HostMessageState extends State<HostMessage> {
           FloatingActionButton(
             onPressed: () {
               _flutterTts.stop();
-              _flutterTts.speak(str);
+              _flutterTts.speak(str!);
             },
             child: const Icon(Icons.replay_circle_filled),
           ),
@@ -132,13 +145,13 @@ class _HostMessageState extends State<HostMessage> {
                 text: TextSpan(
                   children: <TextSpan>[
                     TextSpan(
-                      text: str.substring(0, _currentWordStart),
+                      text: str!.substring(0, _currentWordStart),
                       style: context.listTileTextStyle,
                     ),
                     if (_currentWordStart != null)
                       TextSpan(
                         text:
-                            str.substring(_currentWordStart!, _currentWordEnd),
+                            str!.substring(_currentWordStart!, _currentWordEnd),
                         style: context.listTileTextStyle
                             .copyWith(color: context.yellow),
                       ),
