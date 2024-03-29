@@ -6,9 +6,8 @@ import 'package:ya_mafia/core/navigation/axis_animation.dart';
 import 'package:ya_mafia/core/navigation/confirmation_pop_scope.dart';
 import 'package:ya_mafia/core/navigation/delegate.dart';
 import 'package:ya_mafia/core/navigation/fade_animation.dart';
-import 'package:ya_mafia/data/enums/game_result.dart';
-import 'package:ya_mafia/presentation/pages/game/day/day_screen.dart';import 'package:ya_mafia/presentation/pages/game/death_screen/death_screen.dart';
-import 'package:ya_mafia/presentation/pages/game/endgame_screen.dart';
+import 'package:ya_mafia/presentation/pages/game/day/day_screen.dart';
+import 'package:ya_mafia/presentation/pages/game/death_screen/death_screen.dart';
 import 'package:ya_mafia/presentation/pages/game/lobby.dart';
 import 'package:ya_mafia/presentation/pages/game/night/choose_person_screen.dart';
 import 'package:ya_mafia/presentation/pages/game/night/night_voting_screen.dart';
@@ -20,8 +19,6 @@ import 'package:ya_mafia/presentation/pages/rules/game_rules_screen.dart';
 import 'package:ya_mafia/presentation/pages/game/night/night_player_confirm_screen.dart';
 import 'package:ya_mafia/presentation/pages/settings_screen/settings_screen.dart';
 
-import '../../presentation/pages/host/host_message.dart';
-import '../../presentation/pages/mafia_discussion_screen/mafia_discussion_screen.dart';
 import '../../data/models/player.dart';
 import '../../presentation/pages/game/night/mafia_discussion_screen.dart';
 
@@ -199,13 +196,13 @@ final router = GoRouter(
     //     child: DayCandidatesScreen(),
     //   ),
     // ),
-    GoRoute(
-      path: '/night-voting-screen',
-      name: 'night-voting-screen',
-      pageBuilder: (context, state) => const MaterialPage(
-        child: NightVotingScreen(),
-      ),
-    ),
+    // GoRoute(
+    //   path: '/night-voting-screen',
+    //   name: 'night-voting-screen',
+    //   pageBuilder: (context, state) => const MaterialPage(
+    //     child: NightVotingScreen(),
+    //   ),
+    // ),
     // GoRoute(
     //   path: '/message',
     //   name: 'message',
