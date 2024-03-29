@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ya_mafia/core/theme/tailor_theme/my_theme.dart';
 import 'package:ya_mafia/presentation/common/flip_clock.dart';
 import 'package:ya_mafia/presentation/common/seemless_appbar.dart';
+import 'package:ya_mafia/presentation/pages/host/host_message.dart';
 import 'package:ya_mafia/zgen/i18n/strings.g.dart';
 
 import '../../../../core/constants.dart';
@@ -67,7 +68,13 @@ class DeathScreen extends StatelessWidget {
                     height: appPadding * 3,
                   ),
                   ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).push(
+                          MaterialPageRoute(
+                              builder: (context) => const HostMessage()
+                          )
+                      );
+                    },
                     child: Text(
                       context.t.buttonText.goodbye,
                     ),

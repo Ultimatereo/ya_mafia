@@ -2,6 +2,8 @@ test: Тест
 settings: Настройки
 numberOfPlayers: Количество игроков
 setDayTimer: Установить таймер для обсуждений днем
+language: ru
+voice: Голос
 min: мин
 sec: сек
 day: День
