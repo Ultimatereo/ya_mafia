@@ -31,6 +31,7 @@ class _NightVotingScreenState extends State<NightVotingScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: const SeemlessAppBar(),
       body: Padding(
         padding: const EdgeInsets.all(appPadding),
@@ -62,7 +63,8 @@ class _NightVotingScreenState extends State<NightVotingScreen> {
                         const SizedBox(height: appPadding),
                         Text(
                           player.name,
-                          style: context.headline1,
+                          style:
+                              context.headline1.copyWith(color: Colors.white),
                         ),
                         const SizedBox(height: appPadding),
                         if (isCitizen)

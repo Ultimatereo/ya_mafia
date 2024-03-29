@@ -15,6 +15,7 @@ import 'package:ya_mafia/presentation/pages/game/night/choose_person_screen.dart
 import 'package:ya_mafia/presentation/pages/game/night/night_voting_screen.dart';
 
 import 'package:ya_mafia/presentation/pages/game/setup/setup_screen.dart';
+import 'package:ya_mafia/presentation/pages/game/twilight.dart';
 import 'package:ya_mafia/presentation/pages/game/widgets/animated_sky.dart';
 import 'package:ya_mafia/presentation/pages/home/home_screen.dart';
 import 'package:ya_mafia/presentation/pages/game/night/night_voting_screen.dart';
@@ -39,8 +40,9 @@ final router = GoRouter(
         GoRoute(
           path: 'rules',
           name: 'rules',
-          pageBuilder: (context, state) => const MaterialPage(
-            child: GameRulesScreen(),
+          pageBuilder: (context, state) => SharedAxisTransitionPage(
+            key: const ValueKey('rules'),
+            child: const GameRulesScreen(),
           ),
         ),
         GoRoute(
@@ -90,6 +92,13 @@ final router = GoRouter(
             child: DeathScreen(
               player: state.extra as Player,
             ),
+          ),
+        ),
+        GoRoute(
+          path: 'twilight',
+          name: 'twilight',
+          pageBuilder: (context, state) => NoTransitionPage(
+            child: Sky(isNight: state.extra as bool),
           ),
         ),
         GoRoute(
@@ -147,50 +156,6 @@ final router = GoRouter(
       ],
     ),
 
-    GoRoute(
-      path: '/day',
-      name: 'day',
-      pageBuilder: (context, state) => SharedAxisTransitionPage(
-        key: const ValueKey('game'),
-        transitionType: SharedAxisTransitionType.scaled,
-        child: ConfirmationPopScope(
-          child: AnimatedSky(
-            key: const ValueKey('day'),
-            child: Center(
-              child: ElevatedButton(
-                onPressed: () {
-                  Nav.goNight();
-                },
-                child: const Text('to Night'),
-              ),
-            ),
-          ),
-        ),
-      ),
-    ),
-    GoRoute(
-      path: '/night',
-      name: 'night',
-      pageBuilder: (context, state) => SharedAxisTransitionPage(
-        key: const ValueKey('game'),
-        transitionType: SharedAxisTransitionType.scaled,
-        child: ConfirmationPopScope(
-          // child: AnimatedSky(
-          //   key: const ValueKey('night'),
-          //   isNight: true,
-          //   child: Center(
-          //     child: ElevatedButton(
-          //       onPressed: () {
-          //         Nav.goDay();
-          //       },
-          //       child: const Text('to Day'),
-          //     ),
-          //   ),
-          // ),
-          child: MafiaDiscussionScreen(),
-        ),
-      ),
-    ),
     // GoRoute(
     //   path: '/day-candidates-screen',
     //   name: 'day-candidates-screen',

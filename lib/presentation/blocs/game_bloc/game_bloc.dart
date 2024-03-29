@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:ya_mafia/data/enums/game_role.dart';
+import 'package:ya_mafia/data/models/game_event.dart';
 import 'package:ya_mafia/data/models/settings.dart';
 
 import '../../../data/models/player.dart';
@@ -57,25 +58,59 @@ class GameBloc extends Bloc<GameEvent, GameState> {
   void _nightEnded(_NightEnded value, Emitter<GameState> emit) {
     state.maybeWhen(
       nightPhase: (players) {
+        var prostitute = value.result[GameRole.prostitute];
         var mafia = value.result[GameRole.mafia];
         var doctor = value.result[GameRole.doctor];
-        // var prostitute = value.result[GameRole.prostitute];
+        var maniac = value.result[GameRole.maniac];
+
+        final events = <Event>[];
 
         List<Player>? newPlayers;
-        if (mafia!.singleOrNull == null) {
-          // 3. не договорились
-        } else if (doctor != null &&
-            doctor.singleOrNull == doctor.singleOrNull) {
-          // вылечили
+
+        Set<int> corpsIds = {};
+
+        if (prostitute?.singleOrNull != null) {
+          events.add(
+            Event.prostituteVisited(
+              target: players.singleWhere(
+                (e) => e.id == prostitute!.single,
+              ),
+            ),
+          );
+        }
+
+        if (mafia?.singleOrNull == null) {
+          // не договорились
+          events.add(const Event.mafiaFailedToAgree());
         } else {
           // убили
-          newPlayers =
-              players.where((e) => e.id != mafia.singleOrNull).toList();
+          corpsIds.add(mafia!.single);
+        }
+
+        if (maniac?.singleOrNull != null) {
+          corpsIds.add(maniac!.single);
+        }
+
+        if (doctor?.singleOrNull != null) {
+          //вылечили
+          corpsIds.remove(doctor!.single);
+          events.add(const Event.playerSaved());
+        }
+
+        newPlayers = players.where((e) => !corpsIds.contains(e.id)).toList();
+
+        for (var e in corpsIds) {
+          events.add(
+            Event.playerKilled(
+              target: players.singleWhere((element) => element.id == e),
+            ),
+          );
         }
 
         emit(
-          GameState.dayPhase(
-            players: newPlayers ?? players,
+          GameState.nightEnd(
+            players: newPlayers,
+            result: events,
           ),
         );
       },

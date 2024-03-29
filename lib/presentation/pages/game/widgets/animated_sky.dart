@@ -9,10 +9,12 @@ class AnimatedSky extends StatelessWidget {
     super.key,
     this.isNight = false,
     required this.child,
+    this.padding,
   });
 
   final bool isNight;
   final Widget child;
+  final EdgeInsets? padding;
 
   @override
   Widget build(BuildContext context) {
@@ -33,20 +35,23 @@ class AnimatedSky extends StatelessWidget {
             isNight ? Colors.black : Colors.white,
             value,
           )!,
-          child: Stack(
-            children: [
-              Transform.translate(
-                offset:
-                    Offset(moonX + width / 2 - 150, moonY + width + topPadding),
-                child: isNight ? const Sun() : const Moon(),
-              ),
-              Transform.translate(
-                offset:
-                    Offset(sunX + width / 2 - 150, sunY + width + topPadding),
-                child: isNight ? const Moon() : const Sun(),
-              ),
-              child!,
-            ],
+          child: Padding(
+            padding: padding ?? EdgeInsets.zero,
+            child: Stack(
+              children: [
+                Transform.translate(
+                  offset: Offset(
+                      moonX + width / 2 - 150, moonY + width + topPadding),
+                  child: isNight ? const Sun() : const Moon(),
+                ),
+                Transform.translate(
+                  offset:
+                      Offset(sunX + width / 2 - 150, sunY + width + topPadding),
+                  child: isNight ? const Moon() : const Sun(),
+                ),
+                child!,
+              ],
+            ),
           ),
         );
       },

@@ -27,7 +27,7 @@ class Nav {
       );
   static goCandidatesScreen() => _context.goNamed('day-candidates-screen');
 
-  static goDay() => _context.goNamed('day');
+  static goDay() => _context.goNamed('day-screen');
   static goNight({List<Player>? players, Color? prevBackground}) =>
       _context.goNamed('mafia-discussion-screen', extra: (
         players,
@@ -43,6 +43,10 @@ class Nav {
         extra: (player, players),
       );
   static goChoosePlayer() => _context.goNamed('choose-player');
+
   static goHome() => _context.goNamed('/');
   static goRules() => _context.goNamed('rules');
+
+  static goTwilight({required bool isNight}) =>
+      _context.goNamed('twilight', extra: isNight);
 }

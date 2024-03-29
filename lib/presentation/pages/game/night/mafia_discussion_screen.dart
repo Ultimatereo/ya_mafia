@@ -41,78 +41,81 @@ class _MafiaDiscussionScreenState extends State<MafiaDiscussionScreen> {
   Widget build(BuildContext context) {
     var settings = context.read<SettingsBloc>().state.settings;
 
-    return BlocListener<NightBloc, NightState>(
-      listener: (context, state) {
-        state.whenOrNull(
-          voting: (currentPlayerIndex, players, playersRemaining, result) {
-            Nav.goNightConfirm();
-          },
-          end: (result) => Nav.goDay(),
-        );
-      },
-      child: TweenAnimationBuilder(
-        duration: Durations.extralong4,
-        tween: Tween<double>(begin: 0, end: 1),
-        builder: (context, value, child) {
-          return Scaffold(
-            backgroundColor: Color.lerp(
-              widget.prevBackgroundColor,
-              Colors.black,
-              value,
-            ),
-            body: child,
+    return Scaffold(
+      backgroundColor: Colors.black,
+      body: BlocListener<NightBloc, NightState>(
+        listener: (context, state) {
+          state.whenOrNull(
+            voting: (currentPlayerIndex, players, playersRemaining, result) {
+              Nav.goNightConfirm();
+            },
+            end: (result) => Nav.goDay(),
           );
         },
-        child: Stack(
-          children: [
-            const Positioned(
-              top: 100,
-              left: 0,
-              right: 0,
-              child: Moon(),
-            ),
-            Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Spacer(flex: 3),
-                  Text(
-                    context.t.night,
-                    style: context.headline1Yellow,
-                  ),
-                  const SizedBox(height: appPadding * 2),
-                  CustomFlipClock(
-                    duration: Duration(
-                      seconds: settings.gameTimer.nightTimeInSec,
+        child: TweenAnimationBuilder(
+          duration: Durations.extralong4,
+          tween: Tween<double>(begin: 0, end: 1),
+          builder: (context, value, child) {
+            return Scaffold(
+              backgroundColor: Color.lerp(
+                widget.prevBackgroundColor,
+                Colors.black,
+                value,
+              ),
+              body: child,
+            );
+          },
+          child: Stack(
+            children: [
+              const Positioned(
+                top: 100,
+                left: 0,
+                right: 0,
+                child: Moon(),
+              ),
+              Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const Spacer(flex: 3),
+                    Text(
+                      context.t.night,
+                      style: context.headline1Yellow,
                     ),
-                    onDoneFunction: () {
-                      context.read<NightBloc>().add(
-                            const NightEvent.mafiaDiscussionEnded(),
-                          );
-                    },
-                  ),
-                  const SizedBox(height: appPadding * 2),
-                  Text(
-                    context.t.mafiaChooses,
-                    style: context.headline1.copyWith(color: green),
-                  ),
-                  Expanded(
-                    child: Center(
-                      child: ElevatedButton(
-                        onPressed: () {
-                          context.read<NightBloc>().add(
-                                const NightEvent.mafiaDiscussionEnded(),
-                              );
-                        },
-                        child: Text(context.t.buttonText.skip),
+                    const SizedBox(height: appPadding * 2),
+                    CustomFlipClock(
+                      duration: Duration(
+                        seconds: settings.gameTimer.nightTimeInSec,
+                      ),
+                      onDoneFunction: () {
+                        context.read<NightBloc>().add(
+                              const NightEvent.mafiaDiscussionEnded(),
+                            );
+                      },
+                    ),
+                    const SizedBox(height: appPadding * 2),
+                    Text(
+                      context.t.mafiaChooses,
+                      style: context.headline1.copyWith(color: green),
+                    ),
+                    Expanded(
+                      child: Center(
+                        child: ElevatedButton(
+                          onPressed: () {
+                            context.read<NightBloc>().add(
+                                  const NightEvent.mafiaDiscussionEnded(),
+                                );
+                          },
+                          child: Text(context.t.buttonText.skip),
+                        ),
                       ),
                     ),
-                  ),
-                  SizedBox(height: MediaQuery.viewPaddingOf(context).bottom),
-                ],
+                    SizedBox(height: MediaQuery.viewPaddingOf(context).bottom),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

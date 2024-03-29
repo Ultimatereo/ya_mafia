@@ -919,7 +919,10 @@ mixin _$GameState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(List<Player> players) dayPhase,
+    required TResult Function(List<Player> players, Event result) dayEnd,
     required TResult Function(List<Player> players) nightPhase,
+    required TResult Function(List<Player> players, List<Event> result)
+        nightEnd,
     required TResult Function() endGame,
   }) =>
       throw _privateConstructorUsedError;
@@ -927,7 +930,9 @@ mixin _$GameState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(List<Player> players)? dayPhase,
+    TResult? Function(List<Player> players, Event result)? dayEnd,
     TResult? Function(List<Player> players)? nightPhase,
+    TResult? Function(List<Player> players, List<Event> result)? nightEnd,
     TResult? Function()? endGame,
   }) =>
       throw _privateConstructorUsedError;
@@ -935,7 +940,9 @@ mixin _$GameState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(List<Player> players)? dayPhase,
+    TResult Function(List<Player> players, Event result)? dayEnd,
     TResult Function(List<Player> players)? nightPhase,
+    TResult Function(List<Player> players, List<Event> result)? nightEnd,
     TResult Function()? endGame,
     required TResult orElse(),
   }) =>
@@ -944,7 +951,9 @@ mixin _$GameState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_DayPhase value) dayPhase,
+    required TResult Function(_DayEnd value) dayEnd,
     required TResult Function(_NightPhase value) nightPhase,
+    required TResult Function(_NightEnd value) nightEnd,
     required TResult Function(_EndGame value) endGame,
   }) =>
       throw _privateConstructorUsedError;
@@ -952,7 +961,9 @@ mixin _$GameState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_DayPhase value)? dayPhase,
+    TResult? Function(_DayEnd value)? dayEnd,
     TResult? Function(_NightPhase value)? nightPhase,
+    TResult? Function(_NightEnd value)? nightEnd,
     TResult? Function(_EndGame value)? endGame,
   }) =>
       throw _privateConstructorUsedError;
@@ -960,7 +971,9 @@ mixin _$GameState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_DayPhase value)? dayPhase,
+    TResult Function(_DayEnd value)? dayEnd,
     TResult Function(_NightPhase value)? nightPhase,
+    TResult Function(_NightEnd value)? nightEnd,
     TResult Function(_EndGame value)? endGame,
     required TResult orElse(),
   }) =>
@@ -1024,7 +1037,10 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(List<Player> players) dayPhase,
+    required TResult Function(List<Player> players, Event result) dayEnd,
     required TResult Function(List<Player> players) nightPhase,
+    required TResult Function(List<Player> players, List<Event> result)
+        nightEnd,
     required TResult Function() endGame,
   }) {
     return initial();
@@ -1035,7 +1051,9 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(List<Player> players)? dayPhase,
+    TResult? Function(List<Player> players, Event result)? dayEnd,
     TResult? Function(List<Player> players)? nightPhase,
+    TResult? Function(List<Player> players, List<Event> result)? nightEnd,
     TResult? Function()? endGame,
   }) {
     return initial?.call();
@@ -1046,7 +1064,9 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(List<Player> players)? dayPhase,
+    TResult Function(List<Player> players, Event result)? dayEnd,
     TResult Function(List<Player> players)? nightPhase,
+    TResult Function(List<Player> players, List<Event> result)? nightEnd,
     TResult Function()? endGame,
     required TResult orElse(),
   }) {
@@ -1061,7 +1081,9 @@ class _$InitialImpl implements _Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_DayPhase value) dayPhase,
+    required TResult Function(_DayEnd value) dayEnd,
     required TResult Function(_NightPhase value) nightPhase,
+    required TResult Function(_NightEnd value) nightEnd,
     required TResult Function(_EndGame value) endGame,
   }) {
     return initial(this);
@@ -1072,7 +1094,9 @@ class _$InitialImpl implements _Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_DayPhase value)? dayPhase,
+    TResult? Function(_DayEnd value)? dayEnd,
     TResult? Function(_NightPhase value)? nightPhase,
+    TResult? Function(_NightEnd value)? nightEnd,
     TResult? Function(_EndGame value)? endGame,
   }) {
     return initial?.call(this);
@@ -1083,7 +1107,9 @@ class _$InitialImpl implements _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_DayPhase value)? dayPhase,
+    TResult Function(_DayEnd value)? dayEnd,
     TResult Function(_NightPhase value)? nightPhase,
+    TResult Function(_NightEnd value)? nightEnd,
     TResult Function(_EndGame value)? endGame,
     required TResult orElse(),
   }) {
@@ -1171,7 +1197,10 @@ class _$DayPhaseImpl implements _DayPhase {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(List<Player> players) dayPhase,
+    required TResult Function(List<Player> players, Event result) dayEnd,
     required TResult Function(List<Player> players) nightPhase,
+    required TResult Function(List<Player> players, List<Event> result)
+        nightEnd,
     required TResult Function() endGame,
   }) {
     return dayPhase(players);
@@ -1182,7 +1211,9 @@ class _$DayPhaseImpl implements _DayPhase {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(List<Player> players)? dayPhase,
+    TResult? Function(List<Player> players, Event result)? dayEnd,
     TResult? Function(List<Player> players)? nightPhase,
+    TResult? Function(List<Player> players, List<Event> result)? nightEnd,
     TResult? Function()? endGame,
   }) {
     return dayPhase?.call(players);
@@ -1193,7 +1224,9 @@ class _$DayPhaseImpl implements _DayPhase {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(List<Player> players)? dayPhase,
+    TResult Function(List<Player> players, Event result)? dayEnd,
     TResult Function(List<Player> players)? nightPhase,
+    TResult Function(List<Player> players, List<Event> result)? nightEnd,
     TResult Function()? endGame,
     required TResult orElse(),
   }) {
@@ -1208,7 +1241,9 @@ class _$DayPhaseImpl implements _DayPhase {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_DayPhase value) dayPhase,
+    required TResult Function(_DayEnd value) dayEnd,
     required TResult Function(_NightPhase value) nightPhase,
+    required TResult Function(_NightEnd value) nightEnd,
     required TResult Function(_EndGame value) endGame,
   }) {
     return dayPhase(this);
@@ -1219,7 +1254,9 @@ class _$DayPhaseImpl implements _DayPhase {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_DayPhase value)? dayPhase,
+    TResult? Function(_DayEnd value)? dayEnd,
     TResult? Function(_NightPhase value)? nightPhase,
+    TResult? Function(_NightEnd value)? nightEnd,
     TResult? Function(_EndGame value)? endGame,
   }) {
     return dayPhase?.call(this);
@@ -1230,7 +1267,9 @@ class _$DayPhaseImpl implements _DayPhase {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_DayPhase value)? dayPhase,
+    TResult Function(_DayEnd value)? dayEnd,
     TResult Function(_NightPhase value)? nightPhase,
+    TResult Function(_NightEnd value)? nightEnd,
     TResult Function(_EndGame value)? endGame,
     required TResult orElse(),
   }) {
@@ -1248,6 +1287,194 @@ abstract class _DayPhase implements GameState {
   List<Player> get players;
   @JsonKey(ignore: true)
   _$$DayPhaseImplCopyWith<_$DayPhaseImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$DayEndImplCopyWith<$Res> {
+  factory _$$DayEndImplCopyWith(
+          _$DayEndImpl value, $Res Function(_$DayEndImpl) then) =
+      __$$DayEndImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<Player> players, Event result});
+
+  $EventCopyWith<$Res> get result;
+}
+
+/// @nodoc
+class __$$DayEndImplCopyWithImpl<$Res>
+    extends _$GameStateCopyWithImpl<$Res, _$DayEndImpl>
+    implements _$$DayEndImplCopyWith<$Res> {
+  __$$DayEndImplCopyWithImpl(
+      _$DayEndImpl _value, $Res Function(_$DayEndImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? players = null,
+    Object? result = null,
+  }) {
+    return _then(_$DayEndImpl(
+      players: null == players
+          ? _value._players
+          : players // ignore: cast_nullable_to_non_nullable
+              as List<Player>,
+      result: null == result
+          ? _value.result
+          : result // ignore: cast_nullable_to_non_nullable
+              as Event,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $EventCopyWith<$Res> get result {
+    return $EventCopyWith<$Res>(_value.result, (value) {
+      return _then(_value.copyWith(result: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$DayEndImpl implements _DayEnd {
+  const _$DayEndImpl(
+      {required final List<Player> players, required this.result})
+      : _players = players;
+
+  final List<Player> _players;
+  @override
+  List<Player> get players {
+    if (_players is EqualUnmodifiableListView) return _players;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_players);
+  }
+
+  @override
+  final Event result;
+
+  @override
+  String toString() {
+    return 'GameState.dayEnd(players: $players, result: $result)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$DayEndImpl &&
+            const DeepCollectionEquality().equals(other._players, _players) &&
+            (identical(other.result, result) || other.result == result));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(_players), result);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$DayEndImplCopyWith<_$DayEndImpl> get copyWith =>
+      __$$DayEndImplCopyWithImpl<_$DayEndImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(List<Player> players) dayPhase,
+    required TResult Function(List<Player> players, Event result) dayEnd,
+    required TResult Function(List<Player> players) nightPhase,
+    required TResult Function(List<Player> players, List<Event> result)
+        nightEnd,
+    required TResult Function() endGame,
+  }) {
+    return dayEnd(players, result);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(List<Player> players)? dayPhase,
+    TResult? Function(List<Player> players, Event result)? dayEnd,
+    TResult? Function(List<Player> players)? nightPhase,
+    TResult? Function(List<Player> players, List<Event> result)? nightEnd,
+    TResult? Function()? endGame,
+  }) {
+    return dayEnd?.call(players, result);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(List<Player> players)? dayPhase,
+    TResult Function(List<Player> players, Event result)? dayEnd,
+    TResult Function(List<Player> players)? nightPhase,
+    TResult Function(List<Player> players, List<Event> result)? nightEnd,
+    TResult Function()? endGame,
+    required TResult orElse(),
+  }) {
+    if (dayEnd != null) {
+      return dayEnd(players, result);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_DayPhase value) dayPhase,
+    required TResult Function(_DayEnd value) dayEnd,
+    required TResult Function(_NightPhase value) nightPhase,
+    required TResult Function(_NightEnd value) nightEnd,
+    required TResult Function(_EndGame value) endGame,
+  }) {
+    return dayEnd(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_DayPhase value)? dayPhase,
+    TResult? Function(_DayEnd value)? dayEnd,
+    TResult? Function(_NightPhase value)? nightPhase,
+    TResult? Function(_NightEnd value)? nightEnd,
+    TResult? Function(_EndGame value)? endGame,
+  }) {
+    return dayEnd?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_DayPhase value)? dayPhase,
+    TResult Function(_DayEnd value)? dayEnd,
+    TResult Function(_NightPhase value)? nightPhase,
+    TResult Function(_NightEnd value)? nightEnd,
+    TResult Function(_EndGame value)? endGame,
+    required TResult orElse(),
+  }) {
+    if (dayEnd != null) {
+      return dayEnd(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _DayEnd implements GameState {
+  const factory _DayEnd(
+      {required final List<Player> players,
+      required final Event result}) = _$DayEndImpl;
+
+  List<Player> get players;
+  Event get result;
+  @JsonKey(ignore: true)
+  _$$DayEndImplCopyWith<_$DayEndImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1324,7 +1551,10 @@ class _$NightPhaseImpl implements _NightPhase {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(List<Player> players) dayPhase,
+    required TResult Function(List<Player> players, Event result) dayEnd,
     required TResult Function(List<Player> players) nightPhase,
+    required TResult Function(List<Player> players, List<Event> result)
+        nightEnd,
     required TResult Function() endGame,
   }) {
     return nightPhase(players);
@@ -1335,7 +1565,9 @@ class _$NightPhaseImpl implements _NightPhase {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(List<Player> players)? dayPhase,
+    TResult? Function(List<Player> players, Event result)? dayEnd,
     TResult? Function(List<Player> players)? nightPhase,
+    TResult? Function(List<Player> players, List<Event> result)? nightEnd,
     TResult? Function()? endGame,
   }) {
     return nightPhase?.call(players);
@@ -1346,7 +1578,9 @@ class _$NightPhaseImpl implements _NightPhase {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(List<Player> players)? dayPhase,
+    TResult Function(List<Player> players, Event result)? dayEnd,
     TResult Function(List<Player> players)? nightPhase,
+    TResult Function(List<Player> players, List<Event> result)? nightEnd,
     TResult Function()? endGame,
     required TResult orElse(),
   }) {
@@ -1361,7 +1595,9 @@ class _$NightPhaseImpl implements _NightPhase {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_DayPhase value) dayPhase,
+    required TResult Function(_DayEnd value) dayEnd,
     required TResult Function(_NightPhase value) nightPhase,
+    required TResult Function(_NightEnd value) nightEnd,
     required TResult Function(_EndGame value) endGame,
   }) {
     return nightPhase(this);
@@ -1372,7 +1608,9 @@ class _$NightPhaseImpl implements _NightPhase {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_DayPhase value)? dayPhase,
+    TResult? Function(_DayEnd value)? dayEnd,
     TResult? Function(_NightPhase value)? nightPhase,
+    TResult? Function(_NightEnd value)? nightEnd,
     TResult? Function(_EndGame value)? endGame,
   }) {
     return nightPhase?.call(this);
@@ -1383,7 +1621,9 @@ class _$NightPhaseImpl implements _NightPhase {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_DayPhase value)? dayPhase,
+    TResult Function(_DayEnd value)? dayEnd,
     TResult Function(_NightPhase value)? nightPhase,
+    TResult Function(_NightEnd value)? nightEnd,
     TResult Function(_EndGame value)? endGame,
     required TResult orElse(),
   }) {
@@ -1401,6 +1641,192 @@ abstract class _NightPhase implements GameState {
   List<Player> get players;
   @JsonKey(ignore: true)
   _$$NightPhaseImplCopyWith<_$NightPhaseImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$NightEndImplCopyWith<$Res> {
+  factory _$$NightEndImplCopyWith(
+          _$NightEndImpl value, $Res Function(_$NightEndImpl) then) =
+      __$$NightEndImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({List<Player> players, List<Event> result});
+}
+
+/// @nodoc
+class __$$NightEndImplCopyWithImpl<$Res>
+    extends _$GameStateCopyWithImpl<$Res, _$NightEndImpl>
+    implements _$$NightEndImplCopyWith<$Res> {
+  __$$NightEndImplCopyWithImpl(
+      _$NightEndImpl _value, $Res Function(_$NightEndImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? players = null,
+    Object? result = null,
+  }) {
+    return _then(_$NightEndImpl(
+      players: null == players
+          ? _value._players
+          : players // ignore: cast_nullable_to_non_nullable
+              as List<Player>,
+      result: null == result
+          ? _value._result
+          : result // ignore: cast_nullable_to_non_nullable
+              as List<Event>,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$NightEndImpl implements _NightEnd {
+  const _$NightEndImpl(
+      {required final List<Player> players, required final List<Event> result})
+      : _players = players,
+        _result = result;
+
+  final List<Player> _players;
+  @override
+  List<Player> get players {
+    if (_players is EqualUnmodifiableListView) return _players;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_players);
+  }
+
+  final List<Event> _result;
+  @override
+  List<Event> get result {
+    if (_result is EqualUnmodifiableListView) return _result;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_result);
+  }
+
+  @override
+  String toString() {
+    return 'GameState.nightEnd(players: $players, result: $result)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$NightEndImpl &&
+            const DeepCollectionEquality().equals(other._players, _players) &&
+            const DeepCollectionEquality().equals(other._result, _result));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(_players),
+      const DeepCollectionEquality().hash(_result));
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$NightEndImplCopyWith<_$NightEndImpl> get copyWith =>
+      __$$NightEndImplCopyWithImpl<_$NightEndImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function(List<Player> players) dayPhase,
+    required TResult Function(List<Player> players, Event result) dayEnd,
+    required TResult Function(List<Player> players) nightPhase,
+    required TResult Function(List<Player> players, List<Event> result)
+        nightEnd,
+    required TResult Function() endGame,
+  }) {
+    return nightEnd(players, result);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function(List<Player> players)? dayPhase,
+    TResult? Function(List<Player> players, Event result)? dayEnd,
+    TResult? Function(List<Player> players)? nightPhase,
+    TResult? Function(List<Player> players, List<Event> result)? nightEnd,
+    TResult? Function()? endGame,
+  }) {
+    return nightEnd?.call(players, result);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function(List<Player> players)? dayPhase,
+    TResult Function(List<Player> players, Event result)? dayEnd,
+    TResult Function(List<Player> players)? nightPhase,
+    TResult Function(List<Player> players, List<Event> result)? nightEnd,
+    TResult Function()? endGame,
+    required TResult orElse(),
+  }) {
+    if (nightEnd != null) {
+      return nightEnd(players, result);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_DayPhase value) dayPhase,
+    required TResult Function(_DayEnd value) dayEnd,
+    required TResult Function(_NightPhase value) nightPhase,
+    required TResult Function(_NightEnd value) nightEnd,
+    required TResult Function(_EndGame value) endGame,
+  }) {
+    return nightEnd(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_DayPhase value)? dayPhase,
+    TResult? Function(_DayEnd value)? dayEnd,
+    TResult? Function(_NightPhase value)? nightPhase,
+    TResult? Function(_NightEnd value)? nightEnd,
+    TResult? Function(_EndGame value)? endGame,
+  }) {
+    return nightEnd?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_DayPhase value)? dayPhase,
+    TResult Function(_DayEnd value)? dayEnd,
+    TResult Function(_NightPhase value)? nightPhase,
+    TResult Function(_NightEnd value)? nightEnd,
+    TResult Function(_EndGame value)? endGame,
+    required TResult orElse(),
+  }) {
+    if (nightEnd != null) {
+      return nightEnd(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NightEnd implements GameState {
+  const factory _NightEnd(
+      {required final List<Player> players,
+      required final List<Event> result}) = _$NightEndImpl;
+
+  List<Player> get players;
+  List<Event> get result;
+  @JsonKey(ignore: true)
+  _$$NightEndImplCopyWith<_$NightEndImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1444,7 +1870,10 @@ class _$EndGameImpl implements _EndGame {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function(List<Player> players) dayPhase,
+    required TResult Function(List<Player> players, Event result) dayEnd,
     required TResult Function(List<Player> players) nightPhase,
+    required TResult Function(List<Player> players, List<Event> result)
+        nightEnd,
     required TResult Function() endGame,
   }) {
     return endGame();
@@ -1455,7 +1884,9 @@ class _$EndGameImpl implements _EndGame {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function(List<Player> players)? dayPhase,
+    TResult? Function(List<Player> players, Event result)? dayEnd,
     TResult? Function(List<Player> players)? nightPhase,
+    TResult? Function(List<Player> players, List<Event> result)? nightEnd,
     TResult? Function()? endGame,
   }) {
     return endGame?.call();
@@ -1466,7 +1897,9 @@ class _$EndGameImpl implements _EndGame {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function(List<Player> players)? dayPhase,
+    TResult Function(List<Player> players, Event result)? dayEnd,
     TResult Function(List<Player> players)? nightPhase,
+    TResult Function(List<Player> players, List<Event> result)? nightEnd,
     TResult Function()? endGame,
     required TResult orElse(),
   }) {
@@ -1481,7 +1914,9 @@ class _$EndGameImpl implements _EndGame {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_DayPhase value) dayPhase,
+    required TResult Function(_DayEnd value) dayEnd,
     required TResult Function(_NightPhase value) nightPhase,
+    required TResult Function(_NightEnd value) nightEnd,
     required TResult Function(_EndGame value) endGame,
   }) {
     return endGame(this);
@@ -1492,7 +1927,9 @@ class _$EndGameImpl implements _EndGame {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_DayPhase value)? dayPhase,
+    TResult? Function(_DayEnd value)? dayEnd,
     TResult? Function(_NightPhase value)? nightPhase,
+    TResult? Function(_NightEnd value)? nightEnd,
     TResult? Function(_EndGame value)? endGame,
   }) {
     return endGame?.call(this);
@@ -1503,7 +1940,9 @@ class _$EndGameImpl implements _EndGame {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_DayPhase value)? dayPhase,
+    TResult Function(_DayEnd value)? dayEnd,
     TResult Function(_NightPhase value)? nightPhase,
+    TResult Function(_NightEnd value)? nightEnd,
     TResult Function(_EndGame value)? endGame,
     required TResult orElse(),
   }) {

@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ya_mafia/core/constants.dart';
 import 'package:ya_mafia/core/navigation/delegate.dart';
 import 'package:ya_mafia/core/theme/tailor_theme/my_theme.dart';
+import 'package:ya_mafia/presentation/blocs/game_bloc/game_bloc.dart';
 import 'package:ya_mafia/presentation/blocs/night_bloc/night_bloc.dart';
 import 'package:ya_mafia/presentation/common/seemless_appbar.dart';
 import 'package:ya_mafia/presentation/pages/game/widgets/moon.dart';
@@ -16,9 +17,20 @@ class NightPlayerConfirmScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: const SeemlessAppBar(),
       body: BlocConsumer<NightBloc, NightState>(
-        listener: (context, state) {},
+        listener: (context, state) {
+          state.whenOrNull(
+            end: (result) {
+              context.read<GameBloc>().add(GameEvent.nightEnded(result));
+
+              Future.delayed(Durations.extralong4, () {
+                Nav.goTwilight(isNight: false);
+              });
+            },
+          );
+        },
         builder: (context, state) {
           return state.maybeMap(
             voting: (value) {
@@ -42,7 +54,8 @@ class NightPlayerConfirmScreen extends StatelessWidget {
                             const SizedBox(height: appPadding),
                             Text(
                               player.name,
-                              style: context.headline1,
+                              style: context.headline1
+                                  .copyWith(color: Colors.white),
                             ),
                             const SizedBox(height: appPadding),
                           ],
