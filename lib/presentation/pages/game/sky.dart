@@ -11,32 +11,23 @@ class Sky extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocListener<GameBloc, GameState>(
+    return BlocConsumer<GameBloc, GameState>(
       listener: (context, state) {
         state.whenOrNull(
           nightPhase: (players) => Nav.goNight(players: players),
           dayPhase: (players) => Nav.goDay(),
         );
       },
-      child: BlocBuilder<GameBloc, GameState>(
-        builder: (context, state) {
-          state.whenOrNull(
-            nightEnd: (players, result) =>
-                Future.delayed(const Duration(milliseconds: 5000), () {
-              context.read<GameBloc>().add(
-                    GameEvent.dayStarted(players),
-                  );
-            }),
-          );
-
-          return AnimatedSky(
-            padding:
-                EdgeInsets.only(top: MediaQuery.viewPaddingOf(context).top),
-            isNight: isNight,
-            child: Container(),
-          );
-        },
-      ),
+      builder: (context, state) {
+        return AnimatedSky(
+          padding: EdgeInsets.only(top: MediaQuery.viewPaddingOf(context).top),
+          isNight: isNight,
+          child: state.whenOrNull(
+                nightEnd: (players, result) => Text(result.toString()),
+              ) ??
+              Container(),
+        );
+      },
     );
   }
 }

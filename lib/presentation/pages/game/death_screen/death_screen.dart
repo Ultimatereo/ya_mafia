@@ -69,11 +69,11 @@ class DeathScreen extends StatelessWidget {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      Navigator.of(context).push(
-                          MaterialPageRoute(
-                              builder: (context) => const HostMessage()
-                          )
-                      );
+                      // Navigator.of(context).push(
+                      //     MaterialPageRoute(
+                      //         builder: (context) => const HostMessage()
+                      //     )
+                      // );
                     },
                     child: Text(
                       context.t.buttonText.goodbye,

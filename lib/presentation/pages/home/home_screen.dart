@@ -39,12 +39,12 @@ class HomeScreen extends StatelessWidget {
                 const SizedBox(height: appPadding),
                 TextButton(
                     onPressed: () {
-                      Navigator.of(context).push(
-                          MaterialPageRoute(
-                              builder: (context) => const HostMessage()
-                          )
-                      );
-                      // Nav.goRules();
+                      // Navigator.of(context).push(
+                      //     MaterialPageRoute(
+                      //         builder: (context) => const HostMessage()
+                      //     )
+                      // );
+                      Nav.goRules();
                     },
                     child: Text(context.t.home.rules)),
               ],

@@ -12,7 +12,7 @@ import 'package:ya_mafia/presentation/pages/game/lobby.dart';
 import 'package:ya_mafia/presentation/pages/game/night/choose_person_screen.dart';
 import 'package:ya_mafia/presentation/pages/game/night/night_voting_screen.dart';
 import 'package:ya_mafia/presentation/pages/game/setup/setup_screen.dart';
-import 'package:ya_mafia/presentation/pages/game/twilight.dart';
+import 'package:ya_mafia/presentation/pages/game/sky.dart';
 import 'package:ya_mafia/presentation/pages/game/widgets/animated_sky.dart';
 import 'package:ya_mafia/presentation/pages/home/home_screen.dart';
 import 'package:ya_mafia/presentation/pages/game/night/night_voting_screen.dart';

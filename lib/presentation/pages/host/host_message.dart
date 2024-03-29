@@ -37,7 +37,6 @@ class _HostMessageState extends State<HostMessage> {
 
   Future<void> initTTS() async {
     await _flutterTts.getVoices.then((data) {
-      // await Future.delayed(const Duration(seconds: 10));
       final List<Map<String, String>> voices = List<Map>.from(data)
           .map((Map m) => m.map((key, value) =>
               MapEntry<String, String>(key.toString(), value.toString())))
