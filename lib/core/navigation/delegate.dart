@@ -26,6 +26,7 @@ class Nav {
         extra: player,
       );
   static goCandidatesScreen() => _context.goNamed('day-candidates-screen');
+  static goHost() => _context.goNamed("/host");
 
   static goDay() => _context.goNamed('day');
   static goNight({List<Player>? players, Color? prevBackground}) =>
