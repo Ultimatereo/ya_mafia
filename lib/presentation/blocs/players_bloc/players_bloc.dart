@@ -13,8 +13,12 @@ part 'players_event.dart';
 part 'players_state.dart';
 part 'players_bloc.freezed.dart';
 
-Map<GameRole, int> _rolesCompletionByCitizens(
-    {required int numberOfPlayers, required Map<GameRole, int> roles}) {
+/// страшная функция в начале файла, так лучше не делать
+/// если она приватная, почему бы ее не вынести в метод блока
+Map<GameRole, int> _rolesCompletionByCitizens({
+  required int numberOfPlayers,
+  required Map<GameRole, int> roles,
+}) {
   final newRoles = Map<GameRole, int>.from(roles);
   for (var e in newRoles.entries) {
     numberOfPlayers -= e.value;

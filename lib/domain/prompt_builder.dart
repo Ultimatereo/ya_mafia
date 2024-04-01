@@ -16,13 +16,18 @@ class PromptBuilder {
   };
   final ChatGPT chatGPT = ChatGPT();
 
-
+  // Подумать над тем что хотим передавать в этот метод в качестве аргументов
+  // Сейчас зашиты на killed/saved, по-хорошему должна быть абстракция
   Future<String> answer(String lang, String whoWasKilled, String whoWasSaved) {
     String base = nightBasePrompt[lang] ?? "";
     if (whoWasKilled != whoWasSaved) {
-      return chatGPT.answer(message: "$base $whoWasKilled was chosen by mafia as an objective. Doctor unfortunately didn't save him and Anton was killed.");
+      return chatGPT.answer(
+          message:
+              "$base $whoWasKilled was chosen by mafia as an objective. Doctor unfortunately didn't save him and Anton was killed.");
     }
-    return chatGPT.answer(message: "$base $whoWasKilled was chosen by mafia as an objective. However doctor came in time and saved that perspn.");
+    return chatGPT.answer(
+        message:
+            "$base $whoWasKilled was chosen by mafia as an objective. However doctor came in time and saved that perspn.");
   }
   // String answer(List<Event> events, String language) {
   //   for (Event event in events) {

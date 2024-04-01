@@ -33,6 +33,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
   }
 
   void _handleStartGame(_Started value, Emitter<GameState> emit) {
+    // непонятно в чем разница между этим телом условия и тем что в конце
     if (value.settings.firstNightIntroduction) {
       emit(
         GameState.nightPhase(
@@ -46,6 +47,7 @@ class GameBloc extends Bloc<GameEvent, GameState> {
         ),
       );
     } else {
+      // вот этим
       emit(
         GameState.nightPhase(
           players: value.players,

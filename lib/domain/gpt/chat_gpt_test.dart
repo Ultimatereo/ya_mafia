@@ -2,6 +2,9 @@ import 'package:test/test.dart';
 import 'package:ya_mafia/domain/gpt/chat_gpt.dart';
 import 'package:ya_mafia/domain/gpt/chat_gpt_exception.dart';
 
+// Если это прям unit тест то он должен лежать в root/test
+// Если это просто для проверки работы с gpt то нужно убрать потом
+// p.s. unit-тест не должен ходить в сеть
 void main() {
   group('ChatGPT', () {
     late String correctAPIKey;
