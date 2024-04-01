@@ -23,6 +23,10 @@ import '../../data/models/player.dart';
 import '../../presentation/pages/game/night/mafia_discussion_screen.dart';
 
 final rootNavigationKey = GlobalKey<NavigatorState>();
+
+// Много хардкода на имена роутов, путь и имя роута совпадают, но очень понятно почему
+// С ростом количества роутов файл будет быстро расти и в нем будет сложно разобраться
+// Тут нужно как-то абстрагировать роуты
 final router = GoRouter(
   navigatorKey: rootNavigationKey,
   initialLocation: '/',

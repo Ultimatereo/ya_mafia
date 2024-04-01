@@ -4,6 +4,16 @@ import 'package:dio/dio.dart';
 import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:ya_mafia/domain/gpt/chat_gpt_exception.dart';
 
+/// Уже обсуждали про этот класс с @Ultimatereo
+/// api к gpt должена лежать в data слое
+/// в domain слое должна лежать логика по формированию промта
+/// сам промпт должен передаваться уже в data слой
+/// http-клиент (обертку над ним) нужно перенести в core слой
+/// в data слое в классе API нужно передать http-клиент
+///
+/// Класс хорошо написан, нравится кодстайл, нравится что есть комменты
+/// Если вынести логику с history, будет отлично
+///
 /// A class representing an interface to interact with the ChatGPT API.
 class ChatGPT {
   /// Default options for making HTTP requests.

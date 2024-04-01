@@ -7,6 +7,8 @@ part 'night_event.dart';
 part 'night_state.dart';
 part 'night_bloc.freezed.dart';
 
+/// идейно комменты (к блоку, стейту, событиям) тут такие же как к DayBloc
+/// см. туда
 class NightBloc extends Bloc<NightEvent, NightState> {
   NightBloc() : super(const _Initial()) {
     on<NightEvent>(

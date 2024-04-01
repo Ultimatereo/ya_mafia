@@ -12,6 +12,8 @@ import 'core/theme/dark_theme.dart';
 import 'core/theme/light_theme.dart';
 import 'zgen/i18n/strings.g.dart';
 
+// Не должно быть в main.dart,
+// Должно быть в каком-то виджете вверху дерева, либо в контроллере темы
 Future<void> settingUpSystemUIOverlay() async {
 // Setting SystemUIOverlay
   SystemChrome.setSystemUIOverlayStyle(
@@ -25,6 +27,7 @@ Future<void> settingUpSystemUIOverlay() async {
   await SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
 }
 
+// в идеале в main должел быть либо только runApp, либо проксирование в какой-то runner где
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await settingUpSystemUIOverlay();
@@ -33,6 +36,8 @@ void main() async {
   runApp(TranslationProvider(child: const MainApp()));
 }
 
+//Тоже должно быть отдельно
+//например в /app фиче
 class MainApp extends StatelessWidget {
   const MainApp({super.key});
 
@@ -61,9 +66,52 @@ class MainApp extends StatelessWidget {
         // use provider
         supportedLocales: AppLocaleUtils.supportedLocales,
         localizationsDelegates: GlobalMaterialLocalizations.delegates,
-
         routerConfig: router,
       ),
     );
+  }
+}
+
+/// Как можно организовать код выше в виджет
+/// либо завязаться на https://api.flutter.dev/flutter/rendering/RendererBinding/deferFirstFrame.html
+/// чтобы не показывать сплеш на стороне флаттера а показывать нативный
+class AppInitializator extends StatefulWidget {
+  final Widget app;
+
+  const AppInitializator({required this.app, super.key});
+
+  @override
+  State<AppInitializator> createState() => _AppInitializatorState();
+}
+
+class _AppInitializatorState extends State<AppInitializator> {
+  late Future<void> themeInitializationFuture;
+
+  @override
+  void initState() {
+    themeInitializationFuture = settingUpSystemUIOverlay();
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return FutureBuilder(
+      future: themeInitializationFuture,
+      builder: (ctx, snapshot) {
+        if (snapshot.hasData) {
+          return widget.app;
+        }
+        return const Splash();
+      },
+    );
+  }
+}
+
+class Splash extends StatelessWidget {
+  const Splash({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
   }
 }

@@ -1,3 +1,5 @@
+// можно было просто задать модельку с названием (номером аватара и геттер)
+// String get avatarAssetPath => 'assets/images/avatars/$index.webp';
 enum Avatar {
   one('assets/images/avatars/1.webp'),
   two('assets/images/avatars/2.webp'),

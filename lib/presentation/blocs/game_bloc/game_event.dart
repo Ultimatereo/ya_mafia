@@ -1,5 +1,8 @@
 part of 'game_bloc.dart';
 
+// как будто .startGame / endDay / endNight должно быть достаточно для событий
+// в событиях передавать только то что произошло по итогу той или иной фазы, остальные
+// данные считать внутри
 @freezed
 class GameEvent with _$GameEvent {
   const factory GameEvent.startGame(

@@ -10,6 +10,9 @@ abstract class Players with _$Players {
     required int numberOfPlayers,
     required Map<GameRole, int> roles,
     @Default([]) List<Player> players,
+    // Зачем?
+    // Сходу непонятнро назначение, нужно либо оставить коммент-пояснение
+    // Есть подозрение что это тут лежать вообще не должно
     @Default(1) int currentPlayerIndex,
   }) = _Players;
 

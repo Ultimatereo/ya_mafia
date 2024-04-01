@@ -6,6 +6,8 @@ import 'package:ya_mafia/data/models/settings.dart';
 
 import '../../../data/enums/game_role.dart';
 
+/// Субъективно: если используется freezed не вижу ничего плохого написать Bloc, эвенты и стейты в одном файле
+/// с фриздом события и стейты получаются маленькими, лишние 50 строчек не повредят читаемости
 part 'settings_event.dart';
 part 'settings_state.dart';
 part 'settings_bloc.freezed.dart';
@@ -13,33 +15,54 @@ part 'settings_bloc.freezed.dart';
 class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
   SettingsBloc()
       : super(
+          // Архитектурно-правильный вариант был бы сделать следующее:
+          // определить 4 состояния:
+          // Settings.idle, Settings.loading, Settings.success, Settings.error
+          // в них nullable модель Settings.
+          // на старте в блок кидается эвент .load(), загружающий настройки из некого SettingsRepository
+          // В SettingsRepository в свою очередь будут лежать дефолтные настройки
+          //
+          // Если оставлять editing состояние то с комментом выше будут такие
+          // Settings.idle, Settings.loading, Settings.success, Settings.error, Settings.editing
+          // переходы:
+          // idle -> loading -> success/error -> idle
+          // idle -> editing -> idle
+          //                 \-> error -> idle
           SettingsState(
             settings: Settings(
-                numberOfPlayers: 4,
-                gameTimer:
-                    const GameTimer(dayTimeInSec: null, nightTimeInSec: 180),
-                roles: Map.fromEntries(
-                  GameRole.values
-                      .where((element) => element != GameRole.citizen)
-                      .map((e) => MapEntry(e, 0)),
-                ),
-                firstNightIntroduction: false,
-                firstDayVote: false),
+              numberOfPlayers: 4,
+              gameTimer:
+                  const GameTimer(dayTimeInSec: null, nightTimeInSec: 180),
+              roles: Map.fromEntries(
+                GameRole.values
+                    .where((element) => element != GameRole.citizen)
+                    .map((e) => MapEntry(e, 0)),
+              ),
+              firstNightIntroduction: false,
+              firstDayVote: false,
+            ),
           ),
         ) {
-    on<SettingsEvent>((event, emit) {
-      event.map(
-        incrementPlayerCount: (value) => _incrementPlayerCount(emit),
-        decrementPlayerCount: (value) => _decrementPlayerCount(emit),
-        toggleDayTimer: (value) => _toggleDayTimer(emit, value),
-        incrementTimeCount: (value) => _incrementTimeCount(emit, value),
-        decrementTimeCount: (value) => _decrementTimeCount(emit, value),
-        incrementGameRoleCount: (value) => _incrementGameRoleCount(emit, value),
-        decrementGameRoleCount: (value) => _decrementGameRoleCount(emit, value),
-        toggleFirstNightIntro: (value) => _toggleFirstNightIntro(emit, value),
-        toggleFirstDayVoting: (value) => _toggleFirstDayVoting(emit, value),
-      );
-    });
+    on<SettingsEvent>(
+      (event, emit) {
+        // уже обсуждали это, но еще раз напишу
+        // кол-во эвентов можно сократить - схлопнуть в 1 increment/decrement.
+        // эвентов будет 6 вместо 9
+        event.map(
+          incrementPlayerCount: (value) => _incrementPlayerCount(emit),
+          decrementPlayerCount: (value) => _decrementPlayerCount(emit),
+          toggleDayTimer: (value) => _toggleDayTimer(emit, value),
+          incrementTimeCount: (value) => _incrementTimeCount(emit, value),
+          decrementTimeCount: (value) => _decrementTimeCount(emit, value),
+          incrementGameRoleCount: (value) =>
+              _incrementGameRoleCount(emit, value),
+          decrementGameRoleCount: (value) =>
+              _decrementGameRoleCount(emit, value),
+          toggleFirstNightIntro: (value) => _toggleFirstNightIntro(emit, value),
+          toggleFirstDayVoting: (value) => _toggleFirstDayVoting(emit, value),
+        );
+      },
+    );
   }
 
   void _incrementPlayerCount(Emitter<SettingsState> emit) {

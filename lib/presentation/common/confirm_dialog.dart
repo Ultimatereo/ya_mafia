@@ -6,6 +6,15 @@ import 'package:ya_mafia/zgen/i18n/strings.g.dart';
 Future<bool> confirmDialog(BuildContext context, {required String text}) async {
   bool check = false;
 
+  /// почему не check = await showDialog(...)?
+  /// Тоже не очень понятен смысл этой функции, как будто лучше описать отдельно виджет диалога и
+  /// вызывать стандартный showDialog в местах где нужно вызывать сonfirmDialog сейчас
+  ///
+  /// class CustomDialog extends StatelessWidget { ... }
+  ///
+  /// Future<void> foo() async {
+  ///   final result = await showDialog(context: context, builder: (_) => CustomDialog(...));
+  /// }
   await showDialog(
     context: context,
     builder: (_) {
